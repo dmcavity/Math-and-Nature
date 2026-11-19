@@ -1,0 +1,472 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   NATURAL ORDER — book.css
+   The one stylesheet for every chapter and for the chapter editor.
+   Chapters link it as ../shared/book.css.  Re-theme the whole book by
+   editing the :root tokens, or swap this file for a different style
+   template — chapter markup carries only semantic classes.
+
+   Merged (Phase 1) from the three blocks previously embedded in each
+   chapter: the template CSS, "portable component styles v4" and "v5".
+   Where those disagreed, the value that actually won in the browser
+   (the later block) is the one kept here, so chapters look the same.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Structural colours ─────────────────────────────────────────── */
+  --terra:   #7a2e10;   /* chapter accent, h2 text, key-result header  */
+  --sienna:  #9e4420;   /* h3 / h4 headings, caption labels           */
+  --amber:   #c07a1a;   /* section labels, key-result border          */
+  --gold:    #e0af68;   /* rules and dividers                         */
+  --ink:     #1a1a1a;   /* body text                                  */
+  --muted:   #5a5a6a;   /* captions, secondary text                   */
+  --paper:   #faf6ee;   /* table headers, asides (was referenced but
+                           never defined, so it rendered transparent) */
+
+  /* ── Box colours ────────────────────────────────────────────────── */
+  --callout-bg:     #eef5f0;  --callout-border: #4a9a6a;  --callout-header: #2d6e4a;
+  --example-bg:     #eef2f8;  --example-border: #5a78b8;  --example-badge:  #3a5898;
+  --result-bg:      #fff8ec;  --result-border:  #c07a1a;  --result-header:  #7a2e10;
+  --bg-explore:     #f8f4ee;  --border-explore: #c8a060;
+  --bg-workshop:    #f4f0e8;  --border-workshop:#c4b898;
+  --bg-deeper:      #edf1f8;  --border-deeper:  #7a90c0;
+
+  /* ── Typography ─────────────────────────────────────────────────── */
+  --font-body:  'Palatino Linotype','Palatino','Book Antiqua',Georgia,serif;
+  --font-ui:    system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:  'Courier New',Courier,monospace;
+  --size-body:  17px;
+  --size-small: 13.5px;
+  --line-body:  1.78;
+
+  /* ── Page geometry (used by full-bleed blocks) ──────────────────── */
+  --page-pad-x: 72px;
+}
+
+/* ── Reset ──────────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ── Page ───────────────────────────────────────────────────────────── */
+html{background:#f0f0f0;min-height:100%}
+body{
+  font-family:var(--font-body);
+  font-size:var(--size-body);
+  line-height:var(--line-body);
+  color:var(--ink);
+  background:transparent;
+  padding:24px 16px 80px;
+}
+
+/* ── Chapter container (simulates a page) ───────────────────────────── */
+.ch{
+  background:#fff;
+  max-width:740px;
+  margin:0 auto;
+  padding:64px var(--page-pad-x) 80px;
+  box-shadow:0 3px 20px rgba(0,0,0,.12),0 1px 4px rgba(0,0,0,.08);
+  border-top:5px solid var(--terra);
+}
+
+/* ── Chapter header ─────────────────────────────────────────────────── */
+.ch-eyebrow{
+  font-family:var(--font-ui);font-size:11px;font-weight:700;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--sienna);
+  margin-bottom:8px;
+}
+.ch-title{
+  font-size:32px;font-weight:normal;font-style:italic;color:var(--terra);
+  line-height:1.2;margin-bottom:6px;letter-spacing:-.3px;
+}
+.ch-subtitle{font-size:15px;color:var(--muted);font-style:italic;margin-bottom:16px}
+.ch-rule{border:none;border-top:2px solid var(--gold);margin:20px 0 40px}
+
+/* ══════════════════════════════════════════════════════════════════════
+   SECTIONS AND SUBSECTIONS (collapsible)
+   <section class="sec">  <div class="sec-head">…<h2>…</h2></div> …content… </section>
+   <section class="sub">  <h3 class="sub">…</h3> …content… </section>
+   book.js adds the toggle buttons and the .collapsed class; with no
+   script (e.g. the print pipeline) everything is shown.
+   ══════════════════════════════════════════════════════════════════════ */
+section.sec + section.sec{border-top:1px solid var(--gold);margin-top:44px}
+.sec-head{margin:56px 0 20px;position:relative}
+section.sec + section.sec > .sec-head{margin-top:44px}
+.sec-head .sec-label{
+  display:block;font-family:var(--font-ui);font-size:10px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:4px;
+}
+.sec-head h2{
+  font-size:22px;font-weight:normal;font-style:italic;color:var(--terra);
+  padding-bottom:8px;border-bottom:2px solid var(--gold);line-height:1.3;
+}
+h3.sub{
+  font-family:var(--font-ui);font-size:1.1rem;font-weight:600;
+  letter-spacing:normal;text-transform:none;color:var(--sienna);
+  margin:32px 0 12px;position:relative;
+}
+
+/* Toggle buttons (inserted by book.js) hang in the left margin so the
+   heading text stays exactly where it was. */
+.fold-btn{
+  position:absolute;left:-30px;width:22px;height:22px;
+  display:flex;align-items:center;justify-content:center;
+  border:none;background:none;cursor:pointer;border-radius:4px;
+  color:var(--amber);font-size:11px;line-height:1;padding:0;
+  transition:transform .18s,background .12s;
+}
+.fold-btn:hover{background:rgba(192,122,26,.12)}
+.fold-btn:focus-visible{outline:2px solid var(--amber);outline-offset:1px}
+.fold-btn[aria-expanded="true"]{transform:rotate(90deg)}
+.sec-head .fold-btn{bottom:12px}
+h3.sub .fold-btn{top:50%;margin-top:-11px;color:var(--sienna)}
+.sec-head.foldable, h3.sub.foldable{cursor:pointer}
+
+/* Collapsed content is squeezed to zero height and made invisible rather
+   than display:none, so widgets inside still know their width and draw
+   correctly when the section is opened. */
+section.sec.collapsed > :not(.sec-head),
+section.sub.collapsed > :not(h3.sub){
+  height:0 !important;min-height:0 !important;overflow:hidden !important;visibility:hidden;
+  margin-top:0 !important;margin-bottom:0 !important;padding-top:0 !important;padding-bottom:0 !important;
+  border-top-width:0 !important;border-bottom-width:0 !important;
+}
+section.sec.collapsed > .sec-head{margin-bottom:0}
+
+/* ── Topic heading (h4) and inline heading ─────────────────────────── */
+h4.topic{
+  font-family:var(--font-ui);font-size:1rem;font-weight:600;color:var(--sienna);
+  margin:24px 0 8px 4px;padding-left:12px;border-left:2px solid var(--gold);
+}
+/* Small capitals label that runs above a few paragraphs ("A/V for a Cube").
+   Replaces the long inline-styled paragraphs in earlier chapters. */
+p.inline-heading{
+  font-family:var(--font-ui);font-size:12px;font-weight:700;letter-spacing:.8px;
+  text-transform:uppercase;color:var(--terra);
+  margin:30px 0 6px;border-left:3px solid var(--gold);padding-left:10px;
+  line-height:1.4;text-indent:0;
+}
+p.inline-heading em{text-transform:none;font-weight:normal;letter-spacing:0}
+
+/* ── Body text ──────────────────────────────────────────────────────── */
+p{margin-bottom:14px}
+p+p{text-indent:1.4em;margin-top:-4px}
+/* No indent after anything that is not a paragraph */
+h2+p,h3+p,h4+p,.sec-head+p,p.inline-heading+p,
+.callout+p,.example+p,.key-result+p,.ibox+p,.deeper+p,.aside+p,
+figure+p,.eq+p,.table-wrap+p,table+p,ul+p,ol+p{text-indent:0}
+em{font-style:italic}
+strong{font-weight:bold;color:#3a1a08}
+ul,ol{margin:0 0 14px 1.6em}
+li{margin-bottom:4px}
+li>p{margin:0 0 6px;text-indent:0}
+li>p:last-child{margin-bottom:0}
+li>ul,li>ol{margin-top:4px;margin-bottom:4px}
+/* list spacing: <ul class="compact"> / <ul class="roomy"> */
+ul.compact>li,ol.compact>li{margin-bottom:0;line-height:1.55}
+ul.roomy>li,ol.roomy>li{margin-bottom:12px}
+a{color:var(--sienna)}
+
+/* ── Display equations ──────────────────────────────────────────────── */
+.eq{text-align:center;margin:18px 0}
+.eq[data-n]::after{
+  content:'(' attr(data-n) ')';float:right;
+  font-family:var(--font-body);font-size:14px;color:var(--sienna);line-height:2;
+}
+mjx-container{overflow-x:auto;overflow-y:hidden}
+
+/* ── Figures ────────────────────────────────────────────────────────── */
+figure{text-align:center;margin:24px 0 4px}
+figure svg, figure img{max-width:100%;height:auto}
+figcaption{
+  font-family:var(--font-body);font-size:var(--size-small);color:var(--muted);
+  font-style:italic;line-height:1.55;margin:8px auto 0;max-width:540px;display:block;
+}
+figcaption strong{font-style:normal;color:var(--sienna)}
+/* single-image / diagram sizes: <figure class="size-m"> */
+figure.size-l>img,figure.size-l>svg{width:80%}
+figure.size-m>img,figure.size-m>svg{width:60%}
+figure.size-s>img,figure.size-s>svg{width:40%}
+figure.photo-panel .panel-row+.panel-row{margin-top:10px}
+figure.hero{margin:32px 0}
+figure.hero img{width:100%;display:block;border-radius:2px}
+figure.hero figcaption{max-width:100%;margin-top:10px}
+figure.photo-panel .panel-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+figure.photo-panel .panel-item{flex:var(--ar,1) 1 0;min-width:120px}
+figure.photo-panel .panel-item img{width:100%;height:auto;display:block;border-radius:2px;object-fit:cover}
+figure.photo-panel .panel-sub{
+  font-size:12px;color:var(--muted);font-style:italic;display:block;
+  margin-top:5px;text-align:center;line-height:1.4;
+}
+
+/* ── Tables ─────────────────────────────────────────────────────────── */
+.table-wrap{overflow-x:auto;margin:20px 0}
+table{border-collapse:collapse;margin:24px auto;font-size:15px}
+.table-wrap table{margin:0 auto}
+th,td{border:1px solid #d4b890;padding:7px 16px;text-align:center}
+th{background:var(--paper);font-weight:normal;font-style:italic;color:var(--terra)}
+
+/* ══════════════════════════════════════════════════════════════════════
+   BOXES
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* Shared trigger layout for the three collapsible box types */
+.callout-trigger,.example-trigger,.ibox .ititle{
+  width:100%;display:flex;align-items:center;gap:10px;padding:10px 16px;
+  text-align:left;cursor:pointer;transition:background .12s;
+}
+.callout-trigger,.example-trigger{
+  background:none;border:none;font-family:var(--font-body);font-size:15px;color:inherit;
+}
+.ct-badge,.ex-badge,.ib-badge{
+  font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:#fff;padding:2px 8px;border-radius:3px;
+  flex-shrink:0;white-space:nowrap;
+}
+.ct-title,.ex-title,.ib-title{font-size:15px;font-style:italic;flex:1}
+.ct-icon,.ex-icon,.ib-icon{font-size:10px;flex-shrink:0;transition:transform .2s;font-style:normal}
+
+/* ── 1. Further Explanation (callout) — green, closed by default ───── */
+.callout{
+  margin:22px 0;border-radius:4px;border:1px solid #a8d4b8;
+  border-left:4px solid var(--callout-border);background:var(--callout-bg);overflow:hidden;
+}
+.callout-trigger:hover{background:rgba(74,154,106,.10)}
+.ct-badge{background:var(--callout-header)}
+.ct-title{color:#183a28}
+.ct-icon{color:var(--callout-border)}
+.callout.co-open .ct-icon{transform:rotate(90deg)}
+.callout-body{
+  display:none;padding:4px 16px 12px;font-size:15px;line-height:1.7;
+  color:#183a28;border-top:1px solid #a8d4b8;
+}
+.callout.co-open .callout-body{display:block}
+.callout-body p{margin-bottom:8px;text-indent:0}
+.callout-body p:last-child{margin-bottom:0}
+
+/* ── 2. Example / Worked Example — blue, closed by default ─────────── */
+.example{
+  margin:24px 0;border-radius:4px;border:1px solid #b8c8e8;
+  border-left:4px solid var(--example-border);background:var(--example-bg);overflow:hidden;
+}
+.example-trigger:hover{background:rgba(90,120,184,.08)}
+.ex-badge{background:var(--example-badge)}
+.ex-title{color:#1a2a48}
+.ex-icon{color:var(--example-border)}
+.example.ex-open .ex-icon{transform:rotate(90deg)}
+.example-body{
+  display:none;padding:4px 18px 14px;font-size:15.5px;line-height:1.72;
+  color:#18243a;border-top:1px solid #c8d4ec;
+}
+.example.ex-open .example-body{display:block}
+.example-body p{margin-bottom:10px;text-indent:0}
+.example-body p:last-child{margin-bottom:0}
+.example-body .eq{margin:12px 0}
+
+/* ── 3. Key Result — always open ────────────────────────────────────── */
+.key-result{
+  margin:28px 0;border:2px solid var(--result-border);border-radius:6px;
+  background:var(--result-bg);overflow:hidden;
+}
+.kr-header{
+  background:var(--result-header);color:#fdf5e8;display:flex;align-items:center;
+  justify-content:space-between;padding:7px 16px;font-family:var(--font-ui);
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+}
+.kr-num{
+  font-family:var(--font-mono);font-size:11.5px;font-weight:700;
+  background:rgba(255,255,255,.20);padding:1px 8px;border-radius:2px;letter-spacing:0;
+}
+.kr-body{padding:14px 20px 16px;font-size:16px;line-height:1.7;color:#2a1200}
+.kr-body p{margin-bottom:8px;text-indent:0}
+.kr-body p:last-child{margin-bottom:0}
+.kr-body .eq{margin:10px 0}
+
+/* ── 4. Exploration (ibox) — interactive widgets, closed by default ── */
+.ibox{
+  margin:28px 0;border-radius:4px;border:1px solid #d4b898;
+  border-left:4px solid var(--terra);background:var(--bg-explore);overflow:hidden;
+}
+.ibox .ititle{background:var(--bg-explore);user-select:none;-webkit-user-select:none}
+.ibox .ititle:hover{background:#f0e6d4}
+.ib-badge{background:var(--terra);color:#fdf5e8}
+.ib-title{color:#4a2000}
+.ib-icon{color:var(--terra)}
+.ibox.ib-open .ib-icon{transform:rotate(90deg)}
+.ibox .ib-body{display:none;border-top:1px solid #d4b898;background:var(--bg-explore)}
+.ibox.ib-open .ib-body{display:block}
+.ibox .idesc{font-size:14.5px;color:#5a3010;line-height:1.65;padding:12px 18px 4px}
+.ibox .isvg{padding:8px 18px;text-align:center}
+.ibox .seq-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding:2px 18px 0;font-size:15px}
+.ibox .btn-row{display:flex;gap:8px;flex-wrap:wrap;padding:10px 18px 12px}
+.ibox .reveal-block{
+  display:none;margin:0;padding:10px 18px 14px;background:#ede4cc;
+  border-top:1px solid #d4b898;font-size:14px;line-height:1.7;
+}
+.ibox .reveal-block.show{display:block}
+.ibox .warn-block{background:#fdf8ec}
+.term{font-family:var(--font-mono);font-size:14px;background:#fff;border:1px solid var(--gold);border-radius:3px;padding:2px 9px}
+.blank{font-family:var(--font-mono);font-size:14px;background:#fff8ee;border:1px dashed var(--amber);border-radius:3px;padding:2px 9px;color:#8B5000}
+.sep{color:#b09070}.ellip{color:#b09070;font-style:italic}
+.seq-label{font-size:12px;color:#7a4a10;font-family:var(--font-body);font-style:italic;margin-left:4px;align-self:center}
+.rf{font-family:var(--font-mono);font-size:13px;background:#e8dcc8;padding:3px 9px;border-radius:3px;display:block;margin:4px 0;color:#2a1000}
+.rn{color:#6a4820;font-size:13px;font-style:italic;margin-top:6px;line-height:1.6;display:block}
+.ibox .btn{padding:6px 14px;border:1px solid #a07040;border-radius:4px;background:#f0e4cc;color:#5a2a00;cursor:pointer;font-size:13px;font-family:var(--font-body);transition:background .1s}
+.ibox .btn:hover{background:#e0d0b0}
+.ibox .btn-reveal{background:var(--terra);color:#faf0e0;border-color:var(--terra)}
+.ibox .btn-reveal:hover{background:#9a4020}
+
+/* Plot explorations (canvas log-log plots, shared/widgets.js) */
+.ibox .ib-canvas-wrap{overflow-x:auto;border:1px solid #d4b898;border-radius:3px;margin:8px 18px;line-height:0;background:#faf7f2}
+.ibox .ib-controls{padding:10px 18px 14px}
+.ibox .ib-toggle-row{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.ibox .ib-toggle-row input[type=checkbox]{width:16px;height:16px;accent-color:var(--terra);cursor:pointer;flex-shrink:0}
+.ibox .ib-toggle-row label{font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--terra);cursor:pointer;letter-spacing:.2px}
+.ib-loglog-panel{display:none}
+.ib-loglog-panel.active{display:block}
+.ibox .ib-ctrl-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.ibox .ib-ctrl-label{font-family:var(--font-ui);font-size:13px;color:#5a3010;min-width:160px}
+.ibox .ib-slider{flex:1;min-width:100px;accent-color:#D85A30}
+.ibox .ib-slope-val{font-family:var(--font-mono);font-size:15px;color:#D85A30;min-width:46px;text-align:right;font-weight:bold}
+.ibox .ib-eq{font-family:var(--font-mono);font-size:15px;color:#D85A30;min-height:24px;padding:2px 0 8px}
+.ibox .ib-btn-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:4px}
+.ibox .ib-answer{font-family:var(--font-ui);font-size:13.5px;color:#1D9E75;font-weight:700;display:none}
+
+/* ── 5. Aside — always visible ──────────────────────────────────────── */
+.aside{
+  background:var(--paper);border-left:3px solid var(--gold);border-radius:0 5px 5px 0;
+  padding:12px 18px;margin:24px 0;font-size:15px;line-height:1.68;color:#4a2e10;
+}
+.aside p{margin:0;text-indent:0}
+.aside p+p{margin-top:7px}
+
+/* ── 6. Deeper dive ─────────────────────────────────────────────────── */
+.deeper{
+  background:var(--bg-deeper);border-left:4px solid var(--border-deeper);
+  border-radius:0 6px 6px 0;margin:32px 0;overflow:hidden;
+}
+.deeper-header{
+  background:#5a6a9a;color:#eef0f8;font-family:var(--font-ui);font-size:10px;
+  font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;
+  display:flex;align-items:center;gap:8px;
+}
+.deeper-header::before{content:'⬡';font-size:12px;opacity:.7}
+.deeper-body{padding:14px 18px 16px;font-size:15.5px;line-height:1.72}
+.deeper-body p{margin-bottom:12px;text-indent:0}
+
+/* ══════════════════════════════════════════════════════════════════════
+   WORKSHOP, PROBLEMS, ANSWERS
+   ══════════════════════════════════════════════════════════════════════ */
+.workshop{
+  background:var(--bg-workshop);border-top:3px solid var(--terra);
+  margin:56px calc(-1 * var(--page-pad-x)) 0;padding:44px var(--page-pad-x) 56px;
+}
+.workshop-title{font-size:24px;font-weight:normal;font-style:italic;color:var(--terra);margin-bottom:6px}
+.workshop-sub{font-family:var(--font-ui);font-size:13px;color:var(--muted);font-style:italic;margin-bottom:20px}
+.ws-section{
+  font-family:var(--font-ui);font-size:10px;font-weight:700;letter-spacing:1.8px;
+  text-transform:uppercase;color:var(--terra);border-bottom:1px solid var(--border-workshop);
+  padding-bottom:5px;margin:36px 0 16px;
+}
+.problem{margin:20px 0 28px}
+.prob-num{
+  font-family:var(--font-ui);font-size:10px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--amber);margin-bottom:4px;
+}
+.prob-title{font-size:17px;font-weight:700;font-style:italic;color:var(--ink);margin-bottom:8px}
+.prob-parts{margin:8px 0 0 24px;padding:0;list-style:none}
+.prob-parts li{margin-bottom:6px;line-height:1.75;padding-left:4px;list-style:none;position:relative}
+.prob-parts li::before{
+  content:attr(data-part);position:absolute;left:-22px;
+  font-family:var(--font-ui);font-size:12px;font-weight:600;color:var(--terra);
+}
+.answers{margin-top:48px;border-top:1px solid var(--gold);padding-top:24px}
+.answers-title{
+  font-family:var(--font-ui);font-size:10px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--sienna);margin-bottom:16px;
+}
+.answer-item{margin-bottom:12px;font-size:14.5px;display:flex;gap:10px}
+.ans-label{font-family:var(--font-ui);font-size:11px;font-weight:700;color:var(--terra);white-space:nowrap;min-width:80px}
+
+/* ── Cross-references (Phase 4) ─────────────────────────────────────── */
+a.xref{color:inherit;text-decoration:none;border-bottom:1px dotted var(--amber)}
+a.xref:hover{color:var(--sienna);border-bottom-style:solid}
+
+/* ── Closing paragraph ──────────────────────────────────────────────── */
+.ch-close{
+  font-size:14px;color:var(--muted);text-align:center;font-style:italic;
+  margin-top:48px;padding-top:18px;border-top:1px solid var(--gold);
+}
+
+/* ── Highlight when jumping to a target ─────────────────────────────── */
+.jump-flash{animation:jump-flash 1.6s ease-out}
+@keyframes jump-flash{0%{box-shadow:0 0 0 4px rgba(224,175,104,.7)}100%{box-shadow:0 0 0 4px rgba(224,175,104,0)}}
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+@media(max-width:800px){
+  :root{--page-pad-x:28px}
+  .ch{padding-top:40px;padding-bottom:56px}
+  .fold-btn{left:-24px;width:20px}
+}
+@media(max-width:520px){
+  :root{--size-body:15px;--page-pad-x:18px}
+  .ch{padding-top:32px;padding-bottom:48px}
+  .fold-btn{left:-18px;width:16px}
+}
+
+/* ── Browser printing: show everything, hide the fold buttons ───────── */
+@media print{
+  html,body{background:#fff}
+  .ch{box-shadow:none;border-top:none;max-width:none;padding:0}
+  .fold-btn{display:none}
+  section.sec.collapsed > *, section.sub.collapsed > *{
+    height:auto !important;overflow:visible !important;visibility:visible;
+    margin-top:revert !important;margin-bottom:revert !important;
+    padding-top:revert !important;padding-bottom:revert !important;
+  }
+  .callout-body,.example-body,.ibox .ib-body{display:block}
+}
+
+/* ── Workshop section (Section 4: problems) — tinted, full width ────── */
+section.sec.workshop, section.sec + section.sec.workshop{
+  background:var(--bg-workshop);border-top:3px solid var(--terra);
+  margin:56px calc(-1 * var(--page-pad-x)) 0;padding:4px var(--page-pad-x) 40px;
+}
+section.sec.workshop > .sec-head{margin-top:36px}
+section.sec.workshop.collapsed{padding-bottom:20px}
+
+/* ── Table additions ────────────────────────────────────────────────── */
+tr.highlight td{background:var(--result-bg);font-weight:600}
+tr.highlight td:first-child{color:var(--terra)}
+p.table-caption{
+  font-size:var(--size-small);color:var(--muted);font-style:italic;text-align:center;
+  line-height:1.55;max-width:540px;margin:-8px auto 18px;text-indent:0;
+}
+
+/* ── Book index (index.html) ─────────────────────────────────────────── */
+.book-index h3.sub.toc-ch{font-family:var(--font-ui);font-size:1.12rem;font-weight:600;color:var(--sienna);margin:20px 0 3px;letter-spacing:normal;text-transform:none;border:none;padding:0}
+.book-index h3.sub.toc-ch a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s,color .15s}
+.book-index h3.sub.toc-ch a:hover{color:var(--terra);border-bottom-color:var(--gold)}
+.book-index h3.sub.toc-ch .toc-num{display:block;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:1px}
+.book-index h3.sub.toc-ch.toc-pending{color:#9a8f86;font-weight:500}
+.book-index h3.sub.toc-ch.toc-pending .toc-num{color:#c4b49e}
+.book-index p.toc-blurb{font-size:15px;line-height:1.6;color:var(--muted);margin:0 0 4px;text-indent:0}
+.book-index p.toc-blurb em{font-family:var(--font-ui);font-style:normal;font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#a89a8a;border:1px solid #ddd2c2;border-radius:3px;padding:1px 6px;margin-right:6px;vertical-align:1px;white-space:nowrap}
+.book-index hr.section-rule{border:none;border-top:1px solid var(--gold);margin:48px 0 20px}
+.book-index p.colophon{font-family:var(--font-ui);font-size:12px;color:var(--muted);text-align:center;text-indent:0}
+
+/* ── Chapter navigation (previous · contents · next) ─────────────────── */
+.ch-nav{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-family:var(--font-ui);font-size:13px;line-height:1.35;margin:44px 0 0;padding-top:14px;border-top:1px solid var(--gold)}
+.ch-nav.ch-nav-top{margin:-22px 0 26px;padding:0 0 10px;border-top:none;border-bottom:1px solid #eee3d3;font-size:12px}
+.ch-nav a{color:var(--sienna);text-decoration:none}
+.ch-nav a:hover{color:var(--terra);text-decoration:underline;text-decoration-color:var(--gold)}
+.ch-nav-prev,.ch-nav-next{flex:1 1 0;min-width:0}
+.ch-nav-next{text-align:right}
+.ch-nav-index{flex:0 0 auto;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+.ch-nav-title{display:block;margin-top:1px}
+.ch-nav-num{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.ch-nav-top .ch-nav-title{display:none}
+@media print{.ch-nav{display:none}}
+
+/* ── Cayley (group multiplication) tables ───────────────────────────── */
+table.cayley-table{width:auto;margin-left:auto;margin-right:auto}
+table.cayley-table th{background:#fff8ec;font-weight:600;font-style:normal;color:var(--terra);min-width:52px;text-align:center}
+table.cayley-table td{min-width:52px;font-family:var(--font-mono);font-size:14px;text-align:center}
+table.cayley-table td.diag{background:#eef5f0;font-weight:600}

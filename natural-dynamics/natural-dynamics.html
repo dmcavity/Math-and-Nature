@@ -1,0 +1,2559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Natural Order chapter format v6">
+<title>Natural Order — Chapter 2: Natural Dynamics</title>
+<link rel="stylesheet" href="../shared/book.css">
+<script src="../shared/book.js"></script>
+<script src="../shared/widgets.js" defer></script>
+</head>
+<body>
+<div class="ch" data-chapter="2" data-numbering="auto">
+  <nav class="ch-nav ch-nav-top"><a class="ch-nav-prev" href="../number-patterns/number-patterns.html"><span class="ch-nav-num">← Chapter 1</span> <span class="ch-nav-title">Number Patterns in Nature</span></a><a class="ch-nav-index" href="../index.html">Contents</a><a class="ch-nav-next" href="../size-and-shape/size-and-shape.html"><span class="ch-nav-num">Chapter 5 →</span> <span class="ch-nav-title">Scaling and Allometry</span></a></nav>
+  <div class="ch-eyebrow">Part I &nbsp;·&nbsp; Chapter 2</div>
+  <h1 class="ch-title">Natural Dynamics</h1>
+  <p class="ch-subtitle">How patterns in nature emerge from dynamic processes that play out over time.</p>
+  <hr class="ch-rule">
+  <figure class="hero" id="fig-figure"><img src="images/hillsideweb-mountain-pine-beetle.jpg" alt="HillsideWEB-mountain pine beetle outbreak"></figure>
+  <section class="sec" id="sec-nature-s-unfolding-patterns">
+    <div class="sec-head">
+      <span class="sec-label">Section 1</span>
+      <h2>Nature's Unfolding Patterns</h2>
+    </div>
+    <p>The natural number patterns we encountered in Chapter 1 — the chambers of a sea shell, the patterns in crystal layers, the branching of plants, the rings of a tree trunk, and the culms of bamboo are all physical markers of the natural process of growth and change over time. Underlying each is a rule for growth that is applied like a drum beat, with each passing day, season or year. When we see some unique spatial arrangement or pattern we are seeing snapshot of a process that began in the past and has played out over time. The the key to understanding nature's patterns and how they form is to learn to read and understand nature's dynamical systems that produce the patterns we see.</p>
+    <p>In this chapter we develop the language of <em>dynamical systems</em> — the mathematical tools for describing how a quantity changes from one moment to the next. We begin our journey with some observations in nature.</p>
+    <section class="sub" id="sub-growth-written-wood-earth-linear-change">
+      <h3 class="sub">Growth Written in Wood and Earth — Linear Change and Nature's clocks</h3>
+      <p>Some of nature's patterns grow by adding or accumulating a fixed amount at regular intervals. Tree rings accumulate one per year, their widths a barometer of each season's rainfall and their <em>count</em> is a record of time -- a chronology. The bristlecone pine on the left in <a class="xref" href="#fig-tree-rings-glacial-varves-recording-time">Fig. 2.1</a> is one of earth's longest living trees, and perhaps the most resilient. These trees grow in isolated high altitude rocky environments in the western united states, places were other plants struggle to survive. They grow slowly and endure harsh seasonal variations in temperature and moisture. And they survive all that with remarkable resilience, the oldest recorded living for over 4,500 years. Their longevity makes them ideally suited to be one one of nature's chronometers. By matching the unique ring patterns of living trees with those of ancient preserved wood, natural scientists have pieced together a continuous history reaching back over 9,000 years. This dendrochronological record acts as a standard for time measurement, allowing researchers to calibrate other tools like carbon dating against an unbroken, year-by-year biological calendar.</p>
+      <p>A parallel example of linear growth through accumulation is found in the layered sediments of glacial lakes, known as <em>varves,</em> as seen on the right of <a class="xref" href="#fig-tree-rings-glacial-varves-recording-time">Fig. 2.1</a>. These deposits accumulate in paired layers, one light and silty from the summer melt and the other a dark clay from the winter freeze, stacking like the pages of a geological book. By reading these layers backward through time, scientists can reconstruct ancient climate shifts with annual precision, going back as far as 70,000 years in some cases!</p>
+      <p>Other examples of linear growth in nature that have much shorter time-scales include the plant internodes in bamboo, which we saw in chapter 1. These grow at roughly constant elongation rates during their brief growth window, leaving a record of their past in their nodes.</p>
+      <figure class="photo-panel" id="fig-tree-rings-glacial-varves-recording-time">
+        <div class="panel-row">
+          <div class="panel-item" style="--ar:0.750"><img src="images/bristlecone-pine.jpg" alt="bristlecone pine"> <span class="panel-sub">Bristlecone Pine</span></div>
+          <div class="panel-item" style="--ar:0.742"><img src="images/varves-02.jpg" alt="varves_02"> <span class="panel-sub">Glacial Varves</span></div>
+        </div>
+        <figcaption><strong>Fig. 2.1</strong> Tree rings and glacial varves: recording time in wood and stone: Each layer represents exactly one year, making these organisms and sediments clocks. As we will see in <a class="xref" href="#sub-patterns-time">Section 2.1</a>, their study can extend the historical record back 14,000 years through pattern-matching between overlapping sequences in living trees and preserved ancient wood.</figcaption>
+      </figure>
+    </section>
+    <section class="sub" id="sub-power-exponential-change">
+      <h3 class="sub">The Power of Exponential Change</h3>
+      <p>Other natural quantities grow by multiplication rather than addition: each step increases or decreases by a fixed <em>multiple</em> of what was there before. Examples that leave a visual record of their multiplicative growth are sea shells, which increase by the same proportion each year, as shown on the left of <a class="xref" href="#fig-examples-how-exponential-growth-decay-demonstrated">Fig. 2.2</a>. Other examples with more rapid growth rates playing out over days rather than years include, for example, the rapid growth of duckweed on a pond at the start of each year, or a bacterial colony growing in a rich medium which may double as often as every twenty minutes. Less visible and more mysterious is the decay of radioactive nuclei decay at a rate proportional to how many remain, so the count falls by half in every half-life, whatever number you start with. The prototypical example in nature is the unstable isotope of carbon, ${}^{14}\text{C}$, which is produced in the outer atmosphere by the energetic impact of cosmic rays on nitrogen gas. This carbon is taken up by growing organisms along with the stable ${}^{12}\text{C}$ isotope with a particular proportion that is more or less constant while the organism lives and continues to build itself with carbon. Once the organism dies, the ${}^{14}\text{C}$ decays gradually over time, so the relative proportion changes in a predictable way.</p>
+      <figure class="photo-panel" id="fig-examples-how-exponential-growth-decay-demonstrated">
+        <div class="panel-row">
+          <div class="panel-item" style="--ar:0.746"><img src="images/wentletrap.jpg" alt="wentletrap"> <span class="panel-sub">wentletrap shell showing a record of multiplicative chamber growth -- each chamber is a constant factor larger than the previous.</span></div>
+          <div class="panel-item" style="--ar:0.823"><img src="images/duckweed-indepth.jpg" alt="duckweed-indepth"> <span class="panel-sub">duck weed on a freshwater pond, having grown exponentially at the start of the season to ultimately fill the pond.</span></div>
+          <div class="panel-item" style="--ar:0.835"><img src="images/carbon-dating.jpg" alt="Carbon dating"> <span class="panel-sub">An ancient fern frond whose age is determined by carbon dating -- which relies on the exponential decay of the unstable isotope C-14.</span></div>
+        </div>
+        <figcaption><strong>Fig. 2.2</strong> Examples of how exponential growth and decay is demonstrated in nature</figcaption>
+      </figure>
+    </section>
+    <section class="sub" id="sub-limits-growth">
+      <h3 class="sub">Limits on Growth</h3>
+      <p>There are limits and exceptions to exponential growth; resources run out, space fills up, predators multiply, populations migrate away. As one example, West coast Harbor Seals in the Salish Sea on the west coast of the United States and Canada reached endangered levels in the 1960 due to over hunting. When the bounty program was eliminated and protective measures introduced, the population rebounded quickly, growing exponentially initially before settling down to a stable population. The census data followed a near perfect logistic S shaped curve predicted by a very simple dynamical system, as seen in <a class="xref" href="#fig-harbor-seal-phoca-vitulina-population-around">Fig. 2.3</a>.</p>
+      <figure class="photo-panel" id="fig-harbor-seal-phoca-vitulina-population-around">
+        <div class="panel-row">
+          <div class="panel-item" style="--ar:1.385"><img src="images/harbor-seal-pup-july.jpg" alt="Harbor+Seal+Pup+July+09+B.+Friel"> <span class="panel-sub">Harbor Seal (Phoca vitulina)</span></div>
+          <div class="panel-item" style="--ar:1.638"><img src="images/logistic-growth-curve-harbor.jpg" alt="Logistic-growth-curve-of-the-harbor-seal-population-in-the-San-Juan-Islands-ie-San"> <span class="panel-sub">Logistic growth curve for Harbor seals around the San Juan Islands based on counts from aerial surveys between 1970 and 2019 (Jeffries et al., 2003; S. Jeffries, unpublished data).</span></div>
+        </div>
+        <figcaption><strong>Fig. 2.3</strong> Harbor Seal (Phoca vitulina) population around the San Juan Islands in the Salish Sea off the west coast of Washington State and British Columbia experienced logistic growth, rebounding after the end of bounty programs in the 1960s and protective measures introduced in the 1970s.</figcaption>
+      </figure>
+      <p>As another example, Cane toads introduced to Queensland Australia in 1935 to control beetles grew rapidly in the region where they were first introduced until reaching a stable local population. Individuals then found their way to new habitats, repeating the pattern of rapid growth followed by stabilization in each new environment, creating a wavefront of growth that progressed across northern Australia, as seen in <a class="xref" href="#fig-cane-toad-invasive-species-which-spreading">Fig. 2.4</a> below:</p>
+      <figure class="photo-panel" id="fig-cane-toad-invasive-species-which-spreading">
+        <div class="panel-row">
+          <div class="panel-item" style="--ar:1.001"><img src="images/xcane-toad-spread-wa.jpg" alt="xCane-toad-spread-WA.jpg.pagespeed.ic.GA4-ggZ3zJ"> <span class="panel-sub">Map of "wave fronts" of the cane toads to new unexploited habitats</span></div>
+          <div class="panel-item" style="--ar:1.000"><img src="images/canetoadfemale.jpg" alt="Canetoadfemale"> <span class="panel-sub">Female Cane Toad (Rhinella marina), which typically reach 12 cm</span></div>
+        </div>
+        <figcaption><strong>Fig. 2.4</strong> Cane toad, an invasive species which is spreading across Northern Australia, exhibiting logistic growth in each new habitat.</figcaption>
+      </figure>
+    </section>
+    <section class="sub" id="sub-when-simple-rules-lead-unexpected-results">
+      <h3 class="sub">When Simple Rules Lead to Unexpected Results</h3>
+      <p>One of the most canonical discoveries from field of non-linear dynamics in 1970s is that perfectly deterministic rules, rules with no built in randomness, such as the logistic model, can produce behavior complex behavior that is, for all practical purposes, unpredictable. In 1974 Robert May studied the discrete logistic dynamical system, and observed some fascinating behavior when the growth rate is increased. Instead of moving rapidly to an equilibrium, the model exhibits a variety of complex patterns, including overshooting the equilibrium, oscillations around the equilibrium with periodic behavior, and ultimately chaotic behavior. The term chaos was coined by James Yorke and Tien Yien Li in their 1975 describe the property of some deterministic non-linear dynamical systems which exhibit a transition from a domain of regular predictable behavior to one with apparently random unpredictable behavior when parameters are change. Nature is replete with examples of this type of behavior which we often attribute to the inherent randomness of environmental conditions. But nature's complexity is not always driven by randomness -- it is sometimes the result of simple non-linear dynamics.</p>
+      <p>The mountain pine beetle (<em>Dendroctonus ponderosae</em>), is species of beetle native to British Columbia, which plays a natural role in forest succession by attacking older and weaker trees at the end of their natural lifespan. Their population is typically kept in balance through predation by birds. Non-linear dynamical models of their growth reveals a devastating outcome. As a forest matures and environmental factors like a warming climate change their is a gradual increase in their prevalence. However, the nature of the dynamical systems is that at some point the population reaches a critical point, called a <em>cusp bifurcation</em> or catastrophe, above which their is a sudden jump in prevalence, which leads to an outbreak infestation. These outbreaks can be observed, as for example in the image below, where vast swathes of tree are invaded, including health ones. The nature of these cusp bifurcations even if when the carrying capacity is reduced back down below the critical point, the level of infestation remains high, causing the infestation to continue. This is known as a <em>hysteresis</em> effect. Millions of acres of pine forest in British Columbia, Canada, were lost between 1999 and 2015 millions due to such an outbreak.</p>
+      <figure class="photo-panel" id="fig-mountain-pine-beetle-outbreak-as-non">
+        <div class="panel-row">
+          <div class="panel-item" style="--ar:1.215"><img src="images/mountain-pine-beetle-closeup.jpg" alt="mountain_pine_beetle_closeup_2"> <span class="panel-sub">Mountain pine beetle (Dendroctonus ponderosae)</span></div>
+          <div class="panel-item" style="--ar:1.333"><img src="images/mountain-pine-beetle-outbreak.jpg" alt="mountain pine beetle outbreak BC"> <span class="panel-sub">Pine forest in the interior of British Columbia experiencing a pine beetle outbreak</span></div>
+        </div>
+        <figcaption><strong>Fig. 2.5</strong> Mountain Pine beetle outbreak as a non-linear dynamical process</figcaption>
+      </figure>
+      <p>Another example of interesting non-linear dynamical behavior observed in nature is <em>bistability</em>, where the possibility of two stable states exist at the same time, and the system flips from one state to the next. One example of such a bistable state are algal blooms, for which the lake water transitions between clear conditions and turbid ones with a relatively small change in conditions. Another example is <em>masting</em> where a tree occasionally produced an abnormally large crop of cones. Sometimes these masting events are associated with a stress the tree is under, but sometimes they also occur in healthy trees for one or two years before the tree switches back to producing a more average number of cones.</p>
+      <figure class="photo-panel" id="fig-bistable-systems-nature-where-there-spontaneous">
+        <div class="panel-row">
+          <div class="panel-item" style="--ar:1.893"><img src="images/western-hemlock-images.jpg" alt="western-hemlock images"> <span class="panel-sub">Western hemlock Masting -- spontaneous production of large amounts of cones in certain years.</span></div>
+          <div class="panel-item" style="--ar:1.911"><img src="images/algal-blooms-greatlakes-nasa.jpg" alt="Algal blooms Greatlakes-NASA-EarthObservatory-1200-628-2-4-25"> <span class="panel-sub">Great lakes algal blooms -- the turbid state of the ecological system coexisting with a clear state.</span></div>
+        </div>
+        <figcaption><strong>Fig. 2.6</strong> Bistable systems in nature -- where there is a spontaneous switching between one kind of behavior and another, with relatively small changes in conditions triggering larger changes in behavior.</figcaption>
+      </figure>
+    </section>
+  </section>
+  <section class="sec" id="sec-mathematics-change">
+    <div class="sec-head">
+      <span class="sec-label">Section 2</span>
+      <h2>The Mathematics of Change</h2>
+    </div>
+    <p>We now develop the mathematical language for describing how quantities change over time, known as <em>dynamical systems. </em>A dynamical system is an equation or set of equations that tells us the next state or value of a quantity or quantities given information about the current state. We will start with rules that are familiar from chapter 1 and then extend to more complex systems that produce some rich and surprising behavior. We will explore the concept of fixed points and stability, bifurcations, and periodic behavior. We will learn a graphical technique for understanding any rule at a glance, and finally we will encounter to the extraordinary complexity lurking inside a deceptively simple nonlinear dynamical system.</p>
+    <section class="sub" id="sub-patterns-time">
+      <h3 class="sub">2.1 Patterns in Time</h3>
+      <p>A <em>time series</em> is a sequence of values for a quantity $x$ taken at successive moments in time: the number of bacteria in a flask each hour, the width of a tree ring in each year, the size of a shell, etc. We write the value at time $t$ as $x_t$. While time itself runs continuously, many changes that we observe can be modeled in discrete units of time -- such as in days, seasons, generations <em>etc</em>. In these situations we use <em>discrete dynamical systems</em>, rather than continuous ones. For those who are curious, <a class="xref" href="#sec-deeper-dives">Section 3</a> makes the connection between discrete and continuous dynamical systems, the latter of which leads the topic of differential equations.</p>
+      <p>The key idea of a discrete dynamical system is to find a model or rule that allows us to determine the current value $x_t$ from the previous value $x_{t-1}$.</p>
+      <p>A discrete dynamical system is a recursive rule of the form: $$x_t=f(x_{t-1})\;,$$for some function $f(x)$, starting from some initial value $x_0$. This process allows us to determine $x_1$ from $x_0$. The process can then be iterated repeatedly creating the <em>time series </em><em>, $x_0, x_1, x_2, \dots$. </em>Another way to describe the time series in the language of dynamical systems, is the <em>orbit </em>of the function $f(x)$, starting with initial value $x_0$. Different initial values lead to different orbits.</p>
+      <div class="callout" id="co-n1780437974593">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Further Explanation</span> <span class="ct-title">More general dynamical systems</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p>The discrete dynamical system above is a first order one-dimensional dynamical system. A second order dynamical system depends on more than one previous term in the time series. For example, a second order dynamical system depends on the previous two timesteps: $$x_t=f(x_{t-1},x_{t-2})\, .$$ To iterate such a system we need to the first two initial values $x_0$ and $x_1$. One example of a second order systems is the Fibonacci sequence: $$x_t=x_{t-1}+x_{t-2}\, \quad \text{with} \quad x_0=x_1=1\, .$$ The function in this case just adds the two terms.</p>
+        </div>
+      </div>
+      <p>We start with two simple dynamical systems that lead to familiar families of time series. We introduce them side by side, then develop the properties of each in enough depth to use them fluently.</p>
+      <p><strong>The additive rule.</strong> Suppose each step adds a fixed amount $d$:</p>
+      <div class="eq">$$x_t = x_{t-1} + d$$</div>
+      <p>Starting from $x_0$, an applying recursion step by step:</p>
+      <div class="eq">$$x_1 = x_0 + d,\quad x_2 = x_0 + 2d,\quad x_3 = x_0 + 3d, \quad \ldots$$</div>
+      <p>After $t$ steps, $x_t = x_0 + dt$. In this case is a <em>linear function</em> of time. The time series should be familiar as the arithmetic series we saw in chapter 1.</p>
+      <p><strong>The multiplicative rule.</strong> Suppose each step multiplies by a fixed factor $r$:</p>
+      <div class="eq">$$x_t = r \cdot x_{t-1}$$</div>
+      <p>Applying recursion: $x_1 = rx_0,\; x_2 = r^2 x_0,\; x_3 = r^3 x_0, \;\ldots$ After $t$ steps, $x_t = x_0\, r^t$. This is an <em>exponential function</em> of time, and the time series should be familiar as the geometric series from chapter 1.</p>
+      <div class="key-result" id="kr-2-1">
+        <div class="kr-header"><span>Key Result — Two Fundamental Dynamical Models</span> <span class="kr-num">2.1</span></div>
+        <div class="kr-body">
+          <p>A quantity $x_t$ that changes by constant <strong>addition</strong> each step results in a <strong>linear</strong> time series; one that changes by <strong>multiplication</strong> by a constant factor results in an <strong>exponential</strong> time series:</p>
+          <div class="eq">$$\text{Linear:}\quad x_t = x_0 + dt \qquad \qquad \text{Exponential:}\quad x_t = x_0\,r^t$$</div>
+          <p>The linear series arises from the dynamical system $x_t = x_{t-1}+d$; the exponential from $x_t = r\,x_{t-1}$.</p>
+        </div>
+      </div>
+      <div class="ibox" id="ibox-linexp">
+  <div class="ititle" onclick="toggleIbox('ibox-linexp')">
+    <span class="ib-badge">Exploration 2.1</span>
+    <span class="ib-title">📈 Linear and Exponential Explorer</span>
+    <span class="ib-icon" style>▶</span>
+  </div>
+  <div class="ib-body" style="display: none; padding: 20px 24px 16px;">
+  <p style="font-size:0.93em;color:var(--muted);margin-bottom:14px;font-style:italic;">Adjust parameters to see how each model behaves. Use the <strong>Compare</strong> tab to see them side by side, and toggle <strong>Semi-log</strong> to see how the exponential becomes a straight line on a logarithmic scale. The axes stay put while you move the sliders, so you can see the shape change; press <strong>Rescale</strong> to fit them to the current curve.</p>
+
+  <!-- Tabs -->
+  <div class="tab-group" style="margin-bottom:16px;">
+    <button class="tab-btn active" id="le-tab-lin" onclick="leSetTab('lin')">Linear</button>
+    <button class="tab-btn" id="le-tab-exp" onclick="leSetTab('exp')">Exponential</button>
+    <button class="tab-btn" id="le-tab-cmp" onclick="leSetTab('cmp')">Compare</button>
+  </div>
+
+  <!-- ── FORMULA DISPLAY ── -->
+  <div class="func-display" id="le-formula" style="font-size:14px;margin-bottom:14px;min-height:26px;">\(x_t = 20 + 8\,t\)</div>
+
+  <!-- ── CONTROLS (shown/hidden per tab) ── -->
+  <div id="le-ctrls-lin" style>
+    <div class="ctrl-row">
+      <span class="ctrl-label" style="min-width:24px;font-style:normal;">$x_0$</span>
+      <input id="le-lin-x0" max="100" min="0" step="1" type="range" value="20">
+      <input id="le-lin-x0-num" max="100" min="0" step="1" style="width:60px;" type="number" value="20">
+      <span class="ctrl-desc">initial value (intercept)</span>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label" style="min-width:24px;">$d$</span>
+      <input id="le-lin-d" max="25" min="-15" step="0.5" type="range" value="8">
+      <input id="le-lin-d-num" max="25" min="-15" step="0.5" style="width:60px;" type="number" value="8">
+      <span class="ctrl-desc">slope (added per step)</span>
+    </div>
+  </div>
+
+  <div id="le-ctrls-exp" style="display: none;">
+    <div class="ctrl-row">
+      <span class="ctrl-label" style="min-width:24px;font-style:normal;">$x_0$</span>
+      <input id="le-exp-x0" max="100" min="1" step="1" type="range" value="10">
+      <input id="le-exp-x0-num" max="100" min="1" step="1" style="width:60px;" type="number" value="10">
+      <span class="ctrl-desc">initial value (intercept)</span>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label" style="min-width:24px;">$r$</span>
+      <input id="le-exp-r" max="3.0" min="0.1" step="0.02" type="range" value="1.4">
+      <input id="le-exp-r-num" max="3.0" min="0.1" step="0.02" style="width:60px;" type="number" value="1.40">
+      <span class="ctrl-desc">growth factor (multiplied per step)</span>
+    </div>
+    <div class="ctrl-row" style="margin-top:4px;">
+      <label style="font-family:var(--font-ui);font-size:13px;cursor:pointer;display:flex;align-items:center;gap:7px;">
+        <input id="le-semilog" style="width:15px;height:15px;accent-color:var(--terra);" type="checkbox">
+        <span>Semi-log scale (plot $\log_{10}(x_t)$ on vertical axis)</span>
+      </label>
+    </div>
+  </div>
+
+  <div id="le-ctrls-cmp" style="display:none;">
+    <div style="display:flex;flex-wrap:wrap;gap:24px;">
+      <div>
+        <div style="font-family:var(--font-ui);font-size:12px;font-weight:700;color:#1a50a0;margin-bottom:8px;">LINEAR</div>
+        <div class="ctrl-row">
+          <span class="ctrl-label" style="min-width:24px;font-style:normal;">$x_0$</span>
+          <input id="le-cmp-lx0" max="100" min="0" step="1" type="range" value="20">
+          <input id="le-cmp-lx0-num" max="100" min="0" step="1" style="width:58px;" type="number" value="20">
+        </div>
+        <div class="ctrl-row">
+          <span class="ctrl-label" style="min-width:24px;">$d$</span>
+          <input id="le-cmp-ld" max="25" min="0" step="0.5" type="range" value="8">
+          <input id="le-cmp-ld-num" max="25" min="0" step="0.5" style="width:58px;" type="number" value="8">
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-ui);font-size:12px;font-weight:700;color:#b04020;margin-bottom:8px;">EXPONENTIAL</div>
+        <div class="ctrl-row">
+          <span class="ctrl-label" style="min-width:24px;font-style:normal;">$x_0$</span>
+          <input id="le-cmp-ex0" max="100" min="1" step="1" type="range" value="20">
+          <input id="le-cmp-ex0-num" max="100" min="1" step="1" style="width:58px;" type="number" value="20">
+        </div>
+        <div class="ctrl-row">
+          <span class="ctrl-label" style="min-width:24px;">$r$</span>
+          <input id="le-cmp-er" max="3.0" min="0.1" step="0.02" type="range" value="1.4">
+          <input id="le-cmp-er-num" max="3.0" min="0.1" step="0.02" style="width:58px;" type="number" value="1.40">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PROPERTIES READOUT ── -->
+  <div id="le-props" style="font-family:var(--font-ui);font-size:13px;background:white;border:1px solid #ddd;border-radius:4px;padding:10px 14px;margin:12px 0;min-height:40px;color:var(--ink);line-height:1.7;"><strong>Intercept:</strong>  &nbsp;|&nbsp; 
+              <strong>Slope:</strong>  &nbsp;|&nbsp; 
+              <strong>Trend:</strong> growing</div>
+
+  <!-- ── AXES ── -->
+  <div class="ctrl-row" style="margin:4px 0 8px;gap:14px;">
+    <label style="font-family:var(--font-ui);font-size:13px;cursor:pointer;display:flex;align-items:center;gap:7px;">
+      <input checked id="le-lock" style="width:15px;height:15px;accent-color:var(--terra);" type="checkbox">
+      <span>Lock axes</span>
+    </label>
+    <button class="btn" id="le-rescale" type="button">Rescale</button>
+  </div>
+
+  <!-- ── CANVAS ── -->
+  <div class="widget-canvas-wrap">
+    <canvas height="320" id="le-canvas" style="background:#faf8f5;border-radius:4px;display:block;max-width:100%;" width="520"></canvas>
+  </div>
+
+  <!-- ── VALUES TABLE ── -->
+  <div style="margin-top:14px;overflow-x:auto;">
+    <table id="le-table" style="border-collapse:collapse;font-family:var(--font-ui);font-size:12.5px;width:100%;max-width:520px;"><thead><tr style="background:var(--result-bg);">
+      <th style="padding:5px 10px;border-bottom:2px solid var(--result-border);
+                     font-weight:600;font-size:12px;text-align:right;white-space:nowrap;text-align:left;"></th><th style="padding:5px 10px;border-bottom:2px solid var(--result-border);
+                     font-weight:600;font-size:12px;text-align:right;white-space:nowrap;"></th></tr></thead><tbody><tr><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:left;font-size:12px;color:var(--muted);">0</td><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:right;font-size:12px;">20</td></tr><tr><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:left;font-size:12px;color:var(--muted);">1</td><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:right;font-size:12px;">28</td></tr><tr><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:left;font-size:12px;color:var(--muted);">2</td><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:right;font-size:12px;">36</td></tr><tr><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:left;font-size:12px;color:var(--muted);">3</td><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:right;font-size:12px;">44</td></tr><tr><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:left;font-size:12px;color:var(--muted);">4</td><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:right;font-size:12px;">52</td></tr><tr><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:left;font-size:12px;color:var(--muted);">5</td><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:right;font-size:12px;">60</td></tr><tr><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:left;font-size:12px;color:var(--muted);">6</td><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:right;font-size:12px;">68</td></tr><tr><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:left;font-size:12px;color:var(--muted);">7</td><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:right;font-size:12px;">76</td></tr><tr><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:left;font-size:12px;color:var(--muted);">8</td><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:right;font-size:12px;">84</td></tr><tr><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:left;font-size:12px;color:var(--muted);">9</td><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:right;font-size:12px;">92</td></tr><tr><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:left;font-size:12px;color:var(--muted);">10</td><td style="padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:right;font-size:12px;">100</td></tr></tbody></table>
+  </div>
+  <div data-le-cfg="{}" id="le-sentinel"></div>
+  </div><!-- end ib-body -->
+</div>
+      <h4 class="topic">Features of Linear Functions</h4>
+      <p>The formula $x_t = x_0 + dt$ is a straight line when $x_t$ is plotted against $t$. Two parameters determine its properties:</p>
+      <p>The initial values $x_0$ is the value of $x_t$ at time $t = 0$ and corresponds to the intercept on a graph of . It is where the line crosses the vertical axis. In a biological context, $x_0$ is the population size, ring count, or concentration at the beginning of the observation period.</p>
+      <p>The <strong>slope</strong> $d$ is the change in $x_t$ per unit of time. If $d &gt; 0$, the quantity grows — the line rises from left to right. If $d &lt; 0$, it declines — the line falls. If $d = 0$, the quantity is constant (a horizontal line). Critically, the slope is the <em>same</em> everywhere on the line: a linear function grows by exactly the same amount in every equal time interval, no matter where you are on the timeline.</p>
+      <div class="eq">$$\text{slope} = \frac{\Delta x}{\Delta t}= \frac{x_t - x_{t-1}}{1} = d$$</div>
+      <p>This constancy of the step size $d$ is both the defining feature and the biological interpretation of linearity: each year adds the same number of rings, each day deposits the same thickness of sediment, each growth interval extends the plant by the same length.</p>
+      <div class="callout" id="co-2-linear-vs-proportional">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Further Explanation</span> <span class="ct-title">Linear vs. proportional: does the line pass through the origin?</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p>A <em>proportional</em> relationship is a special case of a linear one for which $x_0 = 0$: the line passes through the origin, and doubling $t$ doubles $x_t$. Many physical laws are proportional, but natural time series are not when they start from a nonzero initial condition. When we say a tree adds rings "linearly," we mean the count grows by the same amount each year, not that the count is proportional to age. The distinction matters when reading graphs: a line that does not describe proportionality.</p>
+        </div>
+      </div>
+      <div class="example" id="ex-2-pine-linear">
+        <button class="example-trigger" type="button"><span class="ex-badge">Example 2.1</span> <span class="ex-title">Bristlecone pine: a linear time series embedded in wood</span> <span class="ex-icon">▶</span></button>
+        <div class="example-body">
+          <p>A cross-section of a bristlecone pine from the White Mountains of California shows thousands of annual rings. These are some of the longest living species of trees on earth. Because each ring marks exactly one year's growth, the <em>cumulative ring count</em> is like a clock recording the passage of time in wood.</p>
+          <p>The total radius is approximately a linear function $R_t = R_0 + \bar{w}\,t$, where $\bar{w}$ is the mean annual ring width. $\bar{w}$ is found from the slope of the $R$ vs $t$ linear graph. For a high-altitude bristlecone pine, $\bar{w}$ might be as small as 0.3–0.5 mm per year; for a tree in better conditions it could be 1–2 mm per year. The slope of the line for each tree encodes details of the natural environment in which it grew, such as climate and altitude. Moreover, the pattern of annual variations in the width of each ring tells a story about significant events like droughts and floods and fires. Natural historians can piece together these patterns from multiple trees to create record that extends back over 8,000 years, using the following method.</p>
+          <p><strong>Building the ch</strong><strong>ronology by matching patterns.</strong> <br> Consider two overlapping wood sections:</p>
+          <ul>
+            <li><strong>Sample A</strong>: a living tree, cores showing 2,500 rings, spanning calendar years 475 BCE to 2025 CE.</li>
+            <li><strong>Sample B</strong>: a preserved stump found at high altitude, showing 3500 rings. The pattern of the last 800 outer rings matches the inner 800 rings of Sample A — meaning they were both alive during the same period and experienced the same pattern of good and bad years.</li>
+          </ul>
+          <p>The outermost ring of Sample B (the tree's death year) lines up with year 325 BCE in the chronology, so the innermost ring of Sample B dates to 3,125 BCE. This process can be repeated for multiple samples extending the chronology back further. This is the power of the linear clock: it gives an absolute, countable time reference onto which other measurements can be anchored.</p>
+          <p><strong>Connection to Carbon-14 dating.</strong></p>
+          <p>Because the record of tree rings ban be linked so far back in time, it can be compared with the C-14 method of dating organic materials. The two methods — linear counting of tree rings (dendrochronology) and exponential decay (radiocarbon) — provide independent, cross-checking estimates of the same calendar date. Indeed tree rings provide a way of calibrating C-14 dating, in ways that we'll touch on in a worked example below.</p>
+        </div>
+      </div>
+      <h4 class="topic">Features of Exponential Functions</h4>
+      <p>The exponential function $x_t = x_0\,r^t$ behaves very differently from the linear model. Two values determine its form: the initial value $x_0$ (still the intercept at $t=0$, since $r^0 = 1$) and the <em>growth factor</em> $r$.</p>
+      <p>The growth factor $r$ specifies how much $x_t$ is multiplied by at each step. It plays a similar structural role as the slope $d$ in the linear model, but instead of adding, it multiplies. Its value determines the qualitative behavior:</p>
+      <figure id="tab-growth-factor-qualitative-behavior">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Value of $r$</th>
+                <th>Behavior</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$r &gt; 1$</td>
+                <td>Growth — sequence increases</td>
+                <td>Bacterial colony, $r=2$ per generation</td>
+              </tr>
+              <tr>
+                <td>$r = 1$</td>
+                <td>Constant — no change</td>
+                <td>Stable population at equilibrium</td>
+              </tr>
+              <tr>
+                <td>$0 &lt; r &lt; 1$</td>
+                <td>Decay — sequence decreases toward 0</td>
+                <td>Radioactive ${}^{14}\text{C}$, $r \approx 0.99988$ per year</td>
+              </tr>
+              <tr>
+                <td>$r = 0$</td>
+                <td>Immediate collapse to 0</td>
+                <td>Extinction with no reproduction</td>
+              </tr>
+              <tr>
+                <td>$-1 &lt; r &lt; 0$</td>
+                <td>Oscillating decay — alternates sign, shrinks</td>
+                <td>Some predator–prey models near equilibrium</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <figcaption><strong>Table 2.1</strong> Growth factor $r$ and qualitative behavior of $x_t = x_0 r^t$.</figcaption>
+      </figure>
+      <p><strong>Percentage Change</strong><br>The percentage change per step is $\frac{x_t-x_{t-1}}{x_{t-1}}\times 100\%=(r - 1) \times 100\%.$ A bacterial strain with $r = 1.5$ per hour is growing at 50% per hour. A drug with $r = 0.87$ per day is being eliminated at 13% per day. Similarly if there is a constant percentage change $p$, the growth is exponential with growth factor $r=1+\frac{p}{100}$.</p>
+      <p><strong>The key contrast with linear growth.</strong> A linear function <em>adds</em> $d$ in every equal interval. An exponential function <em>multiplies</em> by $r$ in every equal interval. These two patterns are visually similar in the short run when growth is slow, but diverge dramatically over time. An exponential function — even with a growth factor only slightly above 1 — eventually overtakes any linear function. This is why a population growing at even 1% per year will eventually dwarf one growing by a fixed number per year, given enough time.</p>
+      <p><strong>The semi-log test.</strong> A practical way to distinguish the two: plot the data on a <em>semi-logarithmic</em> scale — ordinary $t$-axis, but $\log x_t$ on the vertical axis. If the relationship is exponential, $\log x_t = \log x_0 + t \log r$, which is a <em>straight line</em> with slope $\log r$. If it is linear, the semi-log plot will be curved. This is the standard first diagnostic in any empirical data analysis.</p>
+      <p><strong>Doubling time and half-life.</strong> For an exponential model with $r &gt; 1$, the <em>doubling time is </em>the time to double from any starting value is a useful measure for comparison purposes. Setting $x_t = 2x_0$</p>
+      <div class="eq">$$x_0\,r^t = 2x_0 \implies r^t = 2 \implies t = \frac{\log 2}{\log r}$$</div>
+      <p>For decay ($0 &lt; r &lt; 1$), the same formula gives the <em>half-life</em> $T_{1/2}$ — the time for a quantity to halve — by setting $r^t = 1/2$ and solving. Notice, the doubling time and half-life do not depend on the initial value $x_0$.</p>
+      <div class="key-result" id="kr-2-2">
+        <div class="kr-header"><span>Key Result — Doubling Time and Half-Life</span> <span class="kr-num">2.2</span></div>
+        <div class="kr-body">
+          <p>For the exponential model $x_t = x_0 r^t$, the time to double ($r&gt;1$) or halve ($r&lt;1$) is:</p>
+          <div class="eq">$$T = \frac{\log 2}{\log r} = \frac{\ln 2}{\ln r}$$</div>
+          <p>This constant is the same starting from any initial value $x_0$.</p>
+        </div>
+      </div>
+      <div class="example" id="ex-2-c14">
+        <button class="example-trigger" type="button"><span class="ex-badge">Example 2.2</span> <span class="ex-title">Carbon-14 dating: cross-checking the bristlecone pine calendar</span> <span class="ex-icon">▶</span></button>
+        <div class="example-body">
+          <p>Carbon-14 is produced continuously in the upper atmosphere due to the action of cosmic rays on nitrogen gas. It incorporated into living tissue in proportion to its relative abundance compare with Carbon-12. Once an organism dies, no new carbon is incorporated, and the existing ${}^{14}\text{C}$ decays with half-life $T_{1/2} = 5{,}730$ years. After $t$ years, the fraction remaining is:</p>
+          <div class="eq">$$f_t = \left(\tfrac{1}{2}\right)^{t/5730} = r^t \quad \text{where}\quad r = \left(\tfrac{1}{2}\right)^{1/5730} \approx 0.99988 \text{ per year}$$</div>
+          <p><strong>Inverting the formula — dating an unknown sample.</strong> A piece of ancient wood shows $f = 0.846$ (84.6% of modern ${}^{14}\text{C}$ levels). How old is it? We solve:</p>
+          <div class="eq">$$0.846 = (0.5)^{t/5730} \implies \frac{t}{5730} = \frac{\ln 0.846}{\ln 0.5} = \frac{-0.1671}{-0.6931} \approx 0.241$$</div>
+          <div class="eq">$$t \approx 0.241 \times 5730 \approx 1{,}380 \text{ years before present}$$</div>
+          <p><strong>The connection to the linear chronology.</strong> This method of dating wood can be used to cross reference dating done by ring counting, or dendrochronology, such as in the bristlecone pine example. The two methods agree very closely: the linear tree-ring clock (counting physical rings) and the exponential radiocarbon clock (measuring atomic decay) give approximately the same date.</p>
+          <p>Indeed the bristlecone pine chronology provides a <em>calibration curve</em> for radiocarbon dating. Because we know the precise calendar date of every ring in the chronology, and we can measure the ${}^{14}\text{C}$ level in each ring, we have a direct record of how atmospheric ${}^{14}\text{C}$ has varied over 12,000 years. While the has been fairly constant, there are variations that occur — dues changes in solar activity that can cause fluctuations over short periods of time. Key cosmic events from the past, which are recorded in wood rings as spikes in ${}^{14}\text{C}$ levels, are known as <em>Miyake </em>events, after Japanese physicist, Fusa Miyake, who first discovered them while she was completing her PhD.</p>
+        </div>
+      </div>
+      <div class="example" id="ex-2-bacteria">
+        <button class="example-trigger" type="button"><span class="ex-badge">Example 2.3</span> <span class="ex-title">Bacterial growth: the relentlessness of doubling</span> <span class="ex-icon">▶</span></button>
+        <div class="example-body">
+          <p>A single <em>E. coli</em> cell in optimal conditions divides approximately every 20 minutes. Starting with $x_0 = 1$ cell, the population after $n$ doublings would be $x_n = 2^n$. After 10 hours (30 doublings), the count reaches $2^{30} \approx 10^9$ — a billion cells in a small flask, invisible at the start, now a cloudy broth. After 24 hours of uninterrupted doubling: $2^{72} \approx 5 \times 10^{21}$ cells — a mass roughly equal to the Empire State building. This, of course, never happens, because factors like space and nutrient constraints limit the growth. We will explore one model for how to address these constraints in <a class="xref" href="#sub-non-linear-dynamics-from-order-chaos">Section 2.4</a> -- with some fascinating results.</p>
+          <p>The doubling time formula gives a useful mental shortcut for any $r$: For example, if a population grows at 7% per year ($r = 1.07$), the doubling time is $T = \log 2 / \log 1.07 \approx 10.2$ years — very close to $70/7 = 10$. This approximation, $T \approx 70/p$ where $p$ is the percentage growth rate, is called the <em>rule of 70</em> and is accurate to within a few percent for $p &lt; 15\%$.</p>
+        </div>
+      </div>
+    </section>
+    <section class="sub" id="sub-linear-dynamical-systems">
+      <h3 class="sub">2.2 Linear Dynamical Systems</h3>
+      <p>Both models in <a class="xref" href="#sub-patterns-time">Section 2.1</a> are special cases of a slightly more general dynamical system. Suppose each time step a quantity is multiplied by factor $r$ <em>and</em> added to by constant $d$:</p>
+      <div class="eq">$$x_t = r\,x_{t-1} + d$$</div>
+      <p>This richer modal, which arises naturally in a variety of circumstances, is called a <em>linear dynamical system, </em>because the recursive dynamical function $f(x)$ is linear in $x$.</p>
+      <p>Consider the following example: each year in a mountain valley, a fraction $r$ of the resident mule deer herd survives the winter — the rest succumb to predation, starvation, or hunting — and $d$ new animals disperse in from neighboring valleys in spring.</p>
+      <p><strong>What happens in the long run?</strong> Suppose a wildlife ecologist begins monitoring a small deer herd of $x_0 = 20$ animals. Annual winter survival is $r = 0.8$ (20% mortality), and each spring $d = 15$ deer disperse in from neighboring valleys. The rule is $x_t = 0.8\,x_{t-1} + 15$. Iterating:</p>
+      <div class="eq">$$x_1 = 31, \quad x_2 = 39.8, \quad x_3 = 46.8, \quad x_4 = 52.5, \quad x_5 = 57.0, \quad \ldots$$</div>
+      <p>The values are increasing but slowing. Will they increase indefinitely or converge to some limit. To see if there is a limit, we ask: is there a value $x^*$ such that if the system reaches $x^*$, it stays there forever. Setting $x_t = x_{t-1} = x^*$:</p>
+      <div class="eq">$$x^* = r\,x^* + d \implies x^*(1-r) = d \implies x^* = \frac{d}{1-r}$$</div>
+      <p>For our deer herd: $x^* = 15/(1-0.8) = 75$ animals. This is the <em> steady-state imposed by the immigration–mortality balance</em> — the herd size the valley tends toward from any starting point, as long as the survival rate and immigration rate remain constant. Such a self-mapping value is called a <em>fixed point</em> of the system.</p>
+      <div class="key-result" id="kr-2-3">
+        <div class="kr-header"><span>Key Result — Fixed Point of the Linear Dynamical System</span> <span class="kr-num">2.3</span></div>
+        <div class="kr-body">
+          <p>The dynamical systems $x_t = r\,x_{t-1} + d$ has a unique fixed point (when $r \neq 1$):</p>
+          <div class="eq">$$x^* = \frac{d}{1-r}$$</div>
+          <p>If the systems start exactly at the fixed point, it will stay there.</p>
+        </div>
+      </div>
+      <p><strong>Stability.</strong> A fixed point is <em>stable</em> or <em>attracting </em>if points close the fixed pointed get closer to the fixed point over time, and <em>unstable</em> or <em>repelling</em>, if they wander away from it.</p>
+      <p>To see when a fixed point is stable or unstable, define the <em>error</em> $e_t = x_t - x^*$ as the distance of the the current value is from the fixed point. Substituting into the rule:</p>
+      <div class="eq">$$\begin{eqnarray}e_t &amp;=&amp; x_t - x^* = (r\,x_{t-1}+d) - x^* = rx_{t-1}+d-x^* \\&amp;=&amp; rx_{t-1}-rx*=r\,e_{t-1}\end{eqnarray}$$</div>
+      <p>So the error at each step is simply multiplied by $r$, so $e_t = r^t\,e_0$. The error shrinks to zero if and only if $|r| &lt; 1$. If $|r| &gt; 1$, the error grows exponentially — the system diverges from the fixed point no matter how close it starts. Note: is the <em>slope </em>of the linear dynamical function . This observation will be important for future sections.</p>
+      <div class="key-result" id="kr-2-4">
+        <div class="kr-header"><span>Key Result — Stability of the Linear Fixed Point</span> <span class="kr-num">2.4</span></div>
+        <div class="kr-body">
+          <p>The fixed point $x^* = d/(1-r)$ of the rule $x_t = r\,x_{t-1}+d$ is:</p>
+          <p><strong>Stable</strong> (attracting): if $|r| &lt; 1$. The error decays as $e_t = r^t e_0 \to 0$.</p>
+          <p><strong>Unstable</strong> (repelling): if $|r| &gt; 1$. The error grows; $x_t$ diverges away from $x^*$.</p>
+          <p>At $r = 1$ the rule is $x_t = x_{t-1} + d$ — pure linear growth with no fixed point.</p>
+        </div>
+      </div>
+      <div class="example" id="ex-2-drug">
+        <button class="example-trigger" type="button"><span class="ex-badge">Example 2.4</span> <span class="ex-title">Pharmacokinetics: drug dosing to steady state</span> <span class="ex-icon">▶</span></button>
+        <div class="example-body">
+          <p>A patient takes 150 mg of a medication each day. The drug has a 24-hour half-life, so each day half the remaining drug is eliminated: the retention factor is $r = 0.5$. The rule is $x_t = 0.5\,x_{t-1} + 150$. Starting from $x_0 = 0$:</p>
+          <div class="eq">$$x_1 = 150,\quad x_2 = 225,\quad x_3 = 262.5,\quad x_4 = 281.25,\quad \ldots$$</div>
+          <p>The fixed point, or steady-state concentration is $x^* = 150/(1-0.5) = 300$ mg. Clinically, this is the <em>maintenance level</em> that pharmacologists design for: the dose $d$ is chosen so that $x^*$ falls within the therapeutic window (high enough to be effective, low enough to avoid toxicity). If we instead want to reach $x^*$ quickly, we might give a larger first <em>loading dose</em> — in effect, starting the iteration from $x_0 \approx x^*$ rather than $x_0 = 0$.</p>
+          <p>The approach to steady state: $e_t = (0.5)^t \cdot 300$ mg, so after 5 days, $e_5 = 300/32 \approx 9$ mg, less than 3% of the target. After 7 days (seven half-lives), $e_7 &lt; 300/128 \approx 2.3$ mg, less than 1%. The rule of thumb in pharmacology — <em>steady state is reached in 4–5 half-lives</em> — follows directly from the stability analysis.</p>
+        </div>
+      </div>
+      <div class="example" id="ex-2-immigration">
+        <button class="example-trigger" type="button"><span class="ex-badge">Example 2.5</span> <span class="ex-title">Plant populations with seed rain</span> <span class="ex-icon">▶</span></button>
+        <div class="example-body">
+          <p>An isolated meadow contains a population of annual plants. Each year, a fraction $r = 0.3$ of seeds survive and reproduce (low survival in this harsh habitat), but $d = 200$ seeds blow in from surrounding areas. The dynamical systems is $x_t = 0.3\,x_{t-1} + 200$, with fixed point $x^* = 200/(1-0.3) \approx 286$ plants. Since $|r| = 0.3 &lt; 1$, this equilibrium is stable. If we fenced out the seed rain ($d = 0$), the fixed point would collapse to zero — the population would go extinct. This model captures the concept of a <em>rescue effect</em> in island biogeography: populations on isolated patches can persist at low density only because of immigration from the mainland, not because of their own reproductive success.</p>
+        </div>
+      </div>
+      <div class="callout" id="co-2-geomseries">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Further Explanation</span> <span class="ct-title">Why the fixed point formula works: uncovering the geometric series</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p>Starting from $x_0 = 0$, iterating the rule $x_t = rx_{t-1} + d$ gives $x_t = d(1 + r + r^2 + \cdots + r^{t-1})$. This is a geometric series with ratio $r$. When $|r| &lt; 1$, the sum converges to $\frac{d}{1-r} = x^*$. The fixed-point formula is simply the sum of an infinite geometric series in disguise. When $|r| \geq 1$, the series diverges — consistent with the fixed point being unstable or repelling.</p>
+        </div>
+      </div>
+      <h4 class="topic">Negative growth factors and oscillatory dynamics</h4>
+      <p>So far we have assumed $r \geq 0$: each step multiplies the current value by a non-negative number. But nothing in the algebra requires that be positive. A negative $r$ causes a sign reversal at every step. The rule $x_t = rx_{t-1} + d$ with $r &lt; 0$ still has the same fixed point $x^* = d/(1-r)$ and the same error recursion $\epsilon_t = r^t \epsilon_0$. What changes is the <em>sign</em> of $r^t$: it alternates at every step, producing an orbit that bounces above and below $x^*$ rather than approaching it from one side.</p>
+      <p>Three qualitatively distinct behaviors emerge, depending on $|r|$:</p>
+      <figure id="tab-growth-factor-orbits">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Value of $r$</th>
+                <th>$r^t$ behavior</th>
+                <th>Orbit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$-1 &lt; r &lt; 0$</td>
+                <td>alternating sign, shrinking</td>
+                <td>damped oscillations — stable</td>
+              </tr>
+              <tr>
+                <td>$r = -1$</td>
+                <td>alternating $\pm 1$</td>
+                <td>permanent oscillation — neutral</td>
+              </tr>
+              <tr>
+                <td>$r &lt; -1$</td>
+                <td>alternating sign, growing</td>
+                <td>growing oscillations — unstable</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </figure>
+      <p>The stability criterion from <a class="xref" href="#kr-2-4">Key Result 2.4</a> still applies: the fixed point is stable if and only if $|r| &lt; 1$. What the negative sign adds is the oscillatory character of convergence.</p>
+      <figure id="fig-e-three-orbits-all-sharing-fixed">
+        <svg style="max-width:100%;display:block;margin:0 auto;" viewBox="0 0 520 252" xmlns="http://www.w3.org/2000/svg">
+  <rect fill="#faf8f5" height="252" rx="3" width="520"></rect>
+  <!-- Light grid -->
+  <line stroke="#e0ddd8" stroke-width="0.7" x1="55" x2="505" y1="50" y2="50"></line>
+  <line stroke="#e0ddd8" stroke-width="0.7" x1="55" x2="505" y1="85" y2="85"></line>
+  <line stroke="#e0ddd8" stroke-width="0.7" x1="55" x2="505" y1="155" y2="155"></line>
+  <line stroke="#e0ddd8" stroke-width="0.7" x1="55" x2="505" y1="190" y2="190"></line>
+  <!-- y=0 dashed reference -->
+  <line stroke="#bbb" stroke-dasharray="5,4" stroke-width="1" x1="55" x2="505" y1="190" y2="190"></line>
+  <!-- x*=1 green dashed -->
+  <line stroke="#4a9a6a" stroke-dasharray="8,4" stroke-width="1.3" x1="55" x2="505" y1="120" y2="120"></line>
+  <text fill="#4a9a6a" font-family="system-ui,sans-serif" font-size="10" text-anchor="start" x="508" y="124">x*</text>
+  <!-- Axes -->
+  <line stroke="#888" stroke-width="1.5" x1="55" x2="55" y1="15" y2="228"></line>
+  <line stroke="#888" stroke-width="1.5" x1="55" x2="505" y1="228" y2="228"></line>
+  <!-- x-axis ticks and labels -->
+  <text fill="#666" font-family="system-ui,sans-serif" font-size="10.5" text-anchor="middle">
+    <tspan dy="0" x="55"></tspan><tspan x="55" y="242">0</tspan>
+    <tspan x="145" y="242">2</tspan>
+    <tspan x="235" y="242">4</tspan>
+    <tspan x="325" y="242">6</tspan>
+    <tspan x="415" y="242">8</tspan>
+    <tspan x="505" y="242">10</tspan>
+  </text>
+  <text fill="#555" font-family="Palatino,Georgia,serif" font-size="11.5" font-style="italic" text-anchor="middle" x="280" y="252">t</text>
+  <!-- y-axis ticks and labels -->
+  <text fill="#666" font-family="system-ui,sans-serif" font-size="10.5" text-anchor="end">
+    <tspan x="49" y="194">0</tspan>
+    <tspan x="49" y="159">0.5</tspan>
+    <tspan x="49" y="124">1</tspan>
+    <tspan x="49" y="89">1.5</tspan>
+    <tspan x="49" y="54">2</tspan>
+  </text>
+  <text fill="#555" font-family="Palatino,Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" transform="rotate(-90,13,120)" x="13" y="120">xₜ</text>
+
+  <!-- Series 1: r=0.5 (blue) monotone convergence -->
+  <polyline fill="none" points="55,36 100,78 145,99 190,109.5 235,115 280,117.5 325,118.7 370,119.4 415,119.7 460,119.9 505,120" stroke="#1a50a0" stroke-width="2"></polyline>
+  <g fill="#1a50a0">
+    <circle cx="55" cy="36" r="3.5"></circle>
+    <circle cx="100" cy="78" r="3.5"></circle>
+    <circle cx="145" cy="99" r="3.5"></circle>
+    <circle cx="190" cy="109.5" r="3.5"></circle>
+    <circle cx="235" cy="115" r="3.5"></circle>
+    <circle cx="280" cy="117.5" r="3.5"></circle>
+    <circle cx="325" cy="118.7" r="3.5"></circle>
+    <circle cx="370" cy="119.4" r="3.5"></circle>
+    <circle cx="415" cy="119.7" r="3.5"></circle>
+    <circle cx="460" cy="119.9" r="3.5"></circle>
+    <circle cx="505" cy="120" r="3.5"></circle>
+  </g>
+
+  <!-- Series 2: r=-0.5 (terracotta) damped oscillation -->
+  <polyline fill="none" points="55,36 100,162 145,99 190,130.5 235,115 280,122.5 325,118.7 370,120.7 415,119.7 460,120.1 505,120" stroke="#7a2e10" stroke-width="2"></polyline>
+  <g fill="#7a2e10">
+    <circle cx="55" cy="36" r="3.5"></circle>
+    <circle cx="100" cy="162" r="3.5"></circle>
+    <circle cx="145" cy="99" r="3.5"></circle>
+    <circle cx="190" cy="130.5" r="3.5"></circle>
+    <circle cx="235" cy="115" r="3.5"></circle>
+    <circle cx="280" cy="122.5" r="3.5"></circle>
+    <circle cx="325" cy="118.7" r="3.5"></circle>
+    <circle cx="370" cy="120.7" r="3.5"></circle>
+    <circle cx="415" cy="119.7" r="3.5"></circle>
+    <circle cx="460" cy="120.1" r="3.5"></circle>
+    <circle cx="505" cy="120" r="3.5"></circle>
+  </g>
+
+  <!-- Series 3: r=-1.4 (amber, dashed, diverging — t=0..6 only) -->
+  <polyline fill="none" points="55,109.5 100,134.7 145,99.4 190,148.8 235,79.7 280,176.5 325,41" stroke="#c07a1a" stroke-dasharray="5,2" stroke-width="2"></polyline>
+  <g fill="#c07a1a">
+    <circle cx="55" cy="109.5" r="3.5"></circle>
+    <circle cx="100" cy="134.7" r="3.5"></circle>
+    <circle cx="145" cy="99.4" r="3.5"></circle>
+    <circle cx="190" cy="148.8" r="3.5"></circle>
+    <circle cx="235" cy="79.7" r="3.5"></circle>
+    <circle cx="280" cy="176.5" r="3.5"></circle>
+    <circle cx="325" cy="41" r="3.5"></circle>
+  </g>
+  <!-- Arrow indicating divergence off screen -->
+  <line stroke="#c07a1a" stroke-dasharray="3,3" stroke-width="1.5" x1="325" x2="370" y1="41" y2="228"></line>
+  <text fill="#c07a1a" font-family="system-ui,sans-serif" font-size="9.5" x="378" y="220">↓ diverges</text>
+
+  <!-- Legend -->
+  <rect fill="white" fill-opacity="0.88" height="72" rx="3" stroke="#ddd" stroke-width="0.5" width="168" x="65" y="22"></rect>
+  <line stroke="#1a50a0" stroke-width="2" x1="74" x2="94" y1="37" y2="37"></line>
+  <circle cx="84" cy="37" fill="#1a50a0" r="3"></circle>
+  <text fill="#1a50a0" font-family="system-ui,sans-serif" font-size="10.5" x="98" y="41">r = 0.5 &nbsp;(stable, monotone)</text>
+  <line stroke="#7a2e10" stroke-width="2" x1="74" x2="94" y1="54" y2="54"></line>
+  <circle cx="84" cy="54" fill="#7a2e10" r="3"></circle>
+  <text fill="#7a2e10" font-family="system-ui,sans-serif" font-size="10.5" x="98" y="58">r = −0.5  (stable, oscillates)</text>
+  <line stroke="#c07a1a" stroke-dasharray="4,2" stroke-width="2" x1="74" x2="94" y1="71" y2="71"></line>
+  <circle cx="84" cy="71" fill="#c07a1a" r="3"></circle>
+  <text fill="#c07a1a" font-family="system-ui,sans-serif" font-size="10.5" x="98" y="75">r = −1.4  (unstable)</text>
+</svg>
+        <figcaption><strong>Fig. 2.7</strong> Three orbits of $x_t = rx_{t-1}+d$ all sharing fixed point $x^*=1$, starting from $x_0=2.2$ (blue and red) or $x_0=1.15$ (amber). Positive $r$ converges monotonically; $-1 &lt; r &lt; 0$ converges via damped oscillation; $r &lt; -1$ oscillates with growing amplitude and diverges.</figcaption>
+      </figure>
+    </section>
+    <section class="sub" id="sub-fixed-points-dynamical-systems">
+      <h3 class="sub">2.3 Fixed Points of Dynamical Systems</h3>
+      <p>The behavior of linear dynamical systems of the form $x_t = rx_{t-1}+d$ is fully understood by the analysis above. But the laws of nature are not always linear. A population's growth rate may slow as density increases; a predator's attack rate may saturate at high prey abundance; a gene frequency may have a nonlinear relationship to fitness. Let's return to the more general recursion rule for a dynamical systems of the form: $$x_t=f(x_{t-1})\;.$$</p>
+      <p>We'd like to understand the properties of this system without necessarily finding an explicit formula for $x_t$ as a function of . The first question to ask of any system $x_t = f(x_{t-1})$ is: <em>does it have fixed points, and if so, are they stable or unstable?</em></p>
+      <p>Recall that a fixed point $x^*$ is a value that does not change under the action of the rule — once the system reaches $x^*$, it stays there. Formally, $x^*$ satisfies: $$x^*=f(x^*) \;.$$</p>
+      <p>We find fixed points by solving this equation for $x^*$. For nonlinear $f$ this may require factoring, a quadratic formula, or other algebraic or graphical tools.</p>
+      <div class="example" id="ex-fp-gene">
+        <button class="example-trigger" type="button"><span class="ex-badge">Example 2.6</span> <span class="ex-title">Negative feedback in gene regulation</span> <span class="ex-icon">▶</span></button>
+        <div class="example-body">
+          <p>Many genes regulate their own expression through negative feedback: the protein they encode inhibits their own transcription. A simple discrete-time model of this process is:</p>
+          <div class="eq">$$x_t = \frac{a}{1 + x_{t-1}}$$</div>
+          <p>Here $x_t$ is the intracellular protein concentration at generation $t$, and $a &gt; 0$ is the maximum production rate. When $x_{t-1}$ is large, the denominator is large and production is suppressed; when $x_{t-1}$ is small, the gene fires near full rate.</p>
+          <p><strong>Finding the fixed point.</strong> Set $x^* = a/(1 + x^*)$:</p>
+          <div class="eq">$$x^*(1 + x^*) = a \implies {x^*}^2 + x^* - a = 0$$</div>
+          <p>This is a quadratic in $x^*$. Applying the quadratic formula and keeping the positive root (concentration cannot be negative):</p>
+          <div class="eq">$$x^* = \frac{-1 + \sqrt{1 + 4a}}{2}$$</div>
+          <p>For example, with $a = 2$: $x^* = (-1 + 3)/2 = 1$. We verify: $f(1) = 2/(1+1) = 1$ ✓. With $a = 6$: $x^* = (-1 + 5)/2 = 2$, and $f(2) = 6/3 = 2$ ✓.</p>
+        </div>
+      </div>
+      <h4 class="topic">Graphical Analysis - <em>Cobweb Diagrams</em></h4>
+      <p>The <em>cobweb diagram</em> is an elegant graphical method for identifying fixed points and determining their stability. Consider the graph of $y = f(x)$ together with the identity line $y = x$. Together these two curves can help us understand the dynamics:</p>
+      <p><strong>Fixed points</strong> are intersections of $y = f(x)$ with $y = x$, since at these points $f(x^*) = x^*$.</p>
+      <p><strong>The cobweb construction.</strong> To trace an orbit starting from $x_0$:</p>
+      <ol>
+        <li>Start on the $x$-axis at the point $(x_0, 0)$.</li>
+        <li>Move <em>vertically</em> to the curve $y = f(x)$: arrive at $(x_0, f(x_0)) = (x_0, x_1)$.</li>
+        <li>Move <em>horizontally</em> to the diagonal $y=x$: arrive at $(x_1, x_1)$. In this way we turn the output of one step, $x_1$ ,into the input of the next step. This is the process of recursion.</li>
+        <li>Repeat from the new $x$-position $x_1$ to get $x_2$ and so on.</li>
+      </ol>
+      <p>The resulting zig-zag path — the cobweb — reveals at a glance whether orbits spiral in toward a fixed point (stable), spiral out away from it (unstable), or oscillate in some more complex pattern.</p>
+      <p>The interactive explorer below lets you build intuition for cobweb diagrams across three families of functions — from simple linear rules, to the single-humped quadratic map central to population ecology, to a quartic function that can develop two humps as a parameter varies, revealing qualitatively new dynamics.</p>
+      <div class="ibox" id="ibox-cobweb">
+  <div class="ititle" onclick="toggleIbox('ibox-cobweb')">
+    <span class="ib-badge">Exploration 2.2</span>
+    <span class="ib-title">🕸 Cobweb Diagram Explorer</span>
+    <span class="ib-icon" style="transform: rotate(90deg);">▶</span>
+  </div>
+  <div class="ib-body" style="display: block; padding: 20px 24px 16px;">
+  <p style="font-size:0.93em;color:var(--muted);margin-bottom:14px;font-style:italic;">Select a function family, adjust parameters, and choose an initial value $x_0$ to see the cobweb orbit and time series.</p>
+
+  <div class="widget-row">
+    <span style="font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--muted);">Function:</span>
+    <div class="tab-group">
+      <button data-cwtype="0" onclick="cwSetType(0)" style="padding: 5px 14px; border: 1px solid rgb(187, 187, 187); background: white; border-radius: 3px; font-size: 12.5px; cursor: pointer; font-family: system-ui, sans-serif; color: rgb(26, 26, 26); transition: 0.15s; font-weight: normal;">Linear</button>
+      <button data-cwtype="1" onclick="cwSetType(1)" style="padding: 5px 14px; border: 1px solid rgb(122, 46, 16); background: rgb(122, 46, 16); border-radius: 3px; font-size: 12.5px; cursor: pointer; font-family: system-ui, sans-serif; color: white; font-weight: 600; transition: 0.15s;">Quadratic</button>
+      <button data-cwtype="2" onclick="cwSetType(2)" style="padding: 5px 14px; border: 1px solid rgb(187, 187, 187); background: white; border-radius: 3px; font-size: 12.5px; cursor: pointer; font-family: system-ui, sans-serif; color: rgb(26, 26, 26); transition: 0.15s; font-weight: normal;">Quartic</button>
+    </div>
+  </div>
+
+  <div class="func-display" id="cw-func-display" style="font-family:'Courier New',Courier,monospace;font-size:12.5px;color:#2060b0;background:#f0f4fc;padding:5px 10px;border-radius:3px;margin:8px 0 12px;min-height:24px;">f(x) = 2.80 · x(1−x)</div>
+
+  <div class="ctrl-row" id="cw-r-row">
+    <span class="ctrl-label">$r$</span>
+    <input id="cw-r" max="1.5" min="0" step="0.05" style="width:130px;accent-color:#7a2e10;vertical-align:middle;" type="range" value="2.8">
+    <input id="cw-r-num" max="1.5" min="0" step="0.05" style="width:64px;padding:3px 6px;border:1px solid #ccc;border-radius:3px;font-size:13px;" type="number" value="2.80">
+  </div>
+  <div class="ctrl-row" id="cw-d-row" style="display: none;">
+    <span class="ctrl-label">$d$</span>
+    <input id="cw-d" max="0.5" min="-0.5" step="0.02" style="width:130px;accent-color:#7a2e10;vertical-align:middle;" type="range" value="0.1">
+    <input id="cw-d-num" max="0.5" min="-0.5" step="0.02" style="width:64px;padding:3px 6px;border:1px solid #ccc;border-radius:3px;font-size:13px;" type="number" value="0.10">
+  </div>
+  <div class="ctrl-row" id="cw-s-row" style>
+    <span class="ctrl-label">$s$</span>
+    <input id="cw-s" max="8" min="0" step="0.1" style="width:130px;accent-color:#7a2e10;vertical-align:middle;" type="range" value="5.0">
+    <input id="cw-s-num" max="8" min="0" step="0.1" style="width:64px;padding:3px 6px;border:1px solid #ccc;border-radius:3px;font-size:13px;" type="number" value="5.00">
+    <span style="color:#5a5a6a;font-size:11.5px;margin-left:4px;">(s &gt; 1: two humps; s ≈ 5–8: multiple fixed points)</span>
+  </div>
+  <div class="ctrl-row">
+    <span class="ctrl-label" style="min-width:22px;">$x_0$</span>
+    <input id="cw-x0" max="0.98" min="0.02" step="0.01" style="width:130px;accent-color:#7a2e10;vertical-align:middle;" type="range" value="0.2">
+    <input id="cw-x0-num" max="0.98" min="0.02" step="0.01" style="width:64px;padding:3px 6px;border:1px solid #ccc;border-radius:3px;font-size:13px;" type="number" value="0.20">
+    <span style="color:#5a5a6a;font-size:11.5px;margin-left:4px;">initial value</span>
+  </div>
+  <div class="ctrl-row">
+    <span class="ctrl-label" style="min-width:22px;font-style:normal;">Steps</span>
+    <input id="cw-steps" max="80" min="3" step="1" style="width:130px;accent-color:#7a2e10;vertical-align:middle;" type="range" value="30">
+    <span id="cw-steps-val" style="font-family:system-ui,sans-serif;font-size:13px;min-width:28px;">30</span>
+  </div>
+
+  <div class="widget-canvas-wrap">
+    <canvas height="620" id="cw-canvas" style="display:block;border-radius:4px;background:#faf8f5;max-width:100%;" width="440"></canvas>
+  </div>
+
+  <!-- Engine embedded as inert script; executed via img onload below.
+       This is the only pattern that survives innerHTML paste. -->
+  
+  <img alt="image" onload="(function(){var s=document.getElementById('cw-engine-src');if(s)(new Function(s.textContent))();})()" src="images/image.gif" style="display:none;position:absolute;width:0;height:0;">
+
+  </div><!-- end ib-body -->
+</div>
+      <p>Try these experiments with the cobweb explorer:</p>
+      <ul>
+        <li><strong>Quadratic, $r = 2.0$:</strong> The cobweb spirals directly into the fixed point. Try different $x_0$ — all lead to the same destination.</li>
+        <li><strong>Quadratic, $r = 3.3$:</strong> The cobweb no longer settles — it oscillates between two values. A period-2 cycle has appeared.</li>
+        <li><strong>Quadratic, $r = 3.8$:</strong> The orbit looks random. It is not — we will return to this in <a class="xref" href="#sub-non-linear-dynamics-from-order-chaos">Section 2.4</a>.</li>
+        <li><strong>Quartic with $s = 0.5$ then $s = 2$:</strong> Watch a single hump split into two, creating new fixed points and new dynamics. Then move $s$ above $5$ creating multiple fixed points. Explore their stability.</li>
+        <li><strong>Linear with $r = 0.6$, $d = 2$:</strong> Verify the fixed point is $x^* = 2/(1-0.6) = 5$. Watch the cobweb steadily converge to this value.</li>
+        <li><strong>Linear with $r = -0.6$, $d = 2$:</strong> Verify the fixed point is $x^* = 2/(1+0.6) = 1.25$. Watch the cobweb oscillate around this fixed point as it converges.</li>
+      </ul>
+      <p><strong>Stability from the slope.</strong> The stability of a fixed point depends on how steeply $f$ crosses the diagonal. If the slope of $f$ at $x^*$ is shallow (absolute value of the slope $|m|&lt;1$), orbits nearby get pulled toward $x^*$ — it is stable. If the slope is steep, orbits are pushed away — unstable. Quantitatively:</p>
+      <div class="key-result" id="kr-2-5">
+        <div class="kr-header"><span>Key Result — Stability of a Fixed Point</span> <span class="kr-num">2.5</span></div>
+        <div class="kr-body">
+          <p>A fixed point $x^*$ of the rule $x_t = f(x_{t-1})$ is <strong>stable</strong> if the $|\text{slope}|&lt; 1$ and <strong>unstable</strong> if $|\text{slope}| &gt; 1$, at the fixed point $x^*\,.$ For the linear rule $f(x) = rx + d$, the slope is $r$ everywhere, consistent with <a class="xref" href="#kr-2-4">Key Result 2.4</a>. We will explore this key result more in <a class="xref" href="#sec-deeper-dives">Section 3</a>, with the help of some results from calculus.</p>
+        </div>
+      </div>
+    </section>
+    <section class="sub" id="sub-non-linear-dynamics-from-order-chaos">
+      <h3 class="sub">2.4 Non-Linear Dynamics — From Order to Chaos</h3>
+      <p>In <a class="xref" href="#sub-fixed-points-dynamical-systems">Section 2.3</a> we saw that the quadratic function $f(x) = rx(1-x)$ produces qualitatively different dynamics depending on $r$. This function is known as the <em>logistic map, </em> and is one of the most studied models in nonlinear dynamics, and for good reason: it is the simplest rule that captures the essential tension between intrinsic growth and the limits placed it by environmental constraints.</p>
+      <p><strong>Where does the Logistic map come from?</strong> Let's return to the dynamical system $x_t = r x_{t-1}$, which produces exponential growth, with growth rate $r$. We want to modify it so that growth slows as the population approaches its habitat's <em>carrying capacity</em>, when resources are only sufficient to maintain a constant population. Let $x$ measure the <em>relative frequency</em> of the population; that is, the population as fraction of carrying capacity (so $x = 1$ when the population is at the carrying capacity, and when $x=0.5$, for example, the population is at half the carrying capacity.) Then we modify the exponential dynamical system by setting $r=r_0(1-x)$ rather than being constant. In this way the growth factor $r$ gets smaller as $x$ increases, and reaches zero when $x=1$, at the carrying capacity. The new dynamical system is:</p>
+      <div class="eq">$$x_t = r_0\,x_{t-1}(1-x_{t-1})$$</div>
+      <p>When $x_{t-1}$ is small, the factor $(1-x_{t-1})\approx 1$ and growth is approximately exponential with rate $r_0$. As $x$ approaches 1 (full capacity) the factor $(1-x)$ approaches 0 and growth shuts off. The parameter $r_0$ is the intrinsic growth rate — how fast the population would grow if resources were unlimited.</p>
+      <p><strong>Fixed points.</strong> Setting $x^* = r_0 x^*(1-x^*)$:</p>
+      <p>$x*=0$ is clearly a fixed point (the extinction state). The other non-trivial fixed point is when</p>
+      <div class="eq">$$r_0(1-x^*) = 1 \implies x^* = 1 - \frac{1}{r_0}$$</div>
+      <p>The non-trivial fixed point exists and lies in the interval $(0,1)$ when $r_0 &gt; 1$. Its stability depends on the slope of $f(x) = r_0 x(1-x)$ at $x^*$. Analysis with calculus shows the slope at this fixed point is $2 - r_0$. The fixed point is stable when $|2 - r_0| &lt; 1$, i.e., $1 &lt; r_0 &lt; 3$.</p>
+      <p><strong>The period-doubling cascade.</strong> As $r_0$ increases beyond 3, the story becomes more curious. The stable fixed point gives way to an orbit that alternates between two values (period 2). This period-2 cycle is itself stable for a range of values $r_0$, then at $r_0 \approx 3.449$ it undergoes its own bifurcation into a period-4 cycle. Then if is increased again, there is a period 8, period 16 — an infinite cascade of period-doublings, each bifurcation occurring at a smaller interval than the last, until all the doublings are "used up" at $r_0 \approx 3.5699\ldots$, beyond which the behavior is chaotic for most values of $r_0$.</p>
+      <div class="key-result" id="kr-2-6">
+        <div class="kr-header"><span>Key Result — Logistic Map Fixed Points and Stability</span> <span class="kr-num">2.6</span></div>
+        <div class="kr-body">
+          <p>The logistic map $x_t = r_0\,x_{t-1}(1-x_{t-1})$ has two fixed points:</p>
+          <div class="eq">$$x^* = 0 \; (\text{unstable for } r_0 &gt; 1) \; \text{and} \; x^* = 1 - \frac{1}{r_0} \; (\text{stable for } 1 &lt; r_0 &lt; 3)$$</div>
+          <p>For $r_0 &gt; 3$ the non-trivial fixed point loses stability and the long-run behavior changes qualitatively:</p>
+          <div class="eq">$$\begin{eqnarray} &amp;&amp;1 &lt; r_0 &lt; 3:\text{ stable fixed point} \\ \quad &amp;&amp;3 &lt; r_0 &lt; 3.449\ldots:\text{ period-2 cycle} \\ &amp;&amp;3.449&lt;r_0&lt; 3.5441\ldots:\text{period-4 cycle}\\ &amp;&amp;3.5441&lt;r_0&lt; 3.5644\ldots:\text{period-8 cycle}\\&amp;&amp;\quad \xrightarrow{} \quad \cdots \xrightarrow{r_0 \approx 3.5699} \text{ chaos, with some small windows of stability}\end{eqnarray}$$</div>
+        </div>
+      </div>
+      <p><strong>Sensitive dependence on initial conditions.</strong> In the chaotic regime, two orbits starting from initial values differing by as small an amount as $10^{-10}$ — a difference invisible to any physical measurement — will diverge from each other exponentially until they are completely different after a few dozen iterations. This is sometimes called the <em>butterfly effect</em>: a small change now leads to a completely different future. Crucially, the system is still deterministic — given exactly $x_0$, the orbit is exactly determined. But any uncertainty in $x_0$, however small, eventually swamps all prediction.</p>
+      <p>The interactive diagram below lets you explore the full picture, from stable equilibria to chaos, by selecting values of $r_0$.</p>
+      <div class="ibox" id="ibox-bifurcation">
+  <div class="ititle" onclick="toggleIbox('ibox-bifurcation')">
+    <span class="ib-badge">Exploration 2.3</span>
+    <span class="ib-title">📊 Bifurcation Diagram of the Logistic Map</span>
+    <span class="ib-icon" style>▶</span>
+  </div>
+  <div class="ib-body" style="display: none; padding: 20px 24px 16px;">
+  <p style="font-size:0.93em;color:var(--muted);margin-bottom:14px;font-style:italic;">The diagram plots the long-run values of $x$ (after transients die out) against $r_0$. Select a value of $r_0$ to see the corresponding time series below.</p>
+
+  <div class="ctrl-row" style="margin-bottom:14px;">
+    <span class="ctrl-label" style="min-width:24px;">$r_0$</span>
+    <input id="bf-r0" max="4" min="0.1" step="0.01" type="range" value="2.8">
+    <input id="bf-r0-num" max="4" min="0.1" step="0.01" style="width:64px;" type="number" value="2.80">
+    <span class="ctrl-desc" id="bf-behavior-label" style="font-weight:600;color:var(--sienna);">→ stable equilibrium at x* = 0.643</span>
+  </div>
+
+  <div class="widget-canvas-wrap">
+    <canvas class="bf-canvas" height="300" id="bf-canvas" style="background:#1a1a2e;border-radius:4px;" width="580"></canvas>
+  </div>
+
+  <div class="bf-label">Time series at selected $r_0$ (after 300 transient steps):</div>
+  <div class="widget-canvas-wrap">
+    <canvas class="bf-canvas" height="150" id="bf-ts-canvas" style="background:#f8f4ee;border-radius:4px;" width="580"></canvas>
+  </div>
+  </div><!-- end ib-body -->
+</div>
+      <p>The bifurcation diagram reveals one of the most famous structures in mathematics: a branching tree of period doublings, with intricate windows of order (periodic cycles) embedded within the chaotic sea. Notice in particular:</p>
+      <ul>
+        <li>The prominent <strong>period-3 window</strong> near $r_0 \approx 3.83$. Li and Yorke proved in 1975 that any rule with a period-3 orbit must also have orbits of every other period — and chaos.</li>
+        <li><strong>Self-similarity:</strong> zoom into any region of the chaotic zone and you will find smaller copies of the same bifurcation structure, repeating at all scales.</li>
+        <li>The <strong>onset of chaos at $r_0 \approx 3.5699$</strong>: this is the accumulation point of the period-doubling cascade, called $r_\infty$.</li>
+      </ul>
+      <div class="example" id="ex-2-logistic-orbits">
+        <button class="example-trigger" type="button"><span class="ex-badge">Example 2.7</span> <span class="ex-title">Three orbits: order, oscillation, and chaos</span> <span class="ex-icon">▶</span></button>
+        <div class="example-body">
+          <p><strong>$r_0 = 2.5$ (stable equilibrium).</strong> The non-trivial fixed point is $x^* = 1 - 1/2.5 = 0.6$. Starting from $x_0 = 0.1$: the orbit rises through $0.225, 0.436, 0.616, 0.591, 0.601, 0.600, \ldots$ and converges steadily to 0.6. The cobweb spirals inward.</p>
+          <p><strong>$r_0 = 3.2$ (period-2 cycle).</strong> The fixed point at $x^* = 0.6875$ is now unstable ($f'(x^*) = 2 - 3.2 = -1.2$, magnitude $&gt; 1$). The orbit instead settles into a two-cycle alternating between $x \approx 0.513$ and $x \approx 0.799$. A cobweb diagram shows a rectangle rather than a spiral.</p>
+          <p><strong>$r_0 = 3.9$ (chaos).</strong> Start from $x_0 = 0.200000$ and $x_0 = 0.200001$. After 30 steps, the two orbits are completely different: one at 0.33, the other at 0.88. Initial differences smaller than any biological measurement (a single extra atom, say, displacing one molecule) will lead to arbitrarily different predictions. This is deterministic chaos: not random, but unpredictable.</p>
+        </div>
+      </div>
+      <div class="callout" id="co-2-universality">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Further Explanation</span> <span class="ct-title">Why the logistic map matters beyond population ecology</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p>The logistic map is not a precise model of any particular population — the assumption of a single, constant $r_0$ is a simplification. Its importance is that it is the a very simple non-linear rule and serves as a canonical example of what is possible in a discrete nonlinear dynamical system. Any smooth single-humped map — not just $rx(1-x)$ — undergoes the same period-doubling cascade, in the same order, with the same universal ratio between successive bifurcation intervals. This ratio, $\delta \approx 4.6692\ldots$, is Feigenbaum's constant, discussed in Deeper Dive 3.4. The logistic map's behavior is a template for an entire universality class of nonlinear systems — from dripping faucets to electronic circuits to fluid turbulence.</p>
+        </div>
+      </div>
+    </section>
+  </section>
+  <section class="sec" id="sec-deeper-dives">
+    <div class="sec-head">
+      <span class="sec-label">Section 3</span>
+      <h2>Deeper Dives</h2>
+    </div>
+    <p>Each deeper dive extends one subsection of <a class="xref" href="#sec-mathematics-change">Section 2</a> into more advanced mathematical territory. These explorations are suitable for a curious reader, an independent project, or a more advanced course.</p>
+    <section class="sub" id="sub-from-discrete-continuous-time">
+      <h3 class="sub">3.1 From Discrete to Continuous Time</h3>
+      <p>The dynamical systems we have studies in this chapter have been discrete: $x_t = f(x_{t-1})$, where $t$ takes integer values, such as one generation, one year, one day, <em>etc</em>. But many natural processes are modelled better with a continuous process: the decay of a radioactive nucleus could come at any instant, not at regular intervals; bacteria divide whenever conditions are right. While solving continuous dynamical systems is beyond the scope of this book, understanding the connection between discrete and continuous models is important.</p>
+      <h4 class="topic">Connection between Discrete and Continuous Dynamical Systems</h4>
+      <p>Consider the dynamical system that grows by factor each year. Suppose we measure population size every small interval of time $\Delta t$ instead of every year. If the yearly multiplier is $r$, then the multiplier over a small interval $\Delta t$ is $r^{\Delta t}$. Writing $h = \Delta t$ to keep notation compact, the discrete rule becomes:</p>
+      <div class="eq">$$x(t + h) = r^h \cdot x(t)$$</div>
+      <p>, where we use functional notation for rather than discrete notation . Now ask: as the interval $h \to 0$ (continuous measurement), what does this rule become? Rearrange to isolate the rate of change:</p>
+      <div class="eq">$$\frac{x(t+h) - x(t)}{h} = \frac{r^h - 1}{h} \cdot x(t)$$</div>
+      <p>The left side is the <em>difference quotient</em> — the average rate of change of $x$ over the interval $[t, t+h]$. As $h\to 0$ it becomes the instantaneous rate of change, written $dx/dt$ and called the <em>derivative of x with respect to time. </em>This is a key definition in calculus. We also need to evaluate the limit on the right. Let's call this limit</p>
+      <div class="eq">$$k=\lim_{h \to 0} \frac{r^h - 1}{h}$$</div>
+      <p>If the limit exists, we can substitute on the right hand side and we get:</p>
+      <div class="eq">$$\frac{dx}{dt} = k\,x(t) $$</div>
+      <p>This is the <em>differential equation</em> of continuous exponential growth. Solving differential equations is beyond the scope of this book, but for the purposes of the discussion that follows its solution is:</p>
+      <div class="eq">$$x(t) = x_0\,e^{kt}$$</div>
+      <p>were $e$ is the <em>natural base</em> or <em>Euler's number</em></p>
+      <div class="key-result" id="kr-discrete-continuous-exponential-growth">
+        <div class="kr-header"><span>Key Result — Discrete and Continuous Exponential Growth</span> <span class="kr-num">2.7</span></div>
+        <div class="kr-body">
+          <p>The discrete model $x_t = x_0 r^t$ and the continuous model $x(t) = x_0 e^{kt}$ describe the same growth process at different time resolutions. By direct comparison they are related by $r = e^k$, or equivalently $k = \ln r$. The growth constant $k$ is the <em>per-unit-time rate</em>: if $k &gt; 0$, the quantity grows; if $k &lt; 0$, it decays. Doubling time is $T = \ln 2 / k = \log 2 / \log r$ in both formulations.</p>
+        </div>
+      </div>
+      <h4 class="topic">The number $e$ — the natural base</h4>
+      <p>Where does $e$ come from? Look again at the limit we found in the previous section:</p>
+      <div class="eq">$$k = \lim_{h\to 0}\frac{r^h - 1}{h}$$</div>
+      <p>The value of $k$ depends on the base $r$. To find this connection let's define $L(r)$ as this limit for a given base $r$:<rp></rp></p>
+      <div class="eq">$$L(r) = \lim_{h \to 0} \frac{r^h - 1}{h}$$</div>
+      <p>Testing numerically with a small $h$ (say $h = 0.0001$) for a few values of $r$ we get:</p>
+      <figure id="tab-numerical-values-three-bases">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Base $r$</th>
+                <th>$L(r) \approx$</th>
+                <th>Compared to 1</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2</td>
+                <td>0.693</td>
+                <td>$&lt; 1$</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>1.099</td>
+                <td>$&gt; 1$</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>2.303</td>
+                <td>$&gt; 1$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <figcaption><strong>Table 2.2</strong> Numerical values of $L(r)$ for three bases, computed with $h = 0.0001$.</figcaption>
+      </figure>
+      <p>For $r = 2$ the limit is less than 1; for $r = 3$ it is greater than 1. Since $L(r)$ is continuous in $r$, there must exist some base between 2 and 3 where the limit is exactly equal to 1. We call this special base $e$:</p>
+      <div class="eq">$$\lim_{h \to 0} \frac{e^h - 1}{h} = 1$$</div>
+      <p>This is the <em>definition</em> of $e$ , the unique base for which the limit is equals exactly 1. To find an approximate value for we approximate the limit for small $h$:</p>
+      <div class="eq">$$\frac{e^h - 1}{h} \approx 1$$</div>
+      <p>Isolating $e$: multiply both sides by $h$ to get $e^h \approx 1 + h$, then raise both sides to the power $1/h$:</p>
+      <div class="eq">$$e \approx (1 + h)^{1/h}$$</div>
+      <p>As $h \to 0$ this approximation becomes exact. Substituting $n = 1/h$ (so $n \to \infty$ as $h \to 0$) gives a more common series representation:</p>
+      <div class="eq">$$e = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n \approx 2.71828\ldots$$</div>
+      <h4 class="topic">Showing $L(r)=\ln{r}$</h4>
+      <p>We have defined $e$ so that $L(e) = 1$. So now, we need to find an expression for $L(r)$ in terms of $r\, .$ We will show $L(r)=\ln{r}$, the natural logarithm of $r$ .</p>
+      <p>First observe we can write any base $r$ as a power of $e$, by letting $r = e^k$, for some some $k\,.$ This always possible by choosing $k = \ln r$ using the definition of the natural logarithm.</p>
+      <p>Then it follows that $r^h = (e^k)^h = e^{kh}$, and the limit becomes:</p>
+      <div class="eq">$$L(r) = \lim_{h \to 0} \frac{r^h - 1}{h} = \lim_{h \to 0} \frac{e^{kh} - 1}{h}$$</div>
+      <p>Substitute $u = kh$ (so $h = u/k$, and $u \to 0$ as $h \to 0$):</p>
+      <div class="eq">$$L(r)= \lim_{u \to 0} \frac{e^u - 1}{u/k} = k \cdot \lim_{u \to 0} \frac{e^u - 1}{u} = k \cdot L(e) = k \cdot 1 = k$$</div>
+      <p>So $L(r) = k =\ln{r}$, as promised. We have shown that the growth rate $k$ for the continuous dynamical system is the natural logarithm of the discrete growth factor $r$ in the discrete dynamical system.</p>
+      <div class="callout" id="co-31-projects">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Explore</span> <span class="ct-title">Project ideas for §3.1</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p><strong>Project A — Computing $L(r)$ numerically.</strong> For each base $r \in \{1.5, 2, 2.5, 3, 4, 10\}$, compute $L(r) = (r^h - 1)/h$ using $h = 0.0001$. Plot $L(r)$ against $r$ — what shape does the curve have? Use your table to estimate the base where $L(r) = 1$ to two decimal places. Then refine: try $r = 2.7, 2.71, 2.718$. How many decimal places of $e = 2.71828\ldots$ can you pin down this way? Finally, verify using the approximation $(1 + h)^{1/h}$ with $h = 0.0001$.</p>
+          <p><strong>Project B — Newton's law of cooling.</strong> A hot object at temperature $T_0$ above room temperature cools according to $dT/dt = -kT$, giving $T(t) = T_0 e^{-kt}$. (a) A cup of coffee cools from 40°C above room temperature to 20°C above room temperature in 12 minutes. Find $k$ and the continuous half-life. (b) Write the equivalent discrete rule $T_{t+1} = r\,T_t$ with time steps of 1 minute. What is $r$? (c) How long until the coffee is within 1°C of room temperature?</p>
+          <p><strong>Project C — Continuous vs discrete half-life.</strong> For the discrete model $x_t = x_0 r^t$ with $r = 0.9$ per day, compute the half-life exactly using $T = \log 2/\log(1/r)$. Now compute the continuous-time half-life using $T = \ln 2/|k|$ where $k = \ln r$. Are they the same? Verify algebraically that $\log 2/\log(1/r) = \ln 2/\ln(1/r)$ regardless of the base. Then explain why the two formulas give the same number of days.</p>
+          <p><strong>Project D — The exponential as its own derivative.</strong> Define $E(x) = \lim_{n\to\infty}(1+x/n)^n$. Using the binomial theorem, expand $(1+x/n)^n$ and show that the first three terms give $1 + x + x^2/2$. Then differentiate this polynomial: what do you get? What does this suggest about $dE/dx$? Finally, verify numerically that the slopes of $y = 2^x$ and $y = 3^x$ at $x = 0$ bracket the slope of $y = e^x$ — and that the slope of $y = e^x$ at $x = 0$ is exactly 1.</p>
+        </div>
+      </div>
+    </section>
+    <section class="sub" id="sub-determining-when-fixed-points-attract-or">
+      <h3 class="sub">3.2 Determining When Fixed Points Attract or Repel</h3>
+      <p><a class="xref" href="#kr-2-5">Key Result 2.5</a> stated that a fixed point $x^*$ is stable if $|f'(x^*)| &lt; 1$. Where does this inequality come from? The answer is <em>linearization</em>: the idea that any smooth function looks like a straight line if you zoom in close enough, and that the behavior of a nonlinear system near a fixed point is governed entirely by the slope of that line, as we showed in <a class="xref" href="#sub-linear-dynamical-systems">Section 2.2</a>.</p>
+      <h4 class="topic">The Taylor approximation</h4>
+      <p>Suppose $f$ is smooth (has a well-defined derivative) near $x^*$. For any $x$ close to $x^*$, write $x = x^* + \epsilon$ where $\epsilon$ is small. The <em>first-order Taylor approximation</em> says:</p>
+      <div class="eq">$$f(x^* + \epsilon) \approx f(x^*) + f'(x^*)\cdot\epsilon$$</div>
+      <p>This is just the equation of the tangent line to $f$ at $x^*$. Since $f(x^*) = x^*$ (fixed point), this simplifies to:</p>
+      <div class="eq">$$f(x^* + \epsilon) \approx x^* + \lambda\,\epsilon \qquad \text{where } \lambda = f'(x^*)$$</div>
+      <p>Now define the error $\epsilon_t = x_t - x^*$. Applying the rule $x_t = f(x_{t-1})$:</p>
+      <div class="eq">$$x^* + \epsilon_t = f(x^* + \epsilon_{t-1}) \approx x^* + \lambda\,\epsilon_{t-1}$$</div>
+      <p>Subtracting $x^*$ from both sides:</p>
+      <div class="eq">$$\epsilon_t \approx \lambda\,\epsilon_{t-1}$$</div>
+      <p>This is exactly the linear recursion from <a class="xref" href="#sub-linear-dynamical-systems">Section 2.2</a>, but with $r = \lambda$ and $d = 0$. By <a class="xref" href="#kr-2-4">Key Result 2.4</a>, the error decays to zero if and only if $|\lambda| &lt; 1$.</p>
+      <div class="key-result" id="kr-linearization-theorem">
+        <div class="kr-header"><span>Key Result — Linearization Theorem</span> <span class="kr-num">2.8</span></div>
+        <div class="kr-body">
+          <p>Near a fixed point $x^*$ of $x_t = f(x_{t-1})$, the error $\epsilon_t = x_t - x^*$ obeys the linearized recursion $\epsilon_t \approx \lambda\,\epsilon_{t-1}$ where $\lambda = f'(x^*)$ is the <strong>linearized multiplier</strong>. The fixed point is:</p>
+          <ul>
+            <li><strong>Stable</strong> if $|\lambda| &lt; 1$: errors decay geometrically, $\epsilon_t \approx \lambda^t \epsilon_0 \to 0$.</li>
+            <li><strong>Unstable</strong> if $|\lambda| &gt; 1$: errors grow geometrically and orbits leave the neighborhood of $x^*$.</li>
+            <li><strong>Oscillatory approach</strong> if $\lambda &lt; 0$: the orbit alternates above and below $x^*$ as it converges or diverges.</li>
+          </ul>
+        </div>
+      </div>
+      <h4 class="topic">Applications</h4>
+      <p><strong>Logistic map.</strong> The non-trivial fixed point is $x^* = 1 - 1/r_0$. Computing $f'(x) = r_0(1-2x)$ and evaluating at $x^*$:</p>
+      <div class="eq">$$\lambda = r_0\!\left(1 - 2\!\left(1 - \frac{1}{r_0}\right)\right) = r_0\!\left(\frac{2}{r_0} - 1\right) = 2 - r_0$$</div>
+      <p>Stability requires $|2 - r_0| &lt; 1$, i.e. $1 &lt; r_0 &lt; 3$. At $r_0 = 3$ exactly, $\lambda = -1$: the fixed point is at the edge of instability — the <em>bifurcation</em> point. For $r_0 &lt; 2$, $\lambda &gt; 0$ and the approach is monotone; for $2 &lt; r_0 &lt; 3$, $\lambda &lt; 0$ and the orbit oscillates as it converges, which is visible in the cobweb diagram as an inward spiral.</p>
+      <div class="example" id="ex-fp-bh">
+        <button class="example-trigger" type="button"><span class="ex-badge">Example 2.8</span> <span class="ex-title">The Beverton–Holt model: fishery recruitment</span> <span class="ex-icon">▶</span></button>
+        <div class="example-body">
+          <p>The <em>Beverton–Holt model</em> describes a fish population harvested annually, where density-dependent competition limits recruitment. The rule is:</p>
+          <div class="eq">$$x_t = \frac{r\,x_{t-1}}{1 + \dfrac{r-1}{K}\,x_{t-1}}$$</div>
+          <p>Here $r &gt; 1$ is the intrinsic growth rate (how many offspring each adult would produce with no competition) and $K &gt; 0$ is the carrying capacity. The denominator grows with population size, representing the slowdown as competition intensifies.</p>
+          <p><strong>Finding the fixed points.</strong> Set $x^* = f(x^*)$:</p>
+          <div class="eq">$$x^* = \frac{r\,x^*}{1 + \dfrac{r-1}{K}\,x^*}$$</div>
+          <p>One solution is immediate: $x^* = 0$ (the extinct state). For the non-trivial fixed point, divide both sides by $x^*$ (valid since $x^* \neq 0$):</p>
+          <div class="eq">$$1 = \frac{r}{1 + \dfrac{r-1}{K}\,x^*}$$</div>
+          <p>Cross-multiplying: $1 + \dfrac{r-1}{K}\,x^* = r$, so $\dfrac{r-1}{K}\,x^* = r - 1$, giving:</p>
+          <div class="eq">$$x^* = K$$</div>
+          <p>The two fixed points are $x^* = 0$ (extinction) and $x^* = K$ (carrying capacity). This makes biological sense: without fish there is no recruitment; a population at exactly its carrying capacity replaces itself precisely.</p>
+          <p><strong>Stability.</strong> The derivative of $f$ is:</p>
+          <div class="eq">$$f'(x) = \frac{rK}{\bigl(K + (r-1)x\bigr)^2}$$</div>
+          <p>At $x^* = 0$: $f'(0) = r/K \cdot K^2 / K^2$... let us compute directly: $f'(0) = rK/K^2 = r/K$. Hmm — actually at $x=0$ the denominator is $K$, so $f'(0) = rK/K^2 = r$. Since $r &gt; 1$, we have $|f'(0)| = r &gt; 1$: the extinction state is <strong>unstable</strong>. A small population will grow away from zero.</p>
+          <p>At $x^* = K$: the denominator becomes $K + (r-1)K = rK$, so:</p>
+          <div class="eq">$$f'(K) = \frac{rK}{(rK)^2} = \frac{rK}{r^2K^2} = \frac{1}{r}$$</div>
+          <p>Since $r &gt; 1$, we have $|f'(K)| = 1/r &lt; 1$: the carrying capacity is a <strong>stable</strong> fixed point. Regardless of where the population starts (above or below $K$, so long as it is positive), it converges to $K$. The Beverton–Holt model never overshoots — it approaches equilibrium smoothly without oscillations.</p>
+        </div>
+      </div>
+      <div class="example" id="ex-fp-ricker">
+        <button class="example-trigger" type="button"><span class="ex-badge">Example 2.9</span> <span class="ex-title">The Ricker model: Pacific salmon</span> <span class="ex-icon">▶</span></button>
+        <div class="example-body">
+          <p>Pacific salmon spawn once and die; the next generation's population depends on the parents' density through competition for spawning habitat. The <em>Ricker model</em>, proposed by fisheries biologist W.E. Ricker in 1954, captures this with an exponential density-dependence:</p>
+          <div class="eq">$$x_t = x_{t-1}\,e^{\,r\left(1 - x_{t-1}/K\right)}$$</div>
+          <p>When $x_{t-1}$ is small relative to $K$, the exponent is close to $r$ and growth is approximately exponential. When $x_{t-1} = K$, the exponent is zero and $x_t = x_{t-1}$ — the population exactly replaces itself. When $x_{t-1} &gt; K$, the exponent is negative and the population declines.</p>
+          <p><strong>Finding the fixed points.</strong> Set $x^* = x^* e^{r(1-x^*/K)}$:</p>
+          <div class="eq">$$1 = e^{\,r(1-x^*/K)}$$</div>
+          <p>(after dividing by $x^*$, valid for $x^* \neq 0$). Taking the natural logarithm of both sides:</p>
+          <div class="eq">$$0 = r\!\left(1 - \frac{x^*}{K}\right) \implies x^* = K$$</div>
+          <p>So the two fixed points are $x^* = 0$ (extinction) and $x^* = K$ (carrying capacity) — the same as the Beverton–Holt model. The two models share the same fixed points but behave very differently between them.</p>
+          <p><strong>Stability.</strong> Writing $f(x) = x e^{r(1-x/K)}$ and differentiating by the product rule:</p>
+          <div class="eq">$$f'(x) = e^{r(1-x/K)} + x \cdot \left(\frac{-r}{K}\right)e^{r(1-x/K)} = e^{r(1-x/K)}\left(1 - \frac{rx}{K}\right)$$</div>
+          <p>At $x^* = K$: the exponential factor is $e^0 = 1$, giving:</p>
+          <div class="eq">$$f'(K) = 1 - r$$</div>
+          <p>The stability condition $|f'(K)| = |1-r| &lt; 1$ requires $0 &lt; r &lt; 2$. This is a critical result: for moderate growth rates ($r &lt; 2$), the salmon population converges to carrying capacity. For $r &gt; 2$, the equilibrium at $K$ is unstable — exactly what Ricker observed in populations with high reproductive rates. The Ricker model is, in fact, a close biological relative of the logistic map (<a class="xref" href="#sub-non-linear-dynamics-from-order-chaos">Section 2.4</a>), and shows the same period-doubling route to chaos as $r$ increases beyond 2.</p>
+          <p>At $x^* = 0$: $f'(0) = e^r \cdot 1 = e^r &gt; 1$ for all $r &gt; 0$, so extinction is always an unstable fixed point — a positive population will grow away from zero, consistent with the Beverton–Holt result.</p>
+        </div>
+      </div>
+      <div class="callout" id="co-32-projects">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Explore</span> <span class="ct-title">Project ideas for §3.2</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p><strong>Project A — Gene regulation bifurcation.</strong> For the self-repressing gene model $x_t = a/(1+x_{t-1})$, the fixed point is $x^* = (-1+\sqrt{1+4a})/2$ and the linearized multiplier simplifies to $\lambda = -x^*/(1+x^*)$. (a) Show that $|\lambda| &lt; 1$ for all $x^* &gt; 0$, confirming unconditional stability. (b) As $a \to \infty$, what does $x^*$ approach? What does $\lambda$ approach? (c) At what value of $a$ does the approach change from oscillatory to monotone? (Hint: the transition occurs at $\lambda = 0$, i.e., $x^* = 0$; find the corresponding $a$.)</p>
+          <p><strong>Project B — Accuracy of the linearization.</strong> For the logistic map with $r_0 = 2.5$, the fixed point is $x^* = 0.6$ and $\lambda = -0.5$. Start from $x_0 = 0.9$ (far from $x^*$) and compute the first 10 iterates. Compute the errors $\epsilon_t = x_t - 0.6$. How well does the prediction $\epsilon_t \approx (-0.5)^t \times 0.3$ match the actual errors? At what step does the linearization become accurate to within 5%? This illustrates both the power and the local nature of the linearization theorem.</p>
+          <p><strong>Project C — Higher-order Taylor terms.</strong> The linearization uses only the first derivative. The <em>second-order</em> Taylor approximation is $f(x^*+\epsilon) \approx x^* + \lambda\epsilon + \tfrac{1}{2}f''(x^*)\epsilon^2$. For the logistic map, compute $f''(x) = -2r_0$ and show that the second-order correction to the error recursion is $\epsilon_t \approx \lambda\epsilon_{t-1} - r_0\epsilon_{t-1}^2$. At $r_0 = 2.9$ (close to the bifurcation), compare the first- and second-order predictions for the first 5 steps from $x_0 = 0.5$. Does the second-order correction significantly improve accuracy?</p>
+          <p><strong>Project D — Finding bifurcations by linearization.</strong> Consider the modified map $f(x) = rx(1-x^2)$ (a cubic rather than quadratic term). (a) Find all fixed points. (b) Compute $\lambda$ at each fixed point as a function of $r$. (c) Find the value of $r$ at which the non-trivial fixed point loses stability, and predict whether a period-2 or period-4 orbit will appear first. (d) Verify by iterating the map numerically for $r$ just above the bifurcation value.</p>
+        </div>
+      </div>
+    </section>
+    <section class="sub" id="sub-second-iterates-birth-period-2-orbits">
+      <h3 class="sub">3.3 Second Iterates and the Birth of Period-2 Orbits</h3>
+      <p>When the fixed point $x^* = 1 - 1/r_0$ of the logistic map loses stability at $r_0 = 3$, where does the orbit go? It does not diverge to infinity — the map is bounded — and it does not wander randomly. Instead it settles into a <em>period-2 cycle</em>: the orbit alternates between two values $p$ and $q$ with $f(p) = q$ and $f(q) = p$. Understanding precisely how and why this happens reveals the deeper structure of the period-doubling cascade.</p>
+      <h4 class="topic">Period-2 orbits as fixed points of the second iterate</h4>
+      <p>A point $p$ is in a period-2 orbit if applying $f$ twice returns to $p$: $f(f(p)) = p$. Define the <em>second iterate</em> $f^{(2)}(x) = f(f(x))$. Then period-2 points are fixed points of $f^{(2)}$.</p>
+      <p>This is the key insight: instead of asking "when does a period-2 orbit appear?", we ask "when does $f^{(2)}$ gain new fixed points?" We already know the fixed points of $f$ are also fixed points of $f^{(2)}$ (since $f(x^*)=x^*$ implies $f(f(x^*))=f(x^*)=x^*$). The period-2 orbit consists of the <em>additional</em> fixed points of $f^{(2)}$ — those that are <em>not</em> fixed points of $f$ itself.</p>
+      <h4 class="topic">Finding the period-2 orbit explicitly</h4>
+      <p>For the logistic map $f(x) = r_0 x(1-x)$, the fixed points of $f^{(2)}$ satisfy $f^{(2)}(x) = x$. Since every fixed point of $f$ is also a fixed point of $f^{(2)}$, the polynomial $f^{(2)}(x) - x$ is divisible by $f(x) - x$. After this factoring, the remaining roots are the period-2 points.</p>
+      <p>Working this out for the logistic model, the fixed-point equation $f(x) = x$ factors as $x\bigl(r_0(1-x) - 1\bigr) = 0$, giving fixed points $x = 0$ and $x = 1 - 1/r_0$. The second iterate fixed point equation $f^{(2)}(x) = x $ becomes:$$r_0(r_0x(1-x))[1-r_0x(1-x)]-x=0 \,.$$Using the factors of $f(x)-x=0$ as a guide, we can see this quartic factors as:$$x(r_0(1-x)-1)[1+r_0(1-x)(1-r_0x)]=0\, .$$ To solve for the new period-2 fixed points we consider the last bracket only$$1+r_0(1-x)(1-r_0x)=0\;.$$ Solving this quadratic yields the two period-2 points:</p>
+      <div class="eq">$$p,\,q = \frac{(r_0+1) \pm \sqrt{(r_0-3)(r_0+1)}}{2r_0}$$</div>
+      <p>For real solutions we need $(r_0-3)(r_0+1) \geq 0$. Since $r_0 &gt; 1$, this requires $r_0 \geq 3$. The period-2 orbit is <em>born at exactly $r_0 = 3$</em> — the moment the fixed point loses stability. This is not a coincidence: it is the mechanism of the period-doubling bifurcation.</p>
+      <p>As a check: at $r_0 = 3.2$, the formula gives $p \approx 0.513$ and $q \approx 0.800$. Verify: $f(0.513) = 3.2 \times 0.513 \times 0.487 \approx 0.799$ ✓ and $f(0.800) = 3.2 \times 0.800 \times 0.200 = 0.512$ ✓.</p>
+      <h4 class="topic">Stability of the period-2 orbit</h4>
+      <p>A period-2 orbit $\{p, q\}$ is stable if the fixed points $p$ and $q$ of $f^{(2)}$ are stable. The linearized multiplier of $f^{(2)}$ at $p$ is $(f^{(2)})'(p)$. By the chain rule:</p>
+      <div class="eq">$$(f^{(2)})'(p) = f'(f(p)) \cdot f'(p) = f'(q) \cdot f'(p)$$</div>
+      <p>So stability of the period-2 orbit requires $|f'(p) \cdot f'(q)| &lt; 1$ — the <em>product</em> of the slopes at the two orbit points. At $r_0 = 3$, where $p = q = x^* = 2/3$, this product equals $f'(x^*)^2 = (2-r_0)^2 = 1$: the period-2 orbit is born at exactly the moment its "parent" loses stability. For $r_0$ slightly above 3, the period-2 orbit is stable, and remains so until $|f'(p)\cdot f'(q)| = 1$ at $r_0 \approx 3.449$ — where the period-2 orbit loses stability and a period-4 orbit is born. The cascade continues indefinitely.</p>
+      <div class="key-result" id="kr-period-doubling-bifurcation">
+        <div class="kr-header"><span>Key Result — Period-Doubling Bifurcation</span> <span class="kr-num">2.9</span></div>
+        <div class="kr-body">
+          <p>At $r_0 = 3$, the fixed point $x^* = 2/3$ of the logistic map loses stability (its linearized multiplier passes through $-1$). Simultaneously, a period-2 orbit is born, with points $p, q = \tfrac{(r_0+1) \pm \sqrt{(r_0-3)(r_0+1)}}{2r_0}$. The period-2 orbit is stable for $3 &lt; r_0 &lt; 3.449\ldots$. This same mechanism — a cycle losing stability as its multiplier crosses $-1$, simultaneously spawning a cycle of double the period — repeats at every stage of the period-doubling cascade.</p>
+        </div>
+      </div>
+      <div class="callout" id="co-33-projects">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Explore</span> <span class="ct-title">Project ideas for §3.3</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p><strong>Project A — Tracking the period-2 orbit.</strong> For $r_0 = 3.2$, use the formula $p,q = \tfrac{(r_0+1) \pm \sqrt{(r_0-3)(r_0+1)}}{2r_0}$ to compute the exact period-2 orbit values. Then compute $f'(p)$, $f'(q)$, and their product $f'(p)\cdot f'(q)$. Is $|f'(p)\cdot f'(q)| &lt; 1$? Repeat for $r_0 = 3.4$. Between $r_0 = 3.4$ and $r_0 = 3.5$, find (numerically, to two decimal places) the value where the product first exceeds 1 in magnitude — this is the next bifurcation point.</p>
+          <p><strong>Project B — Verifying the factorization.</strong> Write $g(x) = f^{(2)}(x) - x$ for the logistic map. We claim $g(x) = (f(x)-x)\cdot h(x)$ for some polynomial $h(x)$. (a) Expand $f^{(2)}(x) = r_0 f(x)(1-f(x))$ and collect terms to write $g(x)$ as a degree-4 polynomial in $x$. (b) Verify by polynomial long division that $f(x)-x = -r_0 x^2 + (r_0-1)x$ divides $g(x)$ exactly. (c) Show that the remaining quadratic factor $h(x)$ has roots given by the period-2 formula above.</p>
+          <p><strong>Project C — Period-2 orbit in the Ricker model.</strong> For the Ricker map $f(x) = xe^{r(1-x)}$ with $K=1$: (a) show that the fixed point $x^*=1$ loses stability at $r=2$, confirming the earlier result. (b) At $r=2.2$, iterate the map from $x_0 = 0.5$ for 50 steps and identify the approximate period-2 orbit values numerically. (c) Does the Ricker model show a similar cascade? Iterate at $r = 2.5, 2.7, 2.9$ and describe the observed long-run behavior in each case.</p>
+          <p><strong>Project D — The $-1$ crossing and oscillation.</strong> A period-doubling bifurcation always occurs when the linearized multiplier $\lambda$ passes through $-1$ (not $+1$). (a) Explain geometrically why $\lambda = -1$ at a fixed point causes the orbit to "bounce": if $\epsilon_t = -\epsilon_{t-1}$, what does the orbit look like? (b) In contrast, what happens geometrically when $\lambda = +1$? Which kind of bifurcation does this produce? (c) For the logistic map, find by direct computation which fixed points (if any) undergo a $\lambda = +1$ bifurcation as $r_0$ varies.</p>
+        </div>
+      </div>
+    </section>
+    <section class="sub" id="sub-universality-chaos-feigenbaum-s-constant">
+      <h3 class="sub">3.4 The Universality of Chaos: Feigenbaum's Constant</h3>
+      <p>The period-doubling cascade of the logistic map produces an infinite sequence of bifurcation values: $r_1 = 3$ (birth of period-2), $r_2 \approx 3.4495$ (birth of period-4), $r_3 \approx 3.5441$ (birth of period-8), and so on, converging to $r_\infty \approx 3.5699$, beyond which the behavior is chaotic. In 1975, Mitchell Feigenbaum — then working on a hand calculator at Los Alamos — noticed something that nobody had expected: the gaps between successive bifurcation points shrink in a precise geometric ratio.</p>
+      <h4 class="topic">Measuring the cascade</h4>
+      <p>Define the gap $\Delta_n = r_{n+1} - r_n$. The first few values, to four decimal places, are:</p>
+      <figure id="tab-bifurcation-values-logistic-map">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>$n$</th>
+                <th>$r_n$ (birth of period $2^n$)</th>
+                <th>$\Delta_n = r_n - r_{n-1}$</th>
+                <th>$\Delta_{n-1}/\Delta_n$</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>3.0000</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>3.4495</td>
+                <td>0.4495</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>3.5441</td>
+                <td>0.0946</td>
+                <td>4.752</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>3.5644</td>
+                <td>0.0203</td>
+                <td>4.656</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>3.5688</td>
+                <td>0.00444</td>
+                <td>4.668</td>
+              </tr>
+              <tr>
+                <td>$\infty$</td>
+                <td>3.56995…</td>
+                <td>→ 0</td>
+                <td>→ $\delta$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <figcaption><strong>Table 2.3</strong> Bifurcation values of the logistic map and their ratios, converging to Feigenbaum's constant.</figcaption>
+      </figure>
+      <p>The ratios converge to $\delta \approx 4.6692016\ldots$ — <em>Feigenbaum's constant</em>. Because the gaps shrink geometrically with ratio $1/\delta$, the accumulation point can be estimated as a geometric series:</p>
+      <div class="eq">$$r_\infty = r_1 + \Delta_1\left(1 + \frac{1}{\delta} + \frac{1}{\delta^2} + \cdots\right) = r_1 + \frac{\Delta_1\,\delta}{\delta - 1} \approx 3 + \frac{0.4495 \times 4.669}{3.669} \approx 3.571$$</div>
+      <p>This is close to the true value $r_\infty \approx 3.5699$ — the estimate improves if we start from a later bifurcation where the ratio is more precisely $\delta$.</p>
+      <h4 class="topic">Universality: the same constant in every unimodal map</h4>
+      <p>The astonishing discovery — and the reason Feigenbaum's finding matters far beyond the logistic map — is that $\delta$ is universal. Replace $f(x) = r_0 x(1-x)$ with any other smooth function that has a single interior maximum (a <em>unimodal</em> map): $r\sin(\pi x)$, $r x e^{1-x}$, $rx(1-x^2)$. Measure the bifurcation values. Compute the ratios. They all converge to the same $\delta = 4.6692\ldots$.</p>
+      <p>A second universal constant, $\alpha \approx 2.5029\ldots$, governs the scaling of the orbit values $x$ themselves (not just the parameter value $r$). Define $d_n$ to be the distance between the two period-$n$ fixed points closest to zero in the same bifurcating branch of the period $n$ orbit, just before the next bifurcation. Then $$\alpha=\lim_{n\to\infty}\frac{d_n}{d_{n+1}}\; .$$ for any unimodal map.</p>
+      <div class="key-result" id="kr-feigenbaum-s-constant">
+        <div class="kr-header"><span>Key Result — Feigenbaum's Constant</span> <span class="kr-num">2.10</span></div>
+        <div class="kr-body">
+          <p>For any smooth unimodal map, the period-doubling bifurcation values $r_n$ satisfy:</p>
+          <div class="eq">$$\delta = \lim_{n\to\infty} \frac{r_n - r_{n-1}}{r_{n+1} - r_n} \approx 4.6692016091\ldots$$</div>
+          <p>This constant is the same for every unimodal map — it does not depend on the specific function. It is a universal property of the transition to chaos through period-doubling, analogous to the way $\pi$ is universal for circles regardless of their size.</p>
+        </div>
+      </div>
+      <h4 class="topic">Why universality? Renormalization</h4>
+      <p>Universality is explained by the idea of <em>renormalization</em>, borrowed from physics. The key observation is that near $r_\infty$, the bifurcation structure of $f^{(n)}$ near its maximum looks — after rescaling — like the bifurcation structure of $f$ itself. This self-similarity means that the transition to chaos is governed not by the particular form of $f$, but by a fixed-point structure in the space of all unimodal maps. The fixed point of this infinite-dimensional map is an object called the <em>Feigenbaum-Cvitanović functional equation</em>, and $\delta$ is the eigenvalue associated with it.</p>
+      <h4 class="topic">Experimental confirmation</h4>
+      <p>In 1982, Albert Libchaber and Jean-Claude Maurer, working in Paris, set up a tiny container of liquid helium and heated it from below. As the heating rate increased, the fluid began to convect, then to oscillate at a single frequency, then to oscillate at half the frequency — and at half that, and half again. Measuring the heating rates at which these period-doublings occurred, they computed the ratio and found $\delta \approx 4.4 \pm 0.1$, consistent with Feigenbaum's value within experimental error. The work earned Libchaber the Wolf Prize, which he shared with Feigenbaum. The same value has since been measured in electronic circuits, chemical oscillators, optical systems, and acoustic cavities.</p>
+      <p>The significance goes beyond chaos: the universality of $\delta$ is evidence that the transition from regular to turbulent behavior in real physical systems is governed by the same mathematics as the simplest discrete dynamical system one can write down.</p>
+      <div class="callout" id="co-34-projects">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Explore</span> <span class="ct-title">Project ideas for §3.4</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p><strong>Project A — Measuring $\delta$ numerically.</strong> Write a short program (or use a spreadsheet) to find the period-doubling bifurcation values of the logistic map to four decimal places. For each $r_0$ from 3.0 to 3.6 in steps of 0.001, iterate the map 1000 times from $x_0 = 0.5$ and record the number of distinct values in the last 64 iterates. This count jumps from 1 to 2, then 2 to 4, then 4 to 8 at the bifurcation points. Use these values to compute $\delta$ at the first three transitions. How close is your estimate to 4.6692?</p>
+          <p><strong>Project B — Universality test with $r\sin(\pi x)$.</strong> Repeat Project A using the map $f(x) = r\sin(\pi x)$ on $[0,1]$. Find the first three period-doubling bifurcation values of $r$ (they will be different from the logistic map's values). Compute the ratio $\delta$ for this map. Is it the same as for the logistic map? This directly tests Feigenbaum universality. As a further check, try $f(x) = r x(1-x^2)/0.65$ (renormalized cubic); does $\delta$ remain the same?</p>
+          <p><strong>Project C — Estimating $r_\infty$ from the geometric series.</strong> Using the bifurcation values from Project A as $r_1, r_2, r_3$, apply the geometric-series estimate $r_\infty \approx r_n + \Delta_n \cdot \delta/(\delta-1)$ starting from $n=3$ and $n=4$. How do the estimates compare to the true value $r_\infty = 3.56995\ldots$? Compute the percentage error at each stage. This shows how rapidly the geometric series converges once you are in the asymptotic regime.</p>
+          <p><strong>Project D — The second Feigenbaum constant $\alpha$.</strong> As $r_0$ increases through the period-doubling cascade, not only do the parameter gaps shrink by $\delta$, but the orbit splittings in $x$ shrink by $\alpha \approx 2.5029$. At $r_0 = r_2$ the period-2 orbit has two points $p, q$; at $r_0 = r_3$ the period-4 orbit splits into four points clustered around $p$ and $q$. Measure (numerically) the distance $|p-q|$ at stage 2, the size of each cluster at stage 3, and the ratio. Do this for stages 3 and 4 as well. Does the ratio converge toward $\alpha \approx 2.503$?</p>
+        </div>
+      </div>
+    </section>
+  </section>
+  <section class="sec workshop" id="sec-problems-explorations">
+    <div class="sec-head">
+      <span class="sec-label">Section 4</span>
+      <h2>Problems and Explorations</h2>
+    </div>
+    <p class="workshop-sub">For use during group-work explorations or as problem sets.</p>
+    <section class="sub" id="sub-patterns-time-2">
+      <h3 class="sub">4.1 Patterns in Time</h3>
+      <div class="problem">
+        <div class="prob-num">Problem 1.1</div>
+        <div class="prob-title">Reading tree rings as a time series</div>
+        <p>A cross-section of a ponderosa pine shows ring widths (in mm) of 2.1, 2.4, 2.0, 1.8, 1.6, 1.9, 2.2, 1.7, 1.5, 1.4, measured from pith to bark.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">How old is this tree? What is the total radial growth over the measured period?</li>
+          <li data-part="(b)">Is the total accumulated radius best modeled as a linear or exponential function of the ring number? Explain by giving an approximate dynamical rule.</li>
+          <li data-part="(c)">The bristlecone pine chronology extends 14,000 years. A sample of ancient wood shows ${}^{14}\text{C}$ at 43% of modern levels. Estimate its age using the half-life formula, and describe what kind of event might have preserved wood so long.</li>
+          <li data-part="(d)">Explain how "pattern matching" between overlapping ring sequences can extend the calendar further than any single living tree.</li>
+        </ol>
+      </div>
+      <div class="problem">
+        <div class="prob-num">Problem 1.2</div>
+        <div class="prob-title">Working with linear and exponential models</div>
+        <p>A grey wolf pack on a remote island is monitored annually. In year $t = 0$ the pack has $x_0 = 6$ individuals. The pack grows by multiplication: each year $r = 1.22$ wolves are produced per wolf present (accounting for pup survival and adult mortality).</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">Write the multiplicative rule for $x_t$ and compute the pack size for $t = 1, 2, 3, 4, 5$. Round to the nearest whole animal.</li>
+          <li data-part="(b)">Use the doubling-time formula to find how many years until the pack first exceeds 12 wolves. Verify against your sequence from part (a).</li>
+          <li data-part="(c)">A nearby mainland population of deer — the wolves' prey — grows linearly at $d = 140$ individuals per year from an initial $x_0 = 800$. Write the additive rule and give an explicit formula for $x_t$.</li>
+          <li data-part="(d)">After 10 years, which population has grown more in percentage terms — the wolves or the deer? What does this reveal about the long-run difference between multiplicative and additive growth?</li>
+        </ol>
+      </div>
+      <div class="problem">
+        <div class="prob-num">Problem 1.3</div>
+        <div class="prob-title">Radiocarbon dating a subfossil log</div>
+        <p>A birch log is recovered from the bottom of a peat bog in Finland, preserved by the anoxic, acidic water. Laboratory analysis finds that it retains $f = 0.312$ (31.2%) of the ${}^{14}\text{C}$ ratio found in living wood. Carbon-14 has a half-life of $T_{1/2} = 5{,}730$ years.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">Write the exponential decay formula for $f(t)$ and solve for the age $t$ of the log. Show your algebraic steps.</li>
+          <li data-part="(b)">The same log is submitted for dendrochronological analysis. Its outermost rings match the pattern of a regional master chronology at a date of 9,400 years before present. The laboratory ${}^{14}\text{C}$ result, after calibration using the bristlecone pine curve, gives $9{,}380 \pm 60$ years. Are the two methods consistent? What does this cross-check tell you?</li>
+          <li data-part="(c)">A second sample from the same bog gives $f = 0.155$. By what factor is the second sample older than the first? Use logarithms rather than repeating the full calculation.</li>
+          <li data-part="(d)">The atmospheric ${}^{14}\text{C}$ level was higher during periods of intense solar activity. Explain in one or two sentences why this would cause uncalibrated radiocarbon dates to be systematically younger than the true calendar age, and how the dendrochronology calibration curve corrects for this.</li>
+        </ol>
+      </div>
+      <div class="problem">
+        <div class="prob-num">Problem 1.4</div>
+        <div class="prob-title">Doubling time in ecology and medicine</div>
+        <p>Use the doubling time formula $T = \log 2 / \log r$.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">A bacterial population grows from 1,000 to 64,000 cells in 3 hours. What is the doubling time? What is $r$ per hour?</li>
+          <li data-part="(b)">A cancer tumor's cell count doubles every 100 days. Starting from 10⁶ cells (approximately 1 mm³, the smallest clinically detectable size), how long until it reaches 10⁹ cells (approximately 1 cm³, the size that causes symptoms)?</li>
+          <li data-part="(c)">The rule of 70 says doubling time $\approx 70/p$ where $p$ is percentage growth rate. Derive this approximation using $\ln(1+p/100) \approx p/100$ for small $p$.</li>
+          <li data-part="(d)">A drug has half-life 6 hours. What fraction remains after 24 hours? After one week of continuous exposure?</li>
+        </ol>
+      </div>
+    </section>
+    <section class="sub" id="sub-linear-dynamical-systems-2">
+      <h3 class="sub">4.2 Linear Dynamical Systems</h3>
+      <div class="problem">
+        <div class="prob-num">Problem 2.1</div>
+        <div class="prob-title">Finding and testing fixed points</div>
+        <p>A population follows the rule $x_t = r\,x_{t-1} + d$. In each scenario below, find the fixed point $x^*$, state whether it is stable, and compute the error $\epsilon_5 = x_5 - x^*$ starting from $x_0 = 0$.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">$r = 0.6$, $d = 80$.</li>
+          <li data-part="(b)">$r = 1.1$, $d = 50$.</li>
+          <li data-part="(c)">$r = -0.4$, $d = 210$. Does the orbit approach $x^*$ from one side, or does it alternate? Relate this to the error recursion $\epsilon_t = r^t \epsilon_0$.</li>
+          <li data-part="(d)">Without iterating, find the values of $d$ such that $x^* = 100$ for each of the three values of $r$ above. What is the general relationship between $d$, $r$, and a desired equilibrium $x^*$? How would a wildlife manager use this formula to set an annual restocking level?</li>
+        </ol>
+      </div>
+      <div class="problem">
+        <div class="prob-num">Problem 2.2</div>
+        <div class="prob-title">Pharmacokinetics and therapeutic windows</div>
+        <p>A patient requires a blood drug concentration between 50 mg and 120 mg to stay within the therapeutic window. The drug has a 12-hour half-life ($r = 0.5$ per 12 hours). Doses are given every 12 hours.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">If the dose is $d = 60$ mg, find the steady-state concentration $x^*$. Is it within the therapeutic window?</li>
+          <li data-part="(b)">What dose would produce $x^* = 80$ mg (the middle of the therapeutic window)?</li>
+          <li data-part="(c)">The patient misses two doses. Starting from steady state with the correct dose, compute the concentration after those two missed doses. Is the patient now outside the therapeutic window?</li>
+          <li data-part="(d)">A different drug has $r = 0.9$ per 12 hours (slow elimination). If the same dose $d = 60$ mg is used, find $x^*$. How does slow elimination affect the design of dosing regimens?</li>
+        </ol>
+      </div>
+      <div class="problem">
+        <div class="prob-num">Problem 2.3</div>
+        <div class="prob-title">Island biogeography and the rescue effect</div>
+        <p>A small island supports a population of ground beetles. Each year, 20% of adults survive to reproduce ($r = 0.2$), but $d = 40$ individuals arrive by rafting from the mainland.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">Find the equilibrium population $x^*$ and verify it is stable.</li>
+          <li data-part="(b)">Starting from $x_0 = 50$ beetles, iterate the rule for 5 steps. How close are you to equilibrium?</li>
+          <li data-part="(c)">A bridge is built, increasing immigration to $d = 100$ per year. How does $x^*$ change? Is this a linear or proportional response to the change in $d$?</li>
+          <li data-part="(d)">A pesticide reduces survival to $r = 0.05$ while immigration remains at 40. Find the new $x^*$. What does this tell us about the relative importance of local reproduction versus immigration in maintaining the population?</li>
+        </ol>
+      </div>
+      <div class="problem">
+        <div class="prob-num">Problem 2.4</div>
+        <div class="prob-title">Transient dynamics and the loading principle</div>
+        <p>The rule $x_t = r\,x_{t-1} + d$ converges to $x^* = d/(1-r)$ from any starting value — but the <em>rate</em> of convergence depends on how close $x_0$ is to $x^*$. This observation motivates the concept of a <em>loading dose</em>: starting the system at $x^*$ immediately rather than from 0.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">A salmon hatchery releases $d = 500$ juvenile fish into a river reach each year. Natural year-to-year survival in the reach is $r = 0.65$. Find the equilibrium resident population $x^*$.</li>
+          <li data-part="(b)">Starting from $x_0 = 0$ (the reach was previously barren), how many years until the resident population first exceeds 90% of $x^*$? Use the error formula rather than iterating step-by-step.</li>
+          <li data-part="(c)">Instead of starting from $x_0 = 0$, the hatchery stocks the reach with $x_0 = x^*$ fish in year 0 (a loading release). What does the population do in subsequent years under the standard rule $x_t = 0.65\,x_{t-1} + 500$? Why?</li>
+          <li data-part="(d)">Now suppose survival rate is uncertain: the true value of $r$ is somewhere in $[0.55, 0.75]$. The manager uses $r = 0.65$ to set both the loading dose $x_0 = x^*(0.65)$ and the annual release $d = 500$. If the true survival is $r = 0.75$, find the new equilibrium and the initial error $\epsilon_0 = x_0 - x^*_\text{true}$. Is the error positive or negative? What happens to the population in the first few years, and is this ecologically problematic? This exercise illustrates why parameter uncertainty matters in conservation management.</li>
+        </ol>
+      </div>
+    </section>
+    <section class="sub" id="sub-fixed-points">
+      <h3 class="sub">4.3 Fixed Points</h3>
+      <div class="problem">
+        <div class="prob-num">Problem 3.1</div>
+        <div class="prob-title">Fixed points and stability</div>
+        <p>For each rule below, (i) find all fixed points by solving $f(x^*) = x^*$ algebraically, (ii) assess stability using the cobweb diagram and the numerical slope approximation, $$m \approx [f(x^*+0.01) - f(x^*-0.01)]\,/\,0.02\;,$$for each $x*$, and (iii) describe the long-run behavior from $x_0 = 0.3$. Recall: the fixed point is stable if $|m| &lt; 1$ (the curve crosses the diagonal at a shallower angle than 45°), unstable if $|m| &gt; 1$.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">$f(x) = 3.5\,x(1-x)$. For the logistic map $f(x) = r_0 x(1-x)$, the stability slope at the non-trivial fixed point is $m = 2 - r_0$ (derived in §3.2). Evaluate $m$ for $r_0 = 3.5$, and compare to the numerical estimate.</li>
+          <li data-part="(b)">$f(x) = x^2$. What does the cobweb diagram look like starting from $x_0 = 0.5$? From $x_0 = 1.1$?</li>
+          <li data-part="(c)">$f(x) = 0.5\,x + 0.3$. Since this is a linear model, the slope of at the fixed point can read directly from the formula. How does that compare to the numerical approximation?</li>
+          <li data-part="(d)">For $f(x) = x^2$, part (b) shows $x^* = 0$ is stable and $x^* = 1$ is unstable. Starting from $x_0 = 0.99$ (just below $x^* = 1$), iterate 10 steps. Starting from $x_0 = 1.01$ (just above $x^* = 1$), iterate 5 steps. Describe where each orbit goes. The set of starting values that converge to a stable fixed point is called its <em>basin of attraction</em>. What is the basin of attraction for $x^* = 0$ in this map?</li>
+        </ol>
+      </div>
+      <div class="problem">
+        <div class="prob-num">Problem 3.2</div>
+        <div class="prob-title">Beverton–Holt recruitment in a coral reef fish</div>
+        <p>A population of coral grouper on a Pacific reef is modelled by the Beverton–Holt dynamical system $$x_t = \frac{rx_{t-1}}{1 + \tfrac{r-1}{K}\,x_{t-1}}\;,$$ with intrinsic growth rate $r = 3.2$ and carrying capacity $K = 800$ fish.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">Show by substitution that $x^* = K$ is a fixed point. What is the other fixed point? For the Beverton–Holt model, the slope at $x^* = K$ is $m = 1/r$ (a result from §3.2.) Confirm the fixed point is stable for $r = 3.2$.</li>
+          <li data-part="(b)">A marine protected area is established and the effective growth rate increases to $r = 5.0$ while $K$ remains at 800. Find $x^*$ and the new value for $m = 1/r$. Does the higher growth rate make $|m|$ larger or smaller? Does this mean the population converges faster or slower to $K$?</li>
+          <li data-part="(c)">An El Niño event temporarily crashes the population to $x_0 = 80$ fish. Using $r = 3.2$, $K = 800$, iterate the Beverton–Holt rule for 5 years. Compare the errors $\epsilon_t = x_t - 800$ with the geometric prediction $\epsilon_t = (1/r)^t \times (-720)$. How well does the linearization approximation hold even when $x_0$ is far from $K$?</li>
+          <li data-part="(d)">Use the cobweb interactive (select Quadratic for the logistic map, $r = 3.2$) and observe the approach to $x^* \approx 0.6875$: is it monotone (always from the same side) or oscillatory (alternating sides)? Now think about the Beverton–Holt model, whose stability multiplier $m = 1/r &gt; 0$ is always positive. From the theory in §2.2, does a positive multiplier produce monotone or oscillatory convergence? A negative multiplier? Use this to explain the difference between the two models' cobweb paths without needing to plot the Beverton–Holt diagram.</li>
+        </ol>
+      </div>
+      <div class="problem">
+        <div class="prob-num">Problem 3.4</div>
+        <div class="prob-title">Bistability and ecological tipping points</div>
+        <p>Some ecological systems have two alternative stable states — for example, a shallow lake that is either clear-water (low algae) or turbid (high algae), depending on nutrient loading. A simple model with two stable fixed points and one unstable fixed point can be constructed from $f(x) = rx(1-x)(x/a - 1) + x$, where $a \in (0,1)$ is a threshold parameter.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">Show that $x^* = 0$, $x^* = a$, and $x^* = 1$ are all fixed points of this rule by verifying $f(x^*) = x^*$for each by substitution. For $r = 2$ and $a = 0.3$, assess the stability of each fixed point by computing the numerical approximation of the slope $$m \approx [f(x^*+0.005) - f(x^*-0.005)]\,/\,0.01$$ at each fixed point.</li>
+          <li data-part="(b)">Using the interactive cobweb tool (Quartic tab at high $s$, or hand-sketch), draw the cobweb for two starting values: $x_0 = 0.1$ (below the threshold $a$) and $x_0 = 0.5$ (above the threshold). Describe where each orbit ends up. This is bistability: the long-run outcome depends on which side of the unstable fixed point you start.</li>
+          <li data-part="(c)">In the lake context, $x^* = 0$ is the clear-water state and $x^* = 1$ is the turbid state; $x^* = a$ is the unstable tipping point. A lake is currently in the clear-water state ($x \approx 0$). Nutrient runoff gradually pushes the lake's state toward $a$. Explain in plain language what happens if $x$ crosses $a$ — and why restoring the lake (pushing $x$ back below $a$) may require much larger intervention than the perturbation that caused the flip. This is called <em>hysteresis</em>.</li>
+          <li data-part="(d)">The tipping point $a$ can be shifted by management. If nutrient reduction moves $a$ from 0.3 to 0.6 (making it harder to tip into the turbid state), how does this affect the two stable equilibria? Is the number of fixed points the same? Sketch or describe what the cobweb diagram looks like as $a \to 1$. At $a = 1$, what happens to the bistability?</li>
+        </ol>
+      </div>
+    </section>
+    <section class="sub" id="sub-logistic-map-chaos">
+      <h3 class="sub">4.4 The Logistic Map and Chaos</h3>
+      <div class="problem">
+        <div class="prob-num">Problem 4.1</div>
+        <div class="prob-title">Fixed points and stability — working with $r_0$</div>
+        <p>For the logistic map $x_t = r_0\,x_{t-1}(1-x_{t-1})$, work through the following for three values of the growth parameter.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">For $r_0 = 2.2$: find the non-trivial fixed point $x^* = 1 - 1/r_0$, compute the slope at the fixed point, $m = 2 - r_0$, and confirm that the fixed point is stable. Starting from $x_0 = 0.1$, use the error formula $\epsilon_t = m^t \epsilon_0$ to predict $\epsilon_5$. Verify by iterating the map.</li>
+          <li data-part="(b)">Repeat part (a) for $r_0 = 2.8$. Note that $m &lt; 0$ here. How does this affect the approach to $x^*$? Is the convergence monotone or oscillatory? What does this imply about the sign of the population error in alternating years?</li>
+          <li data-part="(c)">For $r_0 = 3.5$, the non-trivial fixed point is unstable. Find $x^*$ and $m$. Without iterating, predict whether the long-run orbit will be periodic or chaotic (use the bifurcation diagram in <a class="xref" href="#ibox-bifurcation">Exploration 2.3</a>). Then iterate 30 steps from $x_0 = 0.4$ and identify the approximate period of the long-run cycle.</li>
+          <li data-part="(d)">The trivial fixed point $x^* = 0$ (extinction) is always present. The slope at $x^*=0$ is $r_0$. what can you say about the stability of this fixed point for the three values above? For what values of $r_0$ is the extinction state stable? Interpret this ecologically: under what conditions does the model predict a population inevitably goes extinct, even if it starts at a small positive value?</li>
+        </ol>
+      </div>
+      <div class="problem">
+        <div class="prob-num">Problem 4.2</div>
+        <div class="prob-title">Comparing orbits across the route to chaos</div>
+        <p>The bifurcation diagram for the logistic map shows qualitatively different long-run behavior at $r_0 = 2.5$, $r_0 = 3.2$, $r_0 = 3.5$, and $r_0 = 3.9$. In this problem you investigate each regime numerically, starting from $x_0 = 0.4$ in each case.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">At $r_0 = 2.5$, iterate 20 steps. Report the last 5 values. Compute the theoretical fixed point $x^*$ and the slope $m$. Does the orbit approach $x^*$ smoothly or with oscillation?</li>
+          <li data-part="(b)">At $r_0 = 3.2$, iterate 30 steps. Report the last 6 values. Identify the approximate period-2 cycle values $p$ and $q$.</li>
+          <li data-part="(c)">At $r_0 = 3.5$, iterate 40 steps. Report the last 8 values. What period does the orbit appear to have? Locate $r_0 = 3.5$ in the bifurcation diagram (<a class="xref" href="#ibox-bifurcation">Exploration 2.3</a>) to confirm.</li>
+          <li data-part="(d)">At $r_0 = 3.9$, iterate 50 steps from two starting values: $x_0 = 0.400$ and $x_0 = 0.401$. Report the values at $t = 20, 30, 40, 50$ for each. At which step do the two orbits first differ by more than 0.1? What does this demonstrate about the qualitative difference between the chaotic regime and the stable/periodic regimes above?</li>
+        </ol>
+      </div>
+      <div class="problem">
+        <div class="prob-num">Problem 4.3</div>
+        <div class="prob-title">Sensitive dependence and the prediction horizon</div>
+        <p>In the chaotic regime of the logistic map, two orbits starting $\delta_0$ apart diverge on average as $\delta_t \approx \delta_0\,e^{\lambda t}$, where $\lambda &gt; 0$ is the Lyapunov exponent. For $r_0 = 3.9$, $\lambda \approx 0.43$ per step.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">If a wildlife ecologist can measure population size to an accuracy of $\pm 1\%$ of carrying capacity (so $\delta_0 = 0.01$), how many generations ahead can she make reliable predictions (to within $\pm 0.1$ of carrying capacity, i.e. $\delta_t &lt; 0.1$)? Use the Lyapunov formula and show your calculation.</li>
+          <li data-part="(b)">Improved sampling technology reduces measurement error to $\delta_0 = 0.001$ (ten times better). How many additional generations of prediction does this buy? Is the improvement proportional to the reduction in measurement error, or less than proportional?</li>
+          <li data-part="(c)">Now compare with the stable regime $r_0 = 2.5$, where $\lambda \approx -0.92$ (negative, meaning orbits converge). If $\delta_0 = 0.1$, how many generations until $\delta_t &lt; 0.001$? Contrast the qualitative message of this calculation with the chaotic case.</li>
+          <li data-part="(d)">A critic argues: "Chaos in the logistic map is a mathematical artefact — real populations don't follow exact rules, so sensitive dependence is irrelevant." Write a three-sentence response.</li>
+        </ol>
+      </div>
+      <div class="problem">
+        <div class="prob-num">Problem 4.4</div>
+        <div class="prob-title">The tent map — exact chaos</div>
+        <p>The <em>tent map</em> is a piecewise-linear function on $[0,1]$:</p>
+        <div class="eq">$$f(x) = \begin{cases} 2x &amp; \text{if } x \leq \tfrac{1}{2} \\ 2(1-x) &amp; \text{if } x &gt; \tfrac{1}{2} \end{cases}$$</div>
+        <p>Like the logistic map, it has a single hump at $x = \tfrac{1}{2}$ and maps $[0,1]$ into itself. Unlike the logistic map, it is piecewise-linear, which makes its properties exactly computable.</p>
+        <ol class="prob-parts">
+          <li data-part="(a)">Find both fixed points of the tent map (set $f(x^*) = x^*$ in each piece and solve). Since the tent map is piecewise-linear, its slope is constant on each piece: the slope is exactly $+2$ for $x \leq \frac{1}{2}$ and $-2$ for $x &gt; \frac{1}{2}$. Use this result classify each fixed point as stable or unstable.</li>
+          <li data-part="(b)">Show that if $x_0$ is a fraction with denominator $2^n$ (e.g. $x_0 = 3/8$), the orbit is eventually periodic. Iterate $x_0 = 3/8$ until it cycles and identify the period. Now try $x_0 = 1/3$. Is this orbit periodic? (Hint: $1/3$ is not a fraction with a power-of-2 denominator.)</li>
+          <li data-part="(c)">For the tent map the absolute value of the slope $|m| = 2$ everywhere (except $x = 1/2$ where it is undefined). It turns out this means the Lyapunov exponent is exactly $\lambda = \ln 2 \approx 0.693$, which larger than the logistic map's $\lambda \approx 0.43$ at $r_0 = 3.9$. Starting from $\delta_0 = 10^{-8}$, how many iterations until $\delta_t \approx 1$? Compare this prediction horizon to the logistic map.</li>
+          <li data-part="(d)">Write $x_0$ in binary (base 2). Show that one iteration of the tent map corresponds to a left shift of the binary digits (dropping the leading digit and shifting all others left by one place). For example, $x_0 = 0.1011_2$ maps to $x_1 = 0.011_2$. Use this to explain why: (i) rational $x_0$ gives a periodic orbit; (ii) irrational $x_0$ gives a non-repeating orbit; (iii) any uncertainty in the initial condition eventually propagates to the entire interval. This gives an exact picture of how chaos works — uncertainty in later binary digits becomes uncertainty in the whole value.</li>
+        </ol>
+      </div>
+    </section>
+  </section>
+  <p class="ch-close">End of Chapter 2 — Natural Dynamics</p>
+  <nav class="ch-nav"><a class="ch-nav-prev" href="../number-patterns/number-patterns.html"><span class="ch-nav-num">← Chapter 1</span> <span class="ch-nav-title">Number Patterns in Nature</span></a><a class="ch-nav-index" href="../index.html">Contents</a><a class="ch-nav-next" href="../size-and-shape/size-and-shape.html"><span class="ch-nav-num">Chapter 5 →</span> <span class="ch-nav-title">Scaling and Allometry</span></a></nav>
+</div>
+<script>
+/* Chapter-specific widget code. Shared engines live in ../shared/widgets.js. */
+/* ══════════════════════════════════════════════════════════════
+   LINEAR / EXPONENTIAL EXPLORER
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  const LE = {
+    tab: 'lin',
+    lin:  { x0: 20, d: 8 },
+    exp:  { x0: 10, r: 1.4 },
+    cmp:  { lx0: 20, ld: 8, ex0: 20, er: 1.4 },
+    semilog: false,
+    lock: true,     // keep the axes fixed while parameters change
+    axes: {},       // locked y-range per view: { lin, exp, exp-log, cmp }
+    T: 10   // number of time steps shown
+  };
+
+  // which locked axes apply: one set per tab (and for the semi-log view)
+  function viewKey() { return LE.tab + (LE.tab === 'exp' && LE.semilog ? '-log' : ''); }
+
+  const BLUE   = '#1a50a0';
+  const RED    = '#b04020';
+  const AMBER  = '#c07a1a';
+  const GREY   = '#888';
+
+  // ── Tab switching ─────────────────────────────────────────────
+  window.leSetTab = function(tab) {
+    LE.tab = tab;
+    ['lin','exp','cmp'].forEach(t => {
+      document.getElementById('le-tab-' + t)?.classList.toggle('active', t === tab);
+      const ctrl = document.getElementById('le-ctrls-' + t);
+      if (ctrl) ctrl.style.display = t === tab ? '' : 'none';
+    });
+    leRefresh();
+  };
+
+  // ── Slider binding helper ─────────────────────────────────────
+  function bind(sliderId, numId, decimals, cb) {
+    const sl = document.getElementById(sliderId);
+    const nu = document.getElementById(numId);
+    if (!sl) return;
+    sl.addEventListener('input', () => {
+      const v = parseFloat(sl.value);
+      if (nu) nu.value = v.toFixed(decimals);
+      cb(v);
+    });
+    if (nu) nu.addEventListener('change', () => {
+      const v = parseFloat(nu.value);
+      sl.value = v;
+      nu.value = v.toFixed(decimals);
+      cb(v);
+    });
+  }
+
+  // ── Values for a model ────────────────────────────────────────
+  function linVals(x0, d, T) {
+    return Array.from({length: T+1}, (_, t) => x0 + d * t);
+  }
+  function expVals(x0, r, T) {
+    return Array.from({length: T+1}, (_, t) => x0 * Math.pow(r, t));
+  }
+
+  // ── Properties string ─────────────────────────────────────────
+  function updateProps() {
+    const el = document.getElementById('le-props');
+    if (!el) return;
+    let html = '';
+    if (LE.tab === 'lin') {
+      const {x0, d} = LE.lin;
+      const trend = d > 0 ? 'growing' : d < 0 ? 'declining' : 'constant';
+      html = `<strong>Intercept:</strong> $x_0 = ${x0}$ &nbsp;|&nbsp; 
+              <strong>Slope:</strong> $d = ${d}$ &nbsp;|&nbsp; 
+              <strong>Trend:</strong> ${trend}`;
+      if (d !== 0) {
+        const tx_zero = d < 0 ? (-x0/d).toFixed(1) : '—';
+        html += d < 0 ? ` &nbsp;|&nbsp; <strong>Reaches zero at:</strong> $t = ${tx_zero}$` : '';
+      }
+    } else if (LE.tab === 'exp') {
+      const {x0, r} = LE.exp;
+      const pct = ((r - 1) * 100).toFixed(1);
+      const trend = r > 1 ? 'growing' : r < 1 ? 'decaying' : 'constant';
+      html = `<strong>Intercept:</strong> $x_0 = ${x0}$ &nbsp;|&nbsp;
+              <strong>Growth factor:</strong> $r = ${r.toFixed(2)}$ &nbsp;|&nbsp;
+              <strong>Change per step:</strong> ${pct >= 0 ? '+' : ''}${pct}% &nbsp;|&nbsp;
+              <strong>Trend:</strong> ${trend}`;
+      if (r > 1) {
+        const T2 = (Math.log(2)/Math.log(r)).toFixed(2);
+        html += ` &nbsp;|&nbsp; <strong>Doubling time:</strong> ${T2} steps`;
+      } else if (r < 1 && r > 0) {
+        const Th = (Math.log(0.5)/Math.log(r)).toFixed(2);
+        html += ` &nbsp;|&nbsp; <strong>Half-life:</strong> ${Th} steps`;
+      }
+      if (LE.semilog) html += ' &nbsp;|&nbsp; <em style="color:var(--sienna)">Showing log₁₀(x) — exponential appears as straight line</em>';
+    } else {
+      const {lx0, ld, ex0, er} = LE.cmp;
+      html = `<span style="color:${BLUE}"><strong>Linear:</strong> slope $d = ${ld}$, intercept $x_0 = ${lx0}$</span>
+              &nbsp;&nbsp;|&nbsp;&nbsp;
+              <span style="color:${RED}"><strong>Exponential:</strong> growth factor $r = ${er.toFixed(2)}$, intercept $x_0 = ${ex0}$</span>`;
+      // Find crossover
+      const lv = linVals(lx0, ld, LE.T);
+      const ev = expVals(ex0, er, LE.T);
+      let cross = null;
+      for (let t = 0; t < LE.T; t++) {
+        if ((ev[t] - lv[t]) * (ev[t+1] - lv[t+1]) < 0) { cross = t; break; }
+      }
+      if (cross !== null) html += ` &nbsp;|&nbsp; <em>Exponential overtakes linear near $t \\approx ${cross}$</em>`;
+    }
+    el.innerHTML = html;
+    if (window.MathJax?.typesetPromise) MathJax.typesetPromise([el]);
+  }
+
+  // ── Formula display ───────────────────────────────────────────
+  function updateFormula() {
+    const el = document.getElementById('le-formula');
+    if (!el) return;
+    let s = '';
+    if (LE.tab === 'lin') {
+      const {x0, d} = LE.lin;
+      const sign = d >= 0 ? '+' : '−';
+      s = `\\(x_t = ${x0} ${sign} ${Math.abs(d)}\\,t\\)`;
+    } else if (LE.tab === 'exp') {
+      const {x0, r} = LE.exp;
+      s = `\\(x_t = ${x0} \\cdot ${r.toFixed(2)}^{\\,t}\\)`;
+    } else {
+      s = `\\(x_t = ${LE.cmp.lx0} + ${LE.cmp.ld}\\,t\\) &nbsp;vs.&nbsp; \\(x_t = ${LE.cmp.ex0} \\cdot ${LE.cmp.er.toFixed(2)}^{\\,t}\\)`;
+    }
+    el.innerHTML = s;
+    if (window.MathJax?.typesetPromise) MathJax.typesetPromise([el]);
+  }
+
+  // ── Draw canvas ───────────────────────────────────────────────
+  function draw() {
+    const canvas = document.getElementById('le-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    const L = 62, R = 22, T = 24, B = 46;
+    const PW = W-L-R, PH = H-T-B;
+    const Tmax = LE.T;
+
+    // Gather data
+    let series = [];
+    if (LE.tab === 'lin') {
+      const v = linVals(LE.lin.x0, LE.lin.d, Tmax);
+      series = [{vals: v, color: BLUE, label: 'linear'}];
+    } else if (LE.tab === 'exp') {
+      let v = expVals(LE.exp.x0, LE.exp.r, Tmax);
+      if (LE.semilog) v = v.map(x => x > 0 ? Math.log10(x) : null);
+      series = [{vals: v, color: RED, label: LE.semilog ? 'log₁₀(x)' : 'exponential'}];
+    } else {
+      const lv = linVals(LE.cmp.lx0, LE.cmp.ld, Tmax);
+      const ev = expVals(LE.cmp.ex0, LE.cmp.er, Tmax);
+      series = [
+        {vals: lv, color: BLUE, label: 'linear'},
+        {vals: ev, color: RED,  label: 'exponential'}
+      ];
+    }
+
+    // Axis range: fit to the data, unless the axes are locked for this view
+    let yMin, yMax, yStep;
+    const held = LE.lock && LE.axes[viewKey()];
+    if (held) {
+      ({ yMin, yMax, yStep } = held);
+    } else {
+      // round the range out to whole tick steps (1, 2, 2.5 or 5 × a power of ten)
+      const allVals = series.flatMap(s => s.vals.filter(v => v !== null && isFinite(v)));
+      const lo = Math.min(0, ...allVals), hi = Math.max(...allVals);
+      const rough = (hi - lo || 1) / 4;
+      const mag = Math.pow(10, Math.floor(Math.log10(rough)));
+      yStep = [1, 2, 2.5, 5, 10].map(m => m * mag).find(st => st >= rough);
+      yMin = Math.floor(lo / yStep) * yStep;
+      yMax = Math.ceil(hi / yStep) * yStep;
+      if (yMax - hi < yStep * 0.15) yMax += yStep;        // headroom above the top point
+      LE.axes[viewKey()] = { yMin, yMax, yStep };
+    }
+    const nDiv = Math.round((yMax - yMin) / yStep);
+    const inPlot = (v) => v >= yMin && v <= yMax;
+
+    function tx(t) { return L + (t / Tmax) * PW; }
+    function ty(y) { return T + (1 - (y - yMin) / (yMax - yMin)) * PH; }
+
+    // Background
+    ctx.fillStyle = '#faf8f5';
+    ctx.fillRect(0, 0, W, H);
+
+    // Grid
+    ctx.strokeStyle = '#e8e4de';
+    ctx.lineWidth = 0.8;
+    for (let i = 0; i <= Tmax; i++) {
+      ctx.beginPath(); ctx.moveTo(tx(i), T); ctx.lineTo(tx(i), T+PH); ctx.stroke();
+    }
+    // Horizontal grid lines — 5 evenly spaced
+    for (let i = 0; i <= nDiv; i++) {
+      const y = yMin + yStep * i;
+      ctx.beginPath(); ctx.moveTo(L, ty(y)); ctx.lineTo(L+PW, ty(y)); ctx.stroke();
+    }
+
+    // Zero line
+    if (yMin < 0 && yMax > 0) {
+      ctx.strokeStyle = '#bbb';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(L, ty(0)); ctx.lineTo(L+PW, ty(0)); ctx.stroke();
+    }
+
+    // Axes
+    ctx.strokeStyle = '#777';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(L, T+PH); ctx.lineTo(L+PW, T+PH); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(L, T); ctx.lineTo(L, T+PH); ctx.stroke();
+
+    // Tick labels — x axis
+    ctx.fillStyle = '#555';
+    ctx.font = '11px system-ui,sans-serif';
+    ctx.textAlign = 'center';
+    for (let t = 0; t <= Tmax; t += 2) {
+      ctx.fillText(t, tx(t), T+PH+16);
+    }
+    ctx.fillText('t  (time steps)', L+PW/2, H-4);
+
+    // Tick labels — y axis
+    ctx.textAlign = 'right';
+    for (let i = 0; i <= nDiv; i++) {
+      const y = yMin + yStep * i;
+      const label = LE.semilog ? y.toFixed(2) : (Math.abs(y) >= 1e5 ? y.toExponential(1) : Number.isInteger(y) ? y.toLocaleString('en-US') : y.toFixed(1));
+      // leave room for the amber x₀ label on the axis
+      const x0Shown = LE.tab === 'lin' ? LE.lin.x0 : (LE.tab === 'exp' && !LE.semilog ? LE.exp.x0 : null);
+      if (x0Shown !== null && inPlot(x0Shown) && Math.abs(ty(y) - ty(x0Shown)) < 13) continue;
+      ctx.fillText(label, L-7, ty(y)+4);
+    }
+    // y-axis label
+    ctx.save();
+    ctx.translate(13, T+PH/2);
+    ctx.rotate(-Math.PI/2);
+    ctx.textAlign = 'center';
+    ctx.font = 'italic 13px Palatino,Georgia,serif';
+    const yLabel = LE.tab === 'exp' && LE.semilog ? 'log₁₀(xₜ)' : 'xₜ';
+    ctx.fillText(yLabel, 0, 0);
+    ctx.restore();
+
+    // Draw each series
+    let offScale = null;
+    series.forEach(({vals, color}) => {
+      // Continuous curve (smooth)
+      ctx.save();
+      ctx.beginPath(); ctx.rect(L, T, PW, PH); ctx.clip();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      let first = true;
+      // For smooth curve, interpolate between integer t values
+      const steps = 200;
+      for (let i = 0; i <= steps; i++) {
+        const tf = (i / steps) * Tmax;
+        const ti = Math.floor(tf);
+        const frac = tf - ti;
+        const v1 = vals[ti];
+        const v2 = vals[Math.min(ti+1, Tmax)];
+        if (v1 === null || v2 === null || !isFinite(v1) || !isFinite(v2)) { first = true; continue; }
+        const v = v1 + frac * (v2 - v1);
+        const span = yMax - yMin;
+        const vc = Math.max(yMin - span, Math.min(yMax + span, v));   // keep far-off values drawable; the clip trims them
+        if (first) { ctx.moveTo(tx(tf), ty(vc)); first = false; }
+        else ctx.lineTo(tx(tf), ty(vc));
+      }
+      ctx.stroke();
+      ctx.restore();
+
+      // Discrete data points (those off the locked axes are left out)
+      ctx.fillStyle = color;
+      vals.forEach((v, t) => {
+        if (v === null || !isFinite(v)) return;
+        if (!inPlot(v)) { offScale = offScale || (v > yMax ? 'above' : 'below'); return; }
+        ctx.beginPath();
+        ctx.arc(tx(t), ty(v), 4.5, 0, 2*Math.PI);
+        ctx.fill();
+      });
+    });
+
+    // ── Linear-specific annotations ──────────────────────────────
+    if (LE.tab === 'lin') {
+      const {x0, d} = LE.lin;
+      // Intercept marker
+      ctx.strokeStyle = AMBER;
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 3]);
+      if (inPlot(x0)) { ctx.beginPath(); ctx.moveTo(L, ty(x0)); ctx.lineTo(tx(0), ty(x0)); ctx.stroke(); }
+      ctx.setLineDash([]);
+      // Intercept label
+      ctx.fillStyle = AMBER;
+      ctx.font = 'bold 11px system-ui,sans-serif';
+      ctx.textAlign = 'right';
+      if (inPlot(x0)) ctx.fillText(`x₀ = ${x0}`, L-7, ty(x0)+4);
+
+      // Slope triangle (between t=2 and t=3 if possible)
+      if (d !== 0) {
+        const ta = 2, tb = 3;
+        const ya = x0 + d*ta, yb = x0 + d*tb;
+        if (isFinite(ty(ya)) && isFinite(ty(yb)) &&
+            ty(ya) > T+4 && ty(ya) < T+PH-4 &&
+            ty(yb) > T+4 && ty(yb) < T+PH-4) {
+          ctx.strokeStyle = AMBER;
+          ctx.fillStyle = AMBER;
+          ctx.lineWidth = 1.3;
+          ctx.setLineDash([3, 2]);
+          // Horizontal leg
+          ctx.beginPath(); ctx.moveTo(tx(ta), ty(ya)); ctx.lineTo(tx(tb), ty(ya)); ctx.stroke();
+          // Vertical leg
+          ctx.beginPath(); ctx.moveTo(tx(tb), ty(ya)); ctx.lineTo(tx(tb), ty(yb)); ctx.stroke();
+          ctx.setLineDash([]);
+          // Labels
+          ctx.font = '10.5px system-ui,sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('Δt = 1', tx(ta + 0.5), ty(ya) + (d >= 0 ? 13 : -5));
+          ctx.textAlign = d >= 0 ? 'left' : 'right';
+          const sign = d >= 0 ? '+' : '';
+          ctx.fillText(`d = ${sign}${d}`, tx(tb)+5, ty((ya+yb)/2)+4);
+        }
+      }
+    }
+
+    // ── Exponential-specific annotations ─────────────────────────
+    if (LE.tab === 'exp' && !LE.semilog) {
+      const {x0, r} = LE.exp;
+      // Intercept
+      ctx.strokeStyle = AMBER;
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 3]);
+      if (inPlot(x0)) { ctx.beginPath(); ctx.moveTo(L, ty(x0)); ctx.lineTo(tx(0), ty(x0)); ctx.stroke(); }
+      ctx.setLineDash([]);
+      ctx.fillStyle = AMBER;
+      ctx.font = 'bold 11px system-ui,sans-serif';
+      ctx.textAlign = 'right';
+      if (inPlot(x0)) ctx.fillText(`x₀ = ${x0}`, L-7, ty(x0)+4);
+
+      // Doubling line or half line
+      if (r > 1) {
+        const T2 = Math.log(2)/Math.log(r);
+        if (T2 <= Tmax) {
+          ctx.strokeStyle = '#70a060';
+          ctx.lineWidth = 1.3;
+          ctx.setLineDash([5, 3]);
+          ctx.beginPath(); ctx.moveTo(tx(T2), ty(yMin)); ctx.lineTo(tx(T2), ty(yMax)); ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = '#50903a';
+          ctx.font = 'bold 10.5px system-ui,sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(`T₂ ≈ ${T2.toFixed(1)}`, tx(T2), T+14);
+          // 2x₀ line
+          if (ty(2*x0) > T && ty(2*x0) < T+PH) {
+            ctx.strokeStyle = '#70a060';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([3, 3]);
+            ctx.beginPath(); ctx.moveTo(L, ty(2*x0)); ctx.lineTo(tx(T2), ty(2*x0)); ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillText(`2x₀ = ${2*x0}`, L+38, ty(2*x0)-4);
+          }
+        }
+      } else if (r < 1) {
+        const Th = Math.log(0.5)/Math.log(r);
+        if (Th <= Tmax) {
+          ctx.strokeStyle = '#70a060';
+          ctx.lineWidth = 1.3;
+          ctx.setLineDash([5, 3]);
+          ctx.beginPath(); ctx.moveTo(tx(Th), ty(yMin)); ctx.lineTo(tx(Th), ty(yMax)); ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = '#50903a';
+          ctx.font = 'bold 10.5px system-ui,sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(`T½ ≈ ${Th.toFixed(1)}`, tx(Th), T+14);
+        }
+      }
+    }
+
+    // ── Semi-log annotation ──────────────────────────────────────
+    if (LE.tab === 'exp' && LE.semilog) {
+      // Draw the theoretical straight line in grey dashes for confirmation
+      const {x0, r} = LE.exp;
+      const slope = Math.log10(r);
+      const intercept = Math.log10(x0);
+      ctx.save();
+      ctx.beginPath(); ctx.rect(L, T, PW, PH); ctx.clip();
+      ctx.strokeStyle = 'rgba(120,120,120,0.45)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([6, 4]);
+      ctx.beginPath();
+      ctx.moveTo(tx(0), ty(intercept));
+      ctx.lineTo(tx(Tmax), ty(intercept + slope*Tmax));
+      ctx.stroke();
+      ctx.restore();
+      ctx.setLineDash([]);
+      ctx.fillStyle = GREY;
+      ctx.font = 'italic 11px system-ui,sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('slope = log₁₀(r) = ' + slope.toFixed(3), L+6, T+14);
+    }
+
+    // ── Curve runs off the locked axes ───────────────────────────
+    if (offScale) {
+      ctx.font = 'italic 11px system-ui,sans-serif';
+      ctx.fillStyle = GREY;
+      ctx.textAlign = 'right';
+      ctx.fillText(offScale === 'above' ? '↑ continues above — Rescale to see all' : '↓ continues below — Rescale to see all',
+        L + PW - 6, offScale === 'above' ? T + 14 : T + PH - 8);
+    }
+
+    // ── Legend (compare tab) ─────────────────────────────────────
+    if (LE.tab === 'cmp') {
+      ctx.font = 'bold 12px system-ui,sans-serif';
+      ctx.fillStyle = BLUE;
+      ctx.textAlign = 'left';
+      ctx.fillText('▬ Linear', L+8, T+18);
+      ctx.fillStyle = RED;
+      ctx.fillText('▬ Exponential', L+8, T+33);
+    }
+  }
+
+  // ── Value table ───────────────────────────────────────────────
+  function updateTable() {
+    const el = document.getElementById('le-table');
+    if (!el) return;
+    const tVals = [0,1,2,3,4,5,6,7,8,9,10];
+    const thStyle = `padding:5px 10px;border-bottom:2px solid var(--result-border);
+                     font-weight:600;font-size:12px;text-align:right;white-space:nowrap;`;
+    const tdStyle = `padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:right;font-size:12px;`;
+    const tdStyle0 = `padding:4px 10px;border-bottom:1px solid #e8e4de;text-align:left;font-size:12px;color:var(--muted);`;
+
+    let rows = '';
+    let header = `<tr style="background:var(--result-bg);">
+      <th style="${thStyle}text-align:left;">$t$</th>`;
+
+    if (LE.tab === 'lin') {
+      header += `<th style="${thStyle}">$x_0 + d\\,t$</th></tr>`;
+      const {x0, d} = LE.lin;
+      rows = tVals.map(t => {
+        const v = x0 + d*t;
+        return `<tr><td style="${tdStyle0}">${t}</td><td style="${tdStyle}">${Number.isInteger(v) ? v : v.toFixed(2)}</td></tr>`;
+      }).join('');
+    } else if (LE.tab === 'exp') {
+      header += `<th style="${thStyle}">$x_0 \\cdot r^t$</th></tr>`;
+      const {x0, r} = LE.exp;
+      rows = tVals.map(t => {
+        const v = x0 * Math.pow(r, t);
+        return `<tr><td style="${tdStyle0}">${t}</td><td style="${tdStyle}">${v >= 1000 ? v.toExponential(2) : v.toFixed(2)}</td></tr>`;
+      }).join('');
+    } else {
+      const {lx0, ld, ex0, er} = LE.cmp;
+      header += `<th style="${thStyle}color:${BLUE}">Linear</th>
+                 <th style="${thStyle}color:${RED}">Exponential</th>
+                 <th style="${thStyle}">Ratio (Exp/Lin)</th></tr>`;
+      rows = tVals.map(t => {
+        const lv = lx0 + ld*t;
+        const ev = ex0 * Math.pow(er, t);
+        const ratio = lv !== 0 ? (ev/lv).toFixed(3) : '—';
+        const bg = ev > lv ? 'rgba(176,64,32,0.07)' : '';
+        return `<tr style="background:${bg}">
+          <td style="${tdStyle0}">${t}</td>
+          <td style="${tdStyle}color:${BLUE}">${Number.isInteger(lv) ? lv : lv.toFixed(1)}</td>
+          <td style="${tdStyle}color:${RED}">${ev >= 1000 ? ev.toExponential(2) : ev.toFixed(2)}</td>
+          <td style="${tdStyle}">${ratio}</td>
+        </tr>`;
+      }).join('');
+    }
+    el.innerHTML = `<thead>${header}</thead><tbody>${rows}</tbody>`;
+    if (window.MathJax?.typesetPromise) MathJax.typesetPromise([el]);
+  }
+
+  // ── Full refresh ──────────────────────────────────────────────
+  function leRefresh() {
+    updateFormula();
+    updateProps();
+    draw();
+    updateTable();
+  }
+  window.leRefresh = leRefresh;
+
+  // ── Self-discovering init (idempotent) ───────────────────────────
+  function initAllLE() {
+    const sentinel = document.getElementById('le-sentinel');
+    if (!sentinel || sentinel._leInited) return;
+    sentinel._leInited = true;
+    // Linear tab
+    bind('le-lin-x0', 'le-lin-x0-num', 0, v => { LE.lin.x0 = v; leRefresh(); });
+    bind('le-lin-d',  'le-lin-d-num',  1, v => { LE.lin.d  = v; leRefresh(); });
+    // Exponential tab
+    bind('le-exp-x0', 'le-exp-x0-num', 0, v => { LE.exp.x0 = v; leRefresh(); });
+    bind('le-exp-r',  'le-exp-r-num',  2, v => { LE.exp.r  = v; leRefresh(); });
+    // Semilog checkbox
+    const sl = document.getElementById('le-semilog');
+    if (sl) sl.addEventListener('change', () => { LE.semilog = sl.checked; leRefresh(); });
+    // Axis lock / rescale
+    const lk = document.getElementById('le-lock');
+    if (lk) lk.addEventListener('change', () => { LE.lock = lk.checked; draw(); });
+    const rs = document.getElementById('le-rescale');
+    if (rs) rs.addEventListener('click', () => { delete LE.axes[viewKey()]; draw(); });
+    // Compare tab
+    bind('le-cmp-lx0', 'le-cmp-lx0-num', 0, v => { LE.cmp.lx0 = v; leRefresh(); });
+    bind('le-cmp-ld',  'le-cmp-ld-num',  1, v => { LE.cmp.ld  = v; leRefresh(); });
+    bind('le-cmp-ex0', 'le-cmp-ex0-num', 0, v => { LE.cmp.ex0 = v; leRefresh(); });
+    bind('le-cmp-er',  'le-cmp-er-num',  2, v => { LE.cmp.er  = v; leRefresh(); });
+    leRefresh();
+  }
+  window.initAllLE = initAllLE;
+  window.addEventListener('load', initAllLE);
+})();
+(function(){
+  /* guard: only ever run once per page even if pasted multiple times */
+  if(window._cwEngineLoaded)return;
+  window._cwEngineLoaded=true;
+
+  var CW={
+    type:1,
+    defaults:[{r:0.6,d:0.1,s:0},{r:2.8,d:0,s:0},{r:0.45,d:0,s:5.0}],
+    params:[{r:0.6,d:0.1,s:0},{r:2.8,d:0,s:0},{r:0.45,d:0,s:5.0}],
+    x0:0.2,steps:30
+  };
+  var CW_H=420,TS_H=160,GAP=16,PAD=48;
+  var TS_T=CW_H+GAP,TS_L=52,TS_R=16,TS_BT=14,TS_BB=32;
+
+  function evalF(x,type,p){
+    if(type===0)return p.r*x+p.d;
+    if(type===1)return p.r*x*(1-x);
+    var u=4*x*(1-x);return p.r*u*(1+p.s*(1-u));
+  }
+  function evalDf(x,type,p){
+    if(type===0)return p.r;
+    if(type===1)return p.r*(1-2*x);
+    var u=4*x*(1-x),du=4*(1-2*x);
+    return p.r*du*(1+p.s-2*p.s*u);
+  }
+  function buildOrbit(){
+    var p=CW.params[CW.type],pts=[[CW.x0,0]],x=CW.x0;
+    for(var i=0;i<CW.steps;i++){
+      var y=evalF(x,CW.type,p);pts.push([x,y],[y,y]);x=y;
+      if(!isFinite(x)||Math.abs(x)>(CW.type===0?1e5:3))break;
+    }
+    return pts;
+  }
+  function orbitVals(){
+    var p=CW.params[CW.type],vals=[CW.x0],x=CW.x0;
+    for(var i=0;i<CW.steps;i++){
+      x=evalF(x,CW.type,p);
+      if(!isFinite(x)||Math.abs(x)>(CW.type===0?1e5:3))x=NaN;
+      vals.push(x);
+    }
+    return vals;
+  }
+  function findFixedPoints(p,fpLo,fpHi){
+    fpLo=fpLo===undefined?0:fpLo;
+    fpHi=fpHi===undefined?1:fpHi;
+    var fps=[];
+    if(CW.type===1||CW.type===2)
+      fps.push({x:0,stable:Math.abs(evalDf(0,CW.type,p))<1});
+    var N=4000,vPrev=evalF(fpLo,CW.type,p)-fpLo;
+    for(var i=1;i<=N;i++){
+      var x=fpLo+(fpHi-fpLo)*i/N,vCur=evalF(x,CW.type,p)-x,prod=vPrev*vCur;
+      if(prod<=0&&!(vPrev===0&&vCur===0)){
+        var xfp;
+        if(vCur===0)xfp=x;
+        else if(vPrev===0)xfp=fpLo+(fpHi-fpLo)*(i-1)/N;
+        else{var xa=fpLo+(fpHi-fpLo)*(i-1)/N;xfp=xa-vPrev*(x-xa)/(vCur-vPrev);}
+        var eps=(fpHi-fpLo)*0.002;
+        if(xfp>fpLo+eps&&xfp<=fpHi)
+          fps.push({x:xfp,stable:Math.abs(evalDf(xfp,CW.type,p))<1});
+      }
+      vPrev=vCur;
+    }
+    return fps;
+  }
+
+  function draw(){
+    var canvas=document.getElementById('cw-canvas');
+    if(!canvas)return;
+    var ctx=canvas.getContext('2d'),W=canvas.width;
+    var p=CW.params[CW.type];
+    ctx.fillStyle='#faf8f5';ctx.fillRect(0,0,W,canvas.height);
+
+    /* cobweb panel */
+    var PW=W-2*PAD,PH=CW_H-2*PAD;
+    /* Dynamic axis bounds — expand for linear type with negative r */
+    var axMin=0,axMax=1;
+    if(CW.type===0){
+        var orb=orbitVals();
+        var fin=orb.filter(function(v){return isFinite(v)&&Math.abs(v)<1e6;});
+        if(fin.length>1){
+            var lo=Math.min.apply(null,fin),hi=Math.max.apply(null,fin);
+            var flo=evalF(lo,0,p),fhi=evalF(hi,0,p);
+            lo=Math.min(lo,flo,fhi); hi=Math.max(hi,flo,fhi);
+            var rng=Math.max(hi-lo,0.5),pad=rng*0.18;
+            axMin=lo-pad; axMax=hi+pad;
+        }
+    }
+    function tx(x){return PAD+(x-axMin)/(axMax-axMin)*PW;}
+    function ty(y){return CW_H-PAD-(y-axMin)/(axMax-axMin)*PH;}
+    function clamp(v){var m=(axMax-axMin)*0.08;return Math.max(axMin-m,Math.min(axMax+m,v));}
+    /* Nice-tick helpers: pick step from {0.1,0.2,0.5,1,2,5,10,...} and always include 0 */
+    function niceTicks(lo,hi,n){
+        if(hi<=lo)return [lo];
+        var rng=hi-lo,step=rng/(n||5);
+        var mag=Math.pow(10,Math.floor(Math.log10(step)));
+        var norm=step/mag;
+        var niceN=norm<1.5?1:norm<3?2:norm<7?5:10;
+        step=niceN*mag;
+        var start=Math.ceil(lo/step-1e-9)*step;
+        var tks=[];
+        for(var v=start;v<=hi+step*1e-9;v+=step){
+            var rv=Math.round(v/step)*step;
+            if(rv>=lo-step*1e-9&&rv<=hi+step*1e-9)tks.push(rv);
+        }
+        /* Always include 0 if visible */
+        if(lo<=0&&hi>=0&&!tks.some(function(v){return Math.abs(v)<step*1e-9;})){
+            tks.push(0);tks.sort(function(a,b){return a-b;});
+        }
+        return tks;
+    }
+    function tickLabel(v,step){
+        var d=step<0.15?2:step<1?1:0;
+        return v.toFixed(d);
+    }
+    var tks=niceTicks(axMin,axMax,5);
+    var tkStep=tks.length>1?Math.abs(tks[1]-tks[0]):1;
+
+    ctx.fillStyle='#888';ctx.font='11px system-ui,sans-serif';ctx.textAlign='left';
+    ctx.fillText('Cobweb diagram',PAD,13);
+    /* y=0 horizontal axis line — shown when negative values are visible */
+    if(axMin<0&&axMax>0){
+      ctx.strokeStyle='rgba(100,100,100,0.5)';ctx.lineWidth=1;
+      ctx.beginPath();ctx.moveTo(tx(axMin),ty(0));ctx.lineTo(tx(axMax),ty(0));ctx.stroke();
+      ctx.beginPath();ctx.moveTo(tx(0),ty(axMin));ctx.lineTo(tx(0),ty(axMax));ctx.stroke();
+    }
+    ctx.strokeStyle='#e0ddd8';ctx.lineWidth=0.5;
+    tks.forEach(function(v){
+      ctx.beginPath();ctx.moveTo(tx(v),ty(axMin));ctx.lineTo(tx(v),ty(axMax));ctx.stroke();
+      ctx.beginPath();ctx.moveTo(tx(axMin),ty(v));ctx.lineTo(tx(axMax),ty(v));ctx.stroke();
+    });
+    ctx.strokeStyle='#888';ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(tx(axMin),ty(axMin));ctx.lineTo(tx(axMax),ty(axMin));ctx.stroke();
+    ctx.beginPath();ctx.moveTo(tx(axMin),ty(axMin));ctx.lineTo(tx(axMin),ty(axMax));ctx.stroke();
+    ctx.fillStyle='#666';ctx.font='11px system-ui,sans-serif';
+    ctx.textAlign='center';
+    tks.forEach(function(v){
+      ctx.beginPath();ctx.moveTo(tx(v),ty(axMin));ctx.lineTo(tx(v),ty(axMin)+5);ctx.stroke();
+      ctx.fillText(tickLabel(v,tkStep),tx(v),ty(axMin)+17);
+    });
+    ctx.textAlign='right';
+    tks.forEach(function(v){
+      ctx.beginPath();ctx.moveTo(tx(axMin),ty(v));ctx.lineTo(tx(axMin)-5,ty(v));ctx.stroke();
+      ctx.fillText(tickLabel(v,tkStep),tx(axMin)-7,ty(v)+4);
+    });
+    ctx.fillStyle='#555';ctx.font='italic 14px Palatino,Georgia,serif';
+    ctx.textAlign='center';ctx.fillText('x',tx((axMin+axMax)/2),ty(axMin)+34);
+    ctx.save();ctx.translate(tx(axMin)-36,ty((axMin+axMax)/2));ctx.rotate(-Math.PI/2);
+    ctx.fillText('f(x)',0,0);ctx.restore();
+    ctx.strokeStyle='#aaa';ctx.lineWidth=1;ctx.setLineDash([5,4]);
+    ctx.beginPath();ctx.moveTo(tx(axMin),ty(axMin));ctx.lineTo(tx(axMax),ty(axMax));ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.save();ctx.beginPath();ctx.rect(PAD,PAD-10,PW+1,PH+20);ctx.clip();
+    ctx.strokeStyle='#1a50a0';ctx.lineWidth=2.5;ctx.beginPath();
+    var fp=true;
+    for(var i=0;i<=400;i++){
+      var x=axMin+(axMax-axMin)*i/400,y=clamp(evalF(x,CW.type,p));
+      if(fp){ctx.moveTo(tx(x),ty(y));fp=false;}else ctx.lineTo(tx(x),ty(y));
+    }
+    ctx.stroke();ctx.restore();
+    var fps=findFixedPoints(p,axMin,axMax);
+    fps.forEach(function(f){
+      ctx.beginPath();ctx.arc(tx(f.x),ty(f.x),5.5,0,2*Math.PI);
+      if(f.stable){ctx.fillStyle='#207040';ctx.fill();}
+      else{ctx.fillStyle='#faf8f5';ctx.fill();ctx.strokeStyle='#207040';ctx.lineWidth=2;ctx.stroke();}
+    });
+    var pts=buildOrbit();
+    ctx.save();ctx.beginPath();ctx.rect(PAD,PAD-10,PW+1,PH+20);ctx.clip();
+    ctx.strokeStyle='rgba(172,48,16,0.80)';ctx.lineWidth=1.7;ctx.beginPath();
+    pts.forEach(function(pt,i){
+      var cx2=tx(pt[0]),cy2=ty(clamp(pt[1]));
+      if(i===0)ctx.moveTo(cx2,cy2);else ctx.lineTo(cx2,cy2);
+    });
+    ctx.stroke();ctx.restore();
+    ctx.fillStyle='#b03010';ctx.beginPath();ctx.arc(tx(CW.x0),ty(axMin),5,0,2*Math.PI);ctx.fill();
+    ctx.font='11.5px system-ui,sans-serif';
+    var la=axMin,lb=axMax,lr=axMax-axMin;
+    ctx.fillStyle='#1a50a0';ctx.textAlign='left';ctx.fillText('y = f(x)',tx(la+lr*0.01),ty(la+lr*0.95));
+    ctx.fillStyle='#aaa';ctx.fillText('y = x',tx(la+lr*0.65),ty(la+lr*0.72));
+    ctx.fillStyle='rgba(172,48,16,0.9)';ctx.fillText('orbit',tx(la+lr*0.01),ty(la+lr*0.88));
+
+    /* divider */
+    ctx.strokeStyle='#ddd';ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(0,CW_H+GAP/2);ctx.lineTo(W,CW_H+GAP/2);ctx.stroke();
+
+    /* time series panel */
+    var tsPW=W-TS_L-TS_R,tsPH=TS_H-TS_BT-TS_BB,N=CW.steps;
+    var xvals=orbitVals();
+    function ttx(t){return TS_L+(t/N)*tsPW;}
+    var tsYMin=0,tsYMax=1;
+    if(CW.type===0){
+        var xvFin=xvals.filter(function(v){return isFinite(v)&&Math.abs(v)<1e4;});
+        if(xvFin.length>0){
+            var tsLo=Math.min.apply(null,xvFin),tsHi=Math.max.apply(null,xvFin);
+            var tsRng=Math.max(tsHi-tsLo,0.5),tsPad=tsRng*0.15;
+            tsYMin=tsLo-tsPad; tsYMax=tsHi+tsPad;
+        }
+    }
+    function tty(v){return TS_T+TS_BT+(1-(v-tsYMin)/(tsYMax-tsYMin))*tsPH;}
+    var tsTks=niceTicks(tsYMin,tsYMax,4);
+    var tsTkStep=tsTks.length>1?Math.abs(tsTks[1]-tsTks[0]):1;
+    ctx.fillStyle='#888';ctx.font='11px system-ui,sans-serif';ctx.textAlign='left';
+    ctx.fillText('Time series: x\u209C vs t',TS_L,TS_T+11);
+    /* y=0 horizontal axis line in time series — shown when negative values are visible */
+    if(tsYMin<0&&tsYMax>0){
+      ctx.strokeStyle='rgba(100,100,100,0.5)';ctx.lineWidth=1;
+      ctx.beginPath();ctx.moveTo(TS_L,tty(0));ctx.lineTo(TS_L+tsPW,tty(0));ctx.stroke();
+    }
+    ctx.strokeStyle='#e0ddd8';ctx.lineWidth=0.6;
+    tsTks.forEach(function(v){
+      ctx.beginPath();ctx.moveTo(TS_L,tty(v));ctx.lineTo(TS_L+tsPW,tty(v));ctx.stroke();
+    });
+    fps.forEach(function(f){
+      if(f.x<tsYMin||f.x>tsYMax)return;
+      ctx.strokeStyle=f.stable?'rgba(32,112,64,0.55)':'rgba(32,112,64,0.22)';
+      ctx.lineWidth=f.stable?1.5:1;ctx.setLineDash(f.stable?[6,3]:[3,4]);
+      ctx.beginPath();ctx.moveTo(TS_L,tty(f.x));ctx.lineTo(TS_L+tsPW,tty(f.x));ctx.stroke();
+      ctx.setLineDash([]);
+      if(f.stable){
+        ctx.fillStyle='rgba(32,112,64,0.75)';
+        ctx.font='9.5px system-ui,sans-serif';ctx.textAlign='right';
+        ctx.fillText('x*\u2248'+f.x.toFixed(3),TS_L-2,tty(f.x)+4);
+      }
+    });
+    ctx.strokeStyle='#888';ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(TS_L,tty(tsYMin));ctx.lineTo(TS_L+tsPW,tty(tsYMin));ctx.stroke();
+    ctx.beginPath();ctx.moveTo(TS_L,TS_T+TS_BT);ctx.lineTo(TS_L,tty(tsYMin));ctx.stroke();
+    ctx.fillStyle='#666';ctx.font='10px system-ui,sans-serif';ctx.textAlign='right';
+    tsTks.forEach(function(v){ctx.fillText(tickLabel(v,tsTkStep),TS_L-4,tty(v)+4);});
+    ctx.textAlign='center';
+    var xStep=Math.max(1,Math.round(N/8));
+    for(var t=0;t<=N;t+=xStep)ctx.fillText(t,ttx(t),tty(tsYMin)+14);
+    ctx.fillText('t',TS_L+tsPW/2,tty(tsYMin)+TS_BB-2);
+    ctx.save();ctx.translate(12,TS_T+TS_BT+tsPH/2);ctx.rotate(-Math.PI/2);
+    ctx.textAlign='center';ctx.font='italic 12px Palatino,Georgia,serif';
+    ctx.fillText('x\u209C',0,0);ctx.restore();
+    ctx.save();ctx.beginPath();ctx.rect(TS_L,TS_T+TS_BT,tsPW,tsPH);ctx.clip();
+    ctx.strokeStyle='rgba(172,48,16,0.75)';ctx.lineWidth=1.6;ctx.beginPath();
+    var tsF=true;
+    xvals.forEach(function(v,i){
+      if(!isFinite(v)){tsF=true;return;}
+      if(tsF){ctx.moveTo(ttx(i),tty(v));tsF=false;}else ctx.lineTo(ttx(i),tty(v));
+    });
+    ctx.stroke();ctx.restore();
+    ctx.fillStyle='#b03010';
+    xvals.forEach(function(v,i){
+      if(!isFinite(v))return;
+      ctx.beginPath();ctx.arc(ttx(i),tty(v),2.8,0,2*Math.PI);ctx.fill();
+    });
+    if(isFinite(xvals[0])){
+      ctx.fillStyle='#b03010';ctx.font='9.5px system-ui,sans-serif';ctx.textAlign='left';
+      ctx.fillText('x\u2080='+CW.x0.toFixed(2),ttx(0)+4,tty(xvals[0])-5);
+    }
+  }
+
+  function setButtonStyles(){
+    document.querySelectorAll('[data-cwtype]').forEach(function(btn){
+      var isActive=parseInt(btn.dataset.cwtype)===CW.type;
+      btn.style.background=isActive?'#7a2e10':'white';
+      btn.style.color=isActive?'white':'#1a1a1a';
+      btn.style.borderColor=isActive?'#7a2e10':'#bbb';
+      btn.style.fontWeight=isActive?'600':'normal';
+    });
+  }
+  function updateLabel(){
+    var p=CW.params[CW.type],s='';
+    if(CW.type===0){var sign=p.d>=0?'+':'−';s='f(x) = '+p.r.toFixed(2)+' · x '+sign+' '+Math.abs(p.d).toFixed(2);}
+    else if(CW.type===1)s='f(x) = '+p.r.toFixed(2)+' · x(1−x)';
+    else s='f(x) = '+p.r.toFixed(2)+' · 4x(1−x) · [1 + '+p.s.toFixed(2)+'·(1−4x(1−x))]';
+    var el=document.getElementById('cw-func-display');if(el)el.textContent=s;
+  }
+  function syncParams(){
+    var r=parseFloat(document.getElementById('cw-r').value)||0;
+    var d=parseFloat((document.getElementById('cw-d')||{}).value)||0;
+    var s=parseFloat((document.getElementById('cw-s')||{}).value)||0;
+    CW.x0=parseFloat(document.getElementById('cw-x0').value)||0.2;
+    CW.steps=parseInt(document.getElementById('cw-steps').value)||30;
+    CW.params[CW.type]={r:r,d:d,s:s};
+  }
+  function refresh(){syncParams();updateLabel();draw();}
+
+  window.cwSetType=function(type){
+    CW.type=type;setButtonStyles();
+    var dRow=document.getElementById('cw-d-row'),sRow=document.getElementById('cw-s-row');
+    if(dRow)dRow.style.display=type===0?'':'none';
+    if(sRow)sRow.style.display=type===2?'':'none';
+    var rSlider=document.getElementById('cw-r'),rNum=document.getElementById('cw-r-num');
+    var rRanges=[[-2,2,0.05],[0,4,0.05],[0,1.5,0.05]];
+    var rr=rRanges[type];
+    rSlider.min=rr[0];rSlider.max=rr[1];rSlider.step=rr[2];
+    if(rNum){rNum.min=rr[0];rNum.max=rr[1];rNum.step=rr[2];}
+    var def=CW.params[type];
+    rSlider.value=def.r;if(rNum)rNum.value=def.r.toFixed(2);
+    if(type===0){
+        var dS=document.getElementById('cw-d'),dN=document.getElementById('cw-d-num');
+        if(dS)dS.value=def.d;if(dN)dN.value=def.d.toFixed(2);
+        // Widen d and x0 for linear — fixed supports any real x
+        if(dS){dS.min=-5;dS.max=5;dS.step=0.1;}
+        if(dN){dN.min=-5;dN.max=5;dN.step=0.1;}
+        var x0S=document.getElementById('cw-x0'),x0N=document.getElementById('cw-x0-num');
+        if(x0S){x0S.min=-3;x0S.max=5;x0S.step=0.05;}
+        if(x0N){x0N.min=-3;x0N.max=5;x0N.step=0.05;}
+    }else{
+        // Restore narrow ranges for quadratic / quartic
+        var dS2=document.getElementById('cw-d'),dN2=document.getElementById('cw-d-num');
+        if(dS2){dS2.min=-0.5;dS2.max=0.5;dS2.step=0.02;}
+        if(dN2){dN2.min=-0.5;dN2.max=0.5;dN2.step=0.02;}
+        var x0S2=document.getElementById('cw-x0'),x0N2=document.getElementById('cw-x0-num');
+        if(x0S2){x0S2.min=0.02;x0S2.max=0.98;x0S2.step=0.01;}
+        if(x0N2){x0N2.min=0.02;x0N2.max=0.98;x0N2.step=0.01;}
+    }
+    if(type===2){var sS=document.getElementById('cw-s'),sN=document.getElementById('cw-s-num');if(sS)sS.value=def.s;if(sN)sN.value=def.s.toFixed(2);}
+    updateLabel();draw();
+  };
+  function bindSlider(id,nid,cb){
+    var sl=document.getElementById(id),nu=document.getElementById(nid);if(!sl)return;
+    sl.addEventListener('input',function(){if(nu)nu.value=parseFloat(sl.value).toFixed(2);cb();});
+    if(nu)nu.addEventListener('change',function(){sl.value=nu.value;cb();});
+  }
+  function initAllCW(){
+    var canvas=document.getElementById('cw-canvas');
+    if(!canvas||canvas._cwInited)return;
+    canvas._cwInited=true;
+    bindSlider('cw-r','cw-r-num',refresh);bindSlider('cw-d','cw-d-num',refresh);
+    bindSlider('cw-s','cw-s-num',refresh);bindSlider('cw-x0','cw-x0-num',refresh);
+    var stSl=document.getElementById('cw-steps'),stVl=document.getElementById('cw-steps-val');
+    if(stSl)stSl.addEventListener('input',function(){CW.steps=parseInt(stSl.value);if(stVl)stVl.textContent=stSl.value;draw();});
+    setButtonStyles();updateLabel();draw();
+  }
+  window.initAllCW=initAllCW;
+  initAllCW();
+})();
+
+
+/* ══════════════════════════════════════════════════════════════
+   COBWEB DIAGRAM WIDGET
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  // ── State ───────────────────────────────────────────────────
+  const CW = {
+    type: 1,  // 0=linear, 1=quadratic, 2=quartic
+    defaults: [
+      {r: 0.6, d: 0.1, s: 0},   // linear defaults
+      {r: 2.8, d: 0,   s: 0},   // quadratic defaults
+      {r: 0.85, d: 0,  s: 1.8}  // quartic defaults
+    ],
+    params: [{r:0.6,d:0.1,s:0},{r:2.8,d:0,s:0},{r:0.85,d:0,s:1.8}],
+    x0: 0.2,
+    steps: 30
+  };
+
+  // ── Function evaluation ─────────────────────────────────────
+  function evalF(x, type, p) {
+    if (type === 0) return p.r * x + p.d;
+    if (type === 1) return p.r * x * (1-x);
+    // quartic: r * 4x(1-x) * [1 + s*(1 - 4x(1-x))]
+    const u = 4 * x * (1-x);
+    return p.r * u * (1 + p.s * (1 - u));
+  }
+
+  // ── Build cobweb point list ─────────────────────────────────
+  function buildCobweb() {
+    const pts = [];
+    const p = CW.params[CW.type];
+    let x = CW.x0;
+    pts.push([x, 0]);
+    for (let i = 0; i < CW.steps; i++) {
+      const y = evalF(x, CW.type, p);
+      pts.push([x, y]);
+      pts.push([y, y]);
+      x = y;
+      if (!isFinite(x) || Math.abs(x) > 3) break;
+    }
+    return pts;
+  }
+
+  // ── Draw ────────────────────────────────────────────────────
+  function draw() {
+    const canvas = document.getElementById('cw-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    const PAD = 48;
+    const PW = W - 2*PAD, PH = H - 2*PAD;
+    const p = CW.params[CW.type];
+
+    function tx(x) { return PAD + x * PW; }
+    function ty(y) { return H - PAD - y * PH; }
+    function clamp(v) { return Math.max(-0.15, Math.min(1.15, v)); }
+
+    // Background
+    ctx.fillStyle = '#faf8f5';
+    ctx.fillRect(0, 0, W, H);
+
+    // Light grid
+    ctx.strokeStyle = '#e0ddd8';
+    ctx.lineWidth = 0.5;
+    for (let i = 0; i <= 10; i++) {
+      ctx.beginPath(); ctx.moveTo(tx(i/10), ty(0)); ctx.lineTo(tx(i/10), ty(1)); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(tx(0), ty(i/10)); ctx.lineTo(tx(1), ty(i/10)); ctx.stroke();
+    }
+
+    // Axes
+    ctx.strokeStyle = '#888';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(tx(0), ty(0)); ctx.lineTo(tx(1.0), ty(0)); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(tx(0), ty(0)); ctx.lineTo(tx(0), ty(1.0)); ctx.stroke();
+
+    // Axis tick marks and labels
+    ctx.fillStyle = '#666';
+    ctx.font = '11px system-ui,sans-serif';
+    ctx.textAlign = 'center';
+    for (let i = 0; i <= 5; i++) {
+      const v = i/5;
+      ctx.beginPath(); ctx.moveTo(tx(v), ty(0)); ctx.lineTo(tx(v), ty(0)+5); ctx.stroke();
+      ctx.fillText(v.toFixed(1), tx(v), ty(0)+17);
+    }
+    ctx.textAlign = 'right';
+    for (let i = 1; i <= 5; i++) {
+      const v = i/5;
+      ctx.beginPath(); ctx.moveTo(tx(0), ty(v)); ctx.lineTo(tx(0)-5, ty(v)); ctx.stroke();
+      ctx.fillText(v.toFixed(1), tx(0)-7, ty(v)+4);
+    }
+
+    // Axis labels
+    ctx.fillStyle = '#555';
+    ctx.font = 'italic 14px Palatino,Georgia,serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('x', tx(0.5), ty(0)+34);
+    ctx.save();
+    ctx.translate(tx(0)-36, ty(0.5));
+    ctx.rotate(-Math.PI/2);
+    ctx.fillText('f(x)', 0, 0);
+    ctx.restore();
+
+    // Diagonal y = x
+    ctx.strokeStyle = '#aaa';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([5,4]);
+    ctx.beginPath(); ctx.moveTo(tx(0), ty(0)); ctx.lineTo(tx(1), ty(1)); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Function curve — clip to draw area
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(PAD, PAD-10, PW+1, PH+20);
+    ctx.clip();
+    ctx.strokeStyle = '#1a50a0';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    let first = true;
+    for (let i = 0; i <= 400; i++) {
+      const x = i/400;
+      const y = evalF(x, CW.type, p);
+      const cy2 = clamp(y);
+      if (first) { ctx.moveTo(tx(x), ty(cy2)); first = false; }
+      else ctx.lineTo(tx(x), ty(cy2));
+    }
+    ctx.stroke();
+    ctx.restore();
+
+    // Fixed points — find by sign changes of f(x)-x
+    ctx.fillStyle = '#207040';
+    for (let i = 0; i < 800; i++) {
+      const xa = i/800, xb = (i+1)/800;
+      const va = evalF(xa, CW.type, p) - xa;
+      const vb = evalF(xb, CW.type, p) - xb;
+      if (va * vb < 0) {
+        const xfp = xa - va * (xb-xa)/(vb-va);
+        if (xfp >= 0 && xfp <= 1) {
+          ctx.beginPath();
+          ctx.arc(tx(xfp), ty(xfp), 5, 0, 2*Math.PI);
+          ctx.fill();
+          // Stability dot outline — unstable = open circle
+          const slope = Math.abs((evalF(xfp+0.002, CW.type, p) - evalF(xfp-0.002, CW.type, p))/0.004);
+          if (slope > 1) {
+            ctx.strokeStyle = '#207040';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(tx(xfp), ty(xfp), 5, 0, 2*Math.PI);
+            ctx.fillStyle = '#faf8f5';
+            ctx.fill();
+            ctx.stroke();
+            ctx.fillStyle = '#207040';
+          }
+        }
+      }
+    }
+
+    // Cobweb path
+    const pts = buildCobweb();
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(PAD, PAD-10, PW+1, PH+20);
+    ctx.clip();
+    ctx.strokeStyle = 'rgba(172,48,16,0.80)';
+    ctx.lineWidth = 1.7;
+    ctx.beginPath();
+    pts.forEach(([x, y], i) => {
+      const cx2 = tx(Math.max(-0.05, Math.min(1.05, x)));
+      const cy2 = ty(clamp(y));
+      if (i === 0) ctx.moveTo(cx2, cy2);
+      else ctx.lineTo(cx2, cy2);
+    });
+    ctx.stroke();
+    ctx.restore();
+
+    // Starting point marker
+    ctx.fillStyle = '#b03010';
+    ctx.beginPath();
+    ctx.arc(tx(CW.x0), ty(0), 5, 0, 2*Math.PI);
+    ctx.fill();
+
+    // Legend
+    ctx.font = '11.5px system-ui,sans-serif';
+    ctx.fillStyle = '#1a50a0';
+    ctx.textAlign = 'left';
+    ctx.fillText('y = f(x)', tx(0.01), ty(0.95));
+    ctx.fillStyle = '#aaa';
+    ctx.fillText('y = x', tx(0.65), ty(0.72));
+    ctx.fillStyle = 'rgba(172,48,16,0.9)';
+    ctx.fillText('orbit', tx(0.01), ty(0.88));
+  }
+
+  // ── Update function label ───────────────────────────────────
+  function updateLabel() {
+    const p = CW.params[CW.type];
+    let s = '';
+    if (CW.type === 0) {
+      const sign = p.d >= 0 ? '+' : '−';
+      s = `f(x) = ${p.r.toFixed(2)} · x ${sign} ${Math.abs(p.d).toFixed(2)}`;
+    } else if (CW.type === 1) {
+      s = `f(x) = ${p.r.toFixed(2)} · x(1−x)`;
+    } else {
+      s = `f(x) = ${p.r.toFixed(2)} · 4x(1−x) · [1 + ${p.s.toFixed(2)}·(1−4x(1−x))]`;
+    }
+    const el = document.getElementById('cw-func-display');
+    if (el) el.textContent = s;
+  }
+
+  // ── Sync params from sliders ────────────────────────────────
+  function syncParams() {
+    const r = parseFloat(document.getElementById('cw-r').value) || 0;
+    const d = parseFloat(document.getElementById('cw-d')?.value) || 0;
+    const s = parseFloat(document.getElementById('cw-s')?.value) || 0;
+    CW.x0 = parseFloat(document.getElementById('cw-x0').value) || 0.2;
+    CW.steps = parseInt(document.getElementById('cw-steps').value) || 30;
+    CW.params[CW.type] = {r, d, s};
+  }
+
+  function refresh() {
+    syncParams();
+    updateLabel();
+    draw();
+  }
+
+  // ── Set function type ───────────────────────────────────────
+  window.cwSetType = function(type) {
+    CW.type = type;
+    // Update tab buttons
+    document.querySelectorAll('[data-cwtype]').forEach(btn => {
+      btn.classList.toggle('active', parseInt(btn.dataset.cwtype) === type);
+    });
+    // Show/hide param rows
+    const dRow = document.getElementById('cw-d-row');
+    const sRow = document.getElementById('cw-s-row');
+    if (dRow) dRow.style.display = type === 0 ? '' : 'none';
+    if (sRow) sRow.style.display = type === 2 ? '' : 'none';
+    // Update r slider range
+    const rSlider = document.getElementById('cw-r');
+    const rNum = document.getElementById('cw-r-num');
+    const rRanges = [[0, 2, 0.05], [0, 4, 0.05], [0, 1.5, 0.05]];
+    const [rMin, rMax, rStep] = rRanges[type];
+    rSlider.min = rMin; rSlider.max = rMax; rSlider.step = rStep;
+    // Restore defaults for this type
+    const def = CW.params[type];
+    rSlider.value = def.r; if (rNum) rNum.value = def.r.toFixed(2);
+    if (type === 0) {
+      const dS = document.getElementById('cw-d'); const dN = document.getElementById('cw-d-num');
+      if (dS) { dS.value = def.d; } if (dN) { dN.value = def.d.toFixed(2); }
+    }
+    if (type === 2) {
+      const sS = document.getElementById('cw-s'); const sN = document.getElementById('cw-s-num');
+      if (sS) { sS.value = def.s; } if (sN) { sN.value = def.s.toFixed(2); }
+    }
+    updateLabel();
+    draw();
+  };
+
+  // ── Bind slider events ──────────────────────────────────────
+  function bindSlider(sliderId, numId, onchange) {
+    const slider = document.getElementById(sliderId);
+    const num = document.getElementById(numId);
+    if (!slider) return;
+    slider.addEventListener('input', () => {
+      if (num) num.value = parseFloat(slider.value).toFixed(2);
+      onchange();
+    });
+    if (num) {
+      num.addEventListener('change', () => {
+        slider.value = num.value;
+        onchange();
+      });
+    }
+  }
+
+  // ── Self-discovering init (idempotent) ───────────────────────────
+  function initAllCW() {
+    const canvas = document.getElementById('cw-canvas');
+    if (!canvas || canvas._cwInited) return;
+    canvas._cwInited = true;
+
+    bindSlider('cw-r', 'cw-r-num', refresh);
+    bindSlider('cw-d', 'cw-d-num', refresh);
+    bindSlider('cw-s', 'cw-s-num', refresh);
+    bindSlider('cw-x0', 'cw-x0-num', refresh);
+
+    const stepsSlider = document.getElementById('cw-steps');
+    const stepsVal = document.getElementById('cw-steps-val');
+    if (stepsSlider) {
+      stepsSlider.addEventListener('input', () => {
+        CW.steps = parseInt(stepsSlider.value);
+        if (stepsVal) stepsVal.textContent = stepsSlider.value;
+        draw();
+      });
+    }
+    updateLabel();
+    draw();
+  }
+  window.initAllCW = initAllCW;
+  window.addEventListener('load', initAllCW);
+})();
+
+
+/* ══════════════════════════════════════════════════════════════
+   BIFURCATION DIAGRAM WIDGET
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  const BF = {
+    r0: 2.8,
+    cachedImage: null
+  };
+
+  function logistic(x, r) { return r * x * (1-x); }
+
+  // ── Behavior label ──────────────────────────────────────────
+  function behaviorLabel(r0) {
+    if (r0 <= 1)    return 'population → 0 (extinction)';
+    if (r0 < 3)     return `stable equilibrium at x* = ${(1-1/r0).toFixed(3)}`;
+    if (r0 < 3.449) return 'period-2 cycle';
+    if (r0 < 3.544) return 'period-4 cycle';
+    if (r0 < 3.5699) return 'period-8 or higher cycle';
+    if (r0 < 3.829) return 'chaotic (mostly)';
+    if (r0 < 3.857) return 'period-3 window!';
+    return 'chaotic';
+  }
+
+  // ── Draw bifurcation diagram ────────────────────────────────
+  function drawBifurcation() {
+    const canvas = document.getElementById('bf-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    const L = 55, R = 20, T = 18, B = 38;
+    const PW = W-L-R, PH = H-T-B;
+    const rMin=0, rMax=4;
+
+    ctx.fillStyle = '#1a1a2e';
+    ctx.fillRect(0, 0, W, H);
+
+    // Compute and plot
+    const N_TR = 600, N_PL = 250;
+    for (let px = 0; px < PW; px++) {
+      const r = rMin + (px/PW)*(rMax-rMin);
+      if (r <= 0) continue;
+      let x = 0.4;
+      for (let i = 0; i < N_TR; i++) x = logistic(x, r);
+      ctx.fillStyle = 'rgba(100,190,255,0.55)';
+      for (let i = 0; i < N_PL; i++) {
+        x = logistic(x, r);
+        if (x >= 0 && x <= 1) {
+          const py = T + (1-x)*PH;
+          ctx.fillRect(L+px, Math.round(py), 1, 1);
+        }
+      }
+    }
+
+    // Axes
+    ctx.strokeStyle = '#aaa';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(L, T+PH); ctx.lineTo(L+PW, T+PH); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(L, T); ctx.lineTo(L, T+PH); ctx.stroke();
+
+    // r₀ ticks and labels
+    ctx.fillStyle = '#bbb';
+    ctx.font = '11px system-ui,sans-serif';
+    ctx.textAlign = 'center';
+    for (let ri = 0; ri <= 4; ri++) {
+      const px = L + (ri/4)*PW;
+      ctx.beginPath(); ctx.moveTo(px, T+PH); ctx.lineTo(px, T+PH+5); ctx.stroke();
+      ctx.fillText(ri, px, T+PH+18);
+    }
+    ctx.fillText('r₀', L+PW/2, H-3);
+
+    // x ticks
+    ctx.textAlign = 'right';
+    for (let xi = 0; xi <= 4; xi++) {
+      const py = T + (1-xi/4)*PH;
+      ctx.beginPath(); ctx.moveTo(L, py); ctx.lineTo(L-5, py); ctx.stroke();
+      ctx.fillText((xi/4).toFixed(2), L-7, py+4);
+    }
+    // y-axis label
+    ctx.save();
+    ctx.translate(12, T+PH/2);
+    ctx.rotate(-Math.PI/2);
+    ctx.textAlign = 'center';
+    ctx.fillText('long-run x', 0, 0);
+    ctx.restore();
+
+    // Cache image for overlay
+    BF.cachedImage = ctx.getImageData(0, 0, W, H);
+    drawRLine(ctx, W, H, L, R, T, B, PW, PH, rMin, rMax);
+  }
+
+  // ── Draw selected r₀ line ───────────────────────────────────
+  function drawRLine(ctx, W, H, L, R, T, B, PW, PH, rMin, rMax) {
+    if (!ctx) {
+      const canvas = document.getElementById('bf-canvas');
+      if (!canvas) return;
+      ctx = canvas.getContext('2d');
+      W=canvas.width; H=canvas.height;
+      L=55; R=20; T=18; B=38;
+      PW=W-L-R; PH=H-T-B;
+      rMin=0; rMax=4;
+    }
+    if (BF.cachedImage) ctx.putImageData(BF.cachedImage, 0, 0);
+    const px = L + ((BF.r0-rMin)/(rMax-rMin))*PW;
+    ctx.strokeStyle = '#e0af68';
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(px, T); ctx.lineTo(px, T+PH); ctx.stroke();
+    ctx.fillStyle = '#e0af68';
+    ctx.font = 'bold 12px system-ui,sans-serif';
+    ctx.textAlign = px > W/2 ? 'right' : 'left';
+    ctx.fillText(`r₀ = ${BF.r0.toFixed(2)}`, px + (px > W/2 ? -6 : 6), T+14);
+    drawTimeSeries();
+  }
+
+  // ── Draw time series ────────────────────────────────────────
+  function drawTimeSeries() {
+    const canvas = document.getElementById('bf-ts-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W=canvas.width, H=canvas.height;
+    const L=55, R=20, T=12, B=32;
+    const PW=W-L-R, PH=H-T-B;
+    const N=70;
+
+    ctx.fillStyle = '#f8f4ee';
+    ctx.fillRect(0, 0, W, H);
+
+    // Compute series after transients
+    let x = 0.4;
+    for (let i = 0; i < 400; i++) x = logistic(x, BF.r0);
+    const series = [];
+    for (let i = 0; i < N; i++) { x = logistic(x, BF.r0); series.push(x); }
+
+    function tx(t) { return L + (t/(N-1))*PW; }
+    function ty(v) { return T + (1-v)*PH; }
+
+    // Grid lines
+    ctx.strokeStyle = '#e0ddd8';
+    ctx.lineWidth = 0.5;
+    [0, 0.25, 0.5, 0.75, 1].forEach(v => {
+      ctx.beginPath(); ctx.moveTo(L, ty(v)); ctx.lineTo(L+PW, ty(v)); ctx.stroke();
+    });
+
+    // Axes
+    ctx.strokeStyle = '#999';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(L, ty(0)); ctx.lineTo(L+PW, ty(0)); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(L, ty(0)); ctx.lineTo(L, ty(1)); ctx.stroke();
+
+    // Fixed point line if stable
+    if (BF.r0 > 1 && BF.r0 < 3) {
+      const xfp = 1 - 1/BF.r0;
+      ctx.strokeStyle = 'rgba(60,150,60,0.5)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4,3]);
+      ctx.beginPath(); ctx.moveTo(L, ty(xfp)); ctx.lineTo(L+PW, ty(xfp)); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = 'rgba(60,150,60,0.8)';
+      ctx.font = '10px system-ui,sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText(`x* = ${xfp.toFixed(3)}`, L+PW-2, ty(xfp)-3);
+    }
+
+    // Series line
+    ctx.strokeStyle = '#c04020';
+    ctx.lineWidth = 1.8;
+    ctx.beginPath();
+    series.forEach((v, i) => {
+      if (i === 0) ctx.moveTo(tx(i), ty(v));
+      else ctx.lineTo(tx(i), ty(v));
+    });
+    ctx.stroke();
+
+    // Dots
+    ctx.fillStyle = '#c04020';
+    series.forEach((v, i) => {
+      ctx.beginPath();
+      ctx.arc(tx(i), ty(v), 2.5, 0, 2*Math.PI);
+      ctx.fill();
+    });
+
+    // Axis labels + ticks
+    ctx.fillStyle = '#666';
+    ctx.font = '11px system-ui,sans-serif';
+    ctx.textAlign = 'right';
+    [0, 0.25, 0.5, 0.75, 1].forEach(v => {
+      ctx.fillText(v.toFixed(2), L-5, ty(v)+4);
+    });
+    ctx.textAlign = 'center';
+    ctx.fillText('time steps (after 400 transients)', L+PW/2, H-4);
+    ctx.textAlign = 'right';
+    ctx.save();
+    ctx.translate(14, T+PH/2);
+    ctx.rotate(-Math.PI/2);
+    ctx.fillText('x', 0, 0);
+    ctx.restore();
+  }
+
+  // ── Self-discovering init (idempotent) ───────────────────────────
+  function initAllBF() {
+    const canvas = document.getElementById('bf-canvas');
+    if (!canvas || canvas._bfInited) return;
+    canvas._bfInited = true;
+
+    drawBifurcation();
+
+    function updateBehaviorLabel() {
+      const el = document.getElementById('bf-behavior-label');
+      if (el) el.textContent = '→ ' + behaviorLabel(BF.r0);
+    }
+
+    const slider = document.getElementById('bf-r0');
+    const numInput = document.getElementById('bf-r0-num');
+
+    if (slider) {
+      slider.addEventListener('input', () => {
+        BF.r0 = parseFloat(slider.value);
+        if (numInput) numInput.value = BF.r0.toFixed(2);
+        updateBehaviorLabel();
+        drawRLine();
+      });
+    }
+    if (numInput) {
+      numInput.addEventListener('change', () => {
+        BF.r0 = Math.min(4, Math.max(0.1, parseFloat(numInput.value)));
+        if (slider) slider.value = BF.r0;
+        updateBehaviorLabel();
+        drawRLine();
+      });
+    }
+    updateBehaviorLabel();
+  }
+  window.initAllBF = initAllBF;
+  window.addEventListener('load', initAllBF);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Natural Order chapter format v6">
+<title>Natural Order — Chapter 6: Gnomons and Self-Similar Growth</title>
+<link rel="stylesheet" href="../shared/book.css">
+<script src="../shared/book.js"></script>
+<script src="../shared/widgets.js" defer></script>
+</head>
+<body>
+<div class="ch" data-chapter="6" data-numbering="auto">
+  <nav class="ch-nav ch-nav-top"><a class="ch-nav-prev" href="../size-and-shape/size-and-shape.html"><span class="ch-nav-num">← Chapter 5</span> <span class="ch-nav-title">Scaling and Allometry</span></a><a class="ch-nav-index" href="../index.html">Contents</a><a class="ch-nav-next" href="../spirals/spirals.html"><span class="ch-nav-num">Chapter 9 →</span> <span class="ch-nav-title">Spirals</span></a></nav>
+  <div class="ch-eyebrow">Part II&nbsp; ·&nbsp; Chapter 6</div>
+  <h1 class="ch-title">Gnomons and Isometric Growth</h1>
+  <p class="ch-subtitle">On the geometry of isometric growth</p>
+  <hr class="ch-rule">
+  <section class="sec" id="sec-shapes-that-grow-without-changing">
+    <div class="sec-head">
+      <span class="sec-label">Section 1</span>
+      <h2>Shapes That Grow Without Changing</h2>
+    </div>
+    <p>Nature provides remarkable examples of shapes that grow incrementally while preserving their proportions, growing <em>isometrically</em>. As we saw in the the previous chapter this in an exception to the normal process of growth. These special objects have have in a real senses adopted an optimal form and developed a way to grow that retains that it. These shapes are governed by one of the oldest ideas in geometry: the <em>gnomon</em>.</p>
+    <p>Before we define the gnomon precisely, let's look some examples that might come up on a walk in nature. We will observe some geometric patterns that foreshadow the mathematics that follows.</p>
+    <section class="sub" id="sub-horns-mountaintops">
+      <h3 class="sub">Horns on the Mountaintops</h3>
+      <p>When hiking above the the tree line in the pacific coast range, the cascades or rocky mountains, you may be fortunate to spot flecks of white moving along distant peaks signaling the presence of rocky mountain goats (<em>Oreamnos americanus). </em>These amazing creatures, which are more closely related to antelopes than true goats, live among the rocky crags, bounding along steep slopes and boulders as if gravity had no meaning. It is difficult to get a close up look at these animals; they climb where it is hard for us reach, and they tend to move away if we get close. And, you are ill-advised to get too close. Mountain goats are very protective of their young, and they have sharp horns to contend with. The horns are what draws our attention here.</p>
+      <figure class="photo-panel" id="fig-rocky-mountain-goat-oreamnos-americanus-credit">
+        <div class="panel-row">
+          <div class="panel-item"><img src="images/mountain-goats-mountains-olympic.jpg" alt="Mountain-goats-mountains-Olympic-National-Park-Washington-1"></div>
+          <div class="panel-item"><img src="images/flickr-oregon-department-fish.jpg" alt="Flickr_-_Oregon_Department_of_Fish_&amp;_Wildlife_-_023_mtn_goat_indian_rock_paustian_odfw"></div>
+        </div>
+        <figcaption><strong>Fig. 6.1</strong> Rocky Mountain Goat (Oreamnos Americanus). Credit: Oregon Department of Fish &amp; Wildlife, CC BY-SA 2.0, via Wikimedia Commons</figcaption>
+      </figure>
+      <p>Unlike elk and deer, mountain goats don't shed their horns each year only to regrow them the next. Instead they grow continuously, year after year. A new frustum-shaped collar of keratin is added at the base each year, pushing the older material upward. At each year's end the horn is a similar conical shape to the horn at every previous year — just longer and wider. Each new year of growth, creates a ring, with forms a record of the animal's age. This shape preserving addition, is known as a <em>gnomon</em>, in geometric terms.</p>
+      <figure id="fig-model-5-year-goat-horn-year">
+        <svg height="278" viewBox="0 0 320 278" width="320">
+  <!--
+    Horn as stacked frustums (truncated cones).
+    Tip: (170, 22). Base: cx=170, y=250, half_w=72.
+    hw(y) = 72*(y-22)/228.
+    Section boundaries at y = 22, 88, 133, 170, 205, 250.
+    hw values: 0, 20, 33, 47, 58, 72.
+    Section arcs bow downward (sweep=1 left→right = near face of cross-section).
+    Ledge highlights: upper arc (sweep=0 left→right) 3px above each line.
+  -->
+  <defs>
+    <!-- Lateral 3D shading: dark left rim, highlight left-of-centre, dark right rim -->
+    <linearGradient gradientUnits="userSpaceOnUse" id="hornShade" x1="98" x2="242" y1="0" y2="0">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.42"></stop>
+      <stop offset="18%" stop-color="#fff" stop-opacity="0.22"></stop>
+      <stop offset="40%" stop-color="#fff" stop-opacity="0.00"></stop>
+      <stop offset="72%" stop-color="#000" stop-opacity="0.05"></stop>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.52"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- ── Section fills ── -->
+  <!-- Year 1 (tip, oldest): y=22 → y=88, hw=0→20 -->
+  <path d="M 170,22
+           L 150,88 A 20,7 0 0,1 190,88
+           Z" fill="#96a8c8"></path>
+
+  <!-- Year 2: y=88→133, hw=20→33 -->
+  <path d="M 150,88
+           L 137,133 A 33,12 0 0,1 203,133
+           L 190,88  A 20,7  0 0,0 150,88
+           Z" fill="#8e9ec0"></path>
+
+  <!-- Year 3: y=133→170, hw=33→47 -->
+  <path d="M 137,133
+           L 123,170 A 47,16 0 0,1 217,170
+           L 203,133 A 33,12 0 0,0 137,133
+           Z" fill="#8695b8"></path>
+
+  <!-- Year 4: y=170→205, hw=47→58 -->
+  <path d="M 123,170
+           L 112,205 A 58,20 0 0,1 228,205
+           L 217,170 A 47,16 0 0,0 123,170
+           Z" fill="#7e8cb0"></path>
+
+  <!-- Year 5 (newest gnomon): y=205→250, hw=58→72 -->
+  <path d="M 112,205
+           L  98,250 A 72,25 0 0,1 242,250
+           L 228,205 A 58,20 0 0,0 112,205
+           Z" fill="#7684a8"></path>
+
+  <!-- ── Shading overlay (applied over all sections) ── -->
+  <path d="M 170,22 L 98,250 A 72,25 0 0,1 242,250 Z" fill="url(#hornShade)"></path>
+
+  <!-- ── Horn outline ── -->
+  <line stroke="#2e4060" stroke-width="1.8" x1="170" x2="98" y1="22" y2="250"></line>
+  <line stroke="#2e4060" stroke-width="1.8" x1="170" x2="242" y1="22" y2="250"></line>
+
+  <!-- ── Section dividing arcs (the groove between each year's collar) ── -->
+  <path d="M 150,88  A 20,7  0 0,1 190,88" fill="none" stroke="#1e2e50" stroke-width="2.2"></path>
+  <path d="M 137,133 A 33,12 0 0,1 203,133" fill="none" stroke="#1e2e50" stroke-width="2.2"></path>
+  <path d="M 123,170 A 47,16 0 0,1 217,170" fill="none" stroke="#1e2e50" stroke-width="2.2"></path>
+  <path d="M 112,205 A 58,20 0 0,1 228,205" fill="none" stroke="#1e2e50" stroke-width="2.2"></path>
+
+  <!-- ── Ledge highlights (upper arc just above each section — the lit top rim) ── -->
+  <path d="M 150,85  A 20,7  0 0,0 190,85" fill="none" opacity="0.70" stroke="#c8d8f0" stroke-width="1.2"></path>
+  <path d="M 137,130 A 33,12 0 0,0 203,130" fill="none" opacity="0.70" stroke="#c8d8f0" stroke-width="1.2"></path>
+  <path d="M 123,167 A 47,16 0 0,0 217,167" fill="none" opacity="0.70" stroke="#c8d8f0" stroke-width="1.2"></path>
+  <path d="M 112,202 A 58,20 0 0,0 228,202" fill="none" opacity="0.70" stroke="#c8d8f0" stroke-width="1.2"></path>
+
+  <!-- ── Base ellipse (cut face) ── -->
+  <ellipse cx="170" cy="250" fill="#485878" rx="72" ry="25" stroke="#1e2e50" stroke-width="1.8"></ellipse>
+  <!-- Bone core hint -->
+  <ellipse cx="170" cy="250" fill="#151e38" opacity="0.75" rx="9" ry="3.5"></ellipse>
+
+  <!-- ── Specular highlight (left-of-centre bright streak) ── -->
+  <path d="M 165,26 Q 159,138 157,250" fill="none" opacity="0.15" stroke="#fff" stroke-linecap="round" stroke-width="2.2"></path>
+
+  <!-- ── Year labels (right side) ── -->
+  <!-- Year 1: section mid y=55, right edge ≈170+8=178 -->
+  <line stroke="#666" stroke-dasharray="3 2" stroke-width="0.9" x1="178" x2="244" y1="55" y2="48"></line>
+  <text fill="#333" font-family="Georgia,serif" font-size="11.5" font-style="italic" x="247" y="52">Year 1</text>
+
+  <!-- Year 2: section mid y=111, right edge ≈170+24=194 -->
+  <line stroke="#666" stroke-dasharray="3 2" stroke-width="0.9" x1="194" x2="244" y1="111" y2="105"></line>
+  <text fill="#333" font-family="Georgia,serif" font-size="11.5" font-style="italic" x="247" y="109">Year 2</text>
+
+  <!-- Year 3: section mid y=152, right edge ≈170+37=207 -->
+  <line stroke="#666" stroke-dasharray="3 2" stroke-width="0.9" x1="207" x2="244" y1="152" y2="152"></line>
+  <text fill="#333" font-family="Georgia,serif" font-size="11.5" font-style="italic" x="247" y="156">Year 3</text>
+
+  <!-- Year 4: section mid y=188, right edge ≈170+48=218 -->
+  <line stroke="#666" stroke-dasharray="3 2" stroke-width="0.9" x1="218" x2="244" y1="188" y2="191"></line>
+  <text fill="#333" font-family="Georgia,serif" font-size="11.5" font-style="italic" x="247" y="195">Year 4</text>
+
+  <!-- Year 5 (gnomon): section mid y=228, right edge ≈170+59=229 -->
+  <line stroke="#8a2a00" stroke-dasharray="3 2" stroke-width="0.9" x1="229" x2="244" y1="228" y2="232"></line>
+  <text fill="#8a2a00" font-family="Georgia,serif" font-size="11.5" font-style="italic" x="247" y="236">Year 5</text>
+  <text fill="#8a2a00" font-family="Georgia,serif" font-size="9.5" font-style="italic" x="247" y="249">(gnomon)</text>
+
+  <!-- ── Brace marking Year 5 as gnomon on left side ── -->
+  <line stroke="#8a2a00" stroke-width="1.1" x1="94" x2="84" y1="205" y2="205"></line>
+  <line stroke="#8a2a00" stroke-width="1.1" x1="84" x2="84" y1="205" y2="250"></line>
+  <line stroke="#8a2a00" stroke-width="1.1" x1="84" x2="94" y1="250" y2="250"></line>
+  <line stroke="#8a2a00" stroke-width="1.1" x1="84" x2="68" y1="228" y2="228"></line>
+
+  <!-- ── Caption ── -->
+  <text fill="#888" font-family="Georgia,serif" font-size="10.5" font-style="italic" text-anchor="middle" x="160" y="272"></text></svg>
+        <figcaption><strong>Fig. 6.2</strong> Model of A 5-year goat horn. Year 1 (the tip) was deposited first; each subsequent year adds a frustum-shaped keratin collar at the base. The newest collar (Year 5, red brace) is the gnomon: it converts the previous horn into a larger, geometrically similar horn.</figcaption>
+      </figure>
+      <div class="callout" id="co-horns-archive">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Further Explanation</span> <span class="ct-title">Horns as environmental archives</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p>Synchrotron micro X-ray fluorescence (SR-μXRF) can map trace-element concentrations across a horn cross-section at 20-μm resolution, resolving individual annual rings. Lead introduced into the bloodstream appears as a discrete enriched band at the ring corresponding to the year of exposure. Calcium, copper, zinc, bromine and sulfur show their own annual banding patterns tied to the biology of keratinisation. The technique has potential applications in retrospective toxicology and wildlife monitoring. See: Tehrani et al., <em>Journal of Trace Elements in Medicine and Biology</em> 55 (2019), pp. 143–153.</p>
+        </div>
+      </div>
+    </section>
+    <section class="sub" id="sub-cubes-growing-into-cubes">
+      <h3 class="sub">Cubes Growing Into a Cubes</h3>
+      <p>Back in the 1800s the Rocky mountains and Cascades were home to another sort of animal -- the gold prospector. During the gold rush, adventurous souls braved the harsh environment in the hopes of striking it rich. Some did, but most did not. While there was some gold to be had, and there still is in small quantities, even more common is iron pyrite -- otherwise known as "fools gold". Apart from its propensity to shine like gold in some forms, pyrite (iron (II) disulfide) can also grow remarkably symmetric cubic crystals.</p>
+      <figure class="photo-panel" id="fig-examples-pyrite-or-iron-ii-disulfide">
+        <div class="panel-row">
+          <div class="panel-item"><img src="images/pyrite-vein-hy.jpg" alt="pyrite-vein-hy"> <span class="panel-sub">Vein of Hydrothermal Pyrite</span></div>
+          <div class="panel-item"><img src="images/naturally-formed-cubes-pyrite.jpg" alt="naturally-formed-cubes-of-pyrite-v0-d2tg65lrnx111"> <span class="panel-sub">Cubic crystalline form of pyrite</span></div>
+        </div>
+        <figcaption><strong>Fig. 6.3</strong> Examples of pyrite, or iron (II) disulfide (FeS$_2$)</figcaption>
+      </figure>
+      <p>The underlying ionic arrangement of Iron (II) disulfide, is a cubic lattice. As a crystal grows from solution in stable conditions -- such as might occur in the mud of a cave floor, new layers of ions are deposited uniformly on all exposed faces, producing a larger cube. The new layers that are added are cubic shells, <em>gnomons, </em>that build a larger cube from the previous one, preserving the overall cubic shape.</p>
+      <figure id="fig-c-three-isometric-views-nested-halite">
+        <svg height="220" viewBox="0 0 320 220" width="320">
+  <polygon fill="#c8d4e8" points="160,30 230,70 160,110 90,70" stroke="#5070a0" stroke-width="1.3"></polygon>
+  <polygon fill="#9ab0cc" points="230,70 160,110 160,190 230,150" stroke="#5070a0" stroke-width="1.3"></polygon>
+  <polygon fill="#7a98b8" points="90,70 160,110 160,190 90,150" stroke="#5070a0" stroke-width="1.3"></polygon>
+  <polygon fill="#d8e8f5" opacity=".9" points="160,55 208,83 160,111 112,83" stroke="#7090b8" stroke-width="1"></polygon>
+  <polygon fill="#bccce0" opacity=".9" points="208,83 160,111 160,166 208,138" stroke="#7090b8" stroke-width="1"></polygon>
+  <polygon fill="#aabcd0" opacity=".9" points="112,83 160,111 160,166 112,138" stroke="#7090b8" stroke-width="1"></polygon>
+  <polygon fill="#edf4fc" opacity=".85" points="160,69 194,89 160,109 126,89" stroke="#90a8c8" stroke-width=".8"></polygon>
+  <polygon fill="#d4e4f4" opacity=".85" points="194,89 160,109 160,139 194,119" stroke="#90a8c8" stroke-width=".8"></polygon>
+  <polygon fill="#c8d8ec" opacity=".85" points="126,89 160,109 160,139 126,119" stroke="#90a8c8" stroke-width=".8"></polygon>
+  <text fill="#888" font-family="Georgia,serif" font-size="10.5" font-style="italic" text-anchor="middle" x="160" y="210">Three growth stages: each new shell is a cubic gnomon</text>
+</svg>
+        <figcaption><strong>Fig. 6.4</strong> Three isometric views of nested halite cubes. Each new layer deposited on all six faces is the gnomon to the cube within, producing a larger cube of identical proportions.</figcaption>
+      </figure>
+    </section>
+    <section class="sub" id="sub-brackets-forest">
+      <h3 class="sub">Brackets in the Forest</h3>
+      <p>Coming down off the mountain into the wet semi-tropical rain forest you will likely come across an old snag, a dead tree which is still standing and creating a habitat for other organisms. It is quite common to find bracket fungus growing off the side of a snag, or even a live tree that is coming near the end of its life. The fungi are called polypores, and the visible fruiting body that form semicircular horizontal shelves off the side of the trunk are called conks. These are a woody texture, and, like mushrooms, are often brightly colored. Some are prized for their medicinal value, while others are poisonous. Many bracket fungi have pronounce half rings, like the ones in <a class="xref" href="#fig-bracket-fungus-polypore-clinging-old-tree">Fig. 6.5</a>, that give visual image of how they grow; by adding a new layer to their outer edge every year. These new layers are shaped that preserve the overall semi-circular shape year after year.</p>
+      <figure class="photo-panel" id="fig-bracket-fungus-polypore-clinging-old-tree">
+        <div class="panel-row">
+          <div class="panel-item"><img src="images/red-belt-conk-comox.jpg" alt="red-belt-conk-comox BC"></div>
+          <div class="panel-item"><img src="images/fomitopsis-mounceae.jpg" alt="Fomitopsis_mounceae"></div>
+        </div>
+        <figcaption><strong>Fig. 6.5</strong> Bracket fungus (Polypore) clinging to old tree stumps</figcaption>
+      </figure>
+    </section>
+    <section class="sub" id="sub-down-sea">
+      <h3 class="sub">Down by the Sea</h3>
+      <p>Coming down from the mountains to the coastal waters, we find some of the richest environments for interesting organisms with geometric forms that grow while retaining their shapes. Most common are the mollusks with shells that come in a variety of interesting shapes. The gastropods have the richest set of examples. There is the conical shell of the limpet, that adheres like a vice to the rocks that are exposed at high tide, the spiral shell of the moon snail which inches along the bottom like an alien, and the tiny periwinkles with sharp screw-like shells. Around the world here are hundreds of others with varying shapes and beautiful patterns.</p>
+      <figure class="photo-panel" id="fig-gastropod-shells-shapes">
+        <div class="panel-row">
+          <div class="panel-item"><img src="images/common-limpet-anna-zucconi.jpg" alt="Common-Limpet-Anna-Zucconi"> <span class="panel-sub">Common limpet</span></div>
+          <div class="panel-item"><img src="images/tectonatica-violacea-moon-snail.jpg" alt="Tectonatica_violacea-moon snail"> <span class="panel-sub">Moon Snail</span></div>
+          <div class="panel-item"><img src="images/periwinkles021.jpg" alt="periwinkles021"> <span class="panel-sub">Periwinkle</span></div>
+        </div>
+        <figcaption><strong>Fig. 6.6</strong> Gastropod shells shapes</figcaption>
+      </figure>
+      <p>There are also the two shelled bivalves, including clams that dig deep into the muddy intertidal seabed, mussels that grasp in clusters to rocks and wood, and scallops that swim through water by clapping their shells together.</p>
+      <figure class="photo-panel" id="fig-bivalve-shells">
+        <div class="panel-row">
+          <div class="panel-item"><img src="images/cockle-top.jpg" alt="cockle-top"> <span class="panel-sub">Cockle</span></div>
+          <div class="panel-item"><img src="images/mussels.jpg" alt="mussels"> <span class="panel-sub">Mussel</span></div>
+          <div class="panel-item"><img src="images/scallop-galiano-2026-mcavity.jpg" alt="scallop Galiano 2026 McAvity"> <span class="panel-sub">Scallop</span></div>
+        </div>
+        <figcaption><strong>Fig. 6.7</strong> Bivalve shells</figcaption>
+      </figure>
+      <p>One of the most remarkable species of clam, is the geoduck (pronounced "gooey duck"). These amazing creatures can live for over a 100 years, buried in mud. Their siphons used for eating and breathing are the largest of any species -- too large to fit in their shells.</p>
+      <p>Another remarkable creature is the nautilus, which is a cephalopod in the same class of mollusks as the octopus and squid. Cut a nautilus shell along its plane of symmetry and you see one of the most fascinating geometric records in the natural world. The shell is divided into chambers by curved walls called septa. Each chamber is geometrically similar to the one before it. The nautilus constructs each new chamber as a scaled copy of the previous one. We will see this this particular example illustrate not just geometric similarity but self-similarity, which is concept we will introduce later in this chapter, and will fully explore in the chapter on fractals.</p>
+      <figure class="photo-panel" id="fig-mollusk-marvels">
+        <div class="panel-row">
+          <div class="panel-item"><img src="images/geoduck-held-two-hands.jpg" alt="Geoduck_held_in_two_hands"> <span class="panel-sub">Geoduck</span></div>
+          <div class="panel-item"><img src="images/nautilus-belauensis-from-palau.jpg" alt="Nautilus_belauensis_from_Palau-by-Manuae"> <span class="panel-sub">Nautilus Cephalopod</span></div>
+          <div class="panel-item"><img src="images/nautilussutures-jpg.jpg" alt="NautilusSutures.jpg"> <span class="panel-sub">Nautilus shell cross section</span></div>
+        </div>
+        <figcaption><strong>Fig. 6.8</strong> Mollusk Marvels</figcaption>
+      </figure>
+      <p>For most of these mollusks, their shells have particular geometric form -- a cone, a spiral, a fan or a dish, or something else. The shape of each retains its proportions as the organism grows, and the new shell that is added each year, the <em>gnomon</em>, is configured so as to retain this optimal from.</p>
+    </section>
+    <section class="sub" id="sub-from-rough-smooth">
+      <h3 class="sub">From Rough to Smooth</h3>
+      <p>Not all mollusks have the seashells with symmetric and fixed geometric form that replicates as they grow. One pronounced examples, is the oyster, which shapes its shell to fit with and contort with the shape of the crack or cranny on which it grows, while their shells grow by accretion, as with other mollusks shells, the shape may change. However, hidden with the oyster is another beautiful example of gnomonic growth -- that is the oyster pearl. A pearl grows incrementally as the oyster coats an irritating grain in mother of pearl, creating the lustrous sphere that are so treasured by jewelers . Cut a pearl in half and you can see the rings that show the growth.</p>
+      <figure class="photo-panel" id="fig-irregular-oysters-their-regular-pearls">
+        <div class="panel-row">
+          <div class="panel-item"><img src="images/oyster-bed-mcavity-galiano.jpg" alt="Oyster bed -- McAvity Galiano 2026"> <span class="panel-sub">Oyster bed, Galiano Island. Credit Doreen McAvity 2026</span></div>
+          <div class="panel-item"><img src="images/pearl-cross-section.jpg" alt="pearl cross section"> <span class="panel-sub">Pearl cross section</span></div>
+        </div>
+        <figcaption><strong>Fig. 6.9</strong> Irregular Oysters and their regular pearls</figcaption>
+      </figure>
+    </section>
+  </section>
+  <section class="sec" id="sec-mathematics-gnomons">
+    <div class="sec-head">
+      <span class="sec-label">Section 2</span>
+      <h2>The Mathematics of Gnomons</h2>
+    </div>
+    <p>The natural examples in <a class="xref" href="#sec-shapes-that-grow-without-changing">Section 1</a> all illustrate the idea of isometric growth of a form through the addition of another shape, in order to create a larger but geometrically similar figure. The shape that is added is called a <em>gnomon</em>. In this section we work through the conditions a shape must satisfy to have a gnomon and what form the gnomon can take depending on the original shape.</p>
+    <section class="sub" id="sub-what-gnomon">
+      <h3 class="sub">2.1 What Is a Gnomon?</h3>
+      <h4 class="topic">Defining the Gnomon</h4>
+      <p>The word <em>gnomon</em> comes from the Greek for "that which knows" it originally refers the upright rod of a sundial. In Greek geometry it acquired a more specific meaning: the gnomon of a figure is the shape that, when added to it, produces a larger figure <em>similar</em> to the original.</p>
+      <p>More precisely: a <strong>gnomon</strong> to a figure $F$ is a shape $G$ such that the union of the two shape $F \cup G$ is geometrically similar to $F$ . That is, it has the same shape, but larger. This definition then asks the question: what is the shape of the gnomon for a particular figure and how does it relate to the original figure.</p>
+      <p>Our first example is the square, to which an L shape is added to create another square. This is the original gnomon, from ancient Greece, and we can see why the borrowed the name from the sundial.</p>
+      <div class="ibox" id="p2">
+  <div class="ititle" onclick="toggleIbox('p2')">
+    <span class="ib-badge">Exploration 6.1</span>
+    <span class="ib-title">Square gnomons: what are the dimensions of the that shape gets added each time?</span>
+    <span class="ib-icon" style>▶</span>
+  </div>
+  <div class="ib-body" style="display: none;">
+    <div class="idesc">Starting with a unit square, an L-shaped piece is added to produce a 2×2 square, then another L to make 3×3, and so on. The sequence shows the <em>area of each L-shaped gnomon</em>. What is the pattern?</div>
+    <div class="isvg" id="p2-svg"><svg height="200" viewBox="0 0 280 200" width="280"><rect fill="#d4c8a8" fill-opacity="0.9" height="24" stroke="#5a3a1a" stroke-width="1.3" width="24" x="20" y="20"></rect><rect fill="#d4c8a8" fill-opacity="0.9" height="48" stroke="#5a3a1a" stroke-width="1.3" width="48" x="20" y="20"></rect><rect fill="#d4c8a8" fill-opacity="0.9" height="72" stroke="#5a3a1a" stroke-width="1.3" width="72" x="20" y="20"></rect><rect fill="#d4c8a8" fill-opacity="0.9" height="96" stroke="#5a3a1a" stroke-width="1.3" width="96" x="20" y="20"></rect><rect fill="#d4c8a8" fill-opacity="0.9" height="120" stroke="#5a3a1a" stroke-width="1.3" width="120" x="20" y="20"></rect><rect fill="#D85A30" fill-opacity="0.45" height="144" stroke="#5a3a1a" stroke-width="1.3" width="144" x="20" y="20"></rect><line opacity="0.4" stroke="#5a3a1a" stroke-width="0.6" x1="44" x2="44" y1="20" y2="164"></line><line opacity="0.4" stroke="#5a3a1a" stroke-width="0.6" x1="20" x2="164" y1="44" y2="44"></line><line opacity="0.4" stroke="#5a3a1a" stroke-width="0.6" x1="68" x2="68" y1="20" y2="164"></line><line opacity="0.4" stroke="#5a3a1a" stroke-width="0.6" x1="20" x2="164" y1="68" y2="68"></line><line opacity="0.4" stroke="#5a3a1a" stroke-width="0.6" x1="92" x2="92" y1="20" y2="164"></line><line opacity="0.4" stroke="#5a3a1a" stroke-width="0.6" x1="20" x2="164" y1="92" y2="92"></line><line opacity="0.4" stroke="#5a3a1a" stroke-width="0.6" x1="116" x2="116" y1="20" y2="164"></line><line opacity="0.4" stroke="#5a3a1a" stroke-width="0.6" x1="20" x2="164" y1="116" y2="116"></line><line opacity="0.4" stroke="#5a3a1a" stroke-width="0.6" x1="140" x2="140" y1="20" y2="164"></line><line opacity="0.4" stroke="#5a3a1a" stroke-width="0.6" x1="20" x2="164" y1="140" y2="140"></line><text fill="#D85A30" font-family="Georgia,serif" font-size="11" x="172" y="97">gnomon = 11</text><text fill="#888" font-family="Georgia,serif" font-size="10.5" text-anchor="middle" x="92" y="182">6×6 = 36</text></svg></div>
+    <div class="seq-row" id="p2-seq"><span class="term">3</span><span class="sep">, </span><span class="term">5</span><span class="sep">, </span><span class="term">7</span><span class="sep">, </span><span class="term">9</span><span class="sep">, </span><span class="term">11</span><span class="ellip"> …</span></div>
+    <div class="seq-row"><span class="seq-label">gnomon area (unit squares)</span></div>
+    <div class="btn-row">
+      <button class="btn btn-back" onclick="sp(2,-1)">← Back</button>
+      <button class="btn btn-step" onclick="sp(2, 1)">Next →</button>
+      <button class="btn btn-reveal" onclick="rv(2)">Reveal pattern</button>
+    </div>
+    <div class="reveal-block" id="p2-rv">
+      <strong>Sequence:</strong> 3, 5, 7, 9, 11, …<br>
+      <span class="rf">$G_n = 2n + 1$ for the gnomon converting $n^2$ to $(n+1)^2$</span>
+      <span class="rn">Each L-shaped gnomon has area $(n+1)^2 - n^2 = 2n+1$. This is the geometric meaning of the algebraic equation&nbsp;$n^2 + (2n+1) = (n+1)^2$: the L-shaped border is the gnomon that converts a square into the next larger square.</span>
+    </div>
+  </div>
+</div>
+      <p>The next example is a circular disc, for which a suitable gnomon is a ring (or annulus) that surrounds the circle uniformly, creating a larger circle. The thickness of the ring, is not prescribed, but the inner radius of the ring much much match the radius of the circular disc for which it is a gnomon.</p>
+      <div class="ibox" id="p1">
+  <div class="ititle" onclick="toggleIbox('p1')">
+    <span class="ib-badge">Exploration 6.2</span>
+    <span class="ib-title">Circle rings: how does each new ring's area compare?</span>
+    <span class="ib-icon" style>▶</span>
+  </div>
+  <div class="ib-body" style="display: none;">
+    <div class="idesc">A disk of radius 1 has area $\pi$. Suppose each step adds a ring of width 1 around the outside. The numbers show the <em>area of each ring</em> in units of $\pi$. What is the pattern?</div>
+    <div class="isvg" id="p1-svg"><svg height="190" viewBox="0 0 280 190" width="280"><circle cx="90" cy="94" fill="#EF9F27" fill-opacity="0.6" r="95" stroke="#4a2808" stroke-width="1.2"></circle><circle cx="90" cy="94" fill="#d4a870" fill-opacity="0.85" r="80" stroke="#4a2808" stroke-width="1.2"></circle><circle cx="90" cy="94" fill="#a07040" fill-opacity="0.85" r="65" stroke="#4a2808" stroke-width="1.2"></circle><circle cx="90" cy="94" fill="#d4a870" fill-opacity="0.85" r="50" stroke="#4a2808" stroke-width="1.2"></circle><circle cx="90" cy="94" fill="#a07040" fill-opacity="0.85" r="35" stroke="#4a2808" stroke-width="1.2"></circle><circle cx="90" cy="94" fill="#5a3010" r="20" stroke="#4a2808" stroke-width="1.2"></circle><text fill="#888" font-family="Georgia,serif" font-size="11" x="185" y="55">ring 1: 1</text><text fill="#888" font-family="Georgia,serif" font-size="11" x="185" y="77">ring 2: 3</text><text fill="#888" font-family="Georgia,serif" font-size="11" x="185" y="99">ring 3: 5</text><text fill="#888" font-family="Georgia,serif" font-size="11" x="185" y="121">ring 4: 7</text><text fill="#EF9F27" font-family="Georgia,serif" font-size="11" x="185" y="143">ring 5: 9</text></svg></div>
+    <div class="seq-row" id="p1-seq"><span class="term">1</span><span class="sep">, </span><span class="term">3</span><span class="sep">, </span><span class="term">5</span><span class="sep">, </span><span class="term">7</span><span class="sep">, </span><span class="term">9</span><span class="ellip"> …</span></div>
+    <div class="seq-row"><span class="seq-label">ring area (in units of $\pi$)</span></div>
+    <div class="btn-row">
+      <button class="btn btn-back" onclick="sp(1,-1)">← Back</button>
+      <button class="btn btn-step" onclick="sp(1, 1)">Next →</button>
+      <button class="btn btn-reveal" onclick="rv(1)">Reveal pattern</button>
+    </div>
+    <div class="reveal-block" id="p1-rv">
+      <strong>Sequence:</strong> 1, 3, 5, 7, 9, …<br>
+      <span class="rf">$A_n = 2n - 1$ &nbsp;(odd numbers)</span>
+      <span class="rn">The $n$-th ring has area $\pi n^2 - \pi(n-1)^2 = \pi(2n-1)$. The odd numbers — the same gnomon sequence as squares. Each ring is the gnomon to the disk inside it, and the cumulative areas 1, 4, 9, 16, … are perfect squares.</span>
+    </div>
+  </div>
+</div>
+      <h4 class="topic">Multiple Gnomons</h4>
+      <p>A shape need not have a unique gnomon. Different gnomons may produce similar figures at different scales. An L shaped gnomon which is thicker would still produce a square -- but one at a larger scale. It is also possible to find differently shaped gnomons for a shape that grows that shape at the <em>same</em> scale in non-congruent ways. Here are a few examples</p>
+      <p><strong>The square.</strong> We saw above the square can have an L-shaped gnomon, which represents growth along two of four sides. What if growth happens uniformly on all sides? Then the gnomon would be a square annulus as shown below.</p>
+      <figure id="fig-two-gnomon-sequences-unit-square-each">
+        <svg height="185" viewBox="0 0 470 185" width="470">
+
+  <!-- ══════════════════════════════════════════════
+       LEFT PANEL: L-gnomon sequence
+       u=36px. ox=16, oy=14.
+       seed→2×2 (L1, amber) → 3×3 (L2, terracotta)
+       ══════════════════════════════════════════════ -->
+
+  <!-- L2 = second gnomon (terracotta, area 5): right col + bottom row of 3×3 -->
+  <rect fill="#D85A30" height="36" opacity=".40" stroke="#8a2a00" stroke-width="1.3" width="36" x="88" y="14"></rect>
+  <rect fill="#D85A30" height="36" opacity=".40" stroke="#8a2a00" stroke-width="1.3" width="36" x="88" y="50"></rect>
+  <rect fill="#D85A30" height="36" opacity=".40" stroke="#8a2a00" stroke-width="1.3" width="36" x="88" y="86"></rect>
+  <rect fill="#D85A30" height="36" opacity=".40" stroke="#8a2a00" stroke-width="1.3" width="36" x="16" y="86"></rect>
+  <rect fill="#D85A30" height="36" opacity=".40" stroke="#8a2a00" stroke-width="1.3" width="36" x="52" y="86"></rect>
+
+  <!-- L1 = first gnomon (amber, area 3) -->
+  <rect fill="#EF9F27" height="36" opacity=".50" stroke="#b07010" stroke-width="1.3" width="36" x="52" y="14"></rect>
+  <rect fill="#EF9F27" height="36" opacity=".50" stroke="#b07010" stroke-width="1.3" width="36" x="16" y="50"></rect>
+  <rect fill="#EF9F27" height="36" opacity=".50" stroke="#b07010" stroke-width="1.3" width="36" x="52" y="50"></rect>
+
+  <!-- seed (beige) -->
+  <rect fill="#f0ece3" height="36" stroke="#5a3a1a" stroke-width="1.8" width="36" x="16" y="14"></rect>
+
+  <!-- 2×2 inner border (dashed) -->
+  <rect fill="none" height="72" stroke="#b07010" stroke-dasharray="4 2" stroke-width="1.2" width="72" x="16" y="14"></rect>
+  <!-- 3×3 outer border -->
+  <rect fill="none" height="108" stroke="#5a3a1a" stroke-width="2" width="108" x="16" y="14"></rect>
+
+  <!-- labels -->
+  <text fill="#888" font-family="Georgia,serif" font-size="10.5" text-anchor="middle" x="70" y="134">L-gnomon sequence</text>
+  <text fill="#b07010" font-family="Georgia,serif" font-size="10" text-anchor="middle" x="70" y="148">■ area 3 (1×1→2×2)</text>
+  <text fill="#8a2a00" font-family="Georgia,serif" font-size="10" text-anchor="middle" x="70" y="161">■ area 5 (2×2→3×3)</text>
+
+  <!-- ══════════════════════════════════════════════
+       CENTER LABEL
+       ══════════════════════════════════════════════ -->
+  <text fill="#888" font-family="Georgia,serif" font-size="10.5" text-anchor="middle" x="168" y="62">same seed,</text>
+  <text fill="#888" font-family="Georgia,serif" font-size="10.5" text-anchor="middle" x="168" y="76">same results,</text>
+  <text fill="#888" font-family="Georgia,serif" font-size="10.5" text-anchor="middle" x="168" y="90">different</text>
+  <text fill="#888" font-family="Georgia,serif" font-size="10.5" text-anchor="middle" x="168" y="104">gnomons</text>
+
+  <!-- ══════════════════════════════════════════════
+       RIGHT PANEL: square-frame gnomon sequence
+       ox=224, oy=14.  frame_w=18px (= ½ unit).
+       frame2 outer: 108×108  → x=224-332, y=14-122
+       frame1 outer:  72×72   → x=242-314, y=32-104
+       seed:          36×36   → x=260-296, y=50-86
+       ══════════════════════════════════════════════ -->
+
+  <!-- frame2 = second gnomon (green, strips around 72×72 → 108×108) -->
+  <!-- top strip: x=224-332, y=14-32 -->
+  <rect fill="#4a8a3a" height="18" opacity=".35" stroke="#2a6020" stroke-width="1.2" width="108" x="224" y="14"></rect>
+  <!-- bottom strip -->
+  <rect fill="#4a8a3a" height="18" opacity=".35" stroke="#2a6020" stroke-width="1.2" width="108" x="224" y="104"></rect>
+  <!-- left strip -->
+  <rect fill="#4a8a3a" height="72" opacity=".35" stroke="#2a6020" stroke-width="1.2" width="18" x="224" y="32"></rect>
+  <!-- right strip -->
+  <rect fill="#4a8a3a" height="72" opacity=".35" stroke="#2a6020" stroke-width="1.2" width="18" x="314" y="32"></rect>
+
+  <!-- frame1 = first gnomon (lighter blue, strips around 36×36 seed → 72×72) -->
+  <!-- top strip: x=242-314, y=32-50 -->
+  <rect fill="#7aa8e0" height="18" opacity=".45" stroke="#4878b0" stroke-width="1.2" width="72" x="242" y="32"></rect>
+  <!-- bottom strip -->
+  <rect fill="#7aa8e0" height="18" opacity=".45" stroke="#4878b0" stroke-width="1.2" width="72" x="242" y="86"></rect>
+  <!-- left strip -->
+  <rect fill="#7aa8e0" height="36" opacity=".45" stroke="#4878b0" stroke-width="1.2" width="18" x="242" y="50"></rect>
+  <!-- right strip -->
+  <rect fill="#7aa8e0" height="36" opacity=".45" stroke="#4878b0" stroke-width="1.2" width="18" x="296" y="50"></rect>
+
+  <!-- seed (beige) -->
+  <rect fill="#f0ece3" height="36" stroke="#5a3a1a" stroke-width="1.8" width="36" x="260" y="50"></rect>
+
+  <!-- 72×72 inner border (dashed) -->
+  <rect fill="none" height="72" stroke="#4878b0" stroke-dasharray="4 2" stroke-width="1.2" width="72" x="242" y="32"></rect>
+  <!-- 108×108 outer border -->
+  <rect fill="none" height="108" stroke="#5a3a1a" stroke-width="2" width="108" x="224" y="14"></rect>
+
+  <!-- labels -->
+  <text fill="#888" font-family="Georgia,serif" font-size="10.5" text-anchor="middle" x="278" y="134">square-frame sequence</text>
+  <text fill="#4878b0" font-family="Georgia,serif" font-size="10" text-anchor="middle" x="278" y="148">■ area 3 (1×1→2×2)</text>
+  <text fill="#2a6020" font-family="Georgia,serif" font-size="10" text-anchor="middle" x="278" y="161">■ area 5 (2×2→3×3)</text>
+
+</svg>
+        <figcaption><strong>Fig. 6.10</strong> Two gnomon sequences for the unit square, each showing two steps. Both both types of gnomon produce the same scaled-up square. The same gnomon have the sameareas — only the shapes differ.</figcaption>
+      </figure>
+      <p>Could a square have a gnomon that represents growth on one side only? On three sides? We'll leave those questions for <a class="xref" href="#sec-problems-explorations">Section 4</a>.</p>
+      <p><strong>The L-tetromino.</strong> Consider the L-shaped tetromino — four unit squares arranged in an L. Scaled up by a factor of two, it has 16 unit squares. By placing the original L in two different orientations within the 2× L, we obtain two connected 12-square gnomons with entirely different shapes.</p>
+      <figure id="fig-l-tetromino-showing-two-possible-non">
+        <svg height="220" viewBox="0 0 420 220" width="420">
+  <!--
+  2x L-tetromino grid: rows 0-5 cols 0-1; rows 4-5 cols 2-3.
+  Gnomon 1: original L at rows 3-5 cols 0-1 (cells (3,0)(4,0)(5,0)(5,1))
+  Gnomon 2: original L at rows 0-2 cols 0-1 in 180deg (cells (0,0)(0,1)(1,0)(2,0))
+  -->
+  <defs>
+    <pattern height="8" id="orig1" patternTransform="rotate(45)" patternUnits="userSpaceOnUse" width="8">
+      <line stroke="#5a3a1a" stroke-width="1.5" x1="0" x2="0" y1="0" y2="8"></line>
+    </pattern>
+  </defs>
+  <!-- LEFT: Gnomon 1 -->
+  <!-- u=28px per cell. Left panel starts at x=10, y=10 -->
+  <!-- 2xL: rows 0-5 cols 0-1 + rows 4-5 cols 2-3 -->
+  <!-- Draw full 2xL background first -->
+  <!-- Gnomon cells (amber): all 2xL minus original placement 1 (rows 3-5 cols 0-1) -->
+  <!-- Original placement 1: (3,0)(4,0)(5,0)(5,1) -->
+
+  <!-- All 2xL cells -->
+  <!-- long arm rows 0-5, cols 0-1 -->
+  <!-- short arm rows 4-5, cols 2-3 -->
+  <!-- Unit size u=28 -->
+  <!-- Cell (r,c) → x=10+c*28, y=10+r*28 -->
+
+  <!-- Gnomon 1 (amber): (0,0)(0,1)(1,0)(1,1)(2,0)(2,1)(3,1)(4,1)(4,2)(4,3)(5,2)(5,3) -->
+  <!-- Original 1 (hatched): (3,0)(4,0)(5,0)(5,1) -->
+
+
+  <!-- Gnomon cells -->
+  <rect fill="#EF9F27" height="28" opacity=".45" stroke="#7a4a00" stroke-width="1" width="28" x="10" y="10"></rect>
+  <rect fill="#EF9F27" height="28" opacity=".45" stroke="#7a4a00" stroke-width="1" width="28" x="38" y="10"></rect>
+  <rect fill="#EF9F27" height="28" opacity=".45" stroke="#7a4a00" stroke-width="1" width="28" x="10" y="38"></rect>
+  <rect fill="#EF9F27" height="28" opacity=".45" stroke="#7a4a00" stroke-width="1" width="28" x="38" y="38"></rect>
+  <rect fill="#EF9F27" height="28" opacity=".45" stroke="#7a4a00" stroke-width="1" width="28" x="10" y="66"></rect>
+  <rect fill="#EF9F27" height="28" opacity=".45" stroke="#7a4a00" stroke-width="1" width="28" x="38" y="66"></rect>
+  <rect fill="#EF9F27" height="28" opacity=".45" stroke="#7a4a00" stroke-width="1" width="28" x="38" y="94"></rect>
+  <rect fill="#EF9F27" height="28" opacity=".45" stroke="#7a4a00" stroke-width="1" width="28" x="38" y="122"></rect>
+  <rect fill="#EF9F27" height="28" opacity=".45" stroke="#7a4a00" stroke-width="1" width="28" x="66" y="122"></rect>
+  <rect fill="#EF9F27" height="28" opacity=".45" stroke="#7a4a00" stroke-width="1" width="28" x="94" y="122"></rect>
+  <rect fill="#EF9F27" height="28" opacity=".45" stroke="#7a4a00" stroke-width="1" width="28" x="66" y="150"></rect>
+  <rect fill="#EF9F27" height="28" opacity=".45" stroke="#7a4a00" stroke-width="1" width="28" x="94" y="150"></rect>
+  <!-- Original cells (hatched) -->
+  <rect fill="#f0ece3" height="28" stroke="#5a3a1a" stroke-width="1.8" width="28" x="10" y="94"></rect>
+  <rect fill="#f0ece3" height="28" stroke="#5a3a1a" stroke-width="1.8" width="28" x="10" y="122"></rect>
+  <rect fill="#f0ece3" height="28" stroke="#5a3a1a" stroke-width="1.8" width="28" x="10" y="150"></rect>
+  <rect fill="#f0ece3" height="28" stroke="#5a3a1a" stroke-width="1.8" width="28" x="38" y="150"></rect>
+  <!-- Outer 2xL border -->
+  <rect fill="none" height="168" stroke="#5a3a1a" stroke-width="2" width="56" x="10" y="10"></rect>
+  <rect fill="none" height="56" stroke="#5a3a1a" stroke-width="2" width="56" x="66" y="122"></rect>
+
+  <text fill="#7a4a00" font-family="Georgia,serif" font-size="10" text-anchor="middle" x="65" y="200">gnomon A (12 cells)</text>
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="10" text-anchor="middle" x="65" y="213">original: hatched</text>
+
+  
+  <!-- RIGHT: Gnomon 2 (blue): placement B (180deg at top) -->
+  <!-- Original at rows 0-2: (0,0)(0,1)(1,0)(2,0) -->
+  <!-- Gnomon: (1,1)(2,1)(3,0)(3,1)(4,0)(4,1)(4,2)(4,3)(5,0)(5,1)(5,2)(5,3) -->
+
+
+  <!-- Ox = 240 -->
+  <!-- Original cells -->
+  <rect fill="#5080c0" height="28" opacity=".38" stroke="#3060a0" stroke-width="1" width="28" x="240" y="10"></rect>
+  <rect fill="#5080c0" height="28" opacity=".38" stroke="#3060a0" stroke-width="1" width="28" x="268" y="10"></rect>
+  <rect fill="#5080c0" height="28" opacity=".38" stroke="#3060a0" stroke-width="1" width="28" x="240" y="38"></rect>
+  <rect fill="#5080c0" height="28" opacity=".38" stroke="#3060a0" stroke-width="1" width="28" x="240" y="66"></rect>
+  <!-- Gnomon 2 cells (blue) -->
+  <rect fill="#5080c0" height="28" opacity=".38" stroke="#3060a0" stroke-width="1" width="28" x="268" y="38"></rect>
+  <rect fill="#f0ece3" height="28" stroke="#5a3a1a" stroke-width="1.8" width="28" x="268" y="66"></rect>
+  <rect fill="#5080c0" height="28" opacity=".38" stroke="#3060a0" stroke-width="1" width="28" x="240" y="94"></rect>
+  <rect fill="#f0ece3" height="28" stroke="#5a3a1a" stroke-width="1.8" width="28" x="268" y="94"></rect>
+  <rect fill="#5080c0" height="28" opacity=".38" stroke="#3060a0" stroke-width="1" width="28" x="240" y="122"></rect>
+  <rect fill="#f0ece3" height="28" stroke="#5a3a1a" stroke-width="1.8" width="28" x="268" y="122"></rect>
+  <rect fill="#f0ece3" height="28" stroke="#5a3a1a" stroke-width="1.8" width="28" x="296" y="122"></rect>
+  <rect fill="#5080c0" height="28" opacity=".38" stroke="#3060a0" stroke-width="1" width="28" x="324" y="122"></rect>
+  <rect fill="#5080c0" height="28" opacity=".38" stroke="#3060a0" stroke-width="1" width="28" x="240" y="150"></rect>
+  <rect fill="#5080c0" height="28" opacity=".38" stroke="#3060a0" stroke-width="1" width="28" x="268" y="150"></rect>
+  <rect fill="#5080c0" height="28" opacity=".38" stroke="#3060a0" stroke-width="1" width="28" x="296" y="150"></rect>
+  <rect fill="#5080c0" height="28" opacity=".38" stroke="#3060a0" stroke-width="1" width="28" x="324" y="150"></rect>
+  <!-- Outer 2xL border -->
+  <rect fill="none" height="168" stroke="#5a3a1a" stroke-width="2" width="56" x="240" y="10"></rect>
+  <rect fill="none" height="56" stroke="#5a3a1a" stroke-width="2" width="56" x="296" y="122"></rect>
+
+  <text fill="#3060a0" font-family="Georgia,serif" font-size="10" text-anchor="middle" x="295" y="200">gnomon B (12 cells)</text>
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="10" text-anchor="middle" x="295" y="213">original: hatched</text>
+</svg>
+        <figcaption><strong>Fig. 6.11</strong> The L-tetromino showing two possible non-congruent connected gnomons giving the same scale factor 2.</figcaption>
+      </figure>
+      <p>From the perspective of a growing object, the above examples of gnomon represent non-uniform growth along four of the sides, resulting in a shape that is isometric to the original. Non-uniform growth is not unusual, necessarily, but in a biological or physical context it requires some explanation. Does this L shape have a gnomon with uniform growth on one or more sides? We'll explore the answer in the exercises.</p>
+      <h4 class="topic">When No Connected Gnomon Exists</h4>
+      <p>Not every shape has a connected gnomon. Let's consider two types of situation that arise.</p>
+      <p class="inline-heading"><strong>Holes: </strong></p>
+      <p>Consider an <em>annulus</em> — a ring, like a washer, with inner radius $1$ and outer radius $a$ (so the <em>aspect ratio</em> of the annulus is $a$). Can we add some shape to an annulus to obtain a larger, similar annulus? A similar annulus scaled by $k$ would need inner radius $k$ and outer radius $ka$. We can add an outer ring (from $a$ to $ka$), but we a gnomon cannot simultaneously <em>remove</em> the inner zone (from $1$ to $k$) that the new hole requires. The annulus has no gnomon.</p>
+      <figure id="fig-annulus-has-no-connected-gnomon-scaling">
+        <svg height="195" viewBox="0 0 420 195" width="420">
+  <defs>
+    <clipPath id="hclip"><circle cx="260" cy="97" r="28"></circle></clipPath>
+    <pattern height="6" id="hatch2" patternTransform="rotate(45)" patternUnits="userSpaceOnUse" width="6">
+      <line opacity=".55" stroke="#c04040" stroke-width="1.2" x1="0" x2="0" y1="0" y2="6"></line>
+    </pattern>
+  </defs>
+  <!-- Annulus original -->
+  <circle cx="60" cy="97" fill="#d4e8c8" r="42" stroke="#4a7a2a" stroke-width="1.8"></circle>
+  <circle cx="60" cy="97" fill="#fdfcf9" r="14" stroke="#4a7a2a" stroke-width="1.8"></circle>
+  <text fill="#4a7a2a" font-family="Georgia,serif" font-size="10" text-anchor="middle" x="60" y="155">annulus</text>
+  <text font-size="14" text-anchor="middle" x="140" y="97">→</text>
+  <line stroke="#4a7a2a" stroke-width="1.1" x1="60" x2="74" y1="97" y2="97"></line>
+  <text fill="#2a5a10" font-family="Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" x="67" y="94">1</text>
+  <line stroke="#4a7a2a" stroke-dasharray="3 2" stroke-width="1.1" x1="60" x2="60" y1="97" y2="55"></line>
+  <text fill="#2a5a10" font-family="Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" x="47" y="72">a</text>
+  <!-- Annulus scaled with add/remove zones -->
+  <circle cx="260" cy="97" fill="#f0c060" opacity=".6" r="84" stroke="#c07000" stroke-width="1.5"></circle>
+  <circle cx="260" cy="97" fill="#d4e8c8" r="42" stroke="#4a7a2a" stroke-width="1.5"></circle>
+  <circle cx="260" cy="97" fill="#f8d0d0" fill-opacity=".7" r="28"></circle>
+  <circle clip-path="url(#hclip)" cx="260" cy="97" fill="url(#hatch2)" r="28"></circle>
+  <circle cx="260" cy="97" fill="#fdfcf9" r="14" stroke="none"></circle>
+  <circle cx="260" cy="97" fill="none" r="28" stroke="#c04040" stroke-dasharray="4 3" stroke-width="1.2"></circle>
+  <circle cx="260" cy="97" fill="#fdfcf9" r="14" stroke="#4a7a2a" stroke-width="1.5"></circle>
+  <circle cx="260" cy="97" fill="none" r="84" stroke="#c07000" stroke-width="1.8"></circle>
+  <!-- inner radius "2" -->
+  <line stroke="#c07000" stroke-width="1.1" x1="260" x2="288" y1="97" y2="97"></line>
+  <text fill="#c07000" font-family="Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" x="282" y="95">2</text>
+  <!-- outer radius "2a" -->
+  <line stroke="#c07000" stroke-dasharray="3 2" stroke-width="1.1" x1="260" x2="260" y1="97" y2="13"></line>
+  <text fill="#c07000" font-family="Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" x="252" y="24">2a</text>
+</svg>
+        <figcaption><strong>Fig. 6.12</strong> An annulus has no connected gnomon. Scaling requires adding outer material and removing inner material simultaneously — impossible with a single added piece.</figcaption>
+      </figure>
+      <p>This failure is informative. It tells us that gnomonic growth is not universal. It requires a special relationship between a shape and its increments. The shapes that have gnomons are special, and understanding what makes them special is mathematically interesting.</p>
+      <p class="inline-heading"><strong>Corner-touch connections.</strong></p>
+      <p>Even a shape without holes may fail to have a connected gnomon, for example if it is itself only corner-connected. Consider two unit squares that share a single corner point (not an edge).</p>
+      <figure id="fig-two-unit-squares-meeting-at-corner">
+        <svg height="200" viewBox="0 0 420 150" width="420">
+
+  <!-- ═══ LEFT: original shape (two 1×1 squares at corner) ═══ -->
+  <rect fill="#d4e8c8" height="40" stroke="#4a7a2a" stroke-width="1.8" width="40" x="20" y="80"></rect>
+  <rect fill="#d4e8c8" height="40" stroke="#4a7a2a" stroke-width="1.8" width="40" x="60" y="40"></rect>
+  <circle cx="60" cy="80" fill="#4a7a2a" r="3.5"></circle>
+
+  <line stroke="#888" stroke-dasharray="2 2" stroke-width=".8" x1="55" x2="62" y1="75" y2="68"></line>
+
+
+  <!-- arrow -->
+  <text font-size="18" text-anchor="middle" x="130" y="94">→</text>
+  <text font-family="Georgia,serif" font-size="10" text-anchor="middle" x="130" y="112">scale ×2:</text>
+
+
+  <!-- ═══ RIGHT: 2× shape with green originals + red (disconnected) gnomon ═══ -->
+  <!--
+    u=36. Grid origin at (ox=165, oy=10).
+    A' block: cols 0-1 (x=165..237), rows 2-3 (y=82..154)
+    B' block: cols 2-3 (x=237..309), rows 0-1 (y=10..82)
+    
+    Green A at col=1,row=2: x=201..237, y=82..118
+    Green B at col=2,row=1: x=237..273, y=46..82
+    They touch at corner (237, 82) ✓
+    
+    RED gnomon around A (left + bottom = col=0 rows 2-3, col=1 row=3):
+      - (col=0,row=2): x=165..201, y=82..118   ← LEFT of A
+      - (col=0,row=3): x=165..201, y=118..154  ← bottom-left corner
+      - (col=1,row=3): x=201..237, y=118..154  ← BELOW A
+    
+    RED gnomon around B (top + right = col=2 row=0, cols 2-3 row=0, col=3 row=1):
+      - (col=2,row=0): x=237..273, y=10..46   ← ABOVE B
+      - (col=3,row=0): x=273..309, y=10..46   ← top-right corner
+      - (col=3,row=1): x=273..309, y=46..82   ← RIGHT of B
+  -->
+  <!-- A' box outline -->
+  <rect fill="none" height="72" stroke="#5a3a1a" stroke-dasharray="4 3" stroke-width="1.3" width="72" x="165" y="82"></rect>
+  <!-- B' box outline -->
+  <rect fill="none" height="72" stroke="#5a3a1a" stroke-dasharray="4 3" stroke-width="1.3" width="72" x="237" y="10"></rect>
+
+  <!-- RED gnomon group 1 (around A): left and bottom -->
+  <rect fill="#f8d0d0" height="36" stroke="#c04040" stroke-width="1.5" width="36" x="165" y="82"></rect>
+  <rect fill="#f8d0d0" height="36" stroke="#c04040" stroke-width="1.5" width="36" x="165" y="118"></rect>
+  <rect fill="#f8d0d0" height="36" stroke="#c04040" stroke-width="1.5" width="36" x="201" y="118"></rect>
+
+  <!-- GREEN A (lower-left, kept in same config) -->
+  <rect fill="#d4e8c8" height="36" stroke="#4a7a2a" stroke-width="1.8" width="36" x="201" y="82"></rect>
+
+  <!-- RED gnomon group 2 (around B): top and right -->
+  <rect fill="#f8d0d0" height="36" stroke="#c04040" stroke-width="1.5" width="36" x="237" y="10"></rect>
+  <rect fill="#f8d0d0" height="36" stroke="#c04040" stroke-width="1.5" width="36" x="273" y="10"></rect>
+  <rect fill="#f8d0d0" height="36" stroke="#c04040" stroke-width="1.5" width="36" x="273" y="46"></rect>
+
+  <!-- GREEN B (upper-right, kept in same config) -->
+  <rect fill="#d4e8c8" height="36" stroke="#4a7a2a" stroke-width="1.8" width="36" x="237" y="46"></rect>
+
+  <!-- Corner-touch dot where green squares meet -->
+  <circle cx="237" cy="82" fill="#4a7a2a" r="3.5"></circle>
+
+  <text fill="#c04040" font-family="Georgia,serif" font-size="10" x="325" y="101"></text></svg>
+        <figcaption><strong>Fig. 6.13</strong> Two unit squares meeting at a corner. The gnomon (shaded red) is disconnected.</figcaption>
+      </figure>
+      <p>The gnomon required for a 2× scaling (red) splits into two separate L-tromino pieces, with three squares around each original square on the sides away from the shared corner. The gnomon is disconnected. The underlying reason is topological: the original shape is not edge-connected (the two squares share only a point), so the gnomon needed to bridge two separate parts of the figure cannot itself be connected.</p>
+    </section>
+    <section class="sub" id="sub-gnomons-rectangles">
+      <h3 class="sub">2.2 Gnomons of Rectangles</h3>
+      <h4 class="topic">Introduction</h4>
+      <p>Rectangles provide a rich and instructive family of gnomon problems. Let's explore a few of them here.</p>
+      <p>To start with a concrete example, take a rectangle of width $2$ and height $1$, which we call the <strong>2:1 rectangle</strong>. What shaped gnomons can it have?</p>
+      <figure id="fig-figure">
+        <svg height="90" viewBox="0 0 280 90" width="280">
+  <!-- True 2:1 rectangle: width=120, height=60 -->
+  <rect fill="#f0ece3" height="60" stroke="#5a3a1a" stroke-width="2" width="120" x="80" y="15"></rect>
+  <!-- dimension labels ON diagram -->
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" x="140" y="10">2</text>
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" x="68" y="49">1</text>
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="13" text-anchor="middle" x="140" y="51">2 : 1 rectangle</text>
+</svg>
+      </figure>
+      <h4 class="topic">First Case: L shaped Gnomon</h4>
+      <p>Suppose the gnomon adds an L shape, with strip of width $a$ along the right side and a strip of height $b$ along the top. The new rectangle has width $2+a$ and height $1+b$.</p>
+      <figure id="fig-l-shaped-gnomon-shaded-2-1">
+        <svg height="200" viewBox="0 0 360 200" width="360">
+  <!-- Original 2×1 rectangle (width=140, height=70, true 2:1 ratio) -->
+  <rect fill="#f0ece3" height="70" stroke="#5a3a1a" stroke-width="1.8" width="140" x="30" y="80"></rect>
+  <!-- Right strip gnomon (width=a=70, height=1+b=70+b) -->
+  <rect fill="#D85A30" height="120" opacity=".4" stroke="#7a2a00" stroke-width="1.5" width="70" x="170" y="30"></rect>
+  <!-- Top strip gnomon (width=2=140, height=b=50) -->
+  <rect fill="#D85A30" height="50" opacity=".4" stroke="#7a2a00" stroke-width="1.5" width="140" x="30" y="30"></rect>
+  <!-- New outer rectangle outline -->
+  <rect fill="none" height="120" stroke="#5a3a1a" stroke-dasharray="5 3" stroke-width="1.5" width="210" x="30" y="30"></rect>
+  <!-- Labels ON the parts -->
+  <!-- "2" label centred on original rect top edge -->
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" x="100" y="75">2</text>
+  <!-- "1" label centred on original rect left edge -->
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="12" font-style="italic" x="17" y="119">1</text>
+  <!-- "a" label centred on right-strip top -->
+  <text fill="#D85A30" font-family="Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" x="205" y="24">a</text>
+  <!-- "b" label centred on top-strip left -->
+  <text fill="#D85A30" font-family="Georgia,serif" font-size="12" font-style="italic" x="17" y="58">b</text>
+  <!-- dividing lines to separate gnomon from original -->
+  <line opacity=".5" stroke="#5a3a1a" stroke-dasharray="3 2" stroke-width=".8" x1="30" x2="170" y1="80" y2="80"></line>
+  <line opacity=".5" stroke="#5a3a1a" stroke-dasharray="3 2" stroke-width=".8" x1="170" x2="170" y1="30" y2="150"></line>
+  <!-- Label original rect -->
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="12" text-anchor="middle" x="100" y="120"></text></svg>
+        <figcaption><strong>Fig. 6.14</strong> The L-shaped gnomon (shaded) for the 2:1 rectangle.</figcaption>
+      </figure>
+      <p>For the new rectangle to be similar to the original (both have ratio $2:1$), we need: $$\frac{2+a}{1+b} = \frac{2}{1} = 2$$</p>
+      <p>Expanding: $$2 + a = 2(1+b) = 2 + 2b\; ,$$ so the <strong>constraint is simply $a = 2b$</strong>.</p>
+      <p>As with the square, the L-shaped gnomon of a 2:1 rectangle is not unique — there is an infinite family of them, all satisfying $a = 2b$. Some examples are in the table below.</p>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr>
+              <th>$b$</th>
+              <th>$a = 2b$</th>
+              <th>New rectangle</th>
+              <th>Scale factor $k$</th>
+            </tr>
+            <tr>
+              <td>$\frac{1}{2}$</td>
+              <td>$1$</td>
+              <td>$3 \times \frac{3}{2}$</td>
+              <td>$\frac{3}{2}$</td>
+            </tr>
+            <tr>
+              <td>$1$</td>
+              <td>$2$</td>
+              <td>$4 \times 2$</td>
+              <td>$2$</td>
+            </tr>
+            <tr>
+              <td>$2$</td>
+              <td>$4$</td>
+              <td>$6 \times 3$</td>
+              <td>$3$</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h4 class="topic">Second Case: Rectangle as a Gnomon to a Rectangle</h4>
+      <p>Now suppose the gnomon is a plain rectangle added to just <em>one side</em>. To see the shape of the gnomon clearly, let's stand the 2:1 rectangle on its end (portrait) and add the gnomon to the right side (increasing the width by $g$), making a rectangle in landscape orientation with length $1+g$ and height $2$.</p>
+      <figure id="fig-one-sided-rectangular-gnomon-2-1">
+        <svg height="200" viewBox="0 0 400 200" width="400">
+  <!-- Original 2×1 portrait (w=50, h=100 = 1:2) centred left -->
+  <rect fill="#f0ece3" height="100" stroke="#5a3a1a" stroke-width="1.8" width="50" x="40" y="50"></rect>
+  <!-- Gnomon: rectangle to the right. If original is 1×2 (portrait), gnomon width=g, height=2.
+       Similarity: new rect (1+g)×2 must be similar to 1×2 → (1+g)/2 = 2/1 → g=3.
+       gnomon width = 3× original width = 150px -->
+  <rect fill="#EF9F27" height="100" opacity=".35" stroke="#7a4a00" stroke-width="1.5" width="150" x="90" y="50"></rect>
+  <!-- Full combined rect outline -->
+  <rect fill="none" height="100" stroke="#5a3a1a" stroke-dasharray="5 3" stroke-width="1.5" width="200" x="40" y="50"></rect>
+  <!-- Labels ON parts -->
+  <!-- "1" on top of original -->
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" x="65" y="44">1</text>
+  <!-- "2" on left side of original -->
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="12" font-style="italic" x="28" y="104">2</text>
+  <!-- "g" on top of gnomon -->
+  <text fill="#7a4a00" font-family="Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" x="165" y="44">g</text>
+  <!-- dividing line -->
+  <line opacity=".6" stroke="#5a3a1a" stroke-dasharray="3 2" stroke-width="1" x1="90" x2="90" y1="50" y2="150"></line>
+  <!-- Labels -->
+ 
+
+</svg>
+        <figcaption><strong>Fig. 6.15</strong> A one-sided rectangular gnomon for the 2:1 rectangle.</figcaption>
+      </figure>
+      <p>For the new $(1+g) \times 2$ rectangle to be similar to the original $(1 \times 2)$, we need their aspect ratios to match. The original has length to width ratio $2:1$. The new rectangle should have the same ratio, so $(1+g)/2 = 2$.</p>
+      <p>Solving: $1+g = 4$, so $\boxed{g = 3}$. The gnomon must be a $3 \times 2$ rectangle — a specific, unique shape. There is exactly one one-sided rectangular gnomon for the 2:1 rectangle.</p>
+      <p>Notice that the rectangular gnomon is <em>not</em> itself a 2:1 rectangle. The new combined shape, a ($2 \times 4$) rectangle is similar to the original as required, scaled by factor 2 <em>and</em> rotated $90°$.</p>
+      <h4 class="topic">Special Case: The Rectangle That Is Its Own Gnomon</h4>
+      <p>We just saw that the one-sided gnomon of a 2:1 rectangle is a 3:2 rectangle — a rectangle with different proportions. Is there a rectangle whose one-sided gnomon is a <em>copy of itself</em>? That is: can we find an aspect ratio $r$ such that placing two identical copies of a $1 \times r$ rectangle side by side gives a larger, similar $1 \times r$ rectangle as shown in the figure below:</p>
+      <figure id="fig-two-copies-rectangle-placed-side-side">
+        <svg height="160" viewBox="0 20 380 100" width="380">
+  <rect fill="#f0ece3" height="99" stroke="#5a3a1a" stroke-width="1.8" width="70" x="75" y="28"></rect>
+  <rect fill="#EF9F27" height="99" opacity=".35" stroke="#7a4a00" stroke-width="1.8" width="70" x="145" y="28"></rect>
+  <rect fill="none" height="99" stroke="#5a3a1a" stroke-dasharray="5 3" stroke-width="1.5" width="140" x="75" y="28"></rect>
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="11.5" font-style="italic" text-anchor="middle" x="115" y="22">1</text>
+  <text fill="#7a4a00" font-family="Georgia,serif" font-size="11.5" font-style="italic" text-anchor="middle" x="185" y="22">1</text>
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="11.5" font-style="italic" x="64" y="78">r</text>
+
+</svg>
+        <figcaption><strong>Fig. 6.16</strong> Two copies of a $1 \times r$ rectangle placed side by side.</figcaption>
+      </figure>
+      <p>The condition for a geometrically similar shape: $$\frac{r}{1} = \frac{2}{r} \implies r^2 = 2 \implies r = \sqrt{2} \approx 1.414$$</p>
+      <p>This is sometimes referred to as the the <strong>silver ratio,</strong> $\delta = \sqrt{2}$.</p>
+      <p>So, a $1\times\sqrt{2}$ rectangle in orientation placed beside an identical copy makes a new rectangle geometrically similar to the original, larger by factor $\sqrt{2}$ and rotated. This ratio it the basis of the ISO paper size system. A4 paper is $210 \times 297$ mm; the ratio is $297/210 = \sqrt{2}$ to three significant figures. Folding an A4 sheet in half produces an A5 sheet, also a $\sqrt{2}$ rectangle. Placing two A4 sheets side by side makes an A3 sheet — the same ratio and twice as large.</p>
+    </section>
+    <section class="sub" id="sub-self-replicating-rectangles-golden-ratio">
+      <h3 class="sub">2.3 Self-Replicating Rectangles and the Golden Ratio</h3>
+      <h4 class="topic">The Rectangle Whose Gnomon Is a Square</h4>
+      <p>What is the rectangle such that adding a square to one side produces a larger, similar rectangle? To see, let the rectangle have short side $1$ and long side $a$ ($a &gt; 1$). We add a square of side $a$ to the long side.</p>
+      <figure id="fig-adding-square-long-side-rectangle">
+        <svg height="175" viewBox="0 0 340 175" width="340">
+  <rect fill="#f0ece3" height="97" stroke="#5a3a1a" stroke-width="1.8" width="60" x="28" y="28"></rect>
+  <rect fill="#EF9F27" height="97" opacity=".32" stroke="#7a4a00" stroke-width="1.8" width="97" x="88" y="28"></rect>
+  <rect fill="none" height="97" stroke="#5a3a1a" stroke-dasharray="5 3" stroke-width="1.5" width="157" x="28" y="28"></rect>
+  <line stroke="#7a4a00" stroke-dasharray="3 2" stroke-width="1" x1="88" x2="88" y1="28" y2="125"></line>
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" x="58" y="22">1</text>
+  <text fill="#7a4a00" font-family="Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" x="137" y="22">a</text>
+  <text fill="#888" font-family="Georgia,serif" font-size="12" font-style="italic" text-anchor="middle" x="16" y="80">a</text>
+
+
+</svg>
+        <figcaption><strong>Fig. 6.17</strong> Adding an $a \times a$ square to the long side of a $1 \times a$ rectangle.</figcaption>
+      </figure>
+      <p>The combined rectangle has length $(1+a)$ and width $a$. For this rectangle to be similar to the original of length $a$ and width $1$ we need: $$\frac{1+a}{a} = \frac{a}{1} \implies a^2 = a + 1 \implies a = \frac{1+\sqrt{5}}{2} $$</p>
+      <p>This is the unique aspect ratio for which a rectangle has a square as its gnomon. We met this number before in Chapter 1 as the limit of ratios of consecutive Fibonacci numbers. It is the <strong>golden ratio</strong> $\varphi \approx 1.618$. The rectangle is known as the the <em>golden rectangle</em>.</p>
+      <div class="key-result" id="kr-3-1">
+        <div class="kr-header"><span>Key Result — The Golden Rectangle</span> <span class="kr-num">6.1</span></div>
+        <div class="kr-body">
+          <p>There is a unique aspect ratio for which a rectangle has a square as its gnomon: the <strong>golden ratio</strong> $\varphi = (1+\sqrt{5})/2 \approx 1.618$. This rectangle, the <em>golden rectangle, </em>is the only rectangle that is similar to itself after a square is added to its long side (or removed from its shorter side). The defining property of $\varphi$ is:</p>
+          <p>$$\varphi^2 = \varphi + 1$$</p>
+        </div>
+      </div>
+      <h4 class="topic">Building Larger Golden Rectangles — the Fibonacci Connection</h4>
+      <p>Lets now iterate the growth of the a golden rectangle, starting with a $1 \times \varphi$ rectangle and adding squares repeatedly, as shown in the diagram below:</p>
+      <figure id="fig-five-squares-added-clockwise-around-seed">
+        <svg height="295" viewBox="0 -18 520 313" width="520">
+  <!-- S5 (outermost): 3+5φ = 220px, added to the RIGHT of the combined 136×220 box -->
+  <rect fill="#9060b0" height="220" opacity=".18" stroke="#6040a0" stroke-width="1.3" width="220" x="272" y="4"></rect>
+  <!-- S4: 2+3φ = 136px, added ABOVE -->
+  <rect fill="#EF9F27" height="136" opacity=".2" stroke="#b07010" stroke-width="1.3" width="136" x="136" y="4"></rect>
+  <!-- S3: 1+2φ = 84px, added LEFT -->
+  <rect fill="#D85A30" height="84" opacity=".2" stroke="#8a2a00" stroke-width="1.3" width="84" x="136" y="140"></rect>
+  <!-- S2: 1+φ = 52px, added BELOW -->
+  <rect fill="#5a8a4a" height="52" opacity=".25" stroke="#2a5a2a" stroke-width="1.3" width="52" x="220" y="172"></rect>
+  <!-- S1: φ = 32px, added RIGHT of seed -->
+  <rect fill="#5080c0" height="32" opacity=".28" stroke="#3060a0" stroke-width="1.3" width="32" x="240" y="140"></rect>
+  <!-- seed rectangle: 1×φ -->
+  <rect fill="#f0ece3" height="32" stroke="#5a3a1a" stroke-width="2" width="20" x="220" y="140"></rect>
+  <!-- outer border of full combined rectangle [136,492]×[4,224] = (5+8φ) wide, (3+5φ) tall -->
+  <rect fill="none" height="220" stroke="#5a3a1a" stroke-width="1.8" width="356" x="136" y="4"></rect>
+  <!-- spiral: each arc sweeps 90° CW around the outer corner of its square
+       centers: (272,140) (220,172) (136,224) (136,4) (492,4)               -->
+  
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="middle" x="230" y="136">1</text>
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="end" x="215" y="157">φ</text>
+  <text fill="#3060a0" font-family="Georgia,serif" font-size="9.5" font-style="italic" x="246" y="163">φ</text>
+  <text fill="#2a5a2a" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="middle" x="246" y="234">1+φ</text>
+  <text fill="#8a2a00" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="end" x="129" y="186">1+2φ</text>
+  <text fill="#b07010" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="middle" x="204" y="-4">2+3φ</text>
+  <text fill="#6040a0" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="middle" x="382" y="-4">3+5φ</text>
+  <text fill="#888" font-family="Georgia,serif" font-size="10.5" font-style="italic" text-anchor="middle" x="314" y="268"></text></svg>
+        <figcaption><strong>Fig. 6.18</strong> Five squares added clockwise around a $1 \times \varphi$ seed rectangle. Each square's side-length is the sum of the two previous values.</figcaption>
+      </figure>
+      <p>Denote the side-lengths of successive squares as $\ell_1, \ell_2, \ell_3, \ldots$, with $\ell_1 = 1$ and $\ell_2 = \varphi$. At each step the new square has side equal to the long side of the current rectangle. As a result the long side of the new rectangle is the sum of the two previous sides. By construction this sequence satisfies: $$\ell_n = \ell_{n-1} + \ell_{n-2}$$</p>
+      <p>This is exactly the Fibonacci recurrence relation but with initial values 1 and $\varphi$ rather than starting with $1$ and $1$ in the case of the Fibonacci sequence. Writing each term out explicitly, the sequence begins: $$1,\quad \varphi,\quad 1+\varphi,\quad 1+2\varphi,\quad 2+3\varphi,\quad 3+5\varphi,\quad 5+8\varphi, \quad \cdots$$</p>
+      <p>We recognize the Fibonacci numbers are the coefficients of $\varphi$ in each term. We can express each term as$$\ell_n = F_{n-2} + F_{n-1}\,\varphi$$</p>
+      <p>where we extend the Fibonacci sequence to include $F_0 = 0$ and $F_{-1} = 1\, .$ It is curious fact that the gnomonic growth of golden rectangle encodes the Fibonacci sequence in its side-lengths.</p>
+      <p>Here is another interesting observation; this sequence is actually a geometric sequence in disguise. Here is why. Using the defining relation for $\varphi$ is: $$\varphi^2=1+\varphi\,,$$we see the third term, which is $1+\varphi$, is equal to $\phi^2$. The next term is $1+\varphi+ \varphi$ which is $\varphi^2+\varphi$. Factoring, this is and then using the relation again, $\varphi(\varphi+1)=\varphi(\varphi^2)=\varphi^3$. We leave it as an exercise to generalize. In general the $n$th side has length $\ell_n=\varphi^{n-1}$. This is a geometric sequence with growth factor $\varphi$. The table below give the first 6 terms in these different forms:</p>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr>
+              <th>$n$</th>
+              <th>$\ell_n$ (linear form)</th>
+              <th>$= \varphi^{n-1}$</th>
+              <th>Approx.</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>$1$</td>
+              <td>$\varphi^0$</td>
+              <td>1.000</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>$\varphi$</td>
+              <td>$\varphi^1$</td>
+              <td>1.618</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>$1+\varphi$</td>
+              <td>$\varphi^2$</td>
+              <td>2.618</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>$1+2\varphi$</td>
+              <td>$\varphi^3$</td>
+              <td>4.236</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>$2+3\varphi$</td>
+              <td>$\varphi^4$</td>
+              <td>6.854</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>$3+5\varphi$</td>
+              <td>$\varphi^5$</td>
+              <td>11.09</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="sub" id="sub-gnomons-self-similar-objects">
+      <h3 class="sub">2.4 Gnomons for Self-Similar Objects</h3>
+      <h4 class="topic">What Is Self-Similarity?</h4>
+      <p>When a gnomon is added to its corresponding shape the result is by construction <em>geometrically similar</em> to the original. That is, it has the same proportions but larger. A <em>self-similar </em>object is one that looks the same at<em> every scale. </em>That is, it contains a perfect copy of itself when you zoom in or out. The repeated addition of gnomons for the golden rectangle above creates an object that is self similar <em>provided </em>the process is repeated forever <em>and, </em>the original seed golden rectangle is also further subdivided into smaller and smaller squares indefinitely. The diagram below illustrates this idea. In addition arcs of circles have been drawn across the diagonal of each square, creating a spiral. This a close approximation of the <em>golden spiral, </em>which we will learn more about in the next chapter.</p>
+      <figure id="fig-golden-rectangle-spiral-extended-both-directions">
+        <svg height="295" viewBox="0 -18 520 313" width="520">
+  <!-- ── Outward squares (same as §2.3 diagram) ── -->
+  <rect fill="#9060b0" height="220" opacity=".18" stroke="#6040a0" stroke-width="1.3" width="220" x="272" y="4"></rect>
+  <rect fill="#EF9F27" height="136" opacity=".2" stroke="#b07010" stroke-width="1.3" width="136" x="136" y="4"></rect>
+  <rect fill="#D85A30" height="84" opacity=".2" stroke="#8a2a00" stroke-width="1.3" width="84" x="136" y="140"></rect>
+  <rect fill="#5a8a4a" height="52" opacity=".25" stroke="#2a5a2a" stroke-width="1.3" width="52" x="220" y="172"></rect>
+  <rect fill="#5080c0" height="32" opacity=".28" stroke="#3060a0" stroke-width="1.3" width="32" x="240" y="140"></rect>
+  <!-- ── Seed + inward subdivisions ── -->
+  <!-- Seed background -->
+  <rect fill="#f0ece3" height="32" stroke="none" width="20" x="220" y="140"></rect>
+  <!-- I1: top 20×20 square (T-step; echoes amber of S4) -->
+  <rect fill="#EF9F27" height="20" opacity=".22" stroke="none" width="20" x="220" y="140"></rect>
+  <!-- I2: bottom-left 12×12 square (L-step; echoes red of S3) -->
+  <rect fill="#D85A30" height="12" opacity=".22" stroke="none" width="12" x="220" y="160"></rect>
+  <!-- R2: innermost 8×12 rectangle (cream, = "next seed" at smaller scale) -->
+  <rect fill="#f0ece3" height="12" stroke="none" width="8" x="232" y="160"></rect>
+  <!-- Seed outer border -->
+  <rect fill="none" height="32" stroke="#5a3a1a" stroke-width="2" width="20" x="220" y="140"></rect>
+  <!-- Subdivision lines inside seed -->
+  <line stroke="#5a3a1a" stroke-width="1.4" x1="220" x2="240" y1="160" y2="160"></line>
+  <line stroke="#5a3a1a" stroke-width="1.4" x1="232" x2="232" y1="160" y2="172"></line>
+  <!-- ── Outer border of full combined rectangle ── -->
+  <rect fill="none" height="220" stroke="#5a3a1a" stroke-width="1.8" width="356" x="136" y="4"></rect>
+  <!-- ── Outward spiral arcs (solid, thick) ── -->
+  <path d="M 240,140 A 32,32 0 0,1 272,172 A 52,52 0 0,1 220,224 A 84,84 0 0,1 136,140 A 136,136 0 0,1 272,4 A 220,220 0 0,1 492,224" fill="none" stroke="#3a1a00" stroke-linecap="round" stroke-width="2.2"></path>
+  <!-- ── Inward arcs (dashed, thinner) — same 0,0,1 flags as outward arcs
+       Arc I2: from (232,172) → (220,160), center (220,172), r=12
+       Arc I1: from (220,160) → (240,140), center (220,140), r=20
+       I1 end (240,140) = outward arc S1 start → spiral is continuous ── -->
+  <path d="M 232,172 A 12,12 0 0,1 220,160 A 20,20 0 0,1 240,140" fill="none" stroke="#3a1a00" stroke-dasharray="3,2" stroke-linecap="round" stroke-width="1.4"></path>
+  <!-- ── Side-length labels ── -->
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="middle" x="230" y="136">1</text>
+  <text fill="#5a3a1a" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="end" x="215" y="157">φ</text>
+  <text fill="#3060a0" font-family="Georgia,serif" font-size="9.5" font-style="italic" x="246" y="163">φ</text>
+  <text fill="#2a5a2a" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="middle" x="246" y="234">1+φ</text>
+  <text fill="#8a2a00" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="end" x="129" y="186">1+2φ</text>
+  <text fill="#b07010" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="middle" x="204" y="-4">2+3φ</text>
+  <text fill="#6040a0" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="middle" x="382" y="-4">3+5φ</text>
+  <text fill="#888" font-family="Georgia,serif" font-size="10.5" font-style="italic" text-anchor="middle" x="314" y="268">Dashed arcs run the process in reverse inside the seed, revealing the same pattern at scales </text></svg>
+        <figcaption><strong>Fig. 6.19</strong> The golden rectangle spiral extended in both directions. Solid arcs: five outward squares, side-lengths $1, \varphi, 1{+}\varphi, 1{+}2\varphi, 2{+}3\varphi, 3{+}5\varphi$. Dashed arcs: running the construction in reverse inside the seed subdivides it into a $1{\times}1$ square and a rectangle of length 1 and $\varphi -1$.</figcaption>
+      </figure>
+      <p>While there are objects in nature that are approximately self-similar due to a repeated iteration of some scaling growth law, but in practice the process breaks down at larger and smaller scales. However, it instructive to look at a few more examples of self-similar gnomonic growth.</p>
+      <h4 class="topic">The Equilateral Triangle Spiral</h4>
+      <p>Lets see how we can construct a self-similar object through gnomonic addition of triangles. First begin with a small equilateral triangle $T_1$. Attach a new equilateral triangle $T_2$ to the right side of $T_1$, with $T_2$ rotated 60° and scaled up by a certain factor and with the outer vertices aligned. We will choose the growth factor suchlike that after six triangles are added, with six rotations of 60° (one full turn), the arrangement closes in on itself (<a class="xref" href="#fig-triangle-spiral-closure">Fig. 6.20</a>). It turns out this factor is $k\approx 1.3247$, also known as the <em>plastic number. </em>You are invited to find out more about this number in <a class="xref" href="#sec-deeper-dives">Section 3</a>.</p>
+      <figure id="fig-triangle-spiral-closure">
+        <svg aria-label="Six equilateral triangles T1 to T6 arranged around a small pentagonal gap. Their sides are s, ks, k squared s, up to k to the fifth s. The inner side of T6 runs along the sides of T5 and T1, so k to the fifth s equals k to the fourth s plus s: the arrangement closes up." role="img" style="max-width:100%;display:block;margin:0 auto;" viewBox="0 0 540 316" xmlns="http://www.w3.org/2000/svg">
+          <rect fill="#faf8f5" height="316" rx="3" width="540"></rect>
+          <path d="M300.8,99.2 L334.8,40 L368.8,99.2 Z" fill="#e9edf3" stroke="#5a6680" stroke-width="1.6"></path>
+          <path d="M334.8,40 L425.2,40 L380,118.4 Z" fill="#e3e8f0" stroke="#5a6680" stroke-width="1.6"></path>
+          <path d="M425.2,40 L485.2,143.6 L365.2,143.6 Z" fill="#dde3ec" stroke="#5a6680" stroke-width="1.6"></path>
+          <path d="M485.2,143.6 L406,281.2 L326.4,143.6 Z" fill="#d7dee9" stroke="#5a6680" stroke-width="1.6"></path>
+          <path d="M406,281.2 L195.2,281.2 L300.8,99.2 Z" fill="#d1d9e6" stroke="#5a6680" stroke-width="1.6"></path>
+          <path d="M195.2,281.2 L56,40 L334.8,40 Z" fill="#cbd4e3" stroke="#5a6680" stroke-width="1.6"></path>
+          <path d="M300.8,99.2 L368.8,99.2 L380,118.4 L365.2,143.6 L326.4,143.6 Z" fill="#fbf0dc" stroke="#c07a1a" stroke-width="1.2" stroke-dasharray="3 2"></path>
+          <text fill="#3a3a3a" font-family="'Palatino Linotype',Palatino,Georgia,serif" font-size="12" font-style="italic" font-weight="bold" text-anchor="middle" x="334.8" y="84.5">T1</text>
+          <text fill="#9e4420" font-family="'Palatino Linotype',Palatino,Georgia,serif" font-size="12.5" font-style="italic" font-weight="bold" text-anchor="middle" x="334.8" y="112.2">s</text>
+          <text fill="#3a3a3a" font-family="'Palatino Linotype',Palatino,Georgia,serif" font-size="15" font-style="italic" font-weight="bold" text-anchor="middle" x="380" y="71.1">T2</text>
+          <text fill="#9e4420" font-family="'Palatino Linotype',Palatino,Georgia,serif" font-size="14" font-style="italic" font-weight="bold" text-anchor="middle" x="380" y="29">ks</text>
+          <text fill="#3a3a3a" font-family="'Palatino Linotype',Palatino,Georgia,serif" font-size="15" font-style="italic" font-weight="bold" text-anchor="middle" x="425.2" y="114.1">T3</text>
+          <text fill="#9e4420" font-family="'Palatino Linotype',Palatino,Georgia,serif" font-size="14" font-style="italic" font-weight="bold" text-anchor="middle" x="468.2" y="88.3">k²s</text>
+          <text fill="#3a3a3a" font-family="'Palatino Linotype',Palatino,Georgia,serif" font-size="15" font-style="italic" font-weight="bold" text-anchor="middle" x="405.9" y="194.5">T4</text>
+          <text fill="#9e4420" font-family="'Palatino Linotype',Palatino,Georgia,serif" font-size="14" font-style="italic" font-weight="bold" text-anchor="middle" x="458.6" y="223.9">k³s</text>
+          <text fill="#3a3a3a" font-family="'Palatino Linotype',Palatino,Georgia,serif" font-size="15" font-style="italic" font-weight="bold" text-anchor="middle" x="300.7" y="225.5">T5</text>
+          <text fill="#9e4420" font-family="'Palatino Linotype',Palatino,Georgia,serif" font-size="14" font-style="italic" font-weight="bold" text-anchor="middle" x="300.6" y="300.2">k⁴s</text>
+          <text fill="#3a3a3a" font-family="'Palatino Linotype',Palatino,Georgia,serif" font-size="15" font-style="italic" font-weight="bold" text-anchor="middle" x="195.3" y="125.4">T6</text>
+          <text fill="#9e4420" font-family="'Palatino Linotype',Palatino,Georgia,serif" font-size="14" font-style="italic" font-weight="bold" text-anchor="middle" x="112.6" y="172.1">k⁵s</text>
+          <line stroke="#7a2e10" stroke-width="3.2" x1="195.2" x2="334.8" y1="281.2" y2="40"></line>
+          <circle cx="300.8" cy="99.2" fill="#7a2e10" r="3.6"></circle>
+          <text fill="#7a2e10" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="12" font-weight="600" text-anchor="start" x="14" y="236">closing edge:</text>
+          <text fill="#7a2e10" font-family="'Palatino Linotype',Palatino,Georgia,serif" font-size="15" font-style="italic" font-weight="bold" text-anchor="start" x="14" y="255">k⁵s = k⁴s + s</text>
+          <path d="M122,250 Q160,252 222.9,228.1" fill="none" stroke="#7a2e10" stroke-width="1.1"></path>
+        </svg>
+        <figcaption><strong>Fig. 6.20</strong> Six triangles closing up on themselves. Each triangle is turned $60°$ from the one before, and its sides are $k$ times as long. After one full turn, the inner side of $T_6$ runs exactly along the outer sides of $T_5$ and $T_1$. This is what determines the growth factor $k$. The shape created is the same size as shaded gap in the middle has the same shape as the whole arrangement.</figcaption>
+      </figure>
+      <p>This construction creates a shape that is a scaled copy of the space the triangles enclose, as shown in <a class="xref" href="#fig-triangle-spiral-closure">Fig. 6.20</a>. Imagine making a copy of this shape, shrinking it down and filling in the gap. Then repeat this process. The result is a self-similar object. Now, when we add additional triangles, the result is the same shape, but rotated 90. The equilateral triangle is a gnomon for this self similar object. If we add arcs through the outer vertices of each triangle, we get a similar looking spiral to the golden spiral from <a class="xref" href="#sub-self-replicating-rectangles-golden-ratio">Section 2.3</a>. The two are both in the same class of spirals (logarithmic spirals), but differ in a particular way that we will learn about in the next chapter. It turns out its is this spiral, and not the golden spiral, that most closely corresponds the the Nautilus spiral we introduced in section 1.</p>
+      <div class="ibox" id="ibox-triangle-spiral">
+  <div class="ititle" onclick="toggleIbox('ibox-triangle-spiral')">
+    <span class="ib-badge">Exploration 6.3</span>
+    <span class="ib-title">Equilateral Triangle Gnomonic Spiral</span>
+    <span class="ib-icon" style>▶</span>
+  </div>
+  <div class="ib-body" style="display: none; padding: 16px 20px 14px;">
+    <div class="idesc">The six blue-gray triangles are the starting arrangement: each is turned 60° from the one before and is larger by the factor $k \approx 1.3247$. Press <em>Add gnomon</em> to attach the next triangle, shown in red. It is the gnomon that turns the figure into a larger copy of itself, so the shape keeps its form as it grows outward. <em>Show arcs</em> draws circular arcs through the corners, which approximate a logarithmic spiral.</div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+      <button disabled id="ts-prev" onclick="tsPrev()" style="padding:5px 13px;font-family:Georgia,serif;font-size:13px;border:1px solid #a08040;border-radius:3px;background:#f5efe0;cursor:pointer;">← Remove</button>
+      <button id="ts-next" onclick="tsNext()" style="padding:5px 13px;font-family:Georgia,serif;font-size:13px;border:1px solid #a08040;border-radius:3px;background:#f5efe0;cursor:pointer;">Add gnomon →</button>
+      <button id="ts-arcbtn" onclick="tsArc()" style="padding:5px 13px;font-family:Georgia,serif;font-size:13px;border:1px solid #888;border-radius:3px;background:#f0f0ec;cursor:pointer;">Show arcs</button>
+      <span id="ts-label" style="font-family:Georgia,serif;font-size:12px;color:#666;">6 base triangles. Add gnomons →</span>
+    </div>
+    <div class="widget-canvas-wrap">
+      <canvas height="430" id="ts-canvas" style="display:block;border-radius:4px;background:#fdfcf9;max-width:100%;" width="620"></canvas>
+    </div>
+  </div>
+</div>
+      <h4 class="topic">Self Similar Rings?</h4>
+      <p>A tree's cross-section with <em>constant-width</em> rings is not self-similar, even though the tree retains a circular shape as each ring gnomon is added. If the rings are of constant width, then when we zoom in the rings look thicker, and when we zoom out they look thinner. For genuine self-similarity, ring widths must scale the thickness of the added rings with radius. The larger the radius the larger the ring. It turns out the only ring patterns with this property have radii forming a geometric sequence.</p>
+      <div class="key-result" id="kr-3-2">
+        <div class="kr-header"><span>Key Result — Self-Similar Ring Spacing</span> <span class="kr-num">6.2</span></div>
+        <div class="kr-body">
+          <p>A set of concentric rings is self-similar if and only if its radii form a geometric sequence: $$r_n = r_0 \cdot q^n \qquad (q &gt; 1)\, ,$$ for some factor $q$.</p>
+          <p>The ring widths $$w_n = r_n-r_{n-1} = r_0 q^n- r_0q^{n-1} =r_0q^{n-1}(q-1)=r_{n-1}(q-1)$$ are then proportional to $r_{n-1}$: each ring is wider in the same proportion as its radius is larger. If you zoom by factor $q$, each ring $n$ maps to ring $n+1$, so the patterns looks identical.</p>
+        </div>
+      </div>
+      <figure id="fig-left-constant-width-rings-are-not">
+        <svg height="175" viewBox="0 0 420 185" width="420">
+  <text fill="#888" font-family="Georgia,serif" font-size="11" text-anchor="middle" x="95" y="14">constant width — NOT self-similar</text>
+  <circle cx="95" cy="98" fill="#f0ece3" r="74" stroke="#5a3a1a" stroke-width="1.3"></circle>
+  <circle cx="95" cy="98" fill="#f5e8d0" r="60" stroke="#5a3a1a" stroke-width="1.2"></circle>
+  <circle cx="95" cy="98" fill="#f0ece3" r="46" stroke="#5a3a1a" stroke-width="1.2"></circle>
+  <circle cx="95" cy="98" fill="#f5e8d0" r="32" stroke="#5a3a1a" stroke-width="1.2"></circle>
+  <circle cx="95" cy="98" fill="#8B5a2a" r="18" stroke="#4a2808" stroke-width="1.2"></circle>
+  <text fill="#c04040" font-family="Georgia,serif" font-size="9.5" text-anchor="middle" x="95" y="182">zoom in: rings look relatively wider.</text>
+  <text fill="#888" font-family="Georgia,serif" font-size="11" text-anchor="middle" x="315" y="14">geometric spacing — self-similar</text>
+  <circle cx="315" cy="98" fill="#f0ece3" r="74" stroke="#4a7a2a" stroke-width="1.3"></circle>
+  <circle cx="315" cy="98" fill="#f5e8d0" r="52" stroke="#4a7a2a" stroke-width="1.2"></circle>
+  <circle cx="315" cy="98" fill="#f0ece3" r="37" stroke="#4a7a2a" stroke-width="1.2"></circle>
+  <circle cx="315" cy="98" fill="#f5e8d0" r="26" stroke="#4a7a2a" stroke-width="1.2"></circle>
+  <circle cx="315" cy="98" fill="#f0ece3" r="18" stroke="#4a7a2a" stroke-width="1.2"></circle>
+  <circle cx="315" cy="98" fill="#f5e8d0" r="13" stroke="#4a7a2a" stroke-width="1.2"></circle>
+  <circle cx="315" cy="98" fill="#8B5a2a" r="9" stroke="#4a2808" stroke-width="1.2"></circle>
+  <text fill="#2a6020" font-family="Georgia,serif" font-size="9.5" text-anchor="middle" x="315" y="182">zoom in: rings look the same. </text></svg>
+        <figcaption><strong>Fig. 6.21</strong> Left: constant-width rings are not self-similar; zooming changes the ring-to-radius ratio. Right: geometrically-spaced rings ($r_n = r_0 q^n$, here $q \approx 1.42$) are self-similar; zooming by $q$ maps each ring to the next.</figcaption>
+      </figure>
+      <p><strong>Biological consequence.</strong> Real tree rings are approximately constant width since the tree lays down roughly the same thickness of wood each year. This is not self-similar growth. A self-similar ring pattern requires proportionally more wood as the tree grows larger. Some organisms, such as the nautilus, do grow this way, with each new chamber a fixed fraction larger than the previous. It is not clear if there is an organism or object with circular symmetry that grows in a self-similar way.</p>
+    </section>
+  </section>
+  <section class="sec" id="sec-deeper-dives">
+    <div class="sec-head">
+      <span class="sec-label">Section 3</span>
+      <h2>Deeper Dives</h2>
+    </div>
+    <p>The following topics extend the gnomon idea in several directions — into number theory, geometry, and the mathematics of spirals and $\varphi$. Each can be read independently of the others.</p>
+    <section class="sub" id="sub-gnomon-ancient-medieval-mathematics">
+      <h3 class="sub">3.1 The Gnomon in Ancient and Medieval Mathematics</h3>
+      <div class="deeper">
+        <div class="deeper-header">Deeper Dive 3.1 — The Gnomon in Ancient and Medieval Mathematics</div>
+        <div class="deeper-body">
+          <p>The word <em>gnomon</em> appears in Euclid's <em>Elements</em> (Book II) and was used by Hero of Alexandria and the Pythagoreans. For the Pythagoreans, the key observation was geometric: adding the L-shaped gnomon (an odd number) to a square number produced the next square. The $n$-th triangular number $T_n = n(n+1)/2$ satisfies $T_n + T_{n-1} = n^2$, so triangular numbers are the "staircase" gnomons of triangular arrays. <em>[To be expanded.]</em></p>
+        </div>
+      </div>
+      <div class="callout" id="co-31-projects">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Explore</span> <span class="ct-title">Project ideas for §3.1</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p><strong>Project A.</strong> Read Book II, Proposition 1 of Euclid's <em>Elements</em> (aleph0.clarku.edu/~djoyce/elements/). Translate the geometric statement into modern algebra and verify with a specific numerical example.</p>
+          <p><strong>Project B.</strong> Show that diagonal sums of Pascal's triangle give the triangular numbers, and that each triangular number is a gnomon to the previous one.</p>
+          <p><strong>Project C.</strong> What is the gnomon to a tetrahedron of $T_n^{(3)} = n(n+1)(n+2)/6$ dots? (See Problem 2.1 in Section 4.)</p>
+        </div>
+      </div>
+    </section>
+    <section class="sub" id="sub-shells-dimensions">
+      <h3 class="sub">3.2 Shells and Dimensions</h3>
+      <p>We in <a class="xref" href="#sub-what-gnomon">Section 2.1</a> we introduced the L shaped gnomon for a square, the shape that gave the gnomon its name. In this section we look at the analogous type of gnomon in three dimensions for a cube, such as might apply for a halite or pyrite crystals, however, occupy three What shape is the gnomon of a cube, and what numbers does it count? Once we see the answer, we can extend what we learn to four, five, or a hundred dimensions.</p>
+      <h4 class="topic">The Gnomon of a Cube</h4>
+      <p>A cube of side $n$ units contains $n^3$ unit cubes. Adding one more layer in every direction produces a cube of side $n+1$ with $(n+1)^3$ unit cubes. The gnomon contains $$G_n = (n+1)^3 - n^3 = 3n^2 + 3n + 1$$ unit cubes. For $n = 2$ that is $G_2 = 3(4) + 3(2) + 1 = 19$, as shown in the diagram below.</p>
+      <figure id="fig-cubic-gnomon-blue-inner-cube-length">
+        <svg viewBox="75 118 385 188" width="80%" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arrhd32" markerHeight="7" markerWidth="7" orient="auto" refX="5.5" refY="3.5">
+        <path d="M0,0.5 L0,6.5 L6.5,3.5 z" fill="#888"></path>
+      </marker>
+    </defs>
+
+    <!-- ══ LEFT CUBE 2×2×2 (blue) ══ -->
+    <polygon fill="#4a5a90" fill-opacity=".92" points="92,217 130,239 130,195 92,173" stroke="#1a2a5a" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <polygon fill="#283878" fill-opacity=".92" points="168,217 130,239 130,195 168,173" stroke="#1a2a5a" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <polygon fill="#6078b8" fill-opacity=".92" points="130,151 168,173 130,195 92,173" stroke="#1a2a5a" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <line opacity=".50" stroke="#1a2a5a" stroke-width="0.9" x1="149" x2="111" y1="162" y2="184"></line>
+    <line opacity=".50" stroke="#1a2a5a" stroke-width="0.9" x1="111" x2="149" y1="162" y2="184"></line>
+    <line opacity=".50" stroke="#1a2a5a" stroke-width="0.9" x1="149" x2="149" y1="184" y2="228"></line>
+    <line opacity=".50" stroke="#1a2a5a" stroke-width="0.9" x1="168" x2="130" y1="195" y2="217"></line>
+    <line opacity=".50" stroke="#1a2a5a" stroke-width="0.9" x1="111" x2="111" y1="184" y2="228"></line>
+    <line opacity=".50" stroke="#1a2a5a" stroke-width="0.9" x1="92" x2="130" y1="195" y2="217"></line>
+ 
+
+    <!-- ══ ARROW ══ -->
+    <line marker-end="url(#arrhd32)" stroke="#999" stroke-width="1.4" x1="220" x2="280" y1="203" y2="203"></line>
+    <text fill="#999" font-family="Georgia,serif" font-size="11" font-style="italic" text-anchor="middle" x="250" y="194">+ red gnomon</text>
+
+    <!-- ══ RIGHT CUBE ══
+         Layer order: blue inner cube → red gnomon (semi-transparent)
+         → blue inner-cube edges redrawn on top for clarity             -->
+
+    <!-- Step 1: inner 2×2×2 cube faces (solid blue) -->
+    <polygon fill="#4a5a90" points="347,217 385,239 385,195 347,173" stroke="none"></polygon>
+    <polygon fill="#283878" points="423,217 385,239 385,195 423,173" stroke="none"></polygon>
+    <polygon fill="#6078b8" points="385,151 423,173 385,195 347,173" stroke="none"></polygon>
+
+    <!-- Step 2: red gnomon faces (semi-transparent, drawn over inner cube) -->
+    <polygon fill="#d42020" fill-opacity=".82" points="328,228 385,261 385,195 328,162" stroke="#800000" stroke-linejoin="round" stroke-width="1.8"></polygon>
+    <polygon fill="#991010" fill-opacity=".82" points="442,228 385,261 385,195 442,162" stroke="#800000" stroke-linejoin="round" stroke-width="1.8"></polygon>
+    <polygon fill="#d42020" fill-opacity=".82" points="385,129 442,162 385,195 328,162" stroke="#800000" stroke-linejoin="round" stroke-width="1.8"></polygon>
+    <!-- Red gnomon grid (3×3 on each face) -->
+    <line opacity=".45" stroke="#800000" stroke-width="0.85" x1="404" x2="347" y1="140" y2="173"></line>
+    <line opacity=".45" stroke="#800000" stroke-width="0.85" x1="423" x2="366" y1="151" y2="184"></line>
+    <line opacity=".45" stroke="#800000" stroke-width="0.85" x1="366" x2="423" y1="140" y2="173"></line>
+    <line opacity=".45" stroke="#800000" stroke-width="0.85" x1="347" x2="404" y1="151" y2="184"></line>
+    <line opacity=".45" stroke="#800000" stroke-width="0.85" x1="423" x2="423" y1="173" y2="239"></line>
+    <line opacity=".45" stroke="#800000" stroke-width="0.85" x1="404" x2="404" y1="184" y2="250"></line>
+    <line opacity=".45" stroke="#800000" stroke-width="0.85" x1="442" x2="385" y1="206" y2="239"></line>
+    <line opacity=".45" stroke="#800000" stroke-width="0.85" x1="442" x2="385" y1="184" y2="217"></line>
+    <line opacity=".45" stroke="#800000" stroke-width="0.85" x1="347" x2="347" y1="173" y2="239"></line>
+    <line opacity=".45" stroke="#800000" stroke-width="0.85" x1="366" x2="366" y1="184" y2="250"></line>
+    <line opacity=".45" stroke="#800000" stroke-width="0.85" x1="328" x2="385" y1="206" y2="239"></line>
+    <line opacity=".45" stroke="#800000" stroke-width="0.85" x1="328" x2="385" y1="184" y2="217"></line>
+
+    <!-- Step 3: inner cube edges redrawn on top (bright blue outlines) -->
+    <polygon fill="#4a5a90" points="347,217 385,239 385,195 347,173" stroke="#1a2a5a" stroke-linejoin="round" stroke-width="1.7"></polygon>
+    <polygon fill="#283878" points="423,217 385,239 385,195 423,173" stroke="#1a2a5a" stroke-linejoin="round" stroke-width="1.7"></polygon>
+    <polygon fill="#6078b8" points="385,151 423,173 385,195 347,173" stroke="#1a2a5a" stroke-linejoin="round" stroke-width="1.7"></polygon>
+    <!-- Inner cube grid lines (blue, redrawn over gnomon) -->
+    <line opacity=".65" stroke="#1a2a5a" stroke-width="0.95" x1="404" x2="366" y1="162" y2="184"></line>
+    <line opacity=".65" stroke="#1a2a5a" stroke-width="0.95" x1="366" x2="404" y1="162" y2="184"></line>
+    <line opacity=".65" stroke="#1a2a5a" stroke-width="0.95" x1="404" x2="404" y1="184" y2="228"></line>
+    <line opacity=".65" stroke="#1a2a5a" stroke-width="0.95" x1="423" x2="385" y1="195" y2="217"></line>
+    <line opacity=".65" stroke="#1a2a5a" stroke-width="0.95" x1="366" x2="366" y1="184" y2="228"></line>
+    <line opacity=".65" stroke="#1a2a5a" stroke-width="0.95" x1="347" x2="385" y1="195" y2="217"></line>
+
+    <!-- Labels -->
+    <text fill="#800000" font-family="Georgia,serif" font-size="11.5" font-style="italic" text-anchor="middle" x="385" y="278"></text></svg>
+        <figcaption><strong>Fig. 6.22</strong> The cubic gnomon. The blue inner cube with length $2$ units gains a red corner-frame shell to become a cube with length $3$ units.</figcaption>
+      </figure>
+      <p>Unlike the 2D gnomon — a single L-shaped bar — the cubic gnomon decomposes into three types of piece. Three <em>face-slabs</em> of size $n \times n \times 1$ cover the three open faces of the inner cube, contributing $3n^2$ unit cubes. Three <em>edge-rods</em> of size $1 \times 1 \times n$ fill the exposed edges where adjacent slabs would meet, contributing $3n$. One <em>corner cube</em> completes the assembly, contributing 1. The three-part structure mirrors the three types of boundary in three dimensions — faces, edges, and vertices — and is the direct 3D analogue of the 2D decomposition into two bars and one corner.</p>
+      <figure id="fig-b-left-gnomon-alone-shell-inner">
+        <svg viewBox="65 38 490 228" width="100%" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- ══ LEFT PANEL: assembled gnomon (shifted -216 from original centre x=406) ══ -->
+    <g transform="translate(-216,0)">
+<!-- ══ RIGHT PANEL: exploded components ══
+         b=0 slab (RIGHT gnomon face) → LEFT  side, face upper-right toward centre
+         a=0 slab (LEFT  gnomon face) → RIGHT side, face upper-left  toward centre
+         +a rod → LEFT  (pairs with b=0 slab above)
+         +b rod → RIGHT (pairs with a=0 slab above)
+         Corner cube: floor plane, directly below vertical rod.
+         Drawing order: back → front.                                          -->
+
+    <!-- ── VERTICAL ROD (1a × 1b × 2c) — top back ─────────────────── -->
+   
+    <polygon fill="#d42020" fill-opacity=".80" points="406,94 422,85 406,76 390,85" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+ 
+   
+
+    <!-- ── b=0 SLAB (leftgnomon face, 2a × 1b × 2c) — LEFT side ──── -->
+    <!-- a=0 thin end -->
+    <polygon fill="#bf1a1a" fill-opacity=".80" points="374,166 358,157 358,103 374,112" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <!-- b=0 main face -->
+    <polygon fill="#991010" fill-opacity=".80" points="374,148 406,130 406,94 374,112" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <!-- c=2 top strip -->
+    <polygon fill="#d42020" fill-opacity=".80" points="374,112 406,94 390,85 358,103" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="374" x2="406" y1="130" y2="112"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="390" x2="390" y1="139" y2="103"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="374" x2="358" y1="130" y2="121"></line>
+    <line opacity=".80" stroke="#800000" stroke-width="1.5" x1="374" x2="358" y1="148" y2="139"></line>
+  
+    <!-- ── a=0 SLAB (Right gnomon face, 1a × 2b × 2c) — RIGHT side ──── -->
+    <!-- b=0 thin end -->
+    <polygon fill="#991010" fill-opacity=".80" points="438,166 454,157 454,103 438,112" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <!-- a=0 main face -->
+    <polygon fill="#bf1a1a" fill-opacity=".80" points="438,148 406,130 406,94 438,112" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <!-- c=2 top strip -->
+    <polygon fill="#d42020" fill-opacity=".80" points="438,112 454,103 422,85 406,94" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="438" x2="406" y1="130" y2="112"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="422" x2="422" y1="139" y2="103"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="438" x2="454" y1="130" y2="121"></line>
+    <line opacity=".80" stroke="#800000" stroke-width="1.5" x1="438" x2="454" y1="148" y2="139"></line>
+ 
+
+    
+    <!-- ── FLAT FACE SLAB (2a × 2b × 1c, horizontal) — centre bottom ─ -->
+    <polygon fill="#bf1a1a" fill-opacity=".80" points="406,184 374,166 374,148 406,166" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <polygon fill="#991010" fill-opacity=".80" points="406,184 438,166 438,148 406,166" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <polygon fill="#d42020" fill-opacity=".80" points="406,166 438,148 406,130 374,148" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="422" x2="390" y1="157" y2="139"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="390" x2="422" y1="157" y2="139"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="422" x2="422" y1="175" y2="157"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="390" x2="390" y1="175" y2="157"></line>
+  
+
+    <!-- Panel title -->
+    <text fill="#800000" font-family="Georgia,serif" font-size="11" font-style="italic" text-anchor="middle" x="400" y="263">gnomon assembled</text>
+    </g>
+
+    <!-- ══ RIGHT PANEL: exploded components ══ -->
+<!-- ══ RIGHT PANEL: exploded components ══
+         b=0 slab (RIGHT gnomon face) → LEFT  side, face upper-right toward centre
+         a=0 slab (LEFT  gnomon face) → RIGHT side, face upper-left  toward centre
+         +a rod → LEFT  (pairs with b=0 slab above)
+         +b rod → RIGHT (pairs with a=0 slab above)
+         Corner cube: floor plane, directly below vertical rod.
+         Drawing order: back → front.                                          -->
+
+    <!-- ── VERTICAL ROD (1a × 1b × 2c) — top back ─────────────────── -->
+    <polygon fill="#bf1a1a" fill-opacity=".80" points="406,130 390,121 390,85 406,94" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <polygon fill="#991010" fill-opacity=".80" points="406,130 422,121 422,85 406,94" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <polygon fill="#d42020" fill-opacity=".80" points="406,94 422,85 406,76 390,85" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="406" x2="390" y1="112" y2="103"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="406" x2="422" y1="112" y2="103"></line>
+    <text fill="#800000" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="middle" x="406" y="68">rod</text>
+
+    <!-- ── CORNER CUBE (1a × 1b × 1c) — floor plane, under vert rod ── -->
+    <polygon fill="#bf1a1a" fill-opacity=".80" points="407,165 391,156 391,138 407,147" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <polygon fill="#991010" fill-opacity=".80" points="407,165 423,156 423,138 407,147" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <polygon fill="#d42020" fill-opacity=".80" points="407,147 423,138 407,129 391,138" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <text fill="#800000" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="start" x="366" y="147">corner</text>
+
+    <!-- ── b=0 SLAB (LEFT gnomon face, 2a × 1b × 2c) — LEFT side ──── -->
+    <!-- a=0 thin end -->
+    <polygon fill="#bf1a1a" fill-opacity=".80" points="350,157 334,148 334,112 350,121" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <!-- b=0 main face -->
+    <polygon fill="#991010" fill-opacity=".80" points="350,158 382,139 382,103 350,121" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <!-- c=2 top strip -->
+    <polygon fill="#d42020" fill-opacity=".80" points="350,121 382,103 366,94 334,112" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="350" x2="382" y1="139" y2="121"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="366" x2="366" y1="148" y2="112"></line>
+    <text fill="#800000" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="end" x="328" y="126">face-slab</text>
+
+    <!-- ── a=0 SLAB (RIGHT gnomon face, 1a × 2b × 2c) — RIGHT side ──── -->
+    <!-- b=0 thin end -->
+    <polygon fill="#991010" fill-opacity=".80" points="454,153 470,144 470,108 454,117" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <!-- a=0 main face -->
+    <polygon fill="#bf1a1a" fill-opacity=".80" points="454,153 422,135 422,99 454,117" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <!-- c=2 top strip -->
+    <polygon fill="#d42020" fill-opacity=".80" points="454,117 470,108 438,90 422,99" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="454" x2="422" y1="135" y2="117"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="438" x2="438" y1="144" y2="108"></line>
+    <text fill="#800000" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="start" x="477" y="122">face-slab</text>
+
+    <!-- ── +a ROD (2a × 1b × 1c, upper-right) — LEFT side ──────────── -->
+    <!-- a=0 end cap -->
+    <polygon fill="#bf1a1a" fill-opacity=".80" points="351,194 335,185 335,167 351,176" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <!-- b=0 face -->
+    <polygon fill="#991010" fill-opacity=".80" points="351,194 383,176 383,158 351,176" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <!-- top face -->
+    <polygon fill="#d42020" fill-opacity=".80" points="351,176 383,158 367,149 335,167" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="367" x2="351" y1="167" y2="158"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="367" x2="367" y1="185" y2="167"></line>
+    <text fill="#800000" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="end" x="328" y="187">rod</text>
+
+    <!-- ── +b ROD (1a × 2b × 1c, upper-left) — RIGHT side ──────────── -->
+    <!-- b=0 end cap -->
+    <polygon fill="#991010" fill-opacity=".80" points="455,192 471,183 471,165 455,174" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <!-- a=0 side face -->
+    <polygon fill="#bf1a1a" fill-opacity=".80" points="455,192 423,174 423,156 455,174" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <!-- top face -->
+    <polygon fill="#d42020" fill-opacity=".80" points="455,174 471,165 439,147 423,156" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="439" x2="455" y1="165" y2="156"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="439" x2="439" y1="183" y2="165"></line>
+    <text fill="#800000" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="start" x="477" y="173">rod</text>
+
+    <!-- ── FLAT FACE SLAB (2a × 2b × 1c, horizontal) — centre bottom ─ -->
+    <polygon fill="#bf1a1a" fill-opacity=".80" points="400,220 368,202 368,184 400,202" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <polygon fill="#991010" fill-opacity=".80" points="400,220 432,202 432,184 400,202" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <polygon fill="#d42020" fill-opacity=".80" points="400,202 432,184 400,166 368,184" stroke="#800000" stroke-linejoin="round" stroke-width="1.5"></polygon>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="416" x2="384" y1="193" y2="175"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="384" x2="416" y1="193" y2="175"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="416" x2="416" y1="211" y2="193"></line>
+    <line opacity=".48" stroke="#800000" stroke-width="0.8" x1="384" x2="384" y1="211" y2="193"></line>
+    <text fill="#800000" font-family="Georgia,serif" font-size="9.5" font-style="italic" text-anchor="middle" x="400" y="233">face-slab</text>
+
+    <!-- Panel title -->
+    <text fill="#800000" font-family="Georgia,serif" font-size="11" font-style="italic" text-anchor="middle" x="400" y="263">components separated</text>
+
+  </svg>
+        <figcaption><strong>Fig. 6.23</strong> Left: the gnomon alone — the $3\times3\times3$ shell with the inner $2\times2\times2$ cube removed. Right: seven components separated, three $n\times n\times 1$ slabs three $n\times1\times1$ rods, one corner cube at the back. For $n=2$ the total count is: $3(4)+3(2)+1=19$.</figcaption>
+      </figure>
+      <p>The sequence gnomons $G_0, G_1, G_2, \ldots = 1, 7, 19, 37, 61, 91, \ldots$ also turns out to be the sequence of <em>centered hexagonal numbers, </em> that we encountered in chapter 1. Each term counts the dots in a planar hexagonal arrangement: one central dot surrounded by concentric hexagonal rings of 6, 12, 18, ... dots, so the total through ring $n$ is $1 + 6(1 + 2 + \cdots + n) = 3n^2 + 3n + 1$. It is curious that a 3D corner frame and a 2D hexagonal layer produce the same sequence, which is a hint a the deeper relationship between cubic lattice packing and hexagonal layering that crystallographers exploit daily.</p>
+      <p>By geometric construction the cubic gnomons sum to a perfect cube, just as the 2D gnomons (odd numbers) sum to a perfect square:</p>
+      <div class="eq">$$\begin{eqnarray} G_0 + G_1 + \cdots + G_{n-1} &amp;=&amp; 1 + 7 + \cdots + (3(n-1)^2 + 3(n-1) + 1) \\ &amp;=&amp; n^3\end{eqnarray}$$</div>
+      <p>You are invited to prove this algebraically in the project section.</p>
+      <h4 class="topic">A Dimension-by-Dimension Pattern</h4>
+      <p>The gnomon generalizes cleanly to any number of dimensions. In $d$ dimensions, a hypercube of side $n$ contains $n^d$ unit cells. Its gnomon — the shell added to create a cube with side length $n + 1$ — has size</p>
+      <div class="eq">$G_n^{(d)} = (n+1)^d - n^d$</div>
+      <p>Expanding by the binomial theorem, this is exactly the sum of all lower-order terms in $(n+1)^d$:</p>
+      <div class="eq">$G_n^{(d)} = \dbinom{d}{1}n^{d-1} + \dbinom{d}{2}n^{d-2} + \cdots + \dbinom{d}{d-1}n + 1$</div>
+      <p>The table below records the gnomon formula and first few values for $d = 1$ through $5$.</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>$d$</th>
+              <th>Object</th>
+              <th>Gnomon formula $G_n^{(d)}$</th>
+              <th>$G_1$</th>
+              <th>$G_2$</th>
+              <th>$G_3$</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Segment</td>
+              <td>$1$</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Square</td>
+              <td>$2n + 1$</td>
+              <td>3</td>
+              <td>5</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Cube</td>
+              <td>$3n^2 + 3n + 1$</td>
+              <td>7</td>
+              <td>19</td>
+              <td>37</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Tesseract</td>
+              <td>$4n^3 + 6n^2 + 4n + 1$</td>
+              <td>15</td>
+              <td>65</td>
+              <td>175</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>5-cube</td>
+              <td>$5n^4 + 10n^3 + 10n^2 + 5n + 1$</td>
+              <td>31</td>
+              <td>211</td>
+              <td>781</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Three observations stand out. First, the leading term of $G_n^{(d)}$ is always $d \cdot n^{d-1}\;,$ which is half as large as the formula for the $(d-1)$-dimensional <em>surface area</em> of a $d$-dimensional hypercube of side $n$. This term also previews the calculus fact that $\tfrac{d}{dn}(n^d) = d\,n^{d-1}$. The gnomon, which measures discrete growth by one unit, approximates the differential in the limit of small steps.</p>
+      <p>Second, the coefficients in each row are precisely the binomial coefficients $\binom{d}{1}, \binom{d}{2}, \ldots, \binom{d}{d}$, which are the entries of row $d$ in Pascal's triangle. The entire table is encoded in this famous triangle of numbers.</p>
+      <p>Third, summing all gnomons from $G_0^{(d)}$ to $G_{n-1}^{(d)}$ telescopes perfectly — each term $(j+1)^d - j^d$ cancels its neighbor — leaving $n^d$. Every perfect $d$th power is the sum of $n$ successive gnomonic shells.</p>
+      <div class="key-result" id="kr-item">
+        <div class="kr-header"><span>Key Result</span> <span class="kr-num">6.3</span></div>
+        <div class="kr-body">
+          <p>The gnomon of the $d$-dimensional hypercube of side $n$ is</p>
+          <div class="eq">$$G_n^{(d)} \;=\; (n+1)^d - n^d \;=\; \sum_{k=0}^{d-1}\binom{d}{k}n^k$$</div>
+          <p>Summing the first $n$ gnomons recovers the $d$-th power:</p>
+          <div class="eq">$$G_0^{(d)} + G_1^{(d)} + \cdots + G_{n-1}^{(d)} \;=\; n^d$$</div>
+          <p>The leading term $d\,n^{d-1}$ equals half the $(d-1)$-dimensional surface area of the hypercube, and the coefficients are the binomial coefficients of row $d$.</p>
+        </div>
+      </div>
+      <div id="c32-projects" class="callout projects">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Projects</span> <span class="ct-title">Explorations for §3.2</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <div class="problem">
+            <div class="prob-num">Project A</div>
+            <div class="prob-title">The Cubic Gnomon</div>
+            <p>Confirm the three-part decomposition of the cubic gnomon, and extend the sum identity.</p>
+            <ol class="prob-parts">
+              <li data-part="(a)">Draw the gnomon that converts a $3 \times 3 \times 3$ cube into a $4 \times 4 \times 4$ cube. Label the three face-slabs, three edge-rods, and corner cube. Count: $3(9) + 3(3) + 1 = ?$</li>
+              <li data-part="(b)">Verify $G_0 + G_1 + G_2 + G_3 = 4^3$ using the explicit values $1, 7, 19, 37$.</li>
+              <li data-part="(c)">Show algebraically that $\sum_{k=0}^{n-1}(3k^2+3k+1) = n^3$. <em>Hint:</em> brute force: use the formulas $\sum_{k=0}^{n-1}k = \tfrac{n(n-1)}{2}$ and $\sum_{k=0}^{n-1}k^2 = \tfrac{n(n-1)(2n-1)}{6}$. There is also a more elegant way. Can you find it?</li>
+              <li data-part="(d)">The 2D gnomon $2n+1$ is always odd. Is the 3D gnomon $3n^2+3n+1$ always odd, always even, or does it alternate? What pattern holds?</li>
+            </ol>
+          </div>
+          <div class="problem">
+            <div class="prob-num">Project B</div>
+            <div class="prob-title">Hypercube Gnomons and Pascal's Triangle</div>
+            <p>Explore the dimensional pattern from Key Result 3.2.</p>
+            <ol class="prob-parts">
+              <li data-part="(a)">Extend the table to $d = 6$: write out $G_n^{(6)}$ and compute $G_1^{(6)} = 2^6 - 1$ and $G_2^{(6)} = 3^6 - 2^6$.</li>
+              <li data-part="(b)">The $d = 4$ gnomon at $n = 1$ is $G_1^{(4)} = 15$. This is the number of edges in a tesseract (4D hypercube has $2^{4-1} \cdot 4 = 32$ edges… wait, is that right?). Look up the edge count of a tesseract and check whether 15 is related to any feature of the tesseract.</li>
+              <li data-part="(c)">Verify the sum identity $\sum_{j=0}^{n-1} G_j^{(d)} = n^d$ for $d = 4$, $n = 3$ using the values in the table.</li>
+              <li data-part="(d)">The coefficients in $G_n^{(d)}$ are $\binom{d}{1}, \binom{d}{2}, \ldots$ Why does $G_n^{(d)}$ have exactly $d$ terms, but $G_n^{(d+1)}$ has $d+1$ terms? Write a recursive formula expressing $G_n^{(d+1)}$ in terms of $G_n^{(d)}$ and lower-dimensional gnomons.</li>
+            </ol>
+          </div>
+          <div class="problem">
+            <div class="prob-num">Project C</div>
+            <div class="prob-title">How Big Is the Shell?</div>
+            <p>The ratio $R(n,d) = G_n^{(d)}/n^d$ is the the gnomon shell to the interior cube it wraps. Investigate how this ratio behaves as $n$ and $d$ vary.</p>
+            <ol class="prob-parts">
+              <li data-part="(a)">
+                Use $G_n^{(d)} = (n+1)^d - n^d$ to show that $R(n,d) = (1 + 1/n)^d - 1$. Complete the table below and describe the pattern: what happens to $R$ as $n$ grows? As $d$ grows? <br><br>
+                <div class="table-wrap">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>$n \backslash d$</th>
+                        <th>$d=2$</th>
+                        <th>$d=3$</th>
+                        <th>$d=4$</th>
+                        <th>$d=5$</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>$n=1$</td>
+                        <td>3.000</td>
+                        <td>7.000</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>$n=2$</td>
+                        <td>1.250</td>
+                        <td></td>
+                        <td>4.063</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>$n=3$</td>
+                        <td></td>
+                        <td>1.370</td>
+                        <td></td>
+                        <td>3.214</td>
+                      </tr>
+                      <tr>
+                        <td>$n=5$</td>
+                        <td>0.440</td>
+                        <td></td>
+                        <td>1.074</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>$n=10$</td>
+                        <td></td>
+                        <td>0.331</td>
+                        <td></td>
+                        <td>0.611</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+              <li data-part="(b)">For large $n$ and fixed $d$, expand $(1+1/n)^d$ by the binomial theorem and show that the leading term gives $R(n,d) \approx d/n$. Verify numerically: for $d = 3$, compute $R(n,3)$ and compare with $3/n$ at $n = 10$, $100$, and $1000$. How quickly does the approximation improve?</li>
+              <li data-part="(c)">The <em>crossover dimension</em> $d^*$ is the smallest integer $d$ for which $R(n,d) \geq 1$ — the gnomon is at least as large as the interior. From $R = 1$ you get $(1+1/n)^{d^*} = 2$, so $$d^* = \frac{\ln 2}{\ln(1 + 1/n)}.$$ Compute $d^*$ (exact and rounded up) for $n = 1, 2, 3, 5, 10, 20$. Then show that for large $n$, $\ln(1+1/n) \approx 1/n$, so $d^* \approx n\ln 2 \approx 0.693\,n$. Interpret: in roughly how many dimensions does the gnomon of a $10\times\cdots\times 10$ hypercube first exceed its interior?</li>
+              <li data-part="(d)">A complementary view: the fraction of the <em>new</em> $(n+1)^d$ cube that consists of gnomon (newly added material) is $F(n,d) = 1 - \bigl(n/(n+1)\bigr)^d$. Show that for fixed $n$, $F \to 1$ as $d \to \infty$: in high enough dimensions, almost the entire new cube is just its outer shell. For $n = 1$ and $d = 10$, what fraction is gnomon? For what $d$ does $F$ first exceed $99\%$ when $n = 5$?</li>
+            </ol>
+          </div>
+          <div class="problem">
+            <div class="prob-num">Project D</div>
+            <div class="prob-title">The Figurate Hierarchy</div>
+            <p>The gnomonic idea extends beyond hypercubes to simplices (triangles, tetrahedra, and their higher-dimensional counterparts).</p>
+            <ol class="prob-parts">
+              <li data-part="(a)">Triangular numbers are $T_n = n(n+1)/2$: they are $1, 3, 6, 10, \ldots$ Their gnomons $T_n - T_{n-1} = n$ are just the counting numbers. Tetrahedral numbers are $\text{Tet}_n = n(n+1)(n+2)/6$: they are $1, 4, 10, 20, \ldots$ Compute the gnomons $\text{Tet}_n - \text{Tet}_{n-1}$ and show they equal $T_n$.</li>
+              <li data-part="(b)">The pentatope numbers (4D simplex numbers) are $\text{Pen}_n = n(n+1)(n+2)(n+3)/24$. Show that their gnomons equal $\text{Tet}_n$.</li>
+              <li data-part="(c)">All these numbers appear in Pascal's triangle: $T_n = \binom{n+1}{2}$, $\text{Tet}_n = \binom{n+2}{3}$, $\text{Pen}_n = \binom{n+3}{4}$. Using the Pascal recurrence $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$, explain why taking differences always steps one column to the left in the triangle.</li>
+              <li data-part="(d)">The tetrahedral numbers count atoms in close-packed tetrahedral crystal clusters: 1, 4, 10, 20, 35, ... atoms in successive layers. Verify the first five tetrahedral numbers, and look up a real mineral or metal cluster in which this sequence has been observed.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sub" id="sub-plastic-number">
+      <h3 class="sub">3.3 The Plastic Number</h3>
+      <p>In the derivation of the self-similar equilateral triangle spiral of <a class="xref" href="#sub-gnomons-self-similar-objects">Section 2.4</a> we introduced the quantity $k \approx 1.3247$ as the growth factor for each gnomon so that the sequence of triangles closes in on itself exactly. In this section we'll derive this result. We'll also explore some of the properties of this special number, known as the <em>plastic number, </em>which has a rich history and surprising connections to number theory and architecture.</p>
+      <h4 class="topic">The Closure Condition for the Self-Similar Equilateral Triangle Spiral</h4>
+      <p>Recall the spiral: equilateral triangles $T_1, T_2, T_3, \ldots$ are placed in sequence, each rotated $60°$ from the previous and scaled by a constant factor $k$. Triangle $T_n$ has side length $k^{n-1}$ (taking $T_1$'s side as 1). After six rotations of $60°$ (one full revolution) the arrangement fits together, enclosing a gap whose geometry is the same as the group of triangles. The seventh triangle $T_7$, when place on this figure, must satisfy a specific size condition.</p>
+      <p>Examining the diagram we see the closure happens only if the side of $T_7$ equals the <em>sum</em> of the sides of $T_2$ and $T_6$:</p>
+      <div class="eq" data-n="6.1" id="eq-nmw6zh8827">$$s_7 = s_2 + s_6$$</div>
+      <figure id="fig-b-triangles-through-blue-grey-complete">
+        <svg font-family="Georgia,serif" font-style="italic" height="375" viewBox="0 0 300 375" width="300">
+
+  <!-- ── T1–T6 (blue-gray) ────────────────────────────── -->
+  <polygon fill="#5a6a88" fill-opacity=".28" points="166.6,243.5 185.3,211.0 204.0,243.5" stroke="#3a4a68" stroke-linejoin="round" stroke-width="1.4"></polygon>
+  <polygon fill="#5a6a88" fill-opacity=".28" points="185.3,211.0 235.1,211.0 210.3,254.1" stroke="#3a4a68" stroke-linejoin="round" stroke-width="1.4"></polygon>
+  <polygon fill="#5a6a88" fill-opacity=".28" points="235.1,211.0 268.1,267.9 202.0,267.9" stroke="#3a4a68" stroke-linejoin="round" stroke-width="1.4"></polygon>
+  <polygon fill="#5a6a88" fill-opacity=".28" points="268.1,267.9 224.5,343.5 180.7,267.9" stroke="#3a4a68" stroke-linejoin="round" stroke-width="1.4"></polygon>
+  <polygon fill="#5a6a88" fill-opacity=".28" points="224.5,343.5 108.5,343.5 166.6,243.5" stroke="#3a4a68" stroke-linejoin="round" stroke-width="1.4"></polygon>
+  <polygon fill="#5a6a88" fill-opacity=".28" points="108.5,343.5 32.0,211.0 185.3,211.0" stroke="#3a4a68" stroke-linejoin="round" stroke-width="1.4"></polygon>
+
+  <!-- ── T7 (terracotta) ──────────────────────────────── -->
+  <polygon fill="#c04020" fill-opacity=".22" points="32.0,211.0 133.5,35.0 235.1,211.0" stroke="#8a2000" stroke-linejoin="round" stroke-width="2.0"></polygon>
+
+  <!-- ── Baseline at y=211: T6 top edge + T2 top edge ── -->
+  <!-- T6's contribution (amber): (32,211) → (185.3,211) -->
+  <line stroke="#b07010" stroke-width="2.8" x1="32" x2="185.3" y1="211" y2="211"></line>
+  <!-- T2's contribution (blue): (185.3,211) → (235.1,211) -->
+  <line stroke="#3a5898" stroke-width="2.8" x1="185.3" x2="235.1" y1="211" y2="211"></line>
+  <!-- Junction tick -->
+  <line stroke="#222" stroke-width="1.6" x1="185.3" x2="185.3" y1="205" y2="217"></line>
+
+  <!-- ── Bracket below baseline for s₇ ──────────────── -->
+  <line stroke="#8a2000" stroke-width="1.2" x1="32" x2="32" y1="218" y2="224"></line>
+  <line stroke="#8a2000" stroke-width="1.2" x1="32" x2="235.1" y1="224" y2="224"></line>
+  <line stroke="#8a2000" stroke-width="1.2" x1="235.1" x2="235.1" y1="218" y2="224"></line>
+  <text fill="#8a2000" font-size="10" text-anchor="middle" x="133.5" y="236">s₇</text>
+
+  <!-- ── Segment labels above the baseline ───────────── -->
+  <!-- s₆: midpoint of amber segment at x=(32+185.3)/2=108.65, just above y=211 -->
+  <text fill="#8a6010" font-size="9.5" text-anchor="middle" x="108" y="207">s₆</text>
+  <!-- s₂: midpoint of blue segment at x=(185.3+235.1)/2=210.2 -->
+  <text fill="#3a5898" font-size="9.5" text-anchor="middle" x="210" y="207">s₂</text>
+
+  <!-- ── Triangle labels ──────────────────────────────── -->
+  <!-- T₁ (tiny, centroid 185.3, 232.7) -->
+  <text fill="#2a3a58" font-size="8.5" text-anchor="middle" x="185" y="235">T₁</text>
+  <!-- T₂ (centroid 210.2, 225.4) -->
+  <text fill="#2a3a58" font-size="9" text-anchor="middle" x="210" y="238">T₂</text>
+  <!-- T₃ (centroid 235, 248.9) -->
+  <text fill="#2a3a58" font-size="9.5" text-anchor="middle" x="235" y="252">T₃</text>
+  <!-- T₄ (centroid 224.4, 293.1) -->
+  <text fill="#2a3a58" font-size="10" text-anchor="middle" x="224" y="297">T₄</text>
+  <!-- T₅ (centroid 166.5, 310.2) -->
+  <text fill="#2a3a58" font-size="10" text-anchor="middle" x="166" y="314">T₅</text>
+  <!-- T₆ (centroid 108.6, 255.2) -->
+  <text fill="#2a3a58" font-size="10.5" text-anchor="middle" x="108" y="259">T₆</text>
+  <!-- T₇ (large, centroid 133.5, 152.3) -->
+  <text fill="#8a2000" font-size="13" text-anchor="middle" x="133" y="148">T₇</text>
+
+  <!-- ── Bottom note ──────────────────────────────────── -->
+  <text fill="#777" font-size="9.5" font-style="normal" text-anchor="middle" x="150" y="363">
+    T₇'s base = T₆'s top edge + T₂'s top edge
+  </text>
+</svg>
+        <figcaption><strong>Fig. 6.24</strong> Triangles $T_1$ through $T_6$ (blue-grey) complete one full revolution of the spiral. The figure closes provided the base of triangle $T_7$ (terracotta) lies along the same horizontal line as $T_6$'s top edge (amber, length $s_6$) and $T_2$'s top edge (blue, length $s_2$), and $s_7 = s_6 + s_2$</figcaption>
+      </figure>
+      <p>Substituting $s_n = k^{n-1}$ into equation (3.1):</p>
+      <div class="eq" data-n="6.2" id="eq-nmw6zh8828">$$k^6 = k^1 + k^5 \qquad\Longleftrightarrow\qquad k^6 = k^5 + k$$</div>
+      <p>This is the <strong>closure equation</strong> for the equilateral triangle spiral. It encodes the geometric condition that the spiral closes after one revolution.</p>
+      <h4 class="topic">Factoring the Closure Equation</h4>
+      <p>Since $k &gt; 0$, we can divide both sides of $k^6 = k^5 + k$ by $k$:</p>
+      <div class="eq">$$k^5 = k^4 + 1 \qquad\Longleftrightarrow\qquad k^5 - k^4 - 1 = 0$$</div>
+      <p>We now factor the left side. The claim, which you are invited to prove in Project A, is</p>
+      <div class="eq" data-n="6.3" id="eq-nmw6zh8829">$$k^5 - k^4 - 1 \;=\; (k^2 - k + 1)(k^3 - k - 1)$$</div>
+      <p>We now examine each factor in turn.</p>
+      <p><strong>The quadratic factor $k^2 - k + 1$.</strong> Its discriminant is $b^2 - 4ac = 1 - 4 = -3 &lt; 0$. Since the discriminant is negative, this quadratic has <em>no real roots</em>. (Its roots are the complex numbers $\tfrac{1}{2} \pm \tfrac{\sqrt{3}}{2}i$, which lie on the unit circle.)</p>
+      <p><strong>The cubic factor $k^3 - k - 1$.</strong> Setting this to zero:</p>
+      <div class="eq" data-n="6.4" id="eq-nmw6zh882a">$$k^3 - k - 1 = 0 \qquad\Longleftrightarrow\qquad k^3 = k + 1$$</div>
+      <p>This has one real root, as we show using Cardono's formula for cubic equations:</p>
+      <h4 class="topic">Exact Value via Cardano's Formula</h4>
+      <p>Cardono's formula is a formula for cubics, analogous to the quadratic formulas for quadratics. The general ideas to express the cubic in <em>depressed cubic form</em> (no $k^2$ term) to get an equation like $k^3 + pk + q = 0$. Then the solution is: $$ k = \sqrt[3]{-\frac{q}{2} + \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}} + \sqrt[3]{-\frac{q}{2} - \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}}\,.$$ Fortunately, the equation $k^3 - k - 1 = 0$ is already a depressed cubic and Cardano's formula applies directly. With $p = -1$ and $q = -1$ the discriminant is $\frac{q^2}{4}+\frac{p^3}{27} =\frac{1}{4} -\frac{1}{27} = \frac{23}{108} &gt; 0$, confirming one real root. The formula gives:</p>
+      <div class="eq" data-n="6.5" id="eq-nmw6zh882b">$$\begin{eqnarray}p &amp;=&amp; \sqrt[3]{\frac{9+\sqrt{69}}{18}} \;+\; \sqrt[3]{\frac{9-\sqrt{69}}{18}}\\ &amp;\approx&amp; 1.32471795724\ldots \end{eqnarray}$$</div>
+      <p>Unlike the golden ratio's clean form $(1+\sqrt{5})/2$, the plastic number requires nested cube roots. Cubic irrationals are genuinely harder than quadratic ones to work with, but fortunately most of the properties of $p$ can be dervied from the defining property $p^3=p+1$.</p>
+      <div class="key-result" id="kr-3-3">
+        <div class="kr-header"><span>Key Result — The Plastic Number</span> <span class="kr-num">6.4</span></div>
+        <div class="kr-body">
+          <p>The equilateral triangle spiral closes after one revolution if and only if the scaling ratio $k$ satisfies:</p>
+          <p>$$k^3 = k + 1$$</p>
+          <p>This cubic has exactly one positive real root, the <strong>plastic number</strong>:</p>
+          <p>$$p \;=\; 1.32471795724\ldots$$</p>
+          <p>The other factor $(k^2 - k + 1)$ of the closure equation contributes no real solutions. The plastic number is thus uniquely determined by the geometry of the equilateral triangle spiral.</p>
+        </div>
+      </div>
+      <h4 class="topic">Powers of the Plastic Number</h4>
+      <p>The defining equation $p^3 = p + 1$ can be compared directly with the golden ratio's defining equation $\varphi^2 = \varphi + 1$. Both say: raising to a power is the same as shifting by one step in the sequence. Since $p^3 = p + 1$, every power of $p$ can be expressed as a linear combination $ap^2 + bp + c$ with integer coefficients. The pattern that emerges is informative.</p>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr>
+              <th>$n$</th>
+              <th>$p^n$</th>
+              <th>Reduced form (using $p^3 = p+1$)</th>
+              <th>Value</th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>$p^0$</td>
+              <td>$1$</td>
+              <td>1.0000</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>$p^1$</td>
+              <td>$p$</td>
+              <td>1.3247</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>$p^2$</td>
+              <td>$p^2$</td>
+              <td>1.7549</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>$p^3$</td>
+              <td>$p + 1$</td>
+              <td>2.3247</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>$p^4$</td>
+              <td>$p^2 + p$</td>
+              <td>3.0796</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>$p^5$</td>
+              <td>$p^2 + p + 1$</td>
+              <td>4.0796</td>
+            </tr>
+            <tr class="hi">
+              <td>6</td>
+              <td>$p^6$</td>
+              <td>$(p+1)^2 = p^2 + 2p + 1$</td>
+              <td>5.4043</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The highlighted row $p^6 = (p+1)^2$ is particularly elegant. It follows from $p^3 = p+1$ by squaring both sides: $p^6 = (p+1)^2$. More generally, the coefficients in the expansion of $p^n$ are terms of the Padovan sequence — the integer sequence introduced in the next section.</p>
+      <p>Each power also satisfies the same recurrence as the original sequence: $p^n = p^{n-2} + p^{n-3}$ for all $n \geq 3$. This is the algebraic signature of the plastic number, just as $\varphi^n = \varphi^{n-1} + \varphi^{n-2}$ is the signature of the golden ratio.</p>
+      <h4 class="topic">The Padovan Sequence</h4>
+      <p>The <strong>Padovan sequence</strong> is defined by the same recurrence as the plastic number's characteristic equation, but for integers:</p>
+      <div class="eq" data-n="6.6" id="eq-nmw6zh882c">$$P_n = P_{n-2} + P_{n-3}, \qquad P_0 = P_1 = P_2 = 1$$</div>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr>
+              <th>$n$</th>
+              <td>0</td>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+              <td>10</td>
+              <td>11</td>
+              <td>12</td>
+              <td>13</td>
+            </tr>
+            <tr>
+              <th>$P_n$</th>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>2</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>7</td>
+              <td>9</td>
+              <td>12</td>
+              <td>16</td>
+              <td>21</td>
+              <td>28</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The ratios $P_{n+1}/P_n$ converge to $p$: starting from $n = 5$ the ratios are $$4/3,\; 5/4, \;7/5,\; 9/7,\; 12/9, \;16/12, \;21/16, \;28/21 \approx 1.33$$which slowly converge to $p \approx 1.3247$.</p>
+      <p>The connection to the triangle spiral is direct: if we label the spiral's side-lengths as $s_n = p^{n-1}$, the Padovan recurrence $P_n = P_{n-2} + P_{n-3}$ matches the geometric relationship for the sides of the corresponding triangles.</p>
+      <div class="callout" id="co-fibonacci-compare">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Connection</span> <span class="ct-title">Padovan and Fibonacci side by side</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p>The two sequences are natural analogues. Fibonacci satisfies $F_n = F_{n-1} + F_{n-2}$ for which the ratio of successive terms converges to the golden ratio; Padovan satisfies $P_n = P_{n-2} + P_{n-3}$ and the ratio of successive terms converges to the plastic number. The gap in indices (skipping one, skipping two) is the essential difference.</p>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr>
+                  <th></th>
+                  <th>Golden ratio $\varphi$</th>
+                  <th>Plastic number $p$</th>
+                </tr>
+                <tr>
+                  <td>Defining equation</td>
+                  <td>$x^2 = x + 1$</td>
+                  <td>$x^3 = x + 1$</td>
+                </tr>
+                <tr>
+                  <td>Value</td>
+                  <td>$1.61803\ldots$</td>
+                  <td>$1.32471\ldots$</td>
+                </tr>
+                <tr>
+                  <td>Integer sequence</td>
+                  <td>Fibonacci: $F_{n-1}+F_{n-2}$</td>
+                  <td>Padovan: $P_{n-2}+P_{n-3}$</td>
+                </tr>
+                <tr>
+                  <td>Spiral geometry</td>
+                  <td>Golden rectangle</td>
+                  <td>Equilateral triangles</td>
+                </tr>
+                <tr>
+                  <td>Algebraic degree</td>
+                  <td>2</td>
+                  <td>3</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="callout" id="co-vdl">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Cultural Context</span> <span class="ct-title">The plastic number in architecture — van der Laan</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p>The plastic number was discovered independently by the French engineer Gérard Cordonnier in 1924 (who called it the <em>nombre radiant</em>, "radiant number") and the Dutch Benedictine monk and architect Dom Hans van der Laan in the late 1920s. Van der Laan's name — "het plastische getal," from the Greek <em>plastikos</em>, relating to forming or shaping — has prevailed. His 1960 book <em>Le nombre plastique</em> presented it as a proportioning system for architecture.</p>
+          <p>Van der Laan argued that the plastic number was uniquely suited to three-dimensional design, as the golden ratio was to two-dimensional composition. He identified seven "plastic intervals" — seven consecutive powers of $p$ from 1 to $p^6 \approx 5.4$ — arguing that this range corresponds to the span of sizes the human eye can distinguish simultaneously in a single space. His most celebrated building designed on these principles is the Abbey of Saint Benedictusberg at Vaals in the Netherlands (1956–1986), widely admired for its stark geometric purity.</p>
+        </div>
+      </div>
+      <div class="callout" id="co-33-projects">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Explore</span> <span class="ct-title">Project ideas for §3.3</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p><strong>Project A — Closure, the equation, and Cardano's formula.</strong></p>
+          <p>Verify by hand that</p>
+          <p>$(k^2 - k + 1)(k^3 - k - 1) = k^5 - k^4 - 1$ by expanding the product term by term. Then confirm that the quadratic $k^2 - k + 1$ has no real roots by computing its discriminant.</p>
+          <p>For the solution to the cubic equation (3.5) verify Cardon's formula gives$$p \;=\; \sqrt[3]{\tfrac{9+\sqrt{69}}{18}} \;+\; \sqrt[3]{\tfrac{9-\sqrt{69}}{18}}$$Compute each cube root separately and add them — you should get $\approx 1.3247$.</p>
+          <p><strong>Project B — Exploring properties of $p$.</strong></p>
+          <p>Without a calculator, derive the reduced forms $p^7$ and $p^8$ by multiplying $p^6 = p^2 + 2p + 1$ by $p$ and using $p^3 = p + 1$ to eliminate any $p^3$ that appears. Verify your answers numerically. What is the pattern of integer coefficients of $1$, $p$, and $p^2$ as $n$ grows?</p>
+          <p><em>The Padovan connection.</em> The coefficients of $p^n$ written as $a_n + b_n p + c_n p^2$ are themselves Padovan numbers. Check this for $n = 3, 4, 5, 6, 7$ using your results and the Padovan sequence table.</p>
+          <p><em>Self-similarity of $p$.</em> Since $p^3 = p + 1$, the number $p$ satisfies $p = \sqrt[3]{p + 1}$. This means $p$ is a fixed point of the function $f(x) = \sqrt[3]{x+1}$. Start with $x_0 = 1$ and repeatedly apply $x_{n+1} = \sqrt[3]{x_n + 1}$. How quickly does the sequence converge to $p$? Compare to the convergence rate of $P_{n+1}/P_n$.</p>
+          <p><strong>Project C — Building and exploring the Padovan spiral.</strong></p>
+          <p><em>Building the spiral.</em> The Padovan sequence $1, 1, 1, 2, 2, 3, 4, 5, 7, 9, 12, \ldots$ can be drawn as a spiral of equilateral triangles. On triangular graph paper (or plain paper with a 60° set-square), proceed as follows:</p>
+          <ol>
+            <li>Draw a small equilateral triangle of side 1 ($T_1$). Mark its three sides.</li>
+            <li>Attach $T_2$ (side 1) by placing it against the <em>right</em> side of $T_1$ and rotating 60° outward — so the two triangles share exactly one edge, and $T_2$ points in a new direction.</li>
+            <li>Attach $T_3$ (side 1) to the right side of $T_2$ in the same way: share an edge, rotate 60° outward.</li>
+            <li>Continue: $T_4$ (side 2) attaches to the right side of $T_3$. Note that side 2 = the combined width of the two previous triangles — verify this fits.</li>
+            <li>Repeat through $T_{10}$ (side 9). Each new triangle attaches to the right side of its predecessor and rotates 60° outward.</li>
+          </ol>
+          <p><em>Properties to explore.</em> (a) After drawing 6 triangles, you will have completed one full revolution (6 × 60° = 360°). Does $T_7$ fit exactly against the arrangement, or is there a gap? Compare this with the closure condition from the main text. (b) Measure the ratio $P_{n+1}/P_n$ for $n = 3, 4, \ldots, 9$ from your drawing (count grid squares). Does it converge toward $p \approx 1.3247$? (c) In the golden rectangle spiral, the arc in each square is a quarter-circle centered at a corner of the square. Can you draw an analogous arc in each equilateral triangle — say, a 60° arc centered at the vertex <em>opposite</em> the shared edge — to form a smooth spiral curve? Does the resulting curve resemble the logarithmic spiral from <a class="xref" href="#sub-gnomons-self-similar-objects">Section 2.4</a>?</p>
+          <p><strong>Project D — Perrin Sequence and primality check.</strong> The same recurrence for the Padovan numbers, but with different starting values, generates the <strong>Perrin sequence</strong>:</p>
+          <div class="eq" data-n="6.7" id="eq-nmw6zh882d">$$A_n = A_{n-2} + A_{n-3}, \qquad A_0 = 3,\; A_1 = 0,\; A_2 = 2$$</div>
+          <p>The Perrin sequence carries a remarkable arithmetic property: if $n$ is prime, then $n$ divides $A_n$ (or $n\mid A_n$). This makes the Perrin sequence a candidate <em>primality test</em>: if $n$ does not divide $A_n$ (or $n \nmid A_n$), then $n$ is <em>definitely composite</em>. Unfortunately the converse fails — there exist composite $n$ for which $n \mid A_n$ (called Perrin pseudoprimes; the smallest is $271441 = 521^2$). So the Perrin test can certify compositeness but not primality.</p>
+          <p>For your project compute $A_n$ for $n = 2, 3, 4, \ldots, 20$ using the recurrence $A_n = A_{n-2} + A_{n-3}$ with $A_0 = 3, A_1 = 0, A_2 = 2$. Identify which $n$ are prime and verify that $n \mid A_ n$ for each prime. Find the first composite $n \leq 20$ and verify that $n \nmid A_n$, confirming it is detected as composite.</p>
+        </div>
+      </div>
+    </section>
+    <section class="sub" id="sub-fibonacci-number-system">
+      <h3 class="sub">3.4 The Fibonacci Number System</h3>
+      <div class="deeper">
+        <div class="deeper-header">Deeper Dive 3.4 — The Fibonacci Number System</div>
+        <div class="deeper-body">
+          <p>Every positive integer has a unique representation as a sum of non-consecutive Fibonacci numbers — the <em>Zeckendorf representation</em>. For example: $10 = 8+2$, $12 = 8+3+1$. This is the natural number system for a world governed by $\varphi$, and it connects gnomon geometry to the base-$\varphi$ number system in which $\varphi^2 = \varphi + 1$ gives a positional arithmetic. <em>[To be expanded.]</em></p>
+        </div>
+      </div>
+      <div class="callout" id="co-34-projects">
+        <button class="callout-trigger" type="button"><span class="ct-badge">Explore</span> <span class="ct-title">Project ideas for §3.4</span> <span class="ct-icon">▶</span></button>
+        <div class="callout-body">
+          <p><strong>Project A.</strong> Find Zeckendorf representations of 20, 30, 50, 100. Verify that no two consecutive Fibonacci numbers appear in any of them.</p>
+          <p><strong>Project B.</strong> In base $\varphi$, digits are 0 and 1. Show that $100_\varphi = \varphi^2 = \varphi + 1 = 10.01_\varphi$. Express 2, 3, 5 in base $\varphi$.</p>
+          <p><strong>Project C.</strong> Prove the greedy Zeckendorf algorithm always terminates with no two consecutive Fibonacci numbers in the result.</p>
+        </div>
+      </div>
+    </section>
+  </section>
+  <section class="sec workshop" id="sec-problems-explorations">
+    <div class="sec-head">
+      <span class="sec-label">Section 4</span>
+      <h2>Problems and Explorations</h2>
+    </div>
+    <p class="workshop-sub">Problems progress from verification to exploration. ✦ marks problems that go beyond the main text.</p>
+    <div class="ws-section">4.1 — Gnomon Sequences and Arithmetic</div>
+    <div class="problem">
+      <div class="prob-num">Problem 1.1</div>
+      <div class="prob-title">Tree rings as concentric gnomons</div>
+      <p>A tree's heartwood has radius $r_0 = 3$ cm. It grows by adding a ring of width $\delta = 0.8$ cm each year for 12 years.</p>
+      <ol class="prob-parts">
+        <li data-part="(a)">What is the radius after 12 years?</li>
+        <li data-part="(b)">Write a formula for the cross-sectional area after $n$ years.</li>
+        <li data-part="(c)">What is the area of the $n$-th ring (the gnomon at year $n$)? Show that for large $n$, this is approximately $2\pi r_0 \delta$.</li>
+      </ol>
+    </div>
+    <div class="problem">
+      <div class="prob-num">Problem 1.2</div>
+      <div class="prob-title">Square gnomon arithmetic</div>
+      <ol class="prob-parts">
+        <li data-part="(a)">Show that the gnomon converting the $n$-th square into the $(n+1)$-th square has exactly $2n+1$ unit cells.</li>
+        <li data-part="(b)">Hence prove geometrically that $1 + 3 + 5 + \cdots + (2n-1) = n^2$.</li>
+        <li data-part="(c)">What is the analogous statement for triangular numbers? Identify the gnomon and the sum it represents.</li>
+      </ol>
+    </div>
+    <div class="ws-section">4.2 — Crystal Growth and Figurate Numbers</div>
+    <div class="problem">
+      <div class="prob-num">Problem 2.1</div>
+      <div class="prob-title">Tetrahedral crystals and pyramidal numbers</div>
+      <p>Model a tetrahedral crystal by stacking atoms in triangular layers. The $n$-th tetrahedral number is $T_n^{(3)} = n(n+1)(n+2)/6$.</p>
+      <ol class="prob-parts">
+        <li data-part="(a)">Verify $T_1^{(3)} = 1$, $T_2^{(3)} = 4$, $T_3^{(3)} = 10$, $T_4^{(3)} = 20$.</li>
+        <li data-part="(b)">Show that the gnomon converting a height-$n$ tetrahedron to height $n+1$ is a triangular layer of $(n+1)(n+2)/2$ atoms and preserves the tetrahedral shape.</li>
+        <li data-part="(c)">Hence show $T_n^{(3)} = \sum_{k=1}^{n} k(k+1)/2$, and verify the closed form for $n = 1, 2, 3$.</li>
+        <li data-part="(d)">Rewrite the sum in (c) using $\binom{k+1}{2} = k(k+1)/2$ to obtain the binomial identity $\sum_{k=1}^{n}\binom{k+1}{2} = \binom{n+2}{3}$. Verify for $n = 3$.</li>
+      </ol>
+    </div>
+    <div class="ws-section">4.3 — Rectangle Gnomons</div>
+    <div class="problem">
+      <div class="prob-num">Problem 3.1</div>
+      <div class="prob-title">The annulus revisited</div>
+      <p>An annulus has inner radius $r$ and outer radius $R &gt; r$.</p>
+      <ol class="prob-parts">
+        <li data-part="(a)">Explain in geometric terms why no connected simply-connected gnomon can convert this annulus into a larger similar annulus.</li>
+        <li data-part="(b)">If we relax to a disconnected gnomon, describe what it would need to look like.</li>
+        <li data-part="(c)">Is there any shape — other than a disk — for which the gnomon is an annulus?</li>
+      </ol>
+    </div>
+    <div class="problem">
+      <div class="prob-num">Problem 3.2</div>
+      <div class="prob-title">The 2:1 rectangle</div>
+      <p>The L-shaped gnomon of a $2 \times 1$ rectangle satisfies $a = 2b$.</p>
+      <ol class="prob-parts">
+        <li data-part="(a)">For $b = 1$, $a = 2$: draw the gnomon and verify all dimensions and similarity.</li>
+        <li data-part="(b)">For $b = 1/2$, $a = 1$: what is the scale factor of the new rectangle?</li>
+        <li data-part="(c)">Show that in general, for the L-shaped gnomon with parameter $b$, the scale factor is $k = 1 + b$.</li>
+        <li data-part="(d)">What value of $b$ gives a gnomon with the same area as the original rectangle? What is the scale factor?</li>
+      </ol>
+    </div>
+    <div class="problem">
+      <div class="prob-num">Problem 3.3</div>
+      <div class="prob-title">One-sided gnomon, general case</div>
+      <p>A rectangle of aspect ratio $r &gt; 1$ (width $r$, height $1$) has a one-sided rectangular gnomon of height $g$ added to the top.</p>
+      <ol class="prob-parts">
+        <li data-part="(a)">Write down the similarity condition for the new rectangle.</li>
+        <li data-part="(b)">Solve for $g$ in terms of $r$.</li>
+        <li data-part="(c)">For what value of $r$ is the gnomon also an $r:1$ rectangle? <span class="prob-hint">(Hint: require $g/r = 1/r$, so $g = 1$. Use part (b).)</span></li>
+      </ol>
+    </div>
+    <div class="problem">
+      <div class="prob-num">Problem 3.4</div>
+      <div class="prob-title">A4 paper and the silver ratio</div>
+      <ol class="prob-parts">
+        <li data-part="(a)">If an A$n$ sheet has dimensions $w \times h$ with $h &gt; w$, what are the dimensions of A$(n+1)$?</li>
+        <li data-part="(b)">Show that all A-sizes being similar requires $h/w = \sqrt{2}$.</li>
+        <li data-part="(c)">A4 is $210 \times 297$ mm. Compute $297/210$ and $\sqrt{2}$ to three decimal places. How close is the real sheet to the ideal ratio?</li>
+        <li data-part="(d)">An A0 sheet has area exactly $1\ \text{m}^2$. Compute its exact dimensions. Compare with the standard $841 \times 1189$ mm.</li>
+      </ol>
+    </div>
+    <div class="ws-section">4.4 — The Golden Rectangle</div>
+    <div class="problem">
+      <div class="prob-num">Problem 4.1</div>
+      <div class="prob-title">Deriving the golden ratio</div>
+      <ol class="prob-parts">
+        <li data-part="(a)">Solve $a^2 - a - 1 = 0$ using the quadratic formula and confirm the positive root is $\varphi = (1+\sqrt{5})/2$.</li>
+        <li data-part="(b)">Show directly that $\varphi^2 = \varphi + 1$.</li>
+        <li data-part="(c)">A golden rectangle has short side 1 cm. Give the dimensions of the square gnomon and verify the combined rectangle is also golden.</li>
+        <li data-part="(d)">Removing a square from a golden rectangle leaves a smaller golden rectangle. What is the ratio of original area to smaller area?</li>
+      </ol>
+    </div>
+    <div class="problem">
+      <div class="prob-num">Problem 4.2</div>
+      <div class="prob-title">The Fibonacci iteration</div>
+      <p>Let $\ell_1 = 1$, $\ell_2 = \varphi$, and $\ell_n = \ell_{n-1} + \ell_{n-2}$ for $n \geq 3$.</p>
+      <ol class="prob-parts">
+        <li data-part="(a)">Using $\varphi^2 = \varphi + 1$, show by induction that $\ell_n = \varphi^{n-1}$.</li>
+        <li data-part="(b)">Compute $\ell_5$ and $\ell_6$ both from the recurrence and from $\varphi^{n-1}$ and verify they agree.</li>
+        <li data-part="(c)">Show $\ell_n = F_{n-2} + F_{n-1}\varphi$ (with $F_0 = 0$, $F_{-1} = 1$) by verifying for $n = 1, 2, 3, 4$ and checking the recurrence.</li>
+        <li data-part="(d)">What does the fact that all ratios $\ell_{n+1}/\ell_n = \varphi$ say about the spiral traced by quarter-circle arcs across successive squares?</li>
+      </ol>
+    </div>
+    <div class="problem">
+      <div class="prob-num">Problem 4.3 ✦</div>
+      <div class="prob-title">Arc length of the golden spiral approximation</div>
+      <p>The arc in the $n$-th square (side $\ell_n = \varphi^{n-1}$) is a quarter-circle of radius $\ell_n$.</p>
+      <ol class="prob-parts">
+        <li data-part="(a)">What is the total arc length using $N$ squares?</li>
+        <li data-part="(b)">As $N \to \infty$, does this diverge or converge? Use the geometric-series formula. <span class="prob-hint">(Hint: sum is $\frac{\pi}{2} \cdot \frac{1}{1-1/\varphi}$. Simplify using $1/\varphi = \varphi - 1$.)</span></li>
+      </ol>
+    </div>
+    <div class="problem">
+      <div class="prob-num">Problem 4.4 ✦</div>
+      <div class="prob-title">Gnomons in three dimensions</div>
+      <p>A <em>cuboid</em> has dimensions $a \times b \times c$. A gnomon is a piece that, added to the cuboid, gives a larger similar cuboid.</p>
+      <ol class="prob-parts">
+        <li data-part="(a)">For a cube, describe the gnomon. What fraction of the larger cube's volume is it?</li>
+        <li data-part="(b)">For a $1 \times 1 \times r$ square prism, show that the scale factor is determined by the gnomon thickness and $r$ is unconstrained.</li>
+        <li data-part="(c)">Is there a 3D analogue of the golden rectangle — a box that has a cube as its gnomon? If so, what are its dimensions?</li>
+      </ol>
+    </div>
+  </section>
+  <nav class="ch-nav"><a class="ch-nav-prev" href="../size-and-shape/size-and-shape.html"><span class="ch-nav-num">← Chapter 5</span> <span class="ch-nav-title">Scaling and Allometry</span></a><a class="ch-nav-index" href="../index.html">Contents</a><a class="ch-nav-next" href="../spirals/spirals.html"><span class="ch-nav-num">Chapter 9 →</span> <span class="ch-nav-title">Spirals</span></a></nav>
+</div>
+<script>
+/* Chapter-specific widget code. Shared engines live in ../shared/widgets.js. */
+(function(){
+const BASE_COL='#5a6a88', NEW_COL='#c04020';
+const triData=[
+  {Lx:411.7,Ly:146.7,Ax:420.2,Ay:131.9,Rx:428.7,Ry:146.7,ar:17.1,side:0.2500},
+  {Lx:420.2,Ly:131.9,Ax:442.8,Ay:131.9,Rx:431.5,Ry:151.5,ar:22.6,side:0.3312},
+  {Lx:442.8,Ly:131.9,Ax:457.8,Ay:157.8,Rx:427.8,Ry:157.8,ar:30.0,side:0.4387},
+  {Lx:457.8,Ly:157.8,Ax:438.0,Ay:192.2,Rx:418.1,Ry:157.8,ar:39.7,side:0.5812},
+  {Lx:438.0,Ly:192.2,Ax:385.3,Ay:192.2,Rx:411.7,Ry:146.7,ar:52.6,side:0.7699},
+  {Lx:385.3,Ly:192.2,Ax:350.5,Ay:131.9,Rx:420.2,Ry:131.9,ar:69.7,side:1.0198},
+  {Lx:350.5,Ly:131.9,Ax:396.7,Ay:51.9, Rx:442.8,Ry:131.9,ar:92.3,side:1.3510},
+  {Lx:396.7,Ly:51.9, Ax:519.0,Ay:51.9, Rx:457.8,Ry:157.8,ar:122.3,side:1.7896},
+  {Lx:519.0,Ly:51.9, Ax:600.0,Ay:192.2,Rx:438.0,Ry:192.2,ar:162.0,side:2.3707},
+  {Lx:600.0,Ly:192.2,Ax:492.7,Ay:378.1,Rx:385.4,Ry:192.2,ar:214.6,side:3.1405},
+  {Lx:492.7,Ly:378.1,Ax:208.3,Ay:378.1,Rx:350.5,Ry:131.9,ar:284.3,side:4.1602},
+  {Lx:208.3,Ly:378.1,Ax:20.0, Ay:51.9, Rx:396.7,Ry:51.9, ar:376.7,side:5.5110},
+];
+const BASE=6; let shown=BASE, showArcs=false;
+const canvas=document.getElementById('ts-canvas'), ctx=canvas.getContext('2d');
+function drawTri(t,fill,lw,alpha){
+  ctx.beginPath();ctx.moveTo(t.Lx,t.Ly);ctx.lineTo(t.Ax,t.Ay);ctx.lineTo(t.Rx,t.Ry);ctx.closePath();
+  ctx.fillStyle=fill;ctx.globalAlpha=alpha;ctx.fill();ctx.globalAlpha=1.0;
+  ctx.strokeStyle=fill;ctx.lineWidth=lw;ctx.stroke();
+}
+function drawArc(t){
+  const a1=Math.atan2(t.Ly-t.Ry,t.Lx-t.Rx),a2=Math.atan2(t.Ay-t.Ry,t.Ax-t.Rx);
+  ctx.beginPath();ctx.arc(t.Rx,t.Ry,t.ar,a1,a2,false);
+  ctx.strokeStyle='#111';ctx.lineWidth=1.6;ctx.stroke();
+}
+function draw(){
+  ctx.clearRect(0,0,620,430);ctx.fillStyle='#fdfcf9';ctx.fillRect(0,0,620,430);
+  for(let i=0;i<shown;i++){
+    const t=triData[i],isNew=(i===shown-1&&i>=BASE);
+    drawTri(t,isNew?NEW_COL:BASE_COL,isNew?2.2:1.4,isNew?0.28:0.13);
+    if(showArcs)drawArc(t);
+  }
+  ctx.font='italic 13px Georgia,serif';ctx.fillStyle='#888';ctx.fillText('n = '+shown,572,20);
+  const lbl=document.getElementById('ts-label');
+  if(shown>BASE){const t=triData[shown-1],ratio=(t.side/triData[shown-2].side).toFixed(4);lbl.textContent='T'+shown+': side='+t.side.toFixed(4)+'  ratio='+ratio;}
+  else{lbl.textContent='6 base triangles. Add gnomons →';}
+  document.getElementById('ts-prev').disabled=(shown<=BASE);
+  document.getElementById('ts-next').disabled=(shown>=triData.length);
+}
+window.tsNext=()=>{if(shown<triData.length){shown++;draw();}};
+window.tsPrev=()=>{if(shown>BASE){shown--;draw();}};
+window.tsArc=()=>{showArcs=!showArcs;document.getElementById('ts-arcbtn').textContent=showArcs?'Hide arcs':'Show arcs';draw();};
+draw();
+})();
+
+/* ══ GNOMON EXPLORATIONS p1–p6 ══════════════════════════════ */
+(function(){
+var C=['#EF9F27','#D85A30','#1D9E75','#7F77DD','#378ADD','#B05A8A'];
+var states={1:1,2:1,3:1,4:1,5:1,6:1};
+var mins={1:1,2:1,3:1,4:1,5:1,6:1};
+var maxs={1:5,2:5,3:5,4:7,5:3,6:4};
+
+window.sp=function(id,d){var ns=states[id]+d;if(ns<mins[id]||ns>maxs[id])return;states[id]=ns;rp(id);};
+window.rv=function(id){
+  var rvEl=document.getElementById('p'+id+'-rv');
+  var btn=document.querySelector('#p'+id+' .btn-reveal');
+  if(rvEl.classList.contains('show')){rvEl.classList.remove('show');states[id]=mins[id];rp(id);if(btn)btn.textContent='Reveal pattern';}
+  else{states[id]=maxs[id];rp(id);rvEl.classList.add('show');if(btn)btn.textContent='Hide pattern';}
+};
+
+var seqData={
+  1:[1,3,5,7,9],
+  2:[3,5,7,9,11],
+  3:[1.00,1.33,1.78,2.37,3.16],
+  4:[1.000,2.000,1.500,1.667,1.600,1.625,1.615],
+  5:[null,null,null],
+  6:[null,null,null,null]
+};
+
+function drawP1(n){
+  var W=280,H=190,cx=90,cy=94,r0=20,dr=15;
+  var s='';
+  for(var k=n;k>=1;k--){var rk=r0+k*dr;var col=k===n?C[0]:(k%2===0?'#d4a870':'#a07040');var op=k===n?0.6:0.85;s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+rk+'" fill="'+col+'" fill-opacity="'+op+'" stroke="#4a2808" stroke-width="1.2"/>';}
+  s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r0+'" fill="#5a3010" stroke="#4a2808" stroke-width="1.2"/>';
+  for(var k2=1;k2<=n;k2++){s+='<text x="185" y="'+(55+(k2-1)*22)+'" font-size="11" fill="'+(k2===n?C[0]:'#888')+'" font-family="Georgia,serif">ring '+k2+': '+(2*k2-1)+'</text>';}
+  return '<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'">'+s+'</svg>';
+}
+
+function drawP2(n) {
+  const W=280, H=200, u=24, x0=20, y0=20;
+  let s = '';
+  // draw squares 1..n with last L-gnomon highlighted
+  for (let k=1; k<=n+1; k++) {
+    const col = k===n+1 ? C[1] : '#d4c8a8';
+    const op  = k===n+1 ? 0.45 : 0.9;
+    s += `<rect x="${x0}" y="${y0}" width="${k*u}" height="${k*u}" fill="${col}" fill-opacity="${op}" stroke="#5a3a1a" stroke-width="1.3"/>`;
+  }
+  // grid on n+1 square
+  for (let i=1; i<=n; i++) {
+    s += `<line x1="${x0+i*u}" y1="${y0}" x2="${x0+i*u}" y2="${y0+(n+1)*u}" stroke="#5a3a1a" stroke-width="0.6" opacity="0.4"/>`;
+    s += `<line x1="${x0}" y1="${y0+i*u}" x2="${x0+(n+1)*u}" y2="${y0+i*u}" stroke="#5a3a1a" stroke-width="0.6" opacity="0.4"/>`;
+  }
+  // label gnomon area
+  const ga = 2*n+1;
+  s += `<text x="${x0+(n+1)*u+8}" y="${y0+(n+1)*u/2+5}" font-size="11" fill="${C[1]}" font-family="Georgia,serif">gnomon = ${ga}</text>`;
+  s += `<text x="${x0+(n+1)*u/2}" y="${y0+(n+1)*u+18}" text-anchor="middle" font-size="10.5" fill="#888" font-family="Georgia,serif">${n+1}\u00d7${n+1} = ${(n+1)*(n+1)}</text>`;
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${s}</svg>`;
+}
+
+function drawP3(n){
+  var W=280,H=190,vals=[1.00,1.33,1.78,2.37,3.16],maxV=3.16,barW=28,gap=8,x0=20,y0=10,bH=130;
+  var s='';
+  for(var k=0;k<n;k++){var bh=Math.round(vals[k]/maxV*bH);var bx=x0+k*(barW+gap);var by=y0+bH-bh;var col=k===n-1?C[2]:'#8ab898';s+='<rect x="'+bx+'" y="'+by+'" width="'+barW+'" height="'+bh+'" fill="'+col+'" opacity="0.75" stroke="#2a6040" stroke-width="1.1"/>';s+='<text x="'+(bx+barW/2)+'" y="'+(by-4)+'" text-anchor="middle" font-size="10" fill="'+col+'" font-family="Georgia,serif">'+vals[k]+'</text>';s+='<text x="'+(bx+barW/2)+'" y="'+(y0+bH+14)+'" text-anchor="middle" font-size="10" fill="#888" font-family="Georgia,serif">Ch.'+(k+1)+'</text>';}
+  s+='<line x1="'+x0+'" y1="'+(y0+bH)+'" x2="'+(x0+n*(barW+gap))+'" y2="'+(y0+bH)+'" stroke="#5a3a1a" stroke-width="1"/>';
+  return '<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'">'+s+'</svg>';
+}
+
+function drawP4(n){
+  var W=280,H=190,phi=1.618,fibs=[1,1,2,3,5,8,13],ratios=[];
+  for(var i=1;i<fibs.length;i++)ratios.push((fibs[i]/fibs[i-1]).toFixed(3));
+  var x0=20,y0=10,xW=220,yH=140,yMid=y0+yH/2,xStep=xW/(ratios.length-1);
+  var s='',pts=[];
+  s+='<line x1="'+x0+'" y1="'+yMid+'" x2="'+(x0+xW)+'" y2="'+yMid+'" stroke="#ddd" stroke-width="1"/>';
+  s+='<text x="'+(x0+xW+4)+'" y="'+(yMid+4)+'" font-size="9.5" fill="#aaa" font-family="Georgia,serif">\u03c6</text>';
+  for(var i2=0;i2<Math.min(n,ratios.length);i2++){var x=x0+i2*xStep;var y=yMid-(parseFloat(ratios[i2])-phi)*yH*2;pts.push(x+','+y);s+='<circle cx="'+x+'" cy="'+y+'" r="4" fill="'+C[3]+'" opacity="0.85"/>';s+='<text x="'+(x+5)+'" y="'+(y-5)+'" font-size="9.5" fill="'+C[3]+'" font-family="Georgia,serif">'+ratios[i2]+'</text>';}
+  if(n>1)s+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="'+C[3]+'" stroke-width="1.4" opacity="0.7"/>';
+  return '<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'">'+s+'</svg>';
+}
+
+function drawP5(n){
+  var W=280,H=190,cx=70,cy=94,r1=18,r2=48;
+  var s='';
+  s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r2+'" fill="#d4e8c8" stroke="#4a7a2a" stroke-width="1.8"/>';
+  s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r1+'" fill="#fdfcf9" stroke="#4a7a2a" stroke-width="1.8"/>';
+  s+='<text x="'+cx+'" y="'+(cy+r2+16)+'" text-anchor="middle" font-size="10" fill="#4a7a2a" font-family="Georgia,serif">annulus</text>';
+  if(n>=2){s+='<circle cx="'+(cx+4)+'" cy="'+cy+'" r="'+(r2*1.5)+'" fill="#f0c060" stroke="#c07000" stroke-width="1.5" opacity="0.45" stroke-dasharray="5 3"/>';s+='<circle cx="'+(cx+4)+'" cy="'+cy+'" r="'+r2+'" fill="#d4e8c8" stroke="#4a7a2a" stroke-width="1.4" opacity="0.8"/>';s+='<circle cx="'+(cx+4)+'" cy="'+cy+'" r="'+r1+'" fill="#fdfcf9" stroke="#4a7a2a" stroke-width="1.4"/>';s+='<text x="185" y="60" font-size="10" fill="#4a8020" font-family="Georgia,serif">outer ring: \u2713 add</text>';}
+  if(n>=3){s+='<circle cx="'+(cx+4)+'" cy="'+cy+'" r="'+(r1*1.5)+'" fill="#f8d0d0" fill-opacity="0.7" stroke="#c04040" stroke-width="1.2" stroke-dasharray="4 3"/>';s+='<text x="185" y="90" font-size="10" fill="#c04040" font-family="Georgia,serif">inner hole: \u2717 remove</text>';s+='<text x="185" y="110" font-size="10" fill="#c04040" font-family="Georgia,serif" font-style="italic">No gnomon exists.</text>';}
+  return '<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'">'+s+'</svg>';
+}
+
+function drawP6(n){
+  var W=280,H=190,phi=1.618,u=58,h=Math.round(u*phi),x0=18,y0=Math.round((H-h)/2);
+  var s='';
+  if(n===1){s+='<rect x="'+x0+'" y="'+y0+'" width="'+u+'" height="'+h+'" fill="#f0ece3" stroke="#5a3a1a" stroke-width="2"/>';s+='<text x="'+(x0+u/2)+'" y="'+(y0+h/2+5)+'" text-anchor="middle" font-size="11" fill="#5a3a1a" font-family="Georgia,serif">1 \u00d7 \u03c6</text>';}
+  else if(n===2){s+='<rect x="'+x0+'" y="'+y0+'" width="'+u+'" height="'+h+'" fill="#f0ece3" stroke="#5a3a1a" stroke-width="2"/>';s+='<rect x="'+x0+'" y="'+y0+'" width="'+u+'" height="'+u+'" fill="'+C[0]+'" fill-opacity="0.4" stroke="#b07010" stroke-width="2"/>';s+='<line x1="'+x0+'" y1="'+(y0+u)+'" x2="'+(x0+u)+'" y2="'+(y0+u)+'" stroke="#b07010" stroke-width="2"/>';s+='<text x="'+(x0+u/2)+'" y="'+(y0+u/2+5)+'" text-anchor="middle" font-size="10" fill="#b07010" font-family="Georgia,serif">\u03c6\u00d7\u03c6</text>';s+='<text x="'+(x0+u/2)+'" y="'+(y0+u+20)+'" text-anchor="middle" font-size="10" fill="#5a3a1a" font-family="Georgia,serif">gnomon!</text>';}
+  else if(n===3){var rem_h=h-u;s+='<rect x="'+x0+'" y="'+y0+'" width="'+u+'" height="'+h+'" fill="#f0ece3" stroke="#5a3a1a" stroke-width="2"/>';s+='<rect x="'+x0+'" y="'+y0+'" width="'+u+'" height="'+u+'" fill="'+C[0]+'" fill-opacity="0.25" stroke="#b07010" stroke-width="1.3" stroke-dasharray="4 2"/>';s+='<rect x="'+x0+'" y="'+(y0+u)+'" width="'+u+'" height="'+rem_h+'" fill="'+C[2]+'" fill-opacity="0.35" stroke="#2a8040" stroke-width="2"/>';s+='<line x1="'+x0+'" y1="'+(y0+u)+'" x2="'+(x0+u)+'" y2="'+(y0+u)+'" stroke="#5a3a1a" stroke-width="1.5"/>';s+='<text x="'+(x0+u/2)+'" y="'+(y0+u+rem_h/2+5)+'" text-anchor="middle" font-size="9.5" fill="#2a6030" font-family="Georgia,serif">also 1\u00d7\u03c6!</text>';}
+  else{s+='<rect x="'+x0+'" y="'+y0+'" width="'+u+'" height="'+h+'" fill="#f0ece3" stroke="#5a3a1a" stroke-width="2"/>';s+='<rect x="'+x0+'" y="'+y0+'" width="'+u+'" height="'+u+'" fill="'+C[0]+'" fill-opacity="0.25" stroke="#b07010" stroke-width="1.2"/>';var r1h=h-u;s+='<rect x="'+x0+'" y="'+(y0+u)+'" width="'+r1h+'" height="'+r1h+'" fill="'+C[1]+'" fill-opacity="0.2" stroke="'+C[1]+'" stroke-width="1.1"/>';s+='<text x="'+(x0+u/2)+'" y="'+(H-8)+'" text-anchor="middle" font-size="9.5" fill="#888" font-family="Georgia,serif">spirals inward\u2026</text>';}
+  return '<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'">'+s+'</svg>';
+}
+
+var draws=[null,drawP1,drawP2,drawP3,drawP4,drawP5,drawP6];
+
+window.rp=function(id){
+  var svgEl=document.getElementById('p'+id+'-svg');if(!svgEl)return;
+  svgEl.innerHTML=draws[id](states[id]);
+  var data=seqData[id];
+  var seqEl=document.getElementById('p'+id+'-seq');if(!seqEl)return;
+  var revealed=document.getElementById('p'+id+'-rv').classList.contains('show');
+  var h='';
+  var realData=data.filter(function(x){return x!==null;});
+  if(realData.length===0){seqEl.innerHTML='';return;}
+  for(var i=0;i<realData.length;i++){
+    if(i>0)h+='<span class="sep">, </span>';
+    if(i<states[id])h+='<span class="term">'+realData[i]+'</span>';
+    else if(revealed)h+='<span class="blank">'+realData[i]+'</span>';
+    else h+='<span class="blank">?</span>';
+  }
+  h+='<span class="ellip"> &hellip;</span>';
+  seqEl.innerHTML=h;
+};
+})();
+/* Redraw a pattern box (#p1–#p6) when it opens — was in the old toggleIbox. */
+document.addEventListener('boxopen', function (e) {
+  var m = /^p(\d)$/.exec(e.target.id || '');
+  if (m && typeof rp === 'function') rp(+m[1]);
+});
+</script>
+</body>
+</html>
